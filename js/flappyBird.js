@@ -11,7 +11,7 @@ function preload() {
     //game.load.spritesheet('bird', 'assets/baney1.png',32,39);
     //game.load.spritesheet('button', 'assets/button.png',64,32);
 }
-var gap_difficulty=50;
+var gap_difficulty=35;
 var bird;
 var gover;
 var alive=true;
@@ -22,6 +22,7 @@ var score = 0;
 var scoreText;
 var player;
 var but;
+var respawnCount = 0;
 function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
@@ -37,17 +38,17 @@ function create() {
     pipething.enableBody = true;
 
     //  Now let's create two ledges
-    pipe1 = pipething.create(200, -90, 'pipe1');
+    pipe1 = pipething.create(200, -120, 'pipe1');
     pipe1.body.immovable = true;
 
-    pipe2 = pipething.create(200, 260, 'pipe2');
+    pipe2 = pipething.create(200, 290, 'pipe2');
     pipe2.body.immovable = true;
 
 
-    pipe3 = pipething.create(450, -10, 'pipe1');
+    pipe3 = pipething.create(450, -40, 'pipe1');
     pipe3.body.immovable = true;
 
-    pipe4 = pipething.create(450, 340, 'pipe2');
+    pipe4 = pipething.create(450, 370, 'pipe2');
     pipe4.body.immovable = true;
 
     // The player and its settings
@@ -73,6 +74,8 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
+
+    respawnCount = 0;
     
 }
 
@@ -102,6 +105,7 @@ function update() {
     }
     else
     {
+
         //  Stand still
         //player.animations.stop();
         //player.frame=1;
@@ -126,7 +130,7 @@ function update() {
         killpipe(player,pipe1);
         killpipe(player,pipe2);
         pipe1=createpipe(player,475,-50-gap_difficulty,'pipe1');
-        pipe2=createpipe(player,475,300-gap_difficulty,'pipe2');
+        pipe2=createpipe(player,475,300+gap_difficulty,'pipe2');
         if(alive)
             score+=1;
         scoreText.text = ''+score;
@@ -137,13 +141,22 @@ function update() {
     {
         killpipe(player,pipe3);
         killpipe(player,pipe4);
-        pipe3=createpipe(player,475,-50+gap_difficulty,'pipe1');
-        pipe4=createpipe(player,475,300+gap_difficulty,'pipe2');
+        pipe3=createpipe(player,475,-80-gap_difficulty,'pipe1');
+        pipe4=createpipe(player,475,270+gap_difficulty,'pipe2');
         if(alive)
             score+=1;
         scoreText.text = ''+score;
     }
 
+    if(respawnCount > 0)
+    {
+        respawnCount = respawnCount + 1;
+    }
+
+    if(respawnCount > 100)
+    {
+        resetgame();
+    }
 }
 
 function killpipe(player,p){
@@ -158,12 +171,12 @@ function createpipe(player,posx,posy,whichpipe){
 }
 function diebitch(player,pipe)
 {
-    console.log("You Die !!!");
+    //console.log("You Die !!!");
     player.kill();
     alive=false;
     gover=game.add.sprite(100, 150, 'gameover');
     //but=game.add.button(game,0, 0, 'button',resetgame,this,1,0,2,3);
-
+    respawnCount = 1;
 }
 function resetgame()
 {
@@ -173,10 +186,17 @@ function resetgame()
     pipe3.body.position.x=450;
     pipe4.body.position.x=450;
     alive=true;
+
     player = game.add.sprite(250, game.world.height - 320, 'bird');
     game.physics.arcade.enable(player);
     player.body.bounce.y = 0.1;
     player.body.gravity.y = 1100;
     player.body.collideWorldBounds = true;
+    player.animations.add('still', [1,2,3,4,5,6,7,8,9,10,11,12], 10, true);
+    player.animations.play('still');
+
+    score = 0;
+    scoreText.text = '0';
+    respawnCount = 0;
     //but.kill();
 }
