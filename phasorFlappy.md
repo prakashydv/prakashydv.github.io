@@ -10,7 +10,7 @@ As an example, below is a really basic HTML5 game I made with phaser. Yes, so I 
 
 So lets get our hands wet ... we begin with the core game code written in javascript. Save this as a .js file.
 
-```
+```javascript
 var game = new Phaser.Game(500, 500, Phaser.AUTO, 'flappy', { preload: preload, create: create, update: update });
 ```
 This creates a phaser game object with the obvious parameters :
