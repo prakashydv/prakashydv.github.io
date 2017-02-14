@@ -23,6 +23,7 @@ var scoreText;
 var player;
 var but;
 var respawnCount = 0;
+var gamepaused = true;
 function create() {
 
     //  We're going to be using physics, so enable the Arcade Physics system
@@ -194,7 +195,7 @@ function resetgame()
     player.body.collideWorldBounds = true;
     player.animations.add('still', [1,2,3,4,5,6,7,8,9,10,11,12], 10, true);
     player.animations.play('still');
-
+    gamepaused = true;
     score = 0;
     scoreText.text = '0';
     respawnCount = 0;
