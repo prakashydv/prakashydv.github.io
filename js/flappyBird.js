@@ -11,73 +11,78 @@ function preload() {
     //game.load.spritesheet('bird', 'assets/baney1.png',32,39);
     //game.load.spritesheet('button', 'assets/button.png',64,32);
 }
-var gap_difficulty=35;
+
+var gap_difficulty=35; // maybe let the user configure it ?
 var bird;
-var gover;
-var alive=true;
-var pipething;
-var cursors;
-var pipe1,pipe2,pipe3,pipe4;
-var score = 0;
+var gover;              
+var alive=true; // feel good, right ?! 
+var pipething;  // if it looks like a pipe, smells like a pipe ... it must be a pipe ! This is the pair of pipes actually :-/
+var cursors;    // cursers ?
+var pipe1,pipe2,pipe3,pipe4; // Bird folk havent discovered lists yet, also at most 4 pipes on screen at a time (less complexity)
+var score = 0; // :-(
 var scoreText;
 var player;
-var but;
-var respawnCount = 0;
-var gamepaused = true;
+var but; // but what dear ?
+var respawnCount = 0;  // respawning your way to immortality
+var gamepaused = true; // wonders why ...
+
 function create() {
 
-    //  We're going to be using physics, so enable the Arcade Physics system
+    //  enable the Arcade Physics system for physics (hope you scored well in school !)
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    //  A simple background for our game
+    //  Load the back ground image @[0][0] (coordinates start from top left !)
     game.add.sprite(0, 0, 'sky');
 
-    //  The platforms group contains the ground and the 2 ledges we can jump on
+    //  Our Simple Scroller-Game group contains the ground and .. well, pipes, two at a time (holding my horses here)
     pipething = game.add.group();
 
-    //  We will enable physics for any object that is created in this group
+    //  Enable physics for the group you just created (pipething)
     pipething.enableBody = true;
 
-    //  Now let's create two ledges
+    //  Now let's create two pipes at (x=200)
+    // The gap is the way through
     pipe1 = pipething.create(200, -120, 'pipe1');
     pipe1.body.immovable = true;
 
     pipe2 = pipething.create(200, 290, 'pipe2');
     pipe2.body.immovable = true;
 
-
+    //  Now let's create another two pipes slightly ahead (x=450)
     pipe3 = pipething.create(450, -40, 'pipe1');
     pipe3.body.immovable = true;
 
     pipe4 = pipething.create(450, 370, 'pipe2');
     pipe4.body.immovable = true;
 
-    // The player and its settings
+    // The player bird and its initial spawn point (feel creative and randomise this !)
     player = game.add.sprite(250, game.world.height - 320, 'bird');
 
-    //  We need to enable physics on the player
+    //  We need to enable physics on the player (duh!)
     game.physics.arcade.enable(player);
 
-    //  Player physics properties. Give the little guy a slight bounce.
+    //  Player physics properties. Give the little guy a slight bounce. (because .. bounce !)
     player.body.bounce.y = 0.1;
     player.body.gravity.y = 1100;
 
-    player.body.collideWorldBounds = true;
+    player.body.collideWorldBounds = true; // when the worlds collide, you die !
 
     //  Our two animations, walking left and right.
     
     //player.animations.add('up', [2], 10, true);
     //player.animations.add('down', [1], 10, true);
+    // animate your player (take role of your favourite godess as you breathe life into this avian foe)
     player.animations.add('still', [1,2,3,4,5,6,7,8,9,10,11,12], 10, true);
     player.animations.play('still');
-    //  The score
+    
+    //  The score (shiny !!)
     scoreText = game.add.text(225, 50, '0', { font:'bold 48pt Arial', fontSize: '32px', stroke:'blue',fill: '#FFFFFF', fontWeight:'bold' });
 
-    //  Our controls.
+    //  Our controls. (Hold your horses here, thank you)
     cursors = game.input.keyboard.createCursorKeys();
 
+    // CHEAT HERE
     respawnCount = 0;
-    
 }
 
 function update() {
