@@ -125,15 +125,11 @@ What happens when a player and platform (the moving pipes) collide ? Call diebit
     game.physics.arcade.collide(player, pipething,diebitch,null,this);
 ```
 
-TODO
+Now lets define actions for key presses 
+Additionaly you can add code here if you wish to change player animation on a particular left key press.
+Sprite sheets are continuosly iterating so no special animation was necessary.
+I have left in the code for animation control as comments for reference.
 ```py
-    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
-    game.physics.arcade.overlap(player, pipething, diebitch, null, this);
-    //game.physics.arcade.overlap(player, pipething, diebitch, null, this);
-    
-    //  Reset the players velocity (movement)
-    //player.body.velocity.x = 0;
-
     if (cursors.left.isDown)
     {
         //  Move to the left
@@ -148,13 +144,12 @@ TODO
     }
     else
     {
-
         //  Stand still
         //player.animations.stop();
         //player.frame=1;
-        
     }
-    
+```
+ 
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown)// && player.body.touching.down)
     {
