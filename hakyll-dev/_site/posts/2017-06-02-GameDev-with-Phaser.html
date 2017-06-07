@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - 2017-06-02-GameDev-with-Phaser</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">My Hakyll Blog</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>2017-06-02-GameDev-with-Phaser</h1>
+            <div class="info">
+    Posted on June  2, 2017
+    
+</div>
+
+<h1 id="flappy-bird-in-phaser">Flappy Bird in Phaser</h1>
+<div class="figure">
+<img src="../images/flappy.png" alt="Flappy What exactly?" />
+<p class="caption">Flappy What exactly?</p>
+</div>
+<p>Phaser is an open source game development framework for simple HTML5 2D desktop and mobile browser games, so why not ?!</p>
+<p>Dependencies : - html5 capable browser - run simple http server locally during development (python will do, as always) - glitter</p>
+<h3 id="jumpstarting-phaser">Jumpstarting phaser</h3>
+<p>create the phaser object (duh!)</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">var game <span class="op">=</span> new Phaser.Game(<span class="dv">500</span>, <span class="dv">500</span>, Phaser.AUTO, <span class="st">'flappy'</span>, { preload: preload, create: create, update: update })<span class="op">;</span></code></pre></div>
+<p>… that went well. (the 500s are the width and height). Preload, create and update are the holy trinity that you must implement to get your game running.</p>
+<p>I am a man of simple tastes so my graphics are really spartan. Lets do away with this necessary summoning of evil bitmaps.</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">function preload() {
+    game.load.image(<span class="st">'sky'</span>, <span class="st">'assets/sky.jpg'</span>)<span class="op">;</span>
+    game.load.image(<span class="st">'pipe1'</span>, <span class="st">'assets/pole1.png'</span>)<span class="op">;</span>
+    game.load.image(<span class="st">'pipe2'</span>, <span class="st">'assets/pole2.png'</span>)<span class="op">;</span>
+    game.load.image(<span class="st">'gameover'</span>, <span class="st">'assets/game_over3.jpg'</span>)<span class="op">;</span>
+    game.load.spritesheet(<span class="st">'bird'</span>, <span class="st">'assets/iconslucent.png'</span>,<span class="dv">47</span>,<span class="dv">41</span>)<span class="op">;</span>
+}</code></pre></div>
+<p>you may have noticed i used a spritesheet for a bird instead of a regular image. spritesheets lets you animate objects in the game, usually a pleasant experience.</p>
+<p>Lets define some globally visible parameters and variable. (some people just like to watch the world burn !)</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">var gap_difficulty<span class="op">=</span><span class="dv">35</span><span class="op">;</span> <span class="op">//</span> maybe let the user configure it ?
+var bird<span class="op">;</span>
+var gover<span class="op">;</span>
+var alive<span class="op">=</span>true<span class="op">;</span>        <span class="op">//</span> feel good, right ?<span class="op">!</span> 
+var pipething<span class="op">;</span>         <span class="op">//</span> <span class="cf">if</span> it looks like a pipe, smells like a pipe ... it must be a pipe <span class="op">!</span> 
+var cursors<span class="op">;</span>           <span class="op">//</span> cursers ?
+var pipe1,pipe2,pipe3,pipe4<span class="op">;</span> <span class="op">//</span> Bird folk havent discovered lists yet
+var score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>         <span class="op">//</span> :<span class="op">-</span>(
+var scoreText<span class="op">;</span>
+var player<span class="op">;</span>
+var but<span class="op">;</span>               <span class="op">//</span> but what dear ?
+var respawnCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>  <span class="op">//</span> respawning your way to immortality
+var gamepaused <span class="op">=</span> true<span class="op">;</span> <span class="op">//</span> wonders why ...</code></pre></div>
+<p>Now sit in the lotus position and bring forth the keyboard and as an avatar of the Hindu God Bhrama the creator, Lets Create()</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">function create() {
+
+    <span class="op">//</span>  enable the Arcade Physics system <span class="cf">for</span> physics (hope you scored well <span class="kw">in</span> school <span class="op">!</span>)
+    game.physics.startSystem(Phaser.Physics.ARCADE)<span class="op">;</span>
+
+    <span class="op">//</span>  Load the back ground image <span class="op">@</span>[<span class="dv">0</span>][<span class="dv">0</span>] (coordinates start <span class="im">from</span> top left <span class="op">!</span>)
+    game.add.sprite(<span class="dv">0</span>, <span class="dv">0</span>, <span class="st">'sky'</span>)<span class="op">;</span>
+
+    <span class="op">//</span>  Our Simple Scroller<span class="op">-</span>Game group contains the ground <span class="kw">and</span> .. well, pipes, two at a time (holding my horses here)
+    pipething <span class="op">=</span> game.add.group()<span class="op">;</span>
+
+    <span class="op">//</span>  Enable physics <span class="cf">for</span> the group you just created (pipething)
+    pipething.enableBody <span class="op">=</span> true<span class="op">;</span>
+
+    <span class="op">//</span>  Now let<span class="st">'s create two pipes at (x=200)</span>
+<span class="st">    // The gap is the way through</span>
+<span class="st">    pipe1 = pipething.create(200, -120, '</span>pipe1<span class="st">');</span>
+<span class="st">    pipe1.body.immovable = true;</span>
+
+<span class="st">    pipe2 = pipething.create(200, 290, '</span>pipe2<span class="st">');</span>
+<span class="st">    pipe2.body.immovable = true;</span>
+
+<span class="st">    //  Now let'</span>s create another two pipes slightly ahead (x<span class="op">=</span><span class="dv">450</span>)
+    pipe3 <span class="op">=</span> pipething.create(<span class="dv">450</span>, <span class="op">-</span><span class="dv">40</span>, <span class="st">'pipe1'</span>)<span class="op">;</span>
+    pipe3.body.immovable <span class="op">=</span> true<span class="op">;</span>
+
+    pipe4 <span class="op">=</span> pipething.create(<span class="dv">450</span>, <span class="dv">370</span>, <span class="st">'pipe2'</span>)<span class="op">;</span>
+    pipe4.body.immovable <span class="op">=</span> true<span class="op">;</span>
+
+    <span class="op">//</span> The player bird <span class="kw">and</span> its initial spawn point (feel creative <span class="kw">and</span> randomise this <span class="op">!</span>)
+    player <span class="op">=</span> game.add.sprite(<span class="dv">250</span>, game.world.height <span class="op">-</span> <span class="dv">320</span>, <span class="st">'bird'</span>)<span class="op">;</span>
+
+    <span class="op">//</span>  We need to enable physics on the player (duh<span class="op">!</span>)
+    game.physics.arcade.enable(player)<span class="op">;</span>
+
+    <span class="op">//</span>  Player physics properties. Give the little guy a slight bounce. (because .. bounce <span class="op">!</span>)
+    player.body.bounce.y <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span>
+    player.body.gravity.y <span class="op">=</span> <span class="dv">1100</span><span class="op">;</span>
+
+    player.body.collideWorldBounds <span class="op">=</span> true<span class="op">;</span> <span class="op">//</span> when the worlds collide, you die <span class="op">!</span>
+
+    <span class="op">//</span> animate your player (take role of your favourite godess <span class="im">as</span> you breathe life into this avian foe)
+    <span class="op">//</span> yay spritesheets <span class="op">!</span>
+    player.animations.add(<span class="st">'still'</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>], <span class="dv">10</span>, true)<span class="op">;</span>
+    player.animations.play(<span class="st">'still'</span>)<span class="op">;</span>
+    
+    <span class="op">//</span>  The score (must be SHINY <span class="op">!!</span>)
+    scoreText <span class="op">=</span> game.add.text(<span class="dv">225</span>, <span class="dv">50</span>, <span class="st">'0'</span>, { font:<span class="st">'bold 48pt Arial'</span>, fontSize: <span class="st">'32px'</span>, stroke:<span class="st">'blue'</span>,fill: <span class="st">'#FFFFFF'</span>, fontWeight:<span class="st">'bold'</span> })<span class="op">;</span>
+
+    <span class="op">//</span>  Our controls. (thank you <span class="cf">for</span> holding your horses here)
+    cursors <span class="op">=</span> game.<span class="bu">input</span>.keyboard.createCursorKeys()<span class="op">;</span>
+
+    <span class="op">//</span> YOLO ???
+    respawnCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>
+}</code></pre></div>
+<p>Having manifested a cruel world into existence, now play with their petty lives via update()</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">function update() {
+    <span class="op">//</span> Do God stuff
+}</code></pre></div>
+<p>Creating was the easy part, now deal with the moiseries of your creations.</p>
+<p>What happens when a player and platform (the moving pipes) collide ? Call diebitch obviously (more on that later)</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">    <span class="op">//</span>  Collide the player <span class="kw">and</span> the stars <span class="cf">with</span> the platforms
+    game.physics.arcade.collide(player, pipething,diebitch,null,this)<span class="op">;</span></code></pre></div>
+<p>Now lets define actions for key presses Additionaly you can add code here if you wish to change player animation on a particular left key press. Sprite sheets are continuosly iterating so no special animation was necessary. I have left in the code for animation control as comments for reference.</p>
+<p>First the horizontal movements :</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">    <span class="cf">if</span> (cursors.left.isDown)
+    {
+        <span class="op">//</span>  Move to the left
+        player.body.velocity.x <span class="op">=</span> <span class="op">-</span><span class="dv">150</span><span class="op">;</span>
+        <span class="op">//</span>player.animations.play(<span class="st">'left'</span>)<span class="op">;</span>
+    }
+    <span class="cf">else</span> <span class="cf">if</span> (cursors.right.isDown)
+    {
+        <span class="op">//</span>  Move to the right
+        player.body.velocity.x <span class="op">=</span> <span class="dv">150</span><span class="op">;</span>
+        <span class="op">//</span>player.animations.play(<span class="st">'right'</span>)<span class="op">;</span>
+    }
+    <span class="cf">else</span>
+    {
+        <span class="op">//</span>  Stand still
+        <span class="op">//</span>player.animations.stop()<span class="op">;</span>
+        <span class="op">//</span>player.frame<span class="op">=</span><span class="dv">1</span><span class="op">;</span>
+    }</code></pre></div>
+<p>Now the vertical movements, which is simple for our game, if the up button is pressed the y direction velocity is negative, I chose arbitary figures, feel free to experiment and choose :</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">    <span class="op">//</span>  Allow the player to jump <span class="cf">if</span> they are touching the ground.
+    <span class="cf">if</span> (cursors.up.isDown)<span class="op">//</span> <span class="op">&amp;&amp;</span> player.body.touching.down)
+    {
+        player.body.velocity.y <span class="op">=</span> <span class="op">-</span><span class="dv">250</span><span class="op">;</span>
+        <span class="op">//</span>player.frame<span class="op">=</span><span class="dv">0</span><span class="op">;</span>
+    }</code></pre></div>
+<p>Now the pipe physics (the pipes are static). At any given time there are four pipes on screen so we just reuse the pipe objects and respawn/kill as necessary.</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">	<span class="op">//</span> initialise animations
+    player.animations.play(<span class="st">'still'</span>)<span class="op">;</span>
+    player.body.velocity.x<span class="op">=</span><span class="dv">0</span><span class="op">;</span>
+    pipe1.body.velocity.x<span class="op">=-</span><span class="dv">100</span><span class="op">;</span>
+    pipe2.body.velocity.x<span class="op">=-</span><span class="dv">100</span><span class="op">;</span>
+    pipe3.body.velocity.x<span class="op">=-</span><span class="dv">100</span><span class="op">;</span>
+    pipe4.body.velocity.x<span class="op">=-</span><span class="dv">100</span><span class="op">;</span>
+
+    <span class="cf">if</span>(pipe1.body.position.x<span class="op">&lt;-</span><span class="dv">50</span>)
+    {
+        killpipe(player,pipe1)<span class="op">;</span>
+        killpipe(player,pipe2)<span class="op">;</span>
+        pipe1<span class="op">=</span>createpipe(player,<span class="dv">475</span>,<span class="op">-</span><span class="dv">50</span><span class="op">-</span>gap_difficulty,<span class="st">'pipe1'</span>)<span class="op">;</span>
+        pipe2<span class="op">=</span>createpipe(player,<span class="dv">475</span>,<span class="dv">300</span><span class="op">+</span>gap_difficulty,<span class="st">'pipe2'</span>)<span class="op">;</span>
+        <span class="cf">if</span>(alive)
+            score<span class="op">+=</span><span class="dv">1</span><span class="op">;</span>
+        scoreText.text <span class="op">=</span> <span class="st">''</span><span class="op">+</span>score<span class="op">;</span>
+    }
+
+
+    <span class="cf">if</span>(pipe3.body.position.x<span class="op">&lt;-</span><span class="dv">50</span>)
+    {
+        killpipe(player,pipe3)<span class="op">;</span>
+        killpipe(player,pipe4)<span class="op">;</span>
+        pipe3<span class="op">=</span>createpipe(player,<span class="dv">475</span>,<span class="op">-</span><span class="dv">80</span><span class="op">-</span>gap_difficulty,<span class="st">'pipe1'</span>)<span class="op">;</span>
+        pipe4<span class="op">=</span>createpipe(player,<span class="dv">475</span>,<span class="dv">270</span><span class="op">+</span>gap_difficulty,<span class="st">'pipe2'</span>)<span class="op">;</span>
+        <span class="cf">if</span>(alive)
+            score<span class="op">+=</span><span class="dv">1</span><span class="op">;</span>
+        scoreText.text <span class="op">=</span> <span class="st">''</span><span class="op">+</span>score<span class="op">;</span>
+    }</code></pre></div>
+<p>A little max limit on respawn counts … not that its fun.</p>
+<div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">	<span class="cf">if</span>(respawnCount <span class="op">&gt;</span> <span class="dv">0</span>)
+	{
+    	respawnCount <span class="op">=</span> respawnCount <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
+	}
+	<span class="cf">if</span>(respawnCount <span class="op">&gt;</span> <span class="dv">100</span>)
+	{
+	    resetgame()<span class="op">;</span>
+	}</code></pre></div>
+<p>Thats pretty much it ! A few squigly lines and you are all set to make games you can play in any HTML5 supporting browser, very cool I say.</p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>

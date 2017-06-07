@@ -1,6 +1,6 @@
 # Flappy Bird in  Phaser
 
-[![N|Solid](image url goes here)](a url here)
+![Flappy What exactly?](../images/flappy.png)
 
 Phaser is an open source game development framework for simple HTML5 2D desktop and mobile browser games, so why not ?! 
 
@@ -36,7 +36,7 @@ Lets define some globally visible parameters and variable. (some people just lik
 ```py
 var gap_difficulty=35; // maybe let the user configure it ?
 var bird;
-var gover;              
+var gover;
 var alive=true;        // feel good, right ?! 
 var pipething;         // if it looks like a pipe, smells like a pipe ... it must be a pipe ! 
 var cursors;           // cursers ?
@@ -126,9 +126,12 @@ What happens when a player and platform (the moving pipes) collide ? Call diebit
 ```
 
 Now lets define actions for key presses 
-Additionaly you can add code here if you wish to change player animation on a particular left key press.
-Sprite sheets are continuosly iterating so no special animation was necessary.
-I have left in the code for animation control as comments for reference.
+Additionaly you can add code here if you wish to change player animation on 
+a particular left key press. Sprite sheets are continuosly iterating so no
+special animation was necessary. I have left in the code for animation control
+as comments for reference.
+
+First the horizontal movements :
 ```py
     if (cursors.left.isDown)
     {
@@ -149,13 +152,25 @@ I have left in the code for animation control as comments for reference.
         //player.frame=1;
     }
 ```
- 
+
+Now the vertical movements, which is simple for our game, if the up button 
+is pressed the y direction velocity is negative, I chose arbitary figures,
+feel free to experiment and choose :
+
+```py 
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown)// && player.body.touching.down)
     {
         player.body.velocity.y = -250;
         //player.frame=0;
     }
+```
+
+Now the pipe physics (the pipes are static).
+At any given time there are four pipes on screen so we just reuse the pipe objects and respawn/kill as necessary.
+
+```py
+	// initialise animations
     player.animations.play('still');
     player.body.velocity.x=0;
     pipe1.body.velocity.x=-100;
@@ -185,18 +200,21 @@ I have left in the code for animation control as comments for reference.
             score+=1;
         scoreText.text = ''+score;
     }
-
-    if(respawnCount > 0)
-    {
-        respawnCount = respawnCount + 1;
-    }
-
-    if(respawnCount > 100)
-    {
-        resetgame();
-    }
-}
 ```
 
+A little max limit on respawn counts ... not that its fun.
+```py
+	if(respawnCount > 0)
+	{
+    	respawnCount = respawnCount + 1;
+	}
+	if(respawnCount > 100)
+	{
+	    resetgame();
+	}
+```
 
-to be continued ...
+Thats pretty much it ! A few squigly lines and you are all set to make
+ games you can play in any HTML5 supporting browser, very cool I say.
+
+
