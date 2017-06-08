@@ -1,4 +1,8 @@
- OVER THE WIRE
+---
+# OVER THE WIRE
+# baby steps to netsec ...
+---
+ 
 The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome [website](http://overthewire.org/wargames). Here is my effort on the first and simplest Wargame listed : [Bandit](http://overthewire.org/wargames/bandit/bandit1.html). I have summarised a list of concepts learned in each Level of the game.
 
 ##### SSH : `bandit.labs.overthewire.org:2220`
@@ -44,6 +48,7 @@ A hidden file is anything beginning with a `.` but I used this excersize to expl
 
 So a little primer on file permissions :
 ![File Permissions in Linux](http://linuxcommand.org/images/permissions_diagram.gif)
+
 [more info on users and groups](https://wiki.archlinux.org/index.php/users_and_groups) 
 
 `cat .hidden` gives `pIwrPrtPN36QITSp3EQaw936yaFoFgAB`
