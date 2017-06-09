@@ -1,7 +1,6 @@
----
 # OVER THE WIRE
-# baby steps to netsec ...
----
+#### baby steps to netsec
+
  
 The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome [website](http://overthewire.org/wargames). Here is my effort on the first and simplest Wargame listed : [Bandit](http://overthewire.org/wargames/bandit/bandit1.html). I have summarised a list of concepts learned in each Level of the game.
 
@@ -82,4 +81,5 @@ manually parse a long list for the number 1033. `find` is the command to use her
 
 `find -size 1033c` quickly returns `./maybehere07/.file2` which hass password `DXjZPULLxYr17uwoI01bNLQbtFemEgo7`
 
-## BANDIT6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+## BANDIT6 | 
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7

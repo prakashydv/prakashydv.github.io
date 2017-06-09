@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - 2017-06-07-OverTheWire</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">My Hakyll Blog</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>2017-06-07-OverTheWire</h1>
+            <div class="info">
+    Posted on June  7, 2017
+    
+</div>
+
+<h1 id="over-the-wire">OVER THE WIRE</h1>
+<h4 id="baby-steps-to-netsec">baby steps to netsec</h4>
+<p>The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome <a href="http://overthewire.org/wargames">website</a>. Here is my effort on the first and simplest Wargame listed : <a href="http://overthewire.org/wargames/bandit/bandit1.html">Bandit</a>. I have summarised a list of concepts learned in each Level of the game.</p>
+<h5 id="ssh-bandit.labs.overthewire.org2220">SSH : <code>bandit.labs.overthewire.org:2220</code></h5>
+<h2 id="bandit0-bandit0">Bandit0 | Bandit0</h2>
+<p>file readme has password for Bandit1 : <code>boJ9jbbUNNfktd78OOpsqOltutMc3MY1</code></p>
+<h5 id="commands-learned"><em>Commands learned</em></h5>
+<p><code>use \&gt;man [COMMAND] to get help on the command and if that fails use \&gt;help [COMMAND]</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>COMMAND</th>
+<th>Description</th>
+<th>Usage Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>list directory contents</td>
+<td>ls</td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>Change the shell working directory</td>
+<td>cd</td>
+</tr>
+<tr class="odd">
+<td><code>cat</code></td>
+<td>concatenate files and print on the standard output</td>
+<td>cat [FILENAME]</td>
+</tr>
+<tr class="even">
+<td><code>file</code></td>
+<td>determine file type</td>
+<td>file [FILENAME]</td>
+</tr>
+<tr class="odd">
+<td><code>du</code></td>
+<td>estimate file space disk usage</td>
+<td>du</td>
+</tr>
+<tr class="even">
+<td><code>find</code></td>
+<td>search for files in a directory hierarchy</td>
+<td>find [FILENAME]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bandit1-boj9jbbunnfktd78oopsqoltutmc3my1">BANDIT1 | boJ9jbbUNNfktd78OOpsqOltutMc3MY1</h2>
+<h5 id="accessing-files-named-with-just-a-hyphen">Accessing files named with just a hyphen</h5>
+<p>task is to read a file convinientsly named with just a hyphen <code>-</code> The problem now is that most commands accept arguments prefixed with a hyphen and <code>cat</code> will have issues parsing just a stand alone hyphen. I tried using a common trick of enclosing the hyphen in quotes but <code>&quot;-&quot;</code> did not seem to do the trick either. So now I used an expression i have often seen in many scripts, where a executable in the current directory is referred to as <code>./filename</code> so I use <code>cat ./-</code> to successfully get password to the next level : <code>CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</code></p>
+<h2 id="bandit2-cv1dtqxwvfxtvm2f0k09shz0ywrinya9">BANDIT2 | CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</h2>
+<h5 id="accessing-files-with-spaces-in-its-name">Accessing files with spaces in its name</h5>
+<p>Remember how in the previous level i tried enclosing the filename with quotes, yup that worked in this level. Ran <code>cat &quot;file name with spaces&quot;</code> to get password for next level <code>UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</code></p>
+<h2 id="bandit3-umhadqclwmgdlokq3yngjwxgormb5luk">BANDIT3 | UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</h2>
+<h5 id="accessing-hidden-files">Accessing hidden files</h5>
+<p>there is a .hidden file not visible on a simple <code>ls</code> so go for the pro version and use : <code>ls -a</code> or even better <code>ls -l -a</code> to see it has access specified as : <code>-rw-r-----</code> A hidden file is anything beginning with a <code>.</code> but I used this excersize to explore file permissions.</p>
+<div class="figure">
+<img src="http://linuxcommand.org/images/permissions_diagram.gif" alt="File Permissions in Linux" />
+<p class="caption">File Permissions in Linux</p>
+</div>
+<p><a href="https://wiki.archlinux.org/index.php/users_and_groups">more info on users and groups</a></p>
+<p><code>cat .hidden</code> gives <code>pIwrPrtPN36QITSp3EQaw936yaFoFgAB</code></p>
+<p>ta-da !</p>
+<h2 id="bandit4-piwrprtpn36qitsp3eqaw936yafofgab">BANDIT4 | pIwrPrtPN36QITSp3EQaw936yaFoFgAB</h2>
+<p>Has a folder called <code>readme</code> with 10 file from <code>-file00</code> to <code>-file09</code> yup, the names start with a hyphen, how convinient. Use <code>cat ./-*</code> to see all at once. <code>-file07</code> has qwhat looks like a password. Rest of them contain non-ascii stuff, not sure if they can be used as passwords. MSDN <a href="https://msdn.microsoft.com/en-us/library/cc875839.aspx">recommends sing Unicode Characters in ALT Key Combinations</a></p>
+<h2 id="bandit5-korebokuiddepwhwk7jzc0rtdopnaykh">BANDIT5 | koReBOKuIDDepwhWk7jZC0RTdopnAYKh</h2>
+<p>Has a list of 20 folders <code>maybehere00</code> to <code>maybehere19</code> with files in it with spaces in its name as well as with hyphen and dot prefix. Of course you can search one by one, its only 20 folders, but that is not the reason you started this, did you ? So how do we iterrate over the folders in root directory and see content of all its files (with unconventional yet valid names). The problem lists three unique features about the file :</p>
+<ol style="list-style-type: decimal">
+<li>human-readable</li>
+<li>1033 bytes in size</li>
+<li>not executable</li>
+</ol>
+<p>Almost all are human readable you will notice so thats not really helpful. Size is 1033 bytes exact, thats a very strong hint.</p>
+<p>Use command <code>du -a</code> to see size of all files in all folders. But size isn’t in bytes, for that use additional <code>-b</code> argument. Voila ! .file2 in maybehere07 is seen of size 1033 in plain sight ! A lot of empty space is trailing the actual password so that had the size not be mentioned you could have isolated this one file just by its abnosrmal small size (rest are quite bigger!). But this was a very poor solution, there is obviously a more sophisticated way of solving this that helps you not manually parse a long list for the number 1033. <code>find</code> is the command to use here.</p>
+<p><code>find -size 1033c</code> quickly returns <code>./maybehere07/.file2</code> which hass password <code>DXjZPULLxYr17uwoI01bNLQbtFemEgo7</code></p>
+<h2 id="bandit6">BANDIT6 |</h2>
+<p>DXjZPULLxYr17uwoI01bNLQbtFemEgo7</p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
