@@ -81,5 +81,10 @@ manually parse a long list for the number 1033. `find` is the command to use her
 
 `find -size 1033c` quickly returns `./maybehere07/.file2` which hass password `DXjZPULLxYr17uwoI01bNLQbtFemEgo7`
 
-## BANDIT6 | 
-DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+## BANDIT6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+Okay this got me stumped for sometime. The folder where you spawn has nothing worthwhile in it. The total size of the folder is less than the password file size (33bytes)
+so naturally, I drift to the root. and the command for previous level does equally well, I do add an additional `-user` and `-group` arguments.
+On execution of `find -size 33c -user bandit7 -group bandit6` most opf the files are denied permission but this one caught my eye : 
+`./var/lib/dpkg/info/bandit7.password`, yup and the password works for bandit7 !
+
+## BANDIT7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs

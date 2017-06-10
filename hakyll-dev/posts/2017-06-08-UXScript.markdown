@@ -7,3 +7,4 @@ A markup is a beautiful thing, lot of designing without verbose typing. What abo
 a lot is pretty much boiler plate code , I say almost 90 % is. 90 % of all code is 
 boiler plate code. The unique logic itself is always a fraction of the code.
 Welcome UX-SCRIPT, a markup encoding for User Interface. 
+
