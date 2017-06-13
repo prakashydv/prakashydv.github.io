@@ -88,3 +88,25 @@ On execution of `find -size 33c -user bandit7 -group bandit6` most opf the files
 `./var/lib/dpkg/info/bandit7.password`, yup and the password works for bandit7 !
 
 ## BANDIT7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+Ah ! the famous `grep`. This level needs you to parse data.txt file for the work "millionth" for the password to the next level.
+The solution is too simple so explore this level experimenting and learning about grep. Its quite powerful.
+
+## BANDIT8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+At this point I noticed that the level description wishes you to familiarize your self with the following commands :
+
+| COMMAND | Description | Usage Example |
+| ------- | ----------- | ------------- |
+|`grep`|grep, egrep, fgrep, rgrep - print lines matching a pattern|`grep [OPTIONS] PATTERN [FILE...]`|
+|`sort`|sort lines of text files|`sort [OPTION]... [FILE]...`|
+|`uniq`|report or omit repeated lines|`uniq [OPTION]... [INPUT [OUTPUT]]`|
+|`strings`|print the strings of printable characters in files.|`strings filename`|
+|`base64`| base64 encode/decode data and print to standard output|` base64 [OPTION]... [FILE]`|
+|`tr`|translate or delete characters|`tr [OPTION]... SET1 [SET2]`|
+|`tar`|The GNU version of the tar archiving utility|`tar --extract --get [options] [pathname ...]`|
+|`gzip`| gzip, gunzip, zcat - compress or expand files| `gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ...  ]`|
+|`bzip2`|a block-sorting file compressor, v1.0.6| ... |
+|`bzcat`|decompresses files to stdout|...|
+|`bzip2recover`|recovers data from damaged bzip2 files|...|
+|`xxd`|make a hexdump or do the reverse|`xxd [options] [infile [outfile]]`|
+
+##BANDIT9 | ???
