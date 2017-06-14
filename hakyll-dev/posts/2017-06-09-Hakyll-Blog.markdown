@@ -1,7 +1,6 @@
----
-Writing a blog in Hakyll
----
+# Writing a blog in Hakyll
 
-Problems with html 
-Problems with jekyll
-Why Hakyll
+### TODO
+- Problems with html
+- Problems with jekyll
+- Why Hakyll

@@ -104,8 +104,89 @@
 <p>Almost all are human readable you will notice so thats not really helpful. Size is 1033 bytes exact, thats a very strong hint.</p>
 <p>Use command <code>du -a</code> to see size of all files in all folders. But size isn’t in bytes, for that use additional <code>-b</code> argument. Voila ! .file2 in maybehere07 is seen of size 1033 in plain sight ! A lot of empty space is trailing the actual password so that had the size not be mentioned you could have isolated this one file just by its abnosrmal small size (rest are quite bigger!). But this was a very poor solution, there is obviously a more sophisticated way of solving this that helps you not manually parse a long list for the number 1033. <code>find</code> is the command to use here.</p>
 <p><code>find -size 1033c</code> quickly returns <code>./maybehere07/.file2</code> which hass password <code>DXjZPULLxYr17uwoI01bNLQbtFemEgo7</code></p>
-<h2 id="bandit6">BANDIT6 |</h2>
-<p>DXjZPULLxYr17uwoI01bNLQbtFemEgo7</p>
+<h2 id="bandit6-dxjzpullxyr17uwoi01bnlqbtfemego7">BANDIT6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7</h2>
+<p>Okay this got me stumped for sometime. The folder where you spawn has nothing worthwhile in it. The total size of the folder is less than the password file size (33bytes) so naturally, I drift to the root. and the command for previous level does equally well, I do add an additional <code>-user</code> and <code>-group</code> arguments. On execution of <code>find -size 33c -user bandit7 -group bandit6</code> most opf the files are denied permission but this one caught my eye : <code>./var/lib/dpkg/info/bandit7.password</code>, yup and the password works for bandit7 !</p>
+<h2 id="bandit7-hkbptkqniay4fw76bey8pvxkedqrktzs">BANDIT7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs</h2>
+<p>Ah ! the famous <code>grep</code>. This level needs you to parse data.txt file for the work “millionth” for the password to the next level. The solution is too simple so explore this level experimenting and learning about grep. Its quite powerful.</p>
+<h2 id="bandit8-cvx2jja4cfaltqs87jk27qwqghbm9plv">BANDIT8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV</h2>
+<p>At this point I noticed that the level description wishes you to familiarize your self with the following commands :</p>
+<table style="width:42%;">
+<colgroup>
+<col width="10%" />
+<col width="15%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>COMMAND</th>
+<th>Description</th>
+<th>Usage Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>grep</code></td>
+<td>grep, egrep, fgrep, rgrep - print lines matching a pattern</td>
+<td><code>grep [OPTIONS] PATTERN [FILE...]</code></td>
+</tr>
+<tr class="even">
+<td><code>sort</code></td>
+<td>sort lines of text files</td>
+<td><code>sort [OPTION]... [FILE]...</code></td>
+</tr>
+<tr class="odd">
+<td><code>uniq</code></td>
+<td>report or omit repeated lines</td>
+<td><code>uniq [OPTION]... [INPUT [OUTPUT]]</code></td>
+</tr>
+<tr class="even">
+<td><code>strings</code></td>
+<td>print the strings of printable characters in files.</td>
+<td><code>strings filename</code></td>
+</tr>
+<tr class="odd">
+<td><code>base64</code></td>
+<td>base64 encode/decode data and print to standard output</td>
+<td><code>base64 [OPTION]... [FILE]</code></td>
+</tr>
+<tr class="even">
+<td><code>tr</code></td>
+<td>translate or delete characters</td>
+<td><code>tr [OPTION]... SET1 [SET2]</code></td>
+</tr>
+<tr class="odd">
+<td><code>tar</code></td>
+<td>The GNU version of the tar archiving utility</td>
+<td><code>tar --extract --get [options] [pathname ...]</code></td>
+</tr>
+<tr class="even">
+<td><code>gzip</code></td>
+<td>gzip, gunzip, zcat - compress or expand files</td>
+<td><code>gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ...  ]</code></td>
+</tr>
+<tr class="odd">
+<td><code>bzip2</code></td>
+<td>a block-sorting file compressor, v1.0.6</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>bzcat</code></td>
+<td>decompresses files to stdout</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td><code>bzip2recover</code></td>
+<td>recovers data from damaged bzip2 files</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>xxd</code></td>
+<td>make a hexdump or do the reverse</td>
+<td><code>xxd [options] [infile [outfile]]</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="bandit9">BANDIT9 | ???</h2>
 
         </div>
 
