@@ -109,4 +109,21 @@ At this point I noticed that the level description wishes you to familiarize you
 |`bzip2recover`|recovers data from damaged bzip2 files|...|
 |`xxd`|make a hexdump or do the reverse|`xxd [options] [infile [outfile]]`|
 
-##BANDIT9 | ???
+`uniq` lookes like a tempting option, but neither `-c` nor `-u` readily spew out any answer.
+`sort` is promising but by itself alone it will leave you with manual task of seeing the password stick out out of all clubbed strings.
+Why not both ? Welcome pipes `|` ... using `sort data.txt | uniq -u` does the trick (`sort data.txt | uniq -u`)
+
+## BANDIT9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+Much like the previous level we are to find readable "strings" where the password is prefixed with many '=' signs.
+Pipes to the resque again. strings will print all readable strings and grep will find the unspecified amount of = signs for us.
+`strings data.txt | grep ===` does the job and neatly prints four strings where the first three are "the", "password","is", how convinient.
+
+## BANDIT10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+Regarding the base64 command, this one is fairly introductory. Use `base64 -d data.txt`
+Readup on base64 at [wikipedia](https://www.wikiwand.com/en/Base64) ?
+
+## BANDIT11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+This regards the [ROT13](https://www.wikiwand.com/en/ROT13) encoding. From the translate command `tr`example on wikipedia 
+you know what to do : `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
+
+## BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
