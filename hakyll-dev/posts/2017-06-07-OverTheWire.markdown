@@ -127,3 +127,4 @@ This regards the [ROT13](https://www.wikiwand.com/en/ROT13) encoding. From the t
 you know what to do : `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
 
 ## BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+the file data.txt is the hexdump of a repeatedly compressed file. 
