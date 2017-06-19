@@ -186,7 +186,23 @@
 </tr>
 </tbody>
 </table>
-<h2 id="bandit9">BANDIT9 | ???</h2>
+<p><code>uniq</code> lookes like a tempting option, but neither <code>-c</code> nor <code>-u</code> readily spew out any answer. <code>sort</code> is promising but by itself alone it will leave you with manual task of seeing the password stick out out of all clubbed strings. Why not both ? Welcome pipes <code>|</code> … using <code>sort data.txt | uniq -u</code> does the trick (<code>sort data.txt | uniq -u</code>)</p>
+<h2 id="bandit9-usvvyfsfzzwbi6wgc7dafyfur6jqquhr">BANDIT9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</h2>
+<p>Much like the previous level we are to find readable “strings” where the password is prefixed with many ‘=’ signs. Pipes to the resque again. strings will print all readable strings and grep will find the unspecified amount of = signs for us. <code>strings data.txt | grep ===</code> does the job and neatly prints four strings where the first three are “the”, “password”,“is”, how convinient.</p>
+<h2 id="bandit10-trukldjsbj5g7yyj2x2r0o3a5hqjfulk">BANDIT10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</h2>
+<p>Regarding the base64 command, this one is fairly introductory. Use <code>base64 -d data.txt</code> Readup on base64 at <a href="https://www.wikiwand.com/en/Base64">wikipedia</a> ?</p>
+<h2 id="bandit11-ifukwkgsfw8moq3irfqrxe1hxtnebupr">BANDIT11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR</h2>
+<p>This regards the <a href="https://www.wikiwand.com/en/ROT13">ROT13</a> encoding. From the translate command <code>tr</code>example on wikipedia you know what to do : <code>cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'</code></p>
+<h2 id="bandit12-5te8y4drgcrfcx8ugdwuex8kfc6k2euu">BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu</h2>
+<p>Okay, this one will make you work some, at least I did. I am not proud of my solution as it involved manual task and the file is encrypted / tarred only a few times. This involves introductory knowledge of <code>xxd</code>, <code>tar</code>, <code>gzip</code> and <code>bzip</code>. The data.txt you come across is the hex dump of the original compressed binary. use the <code>file</code> command to know what operation to do on resulting file. If its <code>gzip compressed data</code> use <code>gzip -d filename</code> to decompress. If its <code>POSIX tar archive (GNU)</code> use <code>tar -xvf tarballname</code> Occasionaly the command fails due to unrecognizable extension. so using <code>mv</code> command rename resulting file to <code>bz</code>,<code>gz</code> or <code>tar</code></p>
+<p>Around 8 to 9 levels deep you get an ASCII text file with the password.</p>
+<p>I will revisit this one to find an iterative solution, life is too small to iterate manually. If you still see the above line promising iterative solution, I am a lazy bum and havent come back to this problem. Sorry.</p>
+<h2 id="bandit13-8zjycribwfykneahhwxcv3wb2a1orpyl">BANDIT13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL</h2>
+<p>You must familiarize yourself to these new set of commands for the next few levels :</p>
+<p>ssh, telnet, nc, openssl, s_client, nmap | COMMAND | Description | | ——- | ———– | |<code>ssh</code>|OpenSSH SSH client (remote login program)| |<code>telnet</code>|user interface to the TELNET protocol| |<code>nc</code>| arbitrary TCP and UDP connections and listens| |<code>openssl</code>|OpenSSL Commandline tool| |<code>s_client</code>|SSL/TLS client program| |<code>nmap</code>| Network exploration tool and security / port scanner|</p>
+<p>In this level you just have to use the given PEN RSA Private Key file to login to the next level Bandit14. From above description table <code>ssh</code> looks like a good candidate command to use here. Since bandit14 is local to same system we can refer to the target as <code>bandit14@localhost</code>. The following command logs you in automatically to the next level : <code>ssh -i sshkey.private bandit14@localhost</code></p>
+<h2 id="bandit14-ssh-login-using-key-sshkey.private">BANDIT14 | SSH login using key sshkey.private</h2>
+<p>The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost.</p>
 
         </div>
 
