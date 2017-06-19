@@ -1,0 +1,34 @@
+<h1>Photoblog</h1>
+<div class="photoblog">
+    <p>
+	I appreciate aesthetic beauty both in code and nature (are they different ?!).
+	Slightly biased towars composition, I get by just fine on my 12 MP Cellphone
+	camera.
+
+    </p>
+    <p>
+	Following are essentially mirrors to my
+        <a href="https://instagram.com/mr.praky">instagram</a> and
+        <a href="https://www.tumblr.com/blog/prkshydv">tumblr</a> accounts.
+    </p>
+
+    $for(photos)$
+    <img src="$image$" alt="Photo" />
+    $endfor$
+
+    <div class="pagination">
+        $if(previousPageNum)$
+            <a href="$previousPageUrl$">previous</a>
+        $else$
+            <a href="$lastPageUrl$">previous</a>
+        $endif$
+        &mdash;
+        page $currentPageNum$ of $numPages$
+        &mdash;
+        $if(nextPageNum)$
+            <a href="$nextPageUrl$">next</a>
+        $else$
+            <a href="$firstPageUrl$">next</a>
+        $endif$
+    </div>
+</div>
