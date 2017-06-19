@@ -127,4 +127,18 @@ This regards the [ROT13](https://www.wikiwand.com/en/ROT13) encoding. From the t
 you know what to do : `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
 
 ## BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
-the file data.txt is the hexdump of a repeatedly compressed file. 
+Okay, this one will make you work some, at least I did. I am not proud of my solution as it involved manual task and 
+the file is encrypted / tarred only a few times.
+This involves introductory knowledge of `xxd`, `tar`, `gzip` and `bzip`.
+The data.txt you come across is the hex dump of the original compressed binary.
+use the `file` command to know what operation to do on resulting file.
+If its ` gzip compressed data` use `gzip -d filename` to decompress.
+If its `POSIX tar archive (GNU)` use `tar -xvf tarballname`
+Occasionaly the command fails due to unrecognizable extension. so using `mv` command rename resulting file to `bz`,`gz` or `tar`
+
+Around 8 to 9 levels deep you get an  ASCII text file with the password.
+
+I will revisit this one to find an iterative solution, life is too small to iterate manually.
+If you still see the above line promising iterative solution, I am a lazy bum and havent come back to this problem. Sorry.
+
+## BANDIT13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
