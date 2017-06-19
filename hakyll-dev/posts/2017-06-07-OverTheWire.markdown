@@ -142,3 +142,23 @@ I will revisit this one to find an iterative solution, life is too small to iter
 If you still see the above line promising iterative solution, I am a lazy bum and havent come back to this problem. Sorry.
 
 ## BANDIT13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+You must familiarize yourself to these new set of commands for the next few levels :
+
+ssh, telnet, nc, openssl, s_client, nmap
+| COMMAND | Description |
+| ------- | ----------- |
+|`ssh`|OpenSSH SSH client (remote login program)|
+|`telnet`|user interface to the TELNET protocol|
+|`nc`| arbitrary TCP and UDP connections and listens|
+|`openssl`|OpenSSL Commandline tool|
+|`s_client`|SSL/TLS client program|
+|`nmap`| Network exploration tool and security / port scanner|
+
+In this level you just have to use the given PEN RSA Private Key file to login to the next level Bandit14.
+From above description table `ssh` looks like a good candidate command to use here. Since bandit14 is local to same
+system we can refer to the target as `bandit14@localhost`. 
+The following command logs you in automatically to the next level :
+`ssh -i sshkey.private bandit14@localhost`
+
+## BANDIT14 | SSH login using key sshkey.private
+The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost.
