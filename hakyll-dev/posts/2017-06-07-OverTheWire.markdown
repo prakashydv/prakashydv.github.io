@@ -160,5 +160,18 @@ system we can refer to the target as `bandit14@localhost`.
 The following command logs you in automatically to the next level :
 `ssh -i sshkey.private bandit14@localhost`
 
-## BANDIT14 | SSH login using key sshkey.private
+## BANDIT14 | SSH login using key sshkey.private | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost.
+Since we logged in using the private key, once we login we can see the actual password by `cat /etc/bandit_pass/bandit14`.
+now nc can be used to connect to localhost:30000 . Pipe the previous cat command with `nv localhost 30000` to see password to
+the next level.
+
+## BANDIT15 | BfMYroe26WYalil77FoDi9qh59eK5xNr
+Now you must submit the password of the current level to port 30001 on localhost using SSL encryption.
+Again, the current password is here `/etc/bandit_pass/bandit15`. We pipe this with openssl command.
+The problem also hints with the following information : *Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…*
+CONNECTED COMMANDS tells us the following *If a connection is established with an SSL server then any data received from the server is displayed and any key presses will be sent to the server. When used interactively (which means neither -quiet nor -ign_eof have been given), the session will be renegotiated if the line begins with an R, and if the line begins with a Q or if end of file is reached, the connection will be closed down.*
+Interesting, its worth exploring here, but finally you will conclude that the following is enough :
+ `cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -ign_eof`
+
+## BANDIT16 | cluFn7wTiGryunymYOu4RcffSxQluehd
