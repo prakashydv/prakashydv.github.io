@@ -163,7 +163,7 @@ The following command logs you in automatically to the next level :
 ## BANDIT14 | SSH login using key sshkey.private | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
 The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost.
 Since we logged in using the private key, once we login we can see the actual password by `cat /etc/bandit_pass/bandit14`.
-now nc can be used to connect to localhost:30000 . Pipe the previous cat command with `nv localhost 30000` to see password to
+now nc can be used to connect to localhost:30000 . Pipe the previous cat command with `nc localhost 30000` to see password to
 the next level.
 
 ## BANDIT15 | BfMYroe26WYalil77FoDi9qh59eK5xNr
@@ -175,3 +175,40 @@ Interesting, its worth exploring here, but finally you will conclude that the fo
  `cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -ign_eof`
 
 ## BANDIT16 | cluFn7wTiGryunymYOu4RcffSxQluehd
+The Problem : The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+
+The wargame has reached an interesting curve and we are to get ourselves familiar with [port scanning](https://www.wikiwand.com/en/Port_scanner).
+
+using the famous `nmap` command we wet our hands into port sniffing. Smells like hacking already, eh ? I recommend you glance over the port scanning basics [here](https://nmap.org/book/man-port-scanning-basics.html)
+
+`nmap -sV -p 31000-32000 localhost` gets us a list of 5 ports in the required range with three that list `echo` as the service. We ignore these and pay attention to the other two ports which list ` msdtc   Microsoft Distributed Transaction Coordinator (error)` as the running service.
+
+`echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790`
+Now using the openssl s_client command on connecting to 31518 and pushing the current password, we are given a ssh private ke to login to the next level. lets save this in tmp/key/sshkey.private
+
+Now use this key to login to level 17. Sounds familiar ? Because its same as Level 13 !
+The following command ushers you into the realm of Level 17 : `ssh -i sshkey.private bandit17@localhost`
+
+Note : Probably this command will ignore the key with error `WARNING: UNPROTECTED PRIVATE KEY FILE!`
+The file must be only readable by you ! `chmod 400 sshkey.private` should take care of that.
+
+## BANDIT17 | xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+The Problem : There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
+
+`diff` is listed under *Commands you may need to solve this level* and seems obvious to use here.
+`diff passwords.old passwords.new`results in 
+`42c42
+< eG69HnVwO1p7cOdfhadHkPv8Vn0ChedC
+---
+> kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd`
+
+so logging in into bandit18 using `kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd` gets you in but immediate thrown out with a `byebye!`
+Thats expected and related to the next level.
+
+Note : to know the actual password of current level see `/etc/bandit_pass/bandit17`
+
+## BANDIT18 | ?
+
+
+
+
