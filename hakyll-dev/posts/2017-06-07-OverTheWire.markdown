@@ -207,8 +207,18 @@ Thats expected and related to the next level.
 
 Note : to know the actual password of current level see `/etc/bandit_pass/bandit17`
 
-## BANDIT18 | ?
+## BANDIT18 | kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+The Problem : The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
 
+Password is present as plaintext in readme, thats convinient. The problem is the problematic bashrc. If there was only a way from ssh to not trigger the bashrc script. A study of ssh gets us to -t : *Force pseudo-tty allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.  Multiple -t options force tty allocation, even if ssh has no local tty.* 
+Use this opportunity to learn about bash.
 
+`ssh -t bandit18@localhost /bin/sh` gets you in safely, minus the command prompt prefix.
 
+## BANDIT19 | IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+The Problem : To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
 
+setuid : short for "set user ID upon execution", read more about it [here](https://en.wikipedia.org/wiki/Setuid).
+
+## BANDIT20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+The Problem : 
