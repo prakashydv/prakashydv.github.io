@@ -221,4 +221,8 @@ The Problem : To gain access to the next level, you should use the setuid binary
 setuid : short for "set user ID upon execution", read more about it [here](https://en.wikipedia.org/wiki/Setuid).
 
 ## BANDIT20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j
-The Problem : 
+The Problem : There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
+
+NOTE: Changes to the infrastructure made this level more difficult. You will need to figure out a way to launch multiple commands in the same Docker instance.
+
+NOTE 2: Try connecting to your own network daemon to see if it works as you think
