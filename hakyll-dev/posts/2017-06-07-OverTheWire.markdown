@@ -1,10 +1,12 @@
 # OVER THE WIRE
 #### baby steps to netsec
 
+## Wargame BANDIT
+##### SSH : `bandit.labs.overthewire.org:2220`
+
+### Level 1 to 20
  
 The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome [website](http://overthewire.org/wargames). Here is my effort on the first and simplest Wargame listed : [Bandit](http://overthewire.org/wargames/bandit/bandit1.html). I have summarised a list of concepts learned in each Level of the game.
-
-##### SSH : `bandit.labs.overthewire.org:2220`
 
 ## Bandit0 | Bandit0
 file readme has password for Bandit1 : `boJ9jbbUNNfktd78OOpsqOltutMc3MY1`
@@ -219,6 +221,13 @@ Use this opportunity to learn about bash.
 The Problem : To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
 
 setuid : short for "set user ID upon execution", read more about it [here](https://en.wikipedia.org/wiki/Setuid).
+
+on executing the file ./bandit20-do in home folder you get : 
+> Run a command as another user.
+>  Example: ./bandit20-do id
+
+So thats exactly what we do, piggyback on this file to read password as another user (bandit20)
+` ./bandit20-do cat /etc/bandit_pass/bandit20` gets us `GbKksEFF4yrVs6il55v6gwY5aVje5f0j`
 
 ## BANDIT20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 The Problem : There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
