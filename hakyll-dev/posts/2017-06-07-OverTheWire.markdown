@@ -235,3 +235,9 @@ The Problem : There is a setuid binary in the homedirectory that does the follow
 NOTE: Changes to the infrastructure made this level more difficult. You will need to figure out a way to launch multiple commands in the same Docker instance.
 
 NOTE 2: Try connecting to your own network daemon to see if it works as you think
+
+We are now well aware og setuid binaries, in this the binary queries a port for current level's password and spits out next level's password if the password provided was correct. We first neet to setup a service at a port that repeats the levels password, for this we use `nc -l 12345 < /etc/bandit_pass/bandit20`. But wait, how do we free up the prompt for another ssh session to run the setuid binary ? For that we postfix the commandline by `&`. The command prompt appears immediately to accept the next command `./suconnect 12345` which spews out the next level's password `gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr`
+
+I would recommend you go back at this point and revise all concepts you have learned so far in levels 1 to 20. Though a game, the point is to actually retain all the information once the game is over. Practice. Practice. Practice.
+
+See you in next post where we wrap up the BANDIT series of OverTheWire wargames !
