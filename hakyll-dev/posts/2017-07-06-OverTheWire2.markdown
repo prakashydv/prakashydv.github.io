@@ -21,3 +21,8 @@ bandit22 is what level we wish to get to so naturally we see whats that cronjob 
 a quick look into this file `/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv` gives us password to next level bandit22.
 
 ## BANDIT22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in `/etc/cron.d/` for the configuration and see what command is being executed.
+
+Quite similar to what we did last time. The main problem .. i dont have time to complete this post, leaving a placeholder for now ... :-( 
+
