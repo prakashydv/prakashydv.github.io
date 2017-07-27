@@ -24,5 +24,10 @@ a quick look into this file `/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv` gives us pas
 
 The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in `/etc/cron.d/` for the configuration and see what command is being executed.
 
-Quite similar to what we did last time. The main problem .. i dont have time to complete this post, leaving a placeholder for now ... :-( 
+A look at cronjob_bandit22 tells us what script is run :  `/usr/bin/cronjob_bandit23.sh`
+And a look at the script lets us know that a folder name is created using the following command : 
+` echo I am user bandit22 | md5sum | cut -d ' ' -f 1` I would be advisable to learn about each of the piped commands, for the impatient ... it prints : `8169b67bd894ddbb4412f91573b38db3` now go figure !
 
+As per script the password is moved to `/tmp/8169b67bd894ddbb4412f91573b38db3` I cant seem to find it :-(s
+
+## BANDIT 23 | ???s
