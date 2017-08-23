@@ -11,3 +11,14 @@
 
 ### Day-5 : Azau - Garabashi Bochki
 
+### Day-6 : Garabashi Bochki - Priyut Bochki
+
+### Day-7 : Garabashi Bochki - Pushtokhov Rocks
+
+### Day-8 : Rest at Garabashi Bochki
+
+### Day-9 : Mt.Elbrus Summit (5642m)
+
+### Day-10: Azau - Cheget
+
+### Day-11 : MRV - SVO - DEL
