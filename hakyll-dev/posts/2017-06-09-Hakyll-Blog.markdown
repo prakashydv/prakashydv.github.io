@@ -1,6 +1,10 @@
-# Writing a blog in Hakyll
+# Making a blog in Hakyll
 
-### TODO
-- Problems with html
-- Problems with jekyll
-- Why Hakyll
+### why hakyll ?
+
+### setting up hakyll
+
+### building site and deploying on github.io
+
+### customising
+
