@@ -51,5 +51,53 @@ Hunger may not be an artform yet but history has only taught us how absurd art a
 Quick staccato anecdotes and micro fables make this work a comfortable travel read. Like a disembodied head the reader follows the wanderer witnessing a multitude of unconnected yet somewhat related stories and often they are accompanied by morals. There are some not-so-obvious similarities between the oriental and the occidental philosophies and they have been subtly highlighted here, giving the reader something to do while they hop from one tale to the next.
 Surprisingly I haven't come across much information about this collection. Underrated in my opinion, or perhaps this genre needs some more baking time.
 
+#### [Andromache - *Euripides*](https://www.goodreads.com/book/show/664965.Andromache) ★★★
+![](https://images.gr-assets.com/books/1328704233s/664965.jpg)
+Euripides has every right to be called the master of tragedies, challenging his own contemporaries by introducing unorthodox practices that have survived till today, two and a half millenia later. Its a glimpse into the Greek life and values during that time. The story itself is but a small slice in the life of Andromache, following Hectors death during the battle for Troy, she is held captive as a concubine to Neoptolemus (Son of Achilles). It focuses on her lamentation of her present slave like state and her enmity towards Neoptolemus's lawful wife, Hermione, daughter of Helen and King of Sparta, Menelaus. A typical greek tragedy with ample lamentaions and chorus. Euripides has infused significant hatred for Menelaus and Sparta in general, this is understandable given the times when Athens was at war against Sparta in the Polyponesian War. In contrast, Menelaus gets more noble recognition by other Greek playwrights. Hermione's sudden change of behaviour is a bit unexplained and the end is sudden. Tethis's entry to tie loose ends seems like cheating and Andromache does in fact end up at a much better and dignified place, as lawful wife to king of Mollosia, Helenus. So, not much of a tragedy regarding Andromache but instead Peleus ... Neoptolemus dies, and old man Peleus (Achilles father, Neoptolemus's grandfather) has no heir to Phthia, as Andromache was not his lawful wife and Hermione was barren. Looking forward to Hecabe and Elektra.
+
+#### [Romance of Lust - *Anonymous*](https://www.goodreads.com/book/show/1556035.Romance_of_Lust) ★★★★★
+![](https://images.gr-assets.com/books/1185164699s/1556035.jpg)
+The title is only half correct, the latter half to be more precise. Romance has been abandoned at the expense of injecting this book with only one single emotion : Lust.
+Lust among the 19th century affluent either had a very high bar of eroticism or we have really mellowed down and watered our libidiousness in the 20th. This book indulges in every imaginable taboo of pornography .. incest, pedophilia .. you imagine it (or don't) and this has it, often the family tree is coerced in elliptical obscene trajectories to make the already vulgur unappetizing. I was honestly surprised why such a dense literature on biomechanics bothered about a coherent timeline interweaving a confusing web of generations, which then again indulged in the same mechanical excesses as their parents, and often with the parents ! 
+If you think yourself open minded and liberal regarding such content, this blast from the past might do some harm to your opinion. 
+A bit too adventurous for me, at least i discovered some french and Italian words for otherwise delightfully disgusting things.
+If these kind of fantasies gets you on, that's cool, Please keep it to yourself.
+
+#### [Coraline - *Neil Gaiman*](https://www.goodreads.com/book/show/17061.Coraline) ★★★★★
+![](https://images.gr-assets.com/books/1493497435s/17061.jpg)
+Neil Gaiman's Alice is an octave darker, his use of simple language to describe Coraline's world is impressive. I particularly liked the way he abstracts complex emotions down to match Coraline's maturity, holding together the entire theme from her perspective. Some imagery is near-gory and even the Burton-ish adaptation (which, by the way, I loved) kept away from referencing.
+The cheshiresque no-name cat was a brilliant touch though, nothing new, but nice none the less. Neil Gaiman wound up the story really quick and at the same time doesn't leave readers unsatisfied. American Gods next!
+
+#### [A Pelican at Blandings - *PG Wodehouse*]() ★★★★
+![](https://images.gr-assets.com/books/1179763852s/953199.jpg)
+"Capital ! Capital ! Capital !" (quoth Lord Elmsworth, Chapter XI).
+It bothers me to dissect humour and PGW's works is the splendid English fare I would not consider suitable for "analysis", such craftsmanship is to be admired and basked in. Clarence's infatuation with his pig, the imposters Johnny and Vanessa, heartless Connie, Miss Polk, and the pelican himself ... are parts of the colorful melange this book is. Though I have read better works of PGW, this is beautiful in its own right.
+
+#### [The Prince - *Niccolò Machiavelli*](https://www.goodreads.com/book/show/28862.The_Prince) ★★
+![](https://images.gr-assets.com/books/1390055828s/28862.jpg)
+Floating in obsolescence, The Prince's eurocentric ideas and strategies are quite narrow to customary standards of Medieval Europe, leaving a lot of room for surprise to the modern verbatim followers of this book. Sorry Machiavelli but the pontification of Roderic de Borja is not "fresh in our minds".
+Machiavelli's study into the psychology of the ruler and the ruled is evergreen, no matter the mode of governance. Man never changes. 
+
+#### [The Green Room - *Nag Mani*](https://www.goodreads.com/book/show/27227943-the-green-room) ★★★★
+![](https://images.gr-assets.com/books/1445148691s/27227943.jpg)
+Nostalgia usually comes in waves, today I am drowning. Every fiction contains elements of truth, inspirations, events, people, places and I am lucky to experience most of them in this book firsthand, so this book was more personal to me than an ordinary reader would identify. I fear my views of this book are biased and I often found myself reading between the lines. Its a whirlwind of nostalgia for any student of the 'Victoria School' :-) , Nag has maintained utmost fidelity in replicating some real life events, characters, right down to the logistics and architectural deployment of key scenes.
+
+#### [The Road - *Cormac McCarthy*](https://www.goodreads.com/book/show/6288.The_Road) ★★★★
+![](https://images.gr-assets.com/books/1439197219s/6288.jpg)
+Wow. Is this book really popular ? For what ? I must have missed something. Utterly depressing , not in a good poetic way, its so bad its depressing. The storyline tries to follow a post apocalyptic curve but misses all the good bits, its the boring part of any postapocalyptic prose. The characters are underdeveloped .. i had no clue as to why the boy and man are so cold to each other .. wasn't the boy the entire reason for his existence ? He couldve uttered more than a syllable at a time, that couldve helped. But no, the author had to give them an "okay .. okay" dialog to fill pages. the conversations were annoyingly empty. Just descriptions of whats happening and not one insight into their history or feelings. Dont know, maybe its some new kind of literature. Too bad it sucks. 3 hours of my life i am never getting back.
+
+#### [India Since Independence - *Chandra, Bipan*](https://www.goodreads.com/book/show/17128251-india-since-independence) ★★★
+![](https://images.gr-assets.com/books/1369825894s/17128251.jpg)
+A comprehensive guide to India post 1947, I found it more biased than the author's other work: "India's Struggle for Independence". Significant focus is on the politics involved at the center, and its struggles with the economy, poverty, land reforms, internal uprisings, communalism, bureaucracy, party politics etc ... It does discuss Land and Agricultural Reforms in depth but the chronology is bit messed up, and sometimes incoherent with the discussion. At places the authors starts a statistics monologue, which in spite of being crucial to the content under discussion, is a drag after a point. My favorite bits were the chapters on international relations, brief and crisp. 
+A "maybe" read for CS aspirants who have enough time at hand (with two additional tries from 2014, that shouldn't be a problem !)
+
+#### [That Bringas Woman - *Pérez Galdós, Benito*](https://www.goodreads.com/book/show/1188404.That_Bringas_Woman) ★★★
+![](https://images.gr-assets.com/books/1181754402s/1188404.jpg)
+The not-too-flattering account of Baroque Madrid and the feminine psychology of obsession was quite hilarious when i expected it to be tragic. Another satisfying second hand classic experience, there comes a time when one is tired of translations. "La De Bringas" is a realist Andalusian classic and Galdos is accurately called Spain's best kept secret, second only to Cervantes himself ! The translation was okay in my opinion but remained loyal to the overall plot. Women are the same everywhere I suppose.
+
+#### [One Hundred Years of Solitude - *Garcí­a Márquez, Gabriel*](https://www.goodreads.com/book/show/320.One_Hundred_Years_of_Solitude) ★★★★★
+![](https://images.gr-assets.com/books/1327881361s/320.jpg)
+Beautiful. One of its kind, the story generously spans multiple generations where the names of characters and the events themselves keep iterating, playing with the timeline. The elements of magical realism is present in optimally appropriate amount that one doesn't really think of it to be out of the ordinary. The story taken in isolation doesn't make much of itself, like all great works, its the story between the lines that is memorable, so again another book that has to be felt because reading is not enough. How the reader perceives this book tells more about the reader thank the story, so yeah ... its one of those types. Needless to say : Your experience may vary. 
+
 #### []() ★★★★★
 ![]()
