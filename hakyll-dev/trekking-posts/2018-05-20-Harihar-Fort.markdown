@@ -1,0 +1,15 @@
+# Harihar Fort. Nashik
+
+An overnight bus ride took sixteen of us hikers to the base village of Harihar fort, situated close to Nashik (Maharashtra). Arriving early in the morning we rested a while at host's (Tukaram's) House.
+It was a homely beautiful sight to see two of his children maybe around 3-6 years of age sleeping on the ground rolled up in blankets. Despite it being summer, early morning can be chilly. We too just fell around on the ground for a quick early morning nap till the sun rose.
+I was up to find poha ready for some pre-trek devouring. The two little folks woke to the din and rubbed their eyes in the sleepy bewilderment of sixteen overdressed hikers. The elder one, a girl of maybe fiveor six, with long black hair englufing her delicate face in a halo, stared at us and with a stretch and a yawn picked her tiny 2 year old brother who gave a small cry and then shut up to a unpleasant site of the same equally amused hikers.
+
+...
+A walk in the local bazaar is my favourite nerve-calming activity. Among the hawking and haggling, I drift like a forlorn ghost that haunts vegetables and fruits alike, occasionaly buying spinach.
+A boy, maybe 8 years old walking beside me in the crowded bazaar unknowingly held me hand as he continued walking looking the otherway at the mango stalls. Then, still eyes on the mangoes, he notices the unusual texture of my arm and starts to feel the fine hair on it. I break into a smile as soon as i realise what just happened. He is mistaken me for someone else ! He turns his head up to me and with a mix of fear and confusion immediatly drop his hand from mine and starts to frantically search for the person he misttok me as. The market was slow moving so he or she couldn't have gone far. Then he spotted his father walking ahead and ran to him grabbing his hand immediately. Father was indifferent as if nothing happened, but the look in the sons eye looked as if he had received everything he had wished for in his life. Such is life, you lose people, you get scared and then sometimes you run back. 
+
+...
+
+Have you ever got as haircut from a person who has not eaten anything nor drinken a drop of water for 13 hours ? Our local hairdresser happens to be a devout follower of the Muslim faith and it happened to be the month of Roza where they observe this impossible art of hardcore fasting. He was yet to break his fast when i interrupted him for a haircut just as he was about to call it a day. The scissors were snipier than usual and motions of his hands almost a blur. His dehydrated brain had taken him to the extreme and twice he had to halt due to exhaustion during my haircut. I felt really bad and begged for pardon for my blatant wish for a haircut at this ungodly hour. I somehow did end up having a pleasant chat and expressing my admiration at their determination to follow this fasting custom. I have on and off tried to go an entire day without food and I have failed misreable each time. Its beyond my comprehension how my hunble barber and his brothers forgoes even water. Respect !
+
+...
