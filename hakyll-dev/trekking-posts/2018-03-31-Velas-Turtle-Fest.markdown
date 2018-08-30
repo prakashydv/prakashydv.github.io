@@ -1,2 +1,7 @@
 # Velas, distt. Ratnagiri
 ## Turtle Festival
+
+Velas is a small eco-village in Ratnagiri district which is famous for the Olive Ridley turtle population that visits the Velas beach every year and lays their eggs. At Velas, turtle conservation movement is undertaken by the villagers. An NGO named Sahyadri Nisargmitra then Regional Forest Officers (RFO) started the conservation and now the Velas Grampanchayat and villagers committee has taken the initiative to conserve Olive Ridley Turtles by providing protection to their eggs. Each year, the tiny village of Velas, in Maharashtra, bears witness to a truly heart-warming sight as thousands of newly hatched Olive Ridley turtles take their first steps towards the big blue sea. The start of life afresh! Mumbai Travellers welcomes all the nature lover for this year’s turtle festival, as we take you on a truly unforgettable journey to witness these exquisite creatures take tiny footsteps in the vast, white sands of the Konkan.
+
+### Ecotourism in Velas
+Velas is not only home to turtles but also to a myriad of bird species including the White Bellied Sea Eagle, White Backed Vulture, and Indian Swiftlet. Accommodation in local home-stays will add a truly warm touch to the experience. When you are done with turtle sightings, there is so much more in store including village walk, trip to the historic Bankot Fort and Harihareshwar Temple and some truly authentic Konkani cuisine to satiate your taste buds.
