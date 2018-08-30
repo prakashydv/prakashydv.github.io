@@ -11,9 +11,8 @@ title: Curriculum Vitae
 
 ## Skills
 
-- **XYZ LANGUAGE programming**: I have a deep and broad experience with Haskell,
-  as I have applied it many different areas ranging from High Frequence Trading
-  to Web Programming.
+- **Programming in C/C++**: I have a deep and broad experience with C/C++ as a 
+  System Software Engineer at NVIDIA.
 
 - **Front end**: As a system level software engineer, I have professionaly 
   worked mostly with low-level OS APIs. To make up for this bias I indulge in various
@@ -27,7 +26,7 @@ title: Curriculum Vitae
   Range and NGO when provided with an opportunity.
 
 - **Other skills**: Relational databases, NoSQL databases, version control
-  systems, scripting...
+  systems, scripting ...
 
 ## Education
 
@@ -54,4 +53,4 @@ title: Curriculum Vitae
 - **[Taljai Forest Conservation]**: ?
 
 ## Trekking Experience
-
+- read my trekking posts
