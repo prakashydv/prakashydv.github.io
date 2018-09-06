@@ -3,30 +3,35 @@ title: Contact
 ---
 
 - I live and work from the city of Pune in the state of Maharastra (India).
-- to reach me email me at prakashydv@gmail.com or prakashydv@protonmail.com
+- to reach me email me at `prakashydv@gmail.com` or `prakashydv@protonmail.com`
 
 ## Stalk me :
-- Facebook   : `https://www.facebook.com/prakashydv`
-- Instagram  : `https://instagram.com/mr.praky/`
-- Google Plus: `https://plus.google.com/+PrakashYadav`
-- Twitter    : `https://twitter.com/prakashyadav`
-- Goodreads  : `https://www.goodreads.com/hork8ajir`
-- DeviantArt : `https://www.deviantart.com/prksh`
-- Quora      : `https://www.quora.com/profile/Prakash-Yadav-12`
-- Pintrest   : `https://in.pinterest.com/prakash226001/`
-- Duolingo   : `https://www.duolingo.com/hork8ajir`
-- Memrise    : `https://www.memrise.com/user/raduga/`
-- CodeForces : `https://codeforces.com/profile/prkshydv`
-- Kaggle     : `https://www.kaggle.com/hork8ajir`
-- GitHub     : `https://github.com/prakashydv`
+SITE | PROFILE
+------------ | -------------
+Facebook   | `https://www.facebook.com/prakashydv`
+Instagram  | `https://instagram.com/mr.praky/`
+Google Plus| `https://plus.google.com/+PrakashYadav`
+Twitter    | `https://twitter.com/prakashyadav`
+Goodreads  | `https://www.goodreads.com/hork8ajir`
+DeviantArt | `https://www.deviantart.com/prksh`
+Quora      | `https://www.quora.com/profile/Prakash-Yadav-12`
+Pintrest   | `https://in.pinterest.com/prakash226001/`
+Duolingo   | `https://www.duolingo.com/hork8ajir`
+Memrise    | `https://www.memrise.com/user/raduga/`
+CodeForces | `https://codeforces.com/profile/prkshydv`
+Kaggle     | `https://www.kaggle.com/hork8ajir`
+GitHub     | `https://github.com/prakashydv`
 
-## Feed Me : 
-- Bitcoin      @ `1PsTikangaCVSBtSLAMcEtddVjYspPoxH4`
-- Ether        @ `0xee0284226e645D5aE1595Ea3A12Edd632Cdd9C36`
-- Bitcoin Cash @ `qradmh45s2ce3f9057dhxmuwmz685k33pvskpkq8my`
+## Feed Me :
+COIN | ADDRESS
+------------ | -------------
+Bitcoin | `1PsTikangaCVSBtSLAMcEtddVjYspPoxH4`
+Ether | `0xee0284226e645D5aE1595Ea3A12Edd632Cdd9C36`
+Bitcoin Cash | `qradmh45s2ce3f9057dhxmuwmz685k33pvskpkq8my`
 
-## PGP Public Key : 0xF704F684
+## PGP Public Key : `0xF704F684`
 
+```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: Keybase OpenPGP v1.0.0
 
@@ -52,4 +57,5 @@ BO0olvr92O4IEVXU5VA5VlHFAYCapZtC/QE0zgNgiVLMUIgZc+aN5FsMX0Qzw965
 sxrT/KK8AzKOapjdaKHX79Flw3s=
 =Ls3K
 -----END PGP PUBLIC KEY BLOCK-----
+```
 
