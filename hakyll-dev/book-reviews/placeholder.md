@@ -1,5 +1,8 @@
 ## Book Reviews
 Here are book reviews from my [Goodreads](https://www.goodreads.com/hork8ajir) Account.
+Reviews exported to csv : [Goodreads Import and Export](https://www.goodreads.com/review/import/)
+Conversion to markdown script : `goodreads-csv2md.py`
+Gwern's haskell script for converting the export to markdown : `https://www.gwern.net/haskell/goodreadsToMarkdown.hs`
 
 #### [Kingdom's End: Selected Stories - *Saadat Hasan Manto*](https://www.goodreads.com/book/show/1550788.Kingdom_s_End) ★★★★★
 ![](https://images.gr-assets.com/books/1336637587l/1550788.jpg)
