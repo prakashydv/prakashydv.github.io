@@ -2,26 +2,26 @@
 title: Contact
 ---
 
-- I live and work from the city of Pune in the state of Maharastra (India).
-- to reach me email me at `prakashydv@gmail.com` or `prakashydv@protonmail.com`
+- `prakashydv@protonmail.com`
+- `prakashydv@gmail.com`
 
 ## Stalk me :
 SITE | PROFILE
 ------------ | -------------
-Facebook   | `https://www.facebook.com/prakashydv`
-Instagram  | `https://instagram.com/mr.praky/`
-Google Plus| `https://plus.google.com/+PrakashYadav`
-Twitter    | `https://twitter.com/prakashyadav`
-Goodreads  | `https://www.goodreads.com/hork8ajir`
-DeviantArt | `https://www.deviantart.com/prksh`
-Quora      | `https://www.quora.com/profile/Prakash-Yadav-12`
-Pintrest   | `https://in.pinterest.com/prakash226001/`
-Duolingo   | `https://www.duolingo.com/hork8ajir`
-Memrise    | `https://www.memrise.com/user/raduga/`
-CodeForces | `https://codeforces.com/profile/prkshydv`
-Kaggle     | `https://www.kaggle.com/hork8ajir`
-GitHub     | `https://github.com/prakashydv`
-TopCoder   | `https://www.topcoder.com/members/prakashydv/`
+[Facebook](https://www.facebook.com/prakashydv)   | `https://www.facebook.com/prakashydv`
+[Instagram](https://instagram.com/mr.praky/)  | `https://instagram.com/mr.praky/`
+[Google Plus](https://plus.google.com/+PrakashYadav)| `https://plus.google.com/+PrakashYadav`
+[Twitter](https://twitter.com/prakashyadav)    | `https://twitter.com/prakashyadav`
+[Goodreads](https://www.goodreads.com/hork8ajir)  | `https://www.goodreads.com/hork8ajir`
+[DeviantArt](https://www.deviantart.com/prksh) | `https://www.deviantart.com/prksh`
+[Quora](https://www.quora.com/profile/Prakash-Yadav-12)      | `https://www.quora.com/profile/Prakash-Yadav-12`
+[Pintrest](https://in.pinterest.com/prakash226001/)   | `https://in.pinterest.com/prakash226001/`
+[Duolingo](https://www.duolingo.com/hork8ajir)   | `https://www.duolingo.com/hork8ajir`
+[Memrise](https://www.memrise.com/user/raduga/)    | `https://www.memrise.com/user/raduga/`
+[CodeForces](https://codeforces.com/profile/prkshydv) | `https://codeforces.com/profile/prkshydv`
+[Kaggle](https://www.kaggle.com/hork8ajir)     | `https://www.kaggle.com/hork8ajir`
+[GitHub](https://github.com/prakashydv)     | `https://github.com/prakashydv`
+[TopCoder](https://www.topcoder.com/members/prakashydv/)   | `https://www.topcoder.com/members/prakashydv/`
 
 ## Feed Me :
 COIN | ADDRESS
