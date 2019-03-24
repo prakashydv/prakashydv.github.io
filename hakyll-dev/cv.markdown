@@ -5,7 +5,7 @@ title: Curriculum Vitae
 # Prakash Yadav
 
 <http://prakashydv.github.io/>  
-<prakashydv@gmail.com>
+<prakashydv@protonmail.com>
 
 ## Summary
 

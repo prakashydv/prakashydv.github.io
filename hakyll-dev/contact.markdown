@@ -3,7 +3,6 @@ title: Contact
 ---
 
 - `prakashydv@protonmail.com`
-- `prakashydv@gmail.com`
 
 ## Stalk me :
 SITE | PROFILE

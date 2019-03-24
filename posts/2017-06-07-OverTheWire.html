@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - 2017-06-07-OverTheWire</title>
+        <link rel="stylesheet" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">My Hakyll Blog</a>
+            </div>
+            <div id="navigation">
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>2017-06-07-OverTheWire</h1>
+            <div class="info">
+    Posted on June  7, 2017
+    
+</div>
+
+<h1 id="over-the-wire">OVER THE WIRE</h1>
+<h4 id="baby-steps-to-netsec">baby steps to netsec</h4>
+<h2 id="wargame-bandit">Wargame BANDIT</h2>
+<h5 id="ssh-bandit.labs.overthewire.org2220">SSH : <code>bandit.labs.overthewire.org:2220</code></h5>
+<h3 id="level-1-to-20">Level 1 to 20</h3>
+<p>The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome <a href="http://overthewire.org/wargames">website</a>. Here is my effort on the first and simplest Wargame listed : <a href="http://overthewire.org/wargames/bandit/bandit1.html">Bandit</a>. I have summarised a list of concepts learned in each Level of the game.</p>
+<h2 id="bandit0-bandit0">Bandit0 | Bandit0</h2>
+<p>file readme has password for Bandit1 : <code>boJ9jbbUNNfktd78OOpsqOltutMc3MY1</code></p>
+<h5 id="commands-learned"><em>Commands learned</em></h5>
+<p><code>use \&gt;man [COMMAND] to get help on the command and if that fails use \&gt;help [COMMAND]</code></p>
+<table>
+<thead>
+<tr class="header">
+<th>COMMAND</th>
+<th>Description</th>
+<th>Usage Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>list directory contents</td>
+<td>ls</td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>Change the shell working directory</td>
+<td>cd</td>
+</tr>
+<tr class="odd">
+<td><code>cat</code></td>
+<td>concatenate files and print on the standard output</td>
+<td>cat [FILENAME]</td>
+</tr>
+<tr class="even">
+<td><code>file</code></td>
+<td>determine file type</td>
+<td>file [FILENAME]</td>
+</tr>
+<tr class="odd">
+<td><code>du</code></td>
+<td>estimate file space disk usage</td>
+<td>du</td>
+</tr>
+<tr class="even">
+<td><code>find</code></td>
+<td>search for files in a directory hierarchy</td>
+<td>find [FILENAME]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bandit1-boj9jbbunnfktd78oopsqoltutmc3my1">BANDIT1 | boJ9jbbUNNfktd78OOpsqOltutMc3MY1</h2>
+<h5 id="accessing-files-named-with-just-a-hyphen">Accessing files named with just a hyphen</h5>
+<p>task is to read a file convinientsly named with just a hyphen <code>-</code> The problem now is that most commands accept arguments prefixed with a hyphen and <code>cat</code> will have issues parsing just a stand alone hyphen. I tried using a common trick of enclosing the hyphen in quotes but <code>&quot;-&quot;</code> did not seem to do the trick either. So now I used an expression i have often seen in many scripts, where a executable in the current directory is referred to as <code>./filename</code> so I use <code>cat ./-</code> to successfully get password to the next level : <code>CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</code></p>
+<h2 id="bandit2-cv1dtqxwvfxtvm2f0k09shz0ywrinya9">BANDIT2 | CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</h2>
+<h5 id="accessing-files-with-spaces-in-its-name">Accessing files with spaces in its name</h5>
+<p>Remember how in the previous level i tried enclosing the filename with quotes, yup that worked in this level. Ran <code>cat &quot;file name with spaces&quot;</code> to get password for next level <code>UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</code></p>
+<h2 id="bandit3-umhadqclwmgdlokq3yngjwxgormb5luk">BANDIT3 | UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</h2>
+<h5 id="accessing-hidden-files">Accessing hidden files</h5>
+<p>there is a .hidden file not visible on a simple <code>ls</code> so go for the pro version and use : <code>ls -a</code> or even better <code>ls -l -a</code> to see it has access specified as : <code>-rw-r-----</code> A hidden file is anything beginning with a <code>.</code> but I used this excersize to explore file permissions.</p>
+<div class="figure">
+<img src="http://linuxcommand.org/images/permissions_diagram.gif" alt="File Permissions in Linux" />
+<p class="caption">File Permissions in Linux</p>
+</div>
+<p><a href="https://wiki.archlinux.org/index.php/users_and_groups">more info on users and groups</a></p>
+<p><code>cat .hidden</code> gives <code>pIwrPrtPN36QITSp3EQaw936yaFoFgAB</code></p>
+<p>ta-da !</p>
+<h2 id="bandit4-piwrprtpn36qitsp3eqaw936yafofgab">BANDIT4 | pIwrPrtPN36QITSp3EQaw936yaFoFgAB</h2>
+<p>Has a folder called <code>readme</code> with 10 file from <code>-file00</code> to <code>-file09</code> yup, the names start with a hyphen, how convinient. Use <code>cat ./-*</code> to see all at once. <code>-file07</code> has qwhat looks like a password. Rest of them contain non-ascii stuff, not sure if they can be used as passwords. MSDN <a href="https://msdn.microsoft.com/en-us/library/cc875839.aspx">recommends sing Unicode Characters in ALT Key Combinations</a></p>
+<h2 id="bandit5-korebokuiddepwhwk7jzc0rtdopnaykh">BANDIT5 | koReBOKuIDDepwhWk7jZC0RTdopnAYKh</h2>
+<p>Has a list of 20 folders <code>maybehere00</code> to <code>maybehere19</code> with files in it with spaces in its name as well as with hyphen and dot prefix. Of course you can search one by one, its only 20 folders, but that is not the reason you started this, did you ? So how do we iterrate over the folders in root directory and see content of all its files (with unconventional yet valid names). The problem lists three unique features about the file :</p>
+<ol style="list-style-type: decimal">
+<li>human-readable</li>
+<li>1033 bytes in size</li>
+<li>not executable</li>
+</ol>
+<p>Almost all are human readable you will notice so thats not really helpful. Size is 1033 bytes exact, thats a very strong hint.</p>
+<p>Use command <code>du -a</code> to see size of all files in all folders. But size isn’t in bytes, for that use additional <code>-b</code> argument. Voila ! .file2 in maybehere07 is seen of size 1033 in plain sight ! A lot of empty space is trailing the actual password so that had the size not be mentioned you could have isolated this one file just by its abnosrmal small size (rest are quite bigger!). But this was a very poor solution, there is obviously a more sophisticated way of solving this that helps you not manually parse a long list for the number 1033. <code>find</code> is the command to use here.</p>
+<p><code>find -size 1033c</code> quickly returns <code>./maybehere07/.file2</code> which hass password <code>DXjZPULLxYr17uwoI01bNLQbtFemEgo7</code></p>
+<h2 id="bandit6-dxjzpullxyr17uwoi01bnlqbtfemego7">BANDIT6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7</h2>
+<p>Okay this got me stumped for sometime. The folder where you spawn has nothing worthwhile in it. The total size of the folder is less than the password file size (33bytes) so naturally, I drift to the root. and the command for previous level does equally well, I do add an additional <code>-user</code> and <code>-group</code> arguments. On execution of <code>find -size 33c -user bandit7 -group bandit6</code> most opf the files are denied permission but this one caught my eye : <code>./var/lib/dpkg/info/bandit7.password</code>, yup and the password works for bandit7 !</p>
+<h2 id="bandit7-hkbptkqniay4fw76bey8pvxkedqrktzs">BANDIT7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs</h2>
+<p>Ah ! the famous <code>grep</code>. This level needs you to parse data.txt file for the work “millionth” for the password to the next level. The solution is too simple so explore this level experimenting and learning about grep. Its quite powerful.</p>
+<h2 id="bandit8-cvx2jja4cfaltqs87jk27qwqghbm9plv">BANDIT8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV</h2>
+<p>At this point I noticed that the level description wishes you to familiarize your self with the following commands :</p>
+<table style="width:42%;">
+<colgroup>
+<col width="10%" />
+<col width="15%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>COMMAND</th>
+<th>Description</th>
+<th>Usage Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>grep</code></td>
+<td>grep, egrep, fgrep, rgrep - print lines matching a pattern</td>
+<td><code>grep [OPTIONS] PATTERN [FILE...]</code></td>
+</tr>
+<tr class="even">
+<td><code>sort</code></td>
+<td>sort lines of text files</td>
+<td><code>sort [OPTION]... [FILE]...</code></td>
+</tr>
+<tr class="odd">
+<td><code>uniq</code></td>
+<td>report or omit repeated lines</td>
+<td><code>uniq [OPTION]... [INPUT [OUTPUT]]</code></td>
+</tr>
+<tr class="even">
+<td><code>strings</code></td>
+<td>print the strings of printable characters in files.</td>
+<td><code>strings filename</code></td>
+</tr>
+<tr class="odd">
+<td><code>base64</code></td>
+<td>base64 encode/decode data and print to standard output</td>
+<td><code>base64 [OPTION]... [FILE]</code></td>
+</tr>
+<tr class="even">
+<td><code>tr</code></td>
+<td>translate or delete characters</td>
+<td><code>tr [OPTION]... SET1 [SET2]</code></td>
+</tr>
+<tr class="odd">
+<td><code>tar</code></td>
+<td>The GNU version of the tar archiving utility</td>
+<td><code>tar --extract --get [options] [pathname ...]</code></td>
+</tr>
+<tr class="even">
+<td><code>gzip</code></td>
+<td>gzip, gunzip, zcat - compress or expand files</td>
+<td><code>gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ...  ]</code></td>
+</tr>
+<tr class="odd">
+<td><code>bzip2</code></td>
+<td>a block-sorting file compressor, v1.0.6</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>bzcat</code></td>
+<td>decompresses files to stdout</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td><code>bzip2recover</code></td>
+<td>recovers data from damaged bzip2 files</td>
+<td>…</td>
+</tr>
+<tr class="even">
+<td><code>xxd</code></td>
+<td>make a hexdump or do the reverse</td>
+<td><code>xxd [options] [infile [outfile]]</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>uniq</code> lookes like a tempting option, but neither <code>-c</code> nor <code>-u</code> readily spew out any answer. <code>sort</code> is promising but by itself alone it will leave you with manual task of seeing the password stick out out of all clubbed strings. Why not both ? Welcome pipes <code>|</code> … using <code>sort data.txt | uniq -u</code> does the trick (<code>sort data.txt | uniq -u</code>)</p>
+<h2 id="bandit9-usvvyfsfzzwbi6wgc7dafyfur6jqquhr">BANDIT9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</h2>
+<p>Much like the previous level we are to find readable “strings” where the password is prefixed with many ‘=’ signs. Pipes to the resque again. strings will print all readable strings and grep will find the unspecified amount of = signs for us. <code>strings data.txt | grep ===</code> does the job and neatly prints four strings where the first three are “the”, “password”,“is”, how convinient.</p>
+<h2 id="bandit10-trukldjsbj5g7yyj2x2r0o3a5hqjfulk">BANDIT10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</h2>
+<p>Regarding the base64 command, this one is fairly introductory. Use <code>base64 -d data.txt</code> Readup on base64 at <a href="https://www.wikiwand.com/en/Base64">wikipedia</a> ?</p>
+<h2 id="bandit11-ifukwkgsfw8moq3irfqrxe1hxtnebupr">BANDIT11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR</h2>
+<p>This regards the <a href="https://www.wikiwand.com/en/ROT13">ROT13</a> encoding. From the translate command <code>tr</code>example on wikipedia you know what to do : <code>cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'</code></p>
+<h2 id="bandit12-5te8y4drgcrfcx8ugdwuex8kfc6k2euu">BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu</h2>
+<p>Okay, this one will make you work some, at least I did. I am not proud of my solution as it involved manual task and the file is encrypted / tarred only a few times. This involves introductory knowledge of <code>xxd</code>, <code>tar</code>, <code>gzip</code> and <code>bzip</code>. The data.txt you come across is the hex dump of the original compressed binary. use the <code>file</code> command to know what operation to do on resulting file. If its <code>gzip compressed data</code> use <code>gzip -d filename</code> to decompress. If its <code>POSIX tar archive (GNU)</code> use <code>tar -xvf tarballname</code> Occasionaly the command fails due to unrecognizable extension. so using <code>mv</code> command rename resulting file to <code>bz</code>,<code>gz</code> or <code>tar</code></p>
+<p>Around 8 to 9 levels deep you get an ASCII text file with the password.</p>
+<p>I will revisit this one to find an iterative solution, life is too small to iterate manually. If you still see the above line promising iterative solution, I am a lazy bum and havent come back to this problem. Sorry.</p>
+<h2 id="bandit13-8zjycribwfykneahhwxcv3wb2a1orpyl">BANDIT13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL</h2>
+<p>You must familiarize yourself to these new set of commands for the next few levels :</p>
+<p>ssh, telnet, nc, openssl, s_client, nmap | COMMAND | Description | | ——- | ———– | |<code>ssh</code>|OpenSSH SSH client (remote login program)| |<code>telnet</code>|user interface to the TELNET protocol| |<code>nc</code>| arbitrary TCP and UDP connections and listens| |<code>openssl</code>|OpenSSL Commandline tool| |<code>s_client</code>|SSL/TLS client program| |<code>nmap</code>| Network exploration tool and security / port scanner|</p>
+<p>In this level you just have to use the given PEN RSA Private Key file to login to the next level Bandit14. From above description table <code>ssh</code> looks like a good candidate command to use here. Since bandit14 is local to same system we can refer to the target as <code>bandit14@localhost</code>. The following command logs you in automatically to the next level : <code>ssh -i sshkey.private bandit14@localhost</code></p>
+<h2 id="bandit14-ssh-login-using-key-sshkey.private-4wcyujfw0k0xlshldzztntbhiqxu3b3e">BANDIT14 | SSH login using key sshkey.private | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e</h2>
+<p>The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost. Since we logged in using the private key, once we login we can see the actual password by <code>cat /etc/bandit_pass/bandit14</code>. now nc can be used to connect to localhost:30000 . Pipe the previous cat command with <code>nc localhost 30000</code> to see password to the next level.</p>
+<h2 id="bandit15-bfmyroe26wyalil77fodi9qh59ek5xnr">BANDIT15 | BfMYroe26WYalil77FoDi9qh59eK5xNr</h2>
+<p>Now you must submit the password of the current level to port 30001 on localhost using SSL encryption. Again, the current password is here <code>/etc/bandit_pass/bandit15</code>. We pipe this with openssl command. The problem also hints with the following information : <em>Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…</em> CONNECTED COMMANDS tells us the following <em>If a connection is established with an SSL server then any data received from the server is displayed and any key presses will be sent to the server. When used interactively (which means neither -quiet nor -ign_eof have been given), the session will be renegotiated if the line begins with an R, and if the line begins with a Q or if end of file is reached, the connection will be closed down.</em> Interesting, its worth exploring here, but finally you will conclude that the following is enough : <code>cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -ign_eof</code></p>
+<h2 id="bandit16-clufn7wtigryunymyou4rcffsxqluehd">BANDIT16 | cluFn7wTiGryunymYOu4RcffSxQluehd</h2>
+<p>The Problem : The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
+<p>The wargame has reached an interesting curve and we are to get ourselves familiar with <a href="https://www.wikiwand.com/en/Port_scanner">port scanning</a>.</p>
+<p>using the famous <code>nmap</code> command we wet our hands into port sniffing. Smells like hacking already, eh ? I recommend you glance over the port scanning basics <a href="https://nmap.org/book/man-port-scanning-basics.html">here</a></p>
+<p><code>nmap -sV -p 31000-32000 localhost</code> gets us a list of 5 ports in the required range with three that list <code>echo</code> as the service. We ignore these and pay attention to the other two ports which list <code>msdtc   Microsoft Distributed Transaction Coordinator (error)</code> as the running service.</p>
+<p><code>echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790</code> Now using the openssl s_client command on connecting to 31518 and pushing the current password, we are given a ssh private ke to login to the next level. lets save this in tmp/key/sshkey.private</p>
+<p>Now use this key to login to level 17. Sounds familiar ? Because its same as Level 13 ! The following command ushers you into the realm of Level 17 : <code>ssh -i sshkey.private bandit17@localhost</code></p>
+<p>Note : Probably this command will ignore the key with error <code>WARNING: UNPROTECTED PRIVATE KEY FILE!</code> The file must be only readable by you ! <code>chmod 400 sshkey.private</code> should take care of that.</p>
+<h2 id="bandit17-xlyvmn9we5zq5vhacb0szevqbrp7nbtn">BANDIT17 | xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</h2>
+<p>The Problem : There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new</p>
+<p><code>diff</code> is listed under <em>Commands you may need to solve this level</em> and seems obvious to use here. <code>diff passwords.old passwords.new</code>results in <code>42c42 &lt; eG69HnVwO1p7cOdfhadHkPv8Vn0ChedC --- &gt; kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</code></p>
+<p>so logging in into bandit18 using <code>kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</code> gets you in but immediate thrown out with a <code>byebye!</code> Thats expected and related to the next level.</p>
+<p>Note : to know the actual password of current level see <code>/etc/bandit_pass/bandit17</code></p>
+<h2 id="bandit18-kfbf3eyk5bpbrzwjqutbbfe887svc5yd">BANDIT18 | kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</h2>
+<p>The Problem : The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.</p>
+<p>Password is present as plaintext in readme, thats convinient. The problem is the problematic bashrc. If there was only a way from ssh to not trigger the bashrc script. A study of ssh gets us to -t : <em>Force pseudo-tty allocation. This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services. Multiple -t options force tty allocation, even if ssh has no local tty.</em> Use this opportunity to learn about bash.</p>
+<p><code>ssh -t bandit18@localhost /bin/sh</code> gets you in safely, minus the command prompt prefix.</p>
+<h2 id="bandit19-iuekss7ubh8g3dcwvzrtd8ravowq3m5x">BANDIT19 | IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x</h2>
+<p>The Problem : To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.</p>
+<p>setuid : short for “set user ID upon execution”, read more about it <a href="https://en.wikipedia.org/wiki/Setuid">here</a>.</p>
+<p>on executing the file ./bandit20-do in home folder you get : &gt; Run a command as another user. &gt; Example: ./bandit20-do id</p>
+<p>So thats exactly what we do, piggyback on this file to read password as another user (bandit20) <code>./bandit20-do cat /etc/bandit_pass/bandit20</code> gets us <code>GbKksEFF4yrVs6il55v6gwY5aVje5f0j</code></p>
+<h2 id="bandit20-gbkkseff4yrvs6il55v6gwy5avje5f0j">BANDIT20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j</h2>
+<p>The Problem : There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+<p>NOTE: Changes to the infrastructure made this level more difficult. You will need to figure out a way to launch multiple commands in the same Docker instance.</p>
+<p>NOTE 2: Try connecting to your own network daemon to see if it works as you think</p>
+<p>We are now well aware og setuid binaries, in this the binary queries a port for current level’s password and spits out next level’s password if the password provided was correct. We first neet to setup a service at a port that repeats the levels password, for this we use <code>nc -l 12345 &lt; /etc/bandit_pass/bandit20</code>. But wait, how do we free up the prompt for another ssh session to run the setuid binary ? For that we postfix the commandline by <code>&amp;</code>. The command prompt appears immediately to accept the next command <code>./suconnect 12345</code> which spews out the next level’s password <code>gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</code></p>
+<p>I would recommend you go back at this point and revise all concepts you have learned so far in levels 1 to 20. Though a game, the point is to actually retain all the information once the game is over. Practice. Practice. Practice.</p>
+<p>See you in next post where we wrap up the BANDIT series of OverTheWire wargames !</p>
+
+        </div>
+
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>

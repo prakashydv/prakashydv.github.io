@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>HORK8AJIR</title>
+<script type="text/javascript" src="js/Phaser.min.js"></script>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body>
+<div id="wrap">
+  <div id="top">
+    <h2> <a href="index.html">HORK8AJIR HOMEWORLD</a></h2>
+    <div id="menu">
+      <ul>
+        <li><a href="index.html" class="current">home</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="resume.html">portofolio</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+
+    <!--div id="left"-->
+      <h2>Jumpstart HTML 5 Game development with <a href="https://phaser.io/">phaser</a></h2>
+      <p>Programming games can be challenging, and often accompanies a steep setup curve. Leaving aside high profile games mostly done in C/C++, which require a sound knowledge of the  OGL/DX rendering pipeline, most beginners and wanna-be indie game developers want something easier to get started. I experimented with Love2D and pygame libraries which are based on Lua and python, respectively.</p>
+
+    <p>Pygame is well developed and one has the avantage of leveraging other python modules for developing more complex games; for example, using the OpenCV python module, you can easily use camera feed for interesting game controls, the possibilities are limitless (well, almost, if high end MSAA titles are not your immediate concerns). Love2D is simpler and gets things done quicker, might not have much following, but is an excellent stepping stone for programming for kids. However, in my opinion, HTML5 is the quickest, easiest way to jump into game dev. Written in javascript, it just needs a browser to run, no messy setups and installations, and above all, it means it would run on your smartphone browser as well, how about that !?</p>
+
+    <p> There is one catch, well, actually its a 'security' feature : it can only be run 'online'. Before you run to fetch your pitchforks, I remind you its all for the best, no need to install apache or any fancy server, a simple HTTP Server can be hosted using the python module : In your cmd prompt just navigate to the folder with the index.html file and use "python -m SimpleHTTPServer", and you can access your webpage/game at the specified port on \\localhost, its really that simple.</p>
+
+    <p>As an example, below is a really basic HTML5 game I made with phaser. Yes, so I faked flappy Bird, it just goes onto say that with minimal effort and a good gameplay even simple games can be addictive. phaser is really rich in features like webgl an Canvas support, preloaders, a fairly sophisticated physics engine, sprites support, device scaling, blah blah you get the idea, coupled with a example <a href="https://phaser.io/examples">library</a> to demonstrate all these features, its a complete beginners package.</p>
+
+    <img src="img/flappy.png">
+      
+       <!--script type="text/javascript" src="js/flappyBird.js" ></script-->
+
+      <!--<ul>+
+        <li>Survived not only five centuries.</li>
+        <li>Leap into electronic typesetting.</li>
+        <li>Remaining essentially unchanged.</li>
+        <li>Popularised in the 1960s.</li>
+        <li>Release of Letraset sheets.</li>
+      </ul>-->
+
+      <div id="link">
+      <h2><a href="flappy.html"> Play Phaser clone of Flappy Bird</a></h2>
+      </div>
+      <h2>Beyond Games : Simulating a real orbit (around <a href="https://en.wikipedia.org/wiki/Barycenter">barycenter)</a></h2>
+      
+      <p>From wikipedia : "<i>The barycenter (or barycentre; from the Ancient Greek βαρύς heavy + κέντρον centre) is the center of mass of two or more bodies that are orbiting each other, or the point around which they both orbit.</i>" </p>
+      <p>I spent countless hours justifying why I ever spent time on this, and came up with none. All I can say is i mas mildly curious and wanted to know what the orbit traces looked like. The results are satisfying ! I like to convince myself that some physics teacher might find it usefull when explaining Barycenters. This is just an example, any Newtonian Physics elodrama can be demonstrated using Phaser. Please tell me I didn't waste my time ... </p>
+
+      <img src="img/orbit.png">
+      <div id="link">
+      <h2><a href="orbit.html"> Check out Bary center simulator in Phaser</a></h2>
+      </div>
+
+      <h2><a href="https://www.wikiwand.com/en/Low_poly">Low-Poly Art</a> in Matlab</h2>
+      
+      <p>From wikipedia : "<i>Low poly is a polygon mesh in 3D computer graphics that has a relatively small number of polygons</i>"</p>
+      <p>Have yoiu ever fancied creating art but do not have the patience neither the money to indulge in expensive photoeditor suites like photoshop? Student's and researchers have an unhealthy exposure to mathematical monsters like Matlab and its only natural to molest it into doing things that catch your fancy. Low Poly art seems to have caught my eye while i was working on my undergrad thesis for which i was programming CNNs in Matlab (oh the horror ! pardon my heresy). The matlab script is very primitive, the source code could fit on a napkin ! Its easy to use too, We begin with manual tesselation of the entire image and each triangle takes the arthemetic mean of the hue contained in the triangulation. Simple ! We select two points to begin with and every next point will form a triangle with the last two points. A moderately complex image can be tesselated manually within minutes. Contrast this against the effort and time taken in professional softwares like Adobe illustrator (<a href="http://www.digitalartsonline.co.uk/tutorials/adobe-illustrator/create-low-poly-portrait-photoshop-illustrator/">here</a> is a tutorial that lists 'time to complete' as Four hours !!!)</p>
+      <img src="img/poly.jpg">
+      <div id="link">
+      <h2><a href="https://github.com/prakashydv/low_poly"> Check out the Matlab source code</a></h2>
+      </div>
+
+      <h2><a href="https://www.wikiwand.com/en/Low_poly">Sub Title</a> translator</h2>
+      
+      <p>Subtitles are a convinient method to understand foreign language content where language audio translations may not be available</p>
+      <p>This script uses Frengly free translation REST API to translate line by line all the content of the .srt subtitle file. Since this code used free translation API
+  subsequent translation rquests have an interval of three seconds therefore translation time is 3*number_of_lines_translated (Frengly supports about <a href="http://www.frengly.com/api">38 languages !</a>)</p>
+      <p>script argument  looks like : "<i>filename.srt:source_language[:destination_language]</i></p>
+      <p>example : Superman.srt:en:fr</p>
+  <p>above input translates Superman.srt from english to french the new file created will be fr_Superman.srt</p>
+      <div id="link">
+      <h2><a href="https://github.com/prakashydv/SRTtranslate"> Check out the SRT Translate source code</a></h2>
+      </div>
+    <!--/div-->
+    <!--div id="right">
+      <div class="box">
+            <button onclick="resetgame()">Reset Game</button>
+          <div id="flappy"></div>
+      </div>
+    </div>
+    <div id="clear"></div>
+  </div-->
+  <!--div id="footer">
+    <p>Theme Copyright 2006 Truly Simple. Design by <a href="http://www.colorlightstudio.com">Igor Penjivrag</a></p>
+  </div>
+</div>
+<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div-->
+</body>
+</html>
