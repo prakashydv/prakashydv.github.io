@@ -1,5 +1,5 @@
-_cache
-_site
-dist
-.stack-work/
+hakyll-dev/_cache
+hakyll-dev/_site
+hakyll-dev/dist
+hakyll-dev/.stack-work/
 .vscode
