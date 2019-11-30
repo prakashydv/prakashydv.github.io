@@ -1,0 +1,37 @@
+body
+{
+    font-family :Helvetica;
+}
+
+.header
+{
+    height : 4em;
+    display:flex;
+    flex-flow: row wrap;
+    align-content: center;
+    background-color:#353434;
+    align-items: flex-start;
+    text-align: center;
+}
+
+#logo
+{
+    flex:30%;
+    color:Tomato;
+    border-radius: 2%;
+    border-block-color: white;
+
+    font-weight : 700;
+    font-size   : 3em;
+}
+
+#title
+{
+    flex:70%;
+    color:white;
+    background-color:#353434;
+
+    font-weight : 300;
+    font-size   : 1em;
+}
+
