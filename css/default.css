@@ -47,6 +47,7 @@ div#header #navigation a
 
 div#footer
 {
+  display: none;
   border-top:solid 2px black;c
   olor:#555;
   font-size:12px;

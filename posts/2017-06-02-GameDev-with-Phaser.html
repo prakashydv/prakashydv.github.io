@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My Hakyll Blog - 2017-06-02-GameDev-with-Phaser</title>
+        <title>PRKSHYDV GameDev with Phaser</title>
         <link rel="stylesheet" href="../css/default.css" />
     </head>
     <body>
         <div id="header">
             <div id="logo">
-                <a href="../">My Hakyll Blog</a>
+                <a href="../">PRKSHYDV</a>
             </div>
             <div id="navigation">
                 <a href="../index.html">Home</a>
@@ -21,7 +21,7 @@
         </div>
 
         <div id="content">
-            <h1>2017-06-02-GameDev-with-Phaser</h1>
+            <h2>Kickstart game design with Phaser</h2>
             <div class="info">
     Posted on June  2, 2017
     
@@ -30,10 +30,15 @@
 <h1 id="flappy-bird-in-phaser">Flappy Bird in Phaser</h1>
 <div class="figure">
 <img src="../images/flappy.png" alt="Flappy What exactly?" />
-<p class="caption">Flappy What exactly?</p>
 </div>
 <p>Phaser is an open source game development framework for simple HTML5 2D desktop and mobile browser games, so why not ?!</p>
-<p>Dependencies : - html5 capable browser - run simple http server locally during development (python will do, as always) - glitter</p>
+<p>Dependencies
+    <ul>
+        <li>html5 capable browser</li>
+        <li>run simple http server locally during development (python will do, as always)</li>
+        <li>glitter !</li>
+    </ul>
+</p>
 <h3 id="jumpstarting-phaser">Jumpstarting phaser</h3>
 <p>create the phaser object (duh!)</p>
 <div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">var game <span class="op">=</span> new Phaser.Game(<span class="dv">500</span>, <span class="dv">500</span>, Phaser.AUTO, <span class="st">'flappy'</span>, { preload: preload, create: create, update: update })<span class="op">;</span></code></pre></div>

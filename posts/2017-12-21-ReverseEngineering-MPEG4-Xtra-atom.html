@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>My Hakyll Blog - 2017-12-21-ReverseEngineering-MPEG4-Xtra-atom</title>
+        <title>PRKSHYDV Xtra</title>
         <link rel="stylesheet" href="../css/default.css" />
     </head>
     <body>
         <div id="header">
             <div id="logo">
-                <a href="../">My Hakyll Blog</a>
+                <a href="../">PRKSHYDV</a>
             </div>
             <div id="navigation">
                 <a href="../index.html">Home</a>
@@ -21,13 +21,12 @@
         </div>
 
         <div id="content">
-            <h1>2017-12-21-ReverseEngineering-MPEG4-Xtra-atom</h1>
+            <h2 id="reverse-engineering-the-windows-mpeg4-custom-xtra-metadata-atom">Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom</h2>
             <div class="info">
     Posted on December 21, 2017
-    
 </div>
 
-<h1 id="reverse-engineering-the-windows-mpeg4-custom-xtra-metadata-atom">Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom</h1>
+
 <p>Windows supports MPEG4 format file playback including a rich metatdata field support. Windows Explorer can deal with standard iTunes metadata, but for some extended fields like Composer, Director, EncodedBy etc it uses a non standard atom ‘Xtra’. See <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ff384862%28v=vs.85%29.aspx">msdn</a> for a list of Metadata Properties for media files.</p>
 <p>Following is a sample atom tree as visualised by [AtomicParsely|] (version 0.9). It lists Xtra but has no visibility under it.</p>
 <pre><code>Atom ftyp @ 0 of size: 24, ends @ 24
