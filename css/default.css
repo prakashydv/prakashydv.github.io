@@ -14,8 +14,8 @@ body
 
 div#header
 {
-  border-bottom:2px solid black;
-  margin-bottom:30px;
+  border-bottom:1px solid white;
+  margin-bottom:20px;
   padding:12px 0px 12px 0px;
 }
 
@@ -26,6 +26,9 @@ div#logo a
   font-size:35px;
   font-weight:bold;
   text-decoration:none;
+  display: block;
+  vertical-align: middle;
+  font-size:25px;
 }
 
 div#header #navigation
@@ -38,7 +41,7 @@ div#header #navigation a
 {
   color:white;
   font-size:20px;
-  font-weight:bold;
+  font-weight:normal;
   margin-left:12px;
   glyph-orientation-vertical:auto;
   text-decoration:none;
@@ -49,7 +52,7 @@ div#footer
 {
   display: none;
   border-top:solid 2px black;c
-  olor:#555;
+  color:#555;
   font-size:12px;
   margin-top:30px;
   padding:12px 0px 12px 0px;
@@ -100,4 +103,37 @@ h2 code
 pre code
 {
   color :#33ff33;
+}
+
+img#dp
+{
+  float: left;
+  margin-top: 5px;
+  margin-right: 10px;
+  resize: both;
+}
+
+div#aboutcategory
+{
+  color:black;
+  font-size:22px;
+  font-weight: bold;
+  text-decoration:none;
+  text-transform:uppercase;
+  background-color:#af8f9e;
+}
+
+#period
+{
+  font-size: 18px;
+  font-weight: bold;
+  color:black;
+  background-color: #af8f9e;
+}
+
+#about
+{
+  color:#af8f9e;
+  text-decoration:none;
+  font-style: ;
 }
