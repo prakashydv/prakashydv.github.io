@@ -13,7 +13,6 @@
                 <a href="../">PRKSHYDV</a>
             </div>
             <div id="navigation">
-                <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
                 <a href="../contact.html">Contact</a>
                 <a href="../archive.html">Archive</a>
@@ -24,7 +23,7 @@
             <h2>Kickstart game design with Phaser</h2>
             <div class="info">
     Posted on June  2, 2017
-    
+
 </div>
 
 <h1 id="flappy-bird-in-phaser">Flappy Bird in Phaser</h1>
@@ -56,8 +55,8 @@
 <div class="sourceCode"><pre class="sourceCode py"><code class="sourceCode python">var gap_difficulty<span class="op">=</span><span class="dv">35</span><span class="op">;</span> <span class="op">//</span> maybe let the user configure it ?
 var bird<span class="op">;</span>
 var gover<span class="op">;</span>
-var alive<span class="op">=</span>true<span class="op">;</span>        <span class="op">//</span> feel good, right ?<span class="op">!</span> 
-var pipething<span class="op">;</span>         <span class="op">//</span> <span class="cf">if</span> it looks like a pipe, smells like a pipe ... it must be a pipe <span class="op">!</span> 
+var alive<span class="op">=</span>true<span class="op">;</span>        <span class="op">//</span> feel good, right ?<span class="op">!</span>
+var pipething<span class="op">;</span>         <span class="op">//</span> <span class="cf">if</span> it looks like a pipe, smells like a pipe ... it must be a pipe <span class="op">!</span>
 var cursors<span class="op">;</span>           <span class="op">//</span> cursers ?
 var pipe1,pipe2,pipe3,pipe4<span class="op">;</span> <span class="op">//</span> Bird folk havent discovered lists yet
 var score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>         <span class="op">//</span> :<span class="op">-</span>(
@@ -112,7 +111,7 @@ var gamepaused <span class="op">=</span> true<span class="op">;</span> <span cla
     <span class="op">//</span> yay spritesheets <span class="op">!</span>
     player.animations.add(<span class="st">'still'</span>, [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>], <span class="dv">10</span>, true)<span class="op">;</span>
     player.animations.play(<span class="st">'still'</span>)<span class="op">;</span>
-    
+
     <span class="op">//</span>  The score (must be SHINY <span class="op">!!</span>)
     scoreText <span class="op">=</span> game.add.text(<span class="dv">225</span>, <span class="dv">50</span>, <span class="st">'0'</span>, { font:<span class="st">'bold 48pt Arial'</span>, fontSize: <span class="st">'32px'</span>, stroke:<span class="st">'blue'</span>,fill: <span class="st">'#FFFFFF'</span>, fontWeight:<span class="st">'bold'</span> })<span class="op">;</span>
 

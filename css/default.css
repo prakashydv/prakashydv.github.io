@@ -113,6 +113,12 @@ img#dp
   resize: both;
 }
 
+#book-review
+{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 div#aboutcategory
 {
   color:black;
@@ -135,5 +141,4 @@ div#aboutcategory
 {
   color:#af8f9e;
   text-decoration:none;
-  font-style: ;
 }
