@@ -119,6 +119,11 @@ img#dp
   text-justify: inter-word;
 }
 
+#article-content
+{
+  text-align: justify;
+}
+
 div#aboutcategory
 {
   color:black;

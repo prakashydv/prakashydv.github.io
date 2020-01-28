@@ -17,7 +17,7 @@ SITE | PROFILE
 [Pintrest](https://in.pinterest.com/prakash226001/)   | `https://in.pinterest.com/prakash226001/`
 [Duolingo](https://www.duolingo.com/hork8ajir)   | `https://www.duolingo.com/hork8ajir`
 [Memrise](https://www.memrise.com/user/raduga/)    | `https://www.memrise.com/user/raduga/`
-[CodeForces](https://codeforces.com/profile/prkshydv) | `https://codeforces.com/profile/prkshydv`
+[CodeForces](https://codeforces.com/profile/PYDV) | `https://codeforces.com/profile/PYDV`
 [Kaggle](https://www.kaggle.com/hork8ajir)     | `https://www.kaggle.com/hork8ajir`
 [GitHub](https://github.com/prakashydv)     | `https://github.com/prakashydv`
 [TopCoder](https://www.topcoder.com/members/prakashydv/)   | `https://www.topcoder.com/members/prakashydv/`
