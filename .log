@@ -1,0 +1,729 @@
+commit 2c6c4742f77178a11e43693e880f0a81c107e532
+Author: pyadav <pyadav@nvidia.com>
+Date:   Fri Jul 10 15:06:29 2020 +0530
+
+    [post] 'All the time' edited
+    
+    - line about the series Dark on netflix
+
+commit df16adf6c656c6a8eb14f84726332ad67e6c6828
+Author: pyadav <pyadav@nvidia.com>
+Date:   Tue Feb 11 20:28:09 2020 +0530
+
+    [article] Morbid Fascination
+    
+    - seeded. Will work upon this.
+
+commit 2888d439962d6138b9f72d14e669966f32912904
+Author: pyadav <pyadav@nvidia.com>
+Date:   Tue Jan 28 16:10:44 2020 +0530
+
+    [blog] "All The Time" Article upload
+    
+    - PRKSHYDV -> PYDV
+    - Article "All the time"
+
+commit 174edb6c9880a146b46dda32670bbcee6ca10c4a
+Author: pyadav <pyadav@nvidia.com>
+Date:   Wed Jan 8 15:15:46 2020 +0530
+
+    [blog]
+    - removed HOME button from header
+    - added book reviews (initial few reviews, need to add more)
+
+commit b16141b57f117d38d69498488d3a8d49a915fe48
+Author: pyadav <pyadav@nvidia.com>
+Date:   Tue Dec 31 18:54:43 2019 +0530
+
+    [blog] update contact
+
+commit 18db2579d2a74f5e56dee6df08b0707a97ab4e98
+Author: pyadav <pyadav@nvidia.com>
+Date:   Tue Dec 31 11:57:02 2019 +0530
+
+    [blog] Begin design of ABOUT page
+
+commit 774429cca5a855ae9ac128f2511b632dea7ef97a
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Sun Dec 29 12:58:32 2019 +0530
+
+    [blog] unify header in posts
+
+commit 318a76868b0dc3ca2519a32d0227283f9518c88b
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Fri Dec 27 22:13:42 2019 +0530
+
+    [blog][css] solidify place holder page design
+
+commit e579e43eba40559407ff167d13b8c356d45bd120
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Sat Dec 7 14:12:23 2019 +0530
+
+    [blog] force merge css
+
+commit 062ed1a4b71c369d43fe1bd63b45aa5b7d77c1d2
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Sat Nov 30 19:59:10 2019 +0530
+
+    [prkshydv] flex css for prkshydv
+
+commit 548599f1d940e031ca3f8c87396759c24c1a9087
+Author: pyadav <pyadav@nvidia.com>
+Date:   Fri Nov 29 19:55:38 2019 +0530
+
+    [blog] make css readable
+
+commit b22dfa27697a894f13a4074e5b419721eecf4317
+Author: pyadav <pyadav@nvidia.com>
+Date:   Fri Nov 29 19:23:23 2019 +0530
+
+    [blog] css for non-display text
+
+commit 5ab7fdbec873097e8bedb5ac757665d51c1755b4
+Author: pyadav <pyadav@nvidia.com>
+Date:   Fri Nov 29 18:53:40 2019 +0530
+
+    [blog] fix main page titles
+
+commit f2ed4c8fb6535e8064d43cc90cd9eadc71eae527
+Author: pyadav <pyadav@nvidia.com>
+Date:   Fri Nov 29 18:51:50 2019 +0530
+
+    [blog] presentation
+    
+    - PRKSHYDV in relevant titles
+    - photo in About
+
+commit 23868eb0a3455aa322f115885937f31c2b81a884
+Author: pyadav <pyadav@nvidia.com>
+Date:   Thu Nov 28 10:27:30 2019 +0530
+
+    [blog] make more presentable
+    
+     - update archive page
+     - hyperlink all contact links
+
+commit d30cf6e115b93307576357d9666e9f21c7e45eb7
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Wed Nov 27 21:57:04 2019 +0530
+
+    [blog] make frontpage presentable
+    
+    - remove dates from post descriptions
+    - add text description to each post
+    - prkshydv instead of praky
+    - add image
+    - remove boilerplate text and add placeholder in about page
+
+commit bb4d8ec4251d214f5f74e016586c56e58dfc3918
+Author: pyadav <pyadav@nvidia.com>
+Date:   Mon Sep 23 16:54:30 2019 +0530
+
+    [logo] Added embedded css for fixed logo text
+    
+    - todo : make responsive
+    - todo : keep margins for all layouts (logo, header, sidebar, sidemargin) uniform
+
+commit 539f8c7313cfbbeb07c3a415f097e1ab998bfa25
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Fri Sep 20 20:30:22 2019 +0530
+
+    [logo] initial design
+    
+    - text:prkshydv
+    - color:orange
+    - bgcolor:grey
+    - todo:margins,css
+
+commit e922c4ab562052203f36127ad0fe8df22a6129ae
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Fri Aug 9 12:00:01 2019 +0530
+
+    removed unpopulated posts from main page
+
+commit 14646bdfa97d5bd3bd7a164f9d7d67ec62b0d476
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Fri Jul 26 20:53:22 2019 +0530
+
+    gitignore updated. resume deleted.
+
+commit d858a3c51d62c1ece6334de8dc93341b5f33f181
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jul 23 09:49:49 2019 +0530
+
+    added vscode workspace
+
+commit afdfba261fd3bfba5a8034a398a3feb488b1ae5b
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue May 7 18:22:30 2019 +0530
+
+    updated cv typos / default template
+
+commit 024a81cced4d7090503d443eef9bd4b9d4a2021f
+Author: prakash yadav <prakashydv@protonmail.com>
+Date:   Sun Mar 24 14:42:22 2019 +0530
+
+    Promoted hakyll blog to primary
+
+commit 4c01655745a177fc4cdd50dd13364adeacd2c189
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Thu Mar 14 10:32:09 2019 +0530
+
+    updated README.md
+
+commit 621ec62bb0de905e36edc5a847fbd874d1184221
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Nov 19 14:31:21 2018 +0530
+
+    gitignore updated
+
+commit a08d35d1aed9488ba92d56763e25c33a16074977
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Nov 19 14:28:48 2018 +0530
+
+    Incapsula deobfuscation started
+
+commit f79ebd155a058853ba957cb346a5f779b4e5cd1f
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Sun Sep 9 19:47:25 2018 +0530
+
+    site mods
+
+commit daa43ab6e0388cd2b91ec231a3e01cb6c47203b7
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Fri Sep 7 11:46:57 2018 +0530
+
+    site contact.html generated and added
+
+commit 3d2a1329f081da9cf97637ce8c754491d2658e8c
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Sep 6 17:26:51 2018 +0530
+
+    added goodreads-csv2md script initial commit
+
+commit 86e652ee7a3220bca46425f508d6b1d6dbe4463f
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Sep 6 12:50:14 2018 +0530
+
+    contact formatting
+
+commit 2a67ec9fececb1f3c36b8e0516b52ddf4e8eb834
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Sep 6 12:33:35 2018 +0530
+
+    added github link
+
+commit dbcb5234d60cb14f0553a3a681bab5006d3d3706
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Sep 6 12:31:48 2018 +0530
+
+    updated contacts with PGP and profile links
+
+commit 69dc817c3720078ce9d53cdbeb60eb6da0602d64
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Wed Sep 5 20:31:45 2018 +0530
+
+    added coin addresses
+
+commit f5a3442ab21c5641ff72b363ee916a8a3b47e5a0
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Aug 30 15:37:42 2018 +0530
+
+    velas,bhandardara,madhe articles added
+
+commit 605ce84a1d89d12b373e1b445ff9559817056fef
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Aug 30 14:31:24 2018 +0530
+
+    get dev repo to sync
+
+commit 797584e519b5542ab9d27af6d9397d78c2814af3
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Thu Jul 12 13:59:55 2018 +0530
+
+    reveng post updated
+
+commit 91a79b5fcd0782667074a8149a7bea35d4744151
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon May 21 12:01:10 2018 +0530
+
+    Harihar fort trek - outline written
+
+commit 89d69e81c12083c7f55ffecd5f310d966799b26b
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu May 17 10:32:03 2018 +0530
+
+    added 10 more book reviews
+
+commit c6405fecd261d35fbbfd1fe03ee84e15eb1884fa
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed May 16 10:20:26 2018 +0530
+
+    removed incorrectly named file
+
+commit b896738f7bb2d72e761c1ee7a282680410efbca2
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed May 16 10:18:29 2018 +0530
+
+    Updated Book Reviews
+
+commit 4c5ede3a51b4fcdd31c5e9df1810bbd39c1e916e
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue May 15 21:03:23 2018 +0530
+
+    Tikona and Garbett plateau post placeholders
+
+commit 4c4a29622c86767ef9ce0a6fc24d367fbc4b85c4
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Apr 2 09:57:32 2018 +0530
+
+    Velas article placeholder
+
+commit f33721e8bc7f5e3cfd963e653d62e57c6490cc8d
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Mar 27 09:38:56 2018 +0530
+
+    Ratangad placeholder post
+
+commit 73050630ab1368f36f74e500521f0923d13ac47c
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu Mar 15 09:41:26 2018 +0530
+
+    Header for AMK article
+
+commit c5ad05ceb504a1c7f38c0a391fd2b8ac6eeb309f
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Mon Feb 19 16:10:15 2018 +0530
+
+    bhigvan post placeholder
+
+commit 6a5c5d5cc8a10bed1e1334860488863970495e39
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Jan 16 17:44:32 2018 +0530
+
+    madan blog update
+
+commit 7e5a1e263cf83d626d73328155b0a4d52b2c09f0
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Jan 16 09:53:29 2018 +0530
+
+    Alang post updated
+
+commit 59a84988d267d72f58ebdfa11eae966f6206831f
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Fri Jan 12 15:10:40 2018 +0530
+
+    gokarna and dhak bahiri post holders
+
+commit 4ad8048286caa0d933ca772207f302350586f298
+Merge: 280001e 0c76ebf
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Dec 26 15:42:18 2017 +0530
+
+    Merge branch 'master' of https://github.com/prakashydv/prakashydv.github.io
+
+commit 280001e4b4b63994a33dc2c415e32fe3770d65eb
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Dec 26 15:41:58 2017 +0530
+
+    completed Xtra reveng post
+
+commit 0c76ebfa15cb7e2b7b1f3627b2c33072fd6acd25
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Fri Dec 22 20:33:08 2017 +0530
+
+    added gitignore
+
+commit ecb0e7759572b1de929a2c9af28c8ed9dfc90d3e
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Fri Dec 22 20:21:13 2017 +0530
+
+    site pages for new post placeholders
+
+commit 85f385eea7d2956a8f6af79a1dafa65a41956c04
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Dec 22 16:25:23 2017 +0530
+
+    edited hakyll article
+
+commit 15d66b34c1134101ae17fd5fc46e1c54c702db32
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Dec 22 15:03:21 2017 +0530
+
+    corrected home link
+
+commit 2ae8d64c15a830c27b60cf4aa6069e1348761493
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Dec 22 14:53:50 2017 +0530
+
+    added placeholder posts to write later
+
+commit c6df257dc6bc5d358e51e51263d5768279ab9146
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu Dec 21 10:19:42 2017 +0530
+
+    header for reverse engineering Xtra atom post
+
+commit 4763dd2899de5abd822d0ac23981627dbe89972f
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Aug 28 19:53:12 2017 +0530
+
+    Amboli post
+
+commit 27443247becc896054bbd479e6d29916c93c81e7
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Aug 23 16:18:33 2017 +0530
+
+    Russia article : headers
+
+commit 319e8923067cd8c77ba82511d7ee1d3eaa9d5ace
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Aug 22 14:26:21 2017 +0530
+
+    trekking post init commit : Mt.Elbrus Kabardino-Balkaria Russia
+
+commit f1c8a1657f697429584af9f88c23834b60bf4ebf
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Thu Jul 27 22:43:45 2017 +0530
+
+    cronjob script @ Bandit2
+
+commit 25b88d0eec0d85703480bb3628deea3f213de37e
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Mon Jul 24 23:37:51 2017 +0530
+
+    placeholder from cron job task Bandit 22
+
+commit 45059e2ba902d15c65e5658c4f205ffe971bb176
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jul 15 13:33:06 2017 +0530
+
+    bandit21@OTW crontab post
+
+commit 737a5c96ac6751abd595ebf1ed94506b9e8f27d7
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jul 15 13:32:03 2017 +0530
+
+    2017 trekking post placeholders
+
+commit 13d827c5f6dd54530bcd0a4b71ce9b6d0b07a6eb
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jul 11 22:16:47 2017 +0530
+
+    June trekking posts placeholders
+
+commit c8168dd7edb6a53b8673afff33493c5e9a1f5823
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Thu Jul 6 21:48:25 2017 +0530
+
+    bandit20@OTW + new post for bandit cleanup
+
+commit 544d3f0ecd5b0c3423861690d6e16e66cccee3f7
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jul 5 10:53:28 2017 +0530
+
+    OTW : bandit level 19 explanation
+
+commit c49583e395b540eb50d87c6139219b38e076d466
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Jul 3 21:22:32 2017 +0530
+
+    Bandit 20 OTW Problem statement
+
+commit 640a935467d6337ede0268580eaa200a0b388101
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sun Jul 2 22:34:40 2017 +0530
+
+    bandit@OTW:19+20|setuid|ssh -t
+
+commit 212b553980271d3f98ea9eafb260084f7d6bac90
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 28 11:15:38 2017 +0530
+
+    bandit@OTW post : nmap diff
+
+commit 577b5b3cf9a5ba8983f73be87d4728b1d709f463
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Fri Jun 23 18:30:24 2017 +0530
+
+    bandit level 14+15: openssl s_client -ign_eof
+
+commit 1c103eeae4d08f06ca5ee5107adbcfd81db6079f
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Jun 20 17:46:06 2017 +0530
+
+    added two book-reviews
+
+commit 95c8c1d87bd527b9f78928ab179d7670d8e42121
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Mon Jun 19 22:51:09 2017 +0530
+
+    css+cv
+
+commit 2a42f7cf208ba3ff465080467aab11479adad618
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Mon Jun 19 22:08:19 2017 +0530
+
+    template placeholder changes
+
+commit 5dddaf13157d32c01cddb6fc6e73a0aee40225da
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Jun 19 19:25:34 2017 +0530
+
+    bandit14 using ssh login with private key
+
+commit bd422006606ff0033584eacd57cc3cfb6ade20ee
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Jun 19 15:39:02 2017 +0530
+
+    bandit12 : xxd gzip bzip tar
+
+commit ec6d47930d5c0d297824ae747dd197afea7c2a4b
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jun 17 22:03:41 2017 +0530
+
+    Started Bandit13, compression bzip2 gzip
+
+commit 7c351bbb59573f11b292f2452d86d1723cf279b4
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Jun 16 21:21:50 2017 +0530
+
+    Bandit8-11 commands : tr strings grep sort uniq
+
+commit a67b22bf19db8417dbc87e92ecb1d322ac2c8084
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 14 16:53:50 2017 +0530
+
+    fixed build bug
+
+commit 002fb89dc93fc224a247ad086b2a42ecb83150fe
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Jun 13 16:40:29 2017 +0530
+
+    level bandit 8 cleared
+
+commit 6a0de0c14beab6b88bd0e177697a1e7b526e69ca
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jun 10 12:51:24 2017 +0530
+
+    Over the wire post : bandit level6
+
+commit 47cc0de5e717c0d2fc4101c7f7037f8fe598c3ba
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Fri Jun 9 23:01:38 2017 +0530
+
+    fixed markdown build issue, metadata comments are apparently not supported
+
+commit fe3d01965926c5eaad6bcc43cd0961717782d45e
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Jun 9 10:41:27 2017 +0530
+
+    Bandit5 with find command practise
+
+commit dade58be7af082740893aa13be742be62867d0a6
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu Jun 8 18:42:38 2017 +0530
+
+    removed placeholder posts, added UX Script post initial
+
+commit 2ac35afcfb1bcd3c492144faf833bf6a9791e83a
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu Jun 8 17:23:00 2017 +0530
+
+    updated bandit md upto bandit4
+
+commit 97036faff059ba07445c98e65f490c8dd2a6caab
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 7 21:08:06 2017 +0530
+
+    remove .markdown~ temp files
+
+commit b37028f266b4966ae17843a3ec70e44a807a7b66
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 7 21:05:49 2017 +0530
+
+    Bandit0 @ Over the wire
+
+commit 39cf4745b5b8a7c8d8447cce9171b87a0ebb9a56
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 7 20:04:38 2017 +0530
+
+    Over the wire : bandit0
+
+commit a033941f6ba1c2dd7ca3640c868d5827fd55b1f8
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 7 18:59:35 2017 +0530
+
+    clean up plus frengly post added
+
+commit cd47aaa579a9b98ef0d8067c93d491bda9c7af50
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri Jun 2 19:21:12 2017 +0530
+
+    moved phaser post to main hakyll folder
+
+commit 4c7f329dc06dbe4afc930f8de5d672bd4a4d2e64
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue May 30 21:47:10 2017 +0530
+
+    rest of the hakyll support files
+
+commit bc774743981d2a4739c7d7d83725b1bcf6d1ff1a
+Author: Prakash Yadav <pyadav@nvidia.com>
+Date:   Mon May 29 21:14:58 2017 +0530
+
+    hakyll dev ... ongoing ...
+
+commit e411b2d97a8027b67ea845d6b2964798cca3eabf
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat May 27 23:28:38 2017 +0530
+
+    hakyl init commit to hakyl-dev
+
+commit 9fe3c4e187ab22205fd9b72c1302671d44d65173
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat May 27 22:55:09 2017 +0530
+
+    flappy.md post updated
+
+commit 91ffa83d2aba7e001bd26c5f3b142cd6d1ba0d3d
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Fri May 26 21:12:28 2017 +0530
+
+    flappy post md updated in preperation to hakyl
+
+commit 87cc5096bb2c88ae65b81adf3aef2ecb975e8b23
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Thu May 25 22:28:56 2017 +0530
+
+    md post for phaser article (initial)
+
+commit f4f3c8ab697d05d716de976b495de6e5f930628b
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Thu Mar 2 19:20:18 2017 +0530
+
+    added SRT translate using Frengley REST API Web service
+
+commit 5d67baee9d11b9b5bf64a541709df5356ee58ff4
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Feb 20 19:17:55 2017 +0530
+
+    added text content to orgit and polyArt
+
+commit 196075dec855f35abd46d435360f0d8ae70340ca
+Merge: 6c956e8 4a09c7c
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Feb 20 18:22:04 2017 +0530
+
+    Merge branch 'master' of https://github.com/prakashydv/prakashydv.github.io
+
+commit 6c956e8d259afe29b4b8acf35746e3ab95575980
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Mon Feb 20 18:21:22 2017 +0530
+
+    removed old index, added orbit screenshot image
+
+commit 4a09c7c181aebc9f3ba53b723f70e7897a14cac5
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sun Feb 19 21:38:34 2017 +0530
+
+    added about, contact and portfolio pages. redesign clean up (partial)
+
+commit 0006d5fd3d9968f860f4a78e86dc6ad9436a6ebc
+Merge: 69c2d81 c8fb615
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Feb 14 22:40:23 2017 +0530
+
+    Merge branch 'master' of https://github.com/prakashydv/prakashydv.github.io
+
+commit 69c2d81813da3ee1d831b08b650401b8cf432148
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Tue Feb 14 22:39:31 2017 +0530
+
+    new template initial commit
+
+commit c8fb6155fcf625b890b9b654879d035c91e85fcb
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sun Feb 12 21:50:18 2017 +0530
+
+    testing syntax highlighting
+
+commit b3e3361f2112473cb3487e335a410b22a7cb03da
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Sat Feb 11 15:34:21 2017 +0530
+
+    added markdown for phaser article
+
+commit 599a949446438dbd3f6998a12f6063578b45e045
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Aug 20 15:32:17 2016 +0530
+
+    Update README.md
+
+commit 2b8101d5e4118232766f711c881a4763337f26f4
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Wed Jun 10 09:26:41 2015 +0530
+
+    removed extra files
+
+commit dccffc29631d4e2938fbb3ec1312ae5a5b1df3d2
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jun 9 22:53:28 2015 +0530
+
+    game fixes
+    
+    1. score handling on reset
+    2. player animation on reset
+    3. automatic reset on player lose
+
+commit eb0b5b10420d3dded79da5acee9407322046da05
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jun 9 22:35:28 2015 +0530
+
+    corrected all references of phasor to phaser
+    
+    I suck at spelling
+
+commit 4caabf2011ffdece62e250005ae7a4e34bca1f4f
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jun 9 22:29:16 2015 +0530
+
+    change phasor to Phasor
+    
+    apparently its case sensitive :-/
+
+commit 16a1b41d89bbfb960c0e16faa2a8b9a346312804
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Tue Jun 9 22:26:01 2015 +0530
+
+    added content, got 0rbit up and running
+    
+    0rbit - planet is movable now
+    flappy - to do : add splash screen , make it easier, onscreen reset
+    button
+
+commit 0cc4a93982928fdf3ca2ee06ace09182726f3475
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jun 6 21:52:56 2015 +0530
+
+    added readme
+
+commit 0678ddbc593438c2ae0e79601f022835629e6f4f
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jun 6 21:49:05 2015 +0530
+
+    Update index.html
+
+commit 26342cb9759e4e7def796cab0901ad58ff64baf2
+Author: Prakash Yadav <prakashydv@gmail.com>
+Date:   Sat Jun 6 21:41:29 2015 +0530
+
+    Added Phaser lib games
+    
+    Flappy Bird clone and Orbit (still developing)
+
+commit 15f9aeba4ed3aaa42ed6f2a237867495e903a38f
+Author: prakashydv <prakashydv@gmail.com>
+Date:   Wed Jun 3 13:02:02 2015 +0530
+
+    first commit
