@@ -1,0 +1,14 @@
+.home-collection {
+	display:flex;
+	border: 2px solid red;
+	width: 50vw;
+	height: 50vh;
+	flex-flow: row wrap;
+}
+
+.home-topic {
+	display:flex;
+	border: 2px solid red;
+	width: 40rem;
+	height: 20rem;
+}
