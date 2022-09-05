@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/_site/" rel="alternate" type="text/html" /><updated>2022-09-05T17:35:53+05:30</updated><id>http://localhost:4000/_site/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Experience with Jekyll</title><link href="http://localhost:4000/_site/technology/frontend/jekyll/2022/09/05/jekyll-setup.html" rel="alternate" type="text/html" title="Experience with Jekyll" /><published>2022-09-05T00:06:16+05:30</published><updated>2022-09-05T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/frontend/jekyll/2022/09/05/jekyll-setup</id><content type="html" xml:base="http://localhost:4000/_site/technology/frontend/jekyll/2022/09/05/jekyll-setup.html"><![CDATA[<p>Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used
+<code class="language-plaintext highlighter-rouge">Jekyll</code>. It’s perhaps the most popular static site generator with easy integration with <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">GitHub pages</a>.</p>
+
+<p>I am documenting my experience as I get my hands wet.
+To begin with info on customizing the layout and theme, I found it convinient to reference the a youtube channel <a href="https://www.youtube.com/watch?v=T1itpPvFWHI&amp;list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB">playlist</a> by Mike Dane. It was short and gave all the fundamentals i needed. Post watching the 19 short videos, I copied over the default <code class="language-plaintext highlighter-rouge">minima</code> theme over to the main repository so as to override all default schematics.</p>
+
+<p>This infact is a refactor. First attempt was in hakyll ! But i had bitten more than i could chew and this blog was in a limbo for a very long time.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><category term="jekyll" /><summary type="html"><![CDATA[Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used Jekyll. It’s perhaps the most popular static site generator with easy integration with GitHub pages.]]></summary></entry><entry><title type="html">Scrapping websites protected by Incapsula</title><link href="http://localhost:4000/_site/technology/web/2018/11/18/Incapsula-Scrapping.html" rel="alternate" type="text/html" title="Scrapping websites protected by Incapsula" /><published>2018-11-18T00:06:16+05:30</published><updated>2018-11-18T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/web/2018/11/18/Incapsula-Scrapping</id><content type="html" xml:base="http://localhost:4000/_site/technology/web/2018/11/18/Incapsula-Scrapping.html"><![CDATA[<h1 id="scrapping-websites-protected-by-incapsula">Scrapping websites protected by Incapsula</h1>
+
+<p>The robots.txt of the website gives a green light</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Crawl-delay: 10
+Disallow: /ajax/
+Disallow: /cmd/
+Disallow: /account/
+Disallow: /search/
+Disallow: /member/
+
+# Block  MegaIndex.ru
+User-agent: MegaIndex.ru/2.0
+Disallow: /
+
+</code></pre></div></div>
+<p>however on ordinary query using <a href="https://docs.python.org/2/library/urllib.html">urllib</a> or <a href="http://docs.python-requests.org/en/master/">requests</a> on python I get the following result</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;META NAME="robots" CONTENT="noindex,nofollow"&gt;
+        &lt;script src="/_Incapsula_Resource?SWJIYLWA=5074a744e2e3d891814e9a2dace20bd4,719d34d31c8e3a6e6fffd425f7e032f3"&gt;
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>on visiting url + <code class="language-plaintext highlighter-rouge">/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3</code> I see (truncated string b)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(function() { var z="";var b="766172205f3078643...31623b7d7d2829293b";eval((function(){for (var i=0;i&lt;b.length;i+=2){z+=String.fromCharCode(parseInt(b.substring(i,i+2),16));} return z;})());})();
+</code></pre></div></div>
+
+<p>Seemes like it taking pairs and decoding them as ASCII, even my python can do that :
+<code class="language-plaintext highlighter-rouge">codecs.decode(b,"hex")</code></p>
+
+<p>The result is yet another obfescated code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b"var _0xd493=['\\x49\\x54\\x48\\x43\\x6f\\x77\\x3d\\x3d','\\x58\\x73\\x4b\\x53\\x77\\x34\\x45\\x70\\x77\\x36\\x54\\x43\\x68\\x67\\x54\\x44\\x68\\x73\\x4f\\x79\\x77\\x36\\x58\\x44\\x69\\x41\\x63\\x39\\x5a\\x41\\x6f\\x6c\\x45\\x30\\x63\\x4b\\x77\\x34\\x4d\\x73\\x53\\x45\\x64\\x35\\x42\\x6e\\x37\\x44\\x67\\x63\\x4b\\x33\\x77\\x70\\x4c\\x43\\x6e\\x4d\\x4b\\x45','\\x62\\x63\\x4f\\x65\\x4f\\x63\\x4f\\x7a\\x77\\x37\\x49\\x3d','\\x77\\x34\\x7a\\x43\\x6a\\x67\\x59\\x3d','\\x48\\x63\\x4b\\x77\\x77\\x34\\x41\\x3d','\\x44\\x73\\x4b\\x75\\x77\\x35\\x6c\\x67\\x77\\x70\\x59\\x2b\\x64\\x63\\x4b\\x33\\x5a\\x45\\x6e\\x43\\x6b\\x48\\x4e\\x46\\x77\\x6f\\x7a\\x43\\x6c\\x38\\x4b\\x4e\\x45\\x54\\x6f\\x32\\x77\\x72\\x50\\x44\\x75\\x58\\x35\\x4f\\x4b\\x58\\x6a\\x44\\x6d\\x6b\\x4d\\x6b\\x4b\\x78\\x66\\x44\\x76\\x68\\x48\\x43\\x73\\x45\\x46\\x7a\\x77\\x71\\x62\\x43\\x6a\\x63\\x4b\\x66\\x77\\x6f\\x59\\x4e','\\x4a\\x63\\x4b\\x6e\\x77\\x36\\x77\\x3d','\\x77\\x37\\x49\\x52\\x77\\x34\\x4a\\x79','\\x57\\x47\\x31\\x38','\\x51\\x63\\x4f\\x78\\x43\\x73\\x4f\\x76\\x77\\x37\\x4c\\x44\\x68\\x41\\x4c\\x44\\x6b\\x77\\x3d\\x3d','\\x4c\\x73\\x4b\\x42\\x77\\x72\\x30\\x3d','\\x63\\x73\\x4f\\x4c\\x4f\\x38\\x4f\\x39\\x77\\x37\\x4c\\x44\\x67\\x51\\x3d\\x3d','\\x58\\x38\\x4b\\x68\\x77\\x34\\x67\\x3d','\\x55\\x73\\x4f\\x66\\x77\\x70\\x59\\x3d','\\x56\\x73\\x4f\\x42\\x47\\x51\\x3d\\x3d','\\x77\\x36\\x48\\x44\\x67\\x44\\x6c\\x50\\x77\\x35\\x54\\x43\\x74\\x51\\x3d\\x3d','\\x55\\x73\\x4f\\x41\\x4f\\x41\\x3d\\x3d','\\x53\\x78\\x55\\x48\\x77\\x36\\x34\\x31\\x47\\x56\\x38\\x2f\\x77\\x36\\x5a\\x66','\\x77\\x37\\x73\\x57\\x77\\x34\\x70\\x75\\x77\\x34\\x50\\x44\\x75\\x73\\x4f\\x43\\x52\\x4d\\x4f\\x6e\\x61\\x77\\x3d\\x3d','\\x57\\x78\\x45\\x71','\\x56\\x38\\x4b\\x55\\x77\\x70\\x48\\x44\\x72\\x48\\x72\\x43\\x6c\\x63\\x4b\\x4a\\x63\\x51\\x3d\\x3d','\\x77\\x34\\x58\\x44\\x6f\\x44\\x51\\x3d','\\x48\\x54\\x66\\x43\\x71\\x63\\x4f\\x37','\\x55\\x38\\x4b\\x55\\x77\\x72\\x49\\x3d','\\x45\\x6e\\x70\\x61\\x4b\\x63\\x4f\\x37','\\x44\\x67\\x4c\\x44\\x6a\\x43\\x34\\x34\\x56\\x51\\x3d\\x3d','\\x64\\x38\\x4f\\x38\\x77\\x6f\\x41\\x3d','\\x77\\x35\\x48\\x44\\x70\\x42\\x55\\x3d','\\x56\\x63\\x4f\\x65\\x77\\x6f\\x38\\x3d','\\x4f\\x38\\x4f\\x38\\x77\\x34\\x49\\x3d','\\x77\\x71\\x41\\x31\\x4d\\x63\\x4f\\x43\\x77\\x36\\x4c\\x43\\x73\\x67\\x3d\\x3d','\\x48\\x73\\x4b\\x58\\x77\\x36\\x33\\x43\\x70\\x32\\x7a\\x44\\x6c\\x41\\x3d\\x3d','\\x4c\\x52\\x2f\\x43\\x71\\x6c\\x63\\x41\\x77\\x34\\x34\\x4f\\x55\\x51\\x3d\\x3d','\\x66\\x33\\x73\\x56','\\x77\\x35\\x2f\\x44\\x75\\x52\\x51\\x3d','\\x77\\x34\\x37\\x44\\x6d\\x73\\x4b\\x54\\x55\\x78\\x55\\x78','\\x57\\x42\\x4c\\x44\\x71\\x4d\\x4b\\x68\\x77\\x72\\x51\\x44\\x47\\x43\\x4c\\x44\\x73\\x63\\x4f\\x78','\\x56\\x56\\x4a\\x38','\\x5a\\x73\\x4f\\x73\\x77\\x71\\x33\\x43\\x73\\x41\\x3d\\x3d','\\x42\\x68\\x39\\x73\\x77\\x35\\x64\\x4a\\x55\\x38\\x4f\\x56','\\x77\\x70\\x6b\\x77\\x5a\\x51\\x3d\\x3d','\\x54\\x63\\x4b\\x65\\x77\\x36\\x37\\x44\\x71\\x6b\\x55\\x47\\x77\\x37\\x34\\x3d','\\x57\\x32\\x66\\x43\\x71\\x77\\x3d\\x3d','\\x4c\\x79\\x35\\x77','\\x50\\x63\\x4f\\x35\\x77\\x36\\x4c\\x44\\x68\\x55\\x64\\x4a\\x4b\\x42\\x2f\\x43\\x74\\x38\\x4f\\x69','\\x56\\x38\\x4b\\x55\\x77\\x6f\\x58\\x44\\x6c\\x56\\x7a\\x43\\x72\\x38\\x4b\\x54\\x5a\\x4d\\x4f\\x43\\x77\\x34\\x68\\x44','\\x4b\\x38\\x4b\\x39\\x51\\x4d\\x4b\\x64\\x77\\x72\\x7a\\x44\\x6c\\x67\\x3d\\x3d','\\x46\\x43\\x31\\x49','\\x77\\x37\\x37\\x44\\x74\\x38\\x4f\\x61','\\x4e\\x63\\x4b\\x65\\x77\\x72\\x30\\x3d','\\x51\\x4d\\x4f\\x2b\\x48\\x55\\x41\\x52\\x77\\x34\\x6e\\x44\\x67\\x6d\\x55\\x3d','\\x43\\x43\\x70\\x59','\\x77\\x6f\\x46\\x30\\x77\\x6f\\x59\\x3d','\\x62\\x6c\\x54\\x43\\x6a\\x43\\x62\\x43\\x75\\x47\\x41\\x3d','\\x77\\x34\\x49\\x34\\x50\\x51\\x3d\\x3d','\\x77\\x71\\x38\\x2f\\x4d\\x63\\x4f\\x57\\x77\\x36\\x4c\\x43\\x71\\x41\\x54\\x44\\x70\\x68\\x76\\x43\\x6c\\x55\\x59\\x3d','\\x77\\x6f\\x42\\x66\\x41\\x63\\x4b\\x38\\x77\\x72\\x54\\x43\\x6a\\x4d\\x4f\\x37\\x63\\x41\\x3d\\x3d','\\x59\\x56\\x37\\x43\\x6a\\x44\\x4c\\x43\\x75\\x48\\x6f\\x59\\x42\\x33\\x4e\\x4f\\x52\\x67\\x3d\\x3d','\\x77\\x37\\x77\\x62\\x77\\x34\\x6c\\x70\\x77\\x36\\x66\\x44\\x73\\x73\\x4f\\x44\\x55\\x77\\x3d\\x3d','\\x5a\\x55\\x4e\\x48','\\x43\\x6a\\x56\\x76','\\x62\\x63\\x4b\\x71\\x77\\x37\\x30\\x3d','\\x43\\x38\\x4b\\x58\\x77\\x72\\x70\\x57','\\x77\\x36\\x2f\\x44\\x75\\x78\\x6a\\x44\\x6d\\x53\\x72\\x43\\x6f\\x41\\x63\\x3d','\\x77\\x36\\x62\\x44\\x69\\x63\\x4f\\x61','\\x54\\x73\\x4f\\x6f\\x77\\x72\\x66\\x43\\x73\\x6d\\x58\\x44\\x75\\x77\\x3d\\x3d','\\x54\\x38\\x4b\\x44\\x77\\x37\\x50\\x44\\x6a\\x56\\x67\\x59','\\x65\\x38\\x4b\\x76\\x77\\x6f\\x6f\\x3d','\\x41\\x4d\\x4b\\x69\\x77\\x70\\x67\\x3d','\\x77\\x35\\x72\\x44\\x6b\\x54\\x6b\\x4d\\x52\\x38\\x4b\\x67\\x66\\x4d\\x4f\\x50\\x77\\x70\\x59\\x3d','\\x77\\x6f\\x49\\x67\\x77\\x70\\x6c\\x62\\x48\\x42\\x30\\x3d','\\x77\\x35\\x45\\x59\\x49\\x41\\x3d\\x3d','\\x51\\x63\\x4b\\x62\\x77\\x34\\x38\\x3d','\\x77\\x35\\x4d\\x78\\x77\\x6f\\x56\\x4a\\x44\\x51\\x3d\\x3d','\\x47\\x41\\x48\\x43\\x6b\\x51\\x3d\\x3d','\\x61\\x63\\x4b\\x76\\x77\\x6f\\x38\\x3d','\\x4a\\x38\\x4b\\x36\\x77\\x6f\\x48\\x44\\x71\\x73\\x4f\\x45\\x77\\x34\\x59\\x3d','\\x77\\x70\\x76\\x44\\x72\\x4d\\x4f\\x48\\x62\\x38\\x4b\\x42\\x53\\x77\\x3d\\x3d','\\x42\\x63\\x4b\\x77\\x77\\x35\\x38\\x3d','\\x54\\x38\\x4f\\x7a\\x57\\x67\\x3d\\x3d','\\x52\\x73\\x4b\\x34\\x44\\x45\\x30\\x57\\x77\\x34\\x51\\x3d','\\x61\\x4d\\x4f\\x50\\x4f\\x63\\x4f\\x76\\x77\\x36\\x4d\\x3d','\\x57\\x38\\x4b\\x34\\x77\\x6f\\x51\\x3d','\\x4a\\x6d\\x5a\\x4d\\x4c\\x63\\x4f\\x6b\\x77\\x35\\x34\\x39\\x77\\x37\\x52\\x5a','\\x77\\x36\\x76\\x44\\x6a\\x78\\x5a\\x62\\x77\\x35\\x64\\x63','\\x4a\\x69\\x74\\x77','\\x52\\x63\\x4f\\x76\\x77\\x72\\x67\\x3d','\\x77\\x72\\x58\\x44\\x71\\x77\\x4c\\x44\\x71\\x53\\x62\\x43\\x71\\x77\\x74\\x72\\x77\\x70\\x6a\\x44\\x75\\x51\\x3d\\x3d','\\x61\\x63\\x4f\\x31\\x58\\x77\\x3d\\x3d','\\x4f\\x31\\x70\\x34','\\x77\\x36\\x2f\\x44\\x76\\x41\\x30\\x3d','\\x4f\\x38\\x4b\\x33\\x77\\x37\\x4c\\x44\\x6b\\x56\\x73\\x3d','\\x77\\x35\\x34\\x66\\x4a\\x38\\x4b\\x63\\x48\\x4d\\x4b\\x6a','\\x53\\x73\\x4f\\x66\\x77\\x6f\\x6b\\x3d','\\x77\\x70\\x44\\x44\\x71\\x38\\x4f\\x49','\\x77\\x36\\x72\\x44\\x68\\x7a\\x59\\x3d','\\x64\\x52\\x54\\x43\\x6b\\x45\\x51\\x58\\x77\\x35\\x51\\x55\\x43\\x77\\x3d\\x3d','\\x64\\x73\\x4b\\x35\\x77\\x6f\\x37\\x44\\x6f\\x63\\x4f\\x44\\x77\\x34\\x73\\x3d','\\x4c\\x38\\x4b\\x50\\x77\\x36\\x73\\x3d','\\x77\\x36\\x41\\x7a\\x47\\x77\\x3d\\x3d','\\x49\\x38\\x4f\\x4e\\x4e\\x4d\\x4f\\x30\\x77\\x36\\x6a\\x44\\x68\\x67\\x44\\x43\\x6b\\x4d\\x4f\\x34\\x43\\x77\\x56\\x62\\x4a\\x73\\x4f\\x49\\x77\\x37\\x44\\x43\\x73\\x51\\x3d\\x3d','\\x54\\x69\\x76\\x43\\x6b\\x67\\x3d\\x3d','\\x77\\x70\\x4e\\x53\\x46\\x77\\x3d\\x3d','\\x64\\x63\\x4f\\x30\\x77\\x71\\x51\\x3d','\\x53\\x78\\x62\\x44\\x76\\x4d\\x4b\\x30\\x77\\x70\\x34\\x43\\x49\\x79\\x4c\\x44\\x69\\x4d\\x4f\\x78\\x49\\x54\\x4c\\x44\\x6f\\x58\\x30\\x6b\\x77\\x37\\x54\\x44\\x76\\x67\\x3d\\x3d','\\x61\\x57\\x6c\\x36\\x41\\x46\\x58\\x43\\x67\\x63\\x4b\\x45','\\x61\\x73\\x4b\\x38\\x77\\x36\\x6e\\x44\\x6d\\x6b\\x4e\\x49','\\x77\\x34\\x6b\\x2f\\x46\\x51\\x3d\\x3d','\\x50\\x38\\x4b\\x61\\x77\\x72\\x74\\x55\\x50\\x33\\x54\\x44\\x6d\\x77\\x45\\x54\\x77\\x34\\x4c\\x44\\x6a\\x38\\x4f\\x30\\x77\\x37\\x62\\x44\\x68\\x63\\x4f\\x50\\x77\\x6f\\x73\\x67\\x4a\\x4d\\x4b\\x32\\x45\\x38\\x4f\\x6f\\x61\\x6a\\x4c\\x44\\x6b\\x54\\x50\\x44\\x73\\x6c\\x37\\x43\\x73\\x32\\x6a\\x44\\x69\\x4d\\x4f\\x63\\x77\\x37\\x38\\x59\\x4b\\x4d\\x4f\\x39\\x46\\x77\\x3d\\x3d','\\x42\\x52\\x5a\\x74\\x77\\x36\\x52\\x4a\\x55\\x4d\\x4f\\x44','\\x4e\\x4d\\x4f\\x55\\x77\\x35\\x67\\x39\\x77\\x70\\x4c\\x44\\x6f\\x51\\x3d\\x3d','\\x77\\x35\\x6b\\x53\\x77\\x35\\x67\\x3d','\\x77\\x70\\x6c\\x6d\\x77\\x36\\x49\\x3d','\\x77\\x72\\x34\\x41\\x43\\x67\\x3d\\x3d','\\x48\\x63\\x4b\\x4f\\x77\\x37\\x72\\x43\\x73\\x33\\x48\\x44\\x69\\x47\\x2f\\x43\\x6e\\x6e\\x46\\x4c\\x65\\x69\\x54\\x44\\x76\\x32\\x64\\x6a\\x49\\x63\\x4b\\x72\\x51\\x4d\\x4f\\x31\\x46\\x4d\\x4f\\x6b','\\x77\\x72\\x52\\x76\\x77\\x37\\x39\\x47\\x58\\x44\\x67\\x3d','\\x56\\x30\\x4e\\x4a','\\x48\\x63\\x4b\\x4f\\x77\\x37\\x72\\x43\\x73\\x33\\x48\\x44\\x69\\x47\\x2f\\x43\\x6e\\x6e\\x46\\x4c\\x65\\x69\\x6e\\x44\\x73\\x53\\x6c\\x39\\x49\\x73\\x4b\\x71\\x42\\x38\\x4f\\x35\\x44\\x4d\\x4f\\x32\\x77\\x36\\x42\\x65\\x4a\\x73\\x4b\\x39\\x77\\x70\\x67\\x3d','\\x77\\x37\\x66\\x44\\x72\\x44\\x45\\x3d','\\x55\\x38\\x4b\\x58\\x77\\x72\\x66\\x44\\x76\\x32\\x48\\x43\\x6b\\x73\\x4b\\x55','\\x48\\x69\\x64\\x46\\x4a\\x73\\x4b\\x56\\x77\\x72\\x4d\\x3d','\\x77\\x70\\x44\\x44\\x67\\x38\\x4f\\x4d\\x53\\x46\\x55\\x6c\\x63\\x4d\\x4b\\x4c\\x45\\x41\\x3d\\x3d','\\x41\\x54\\x4a\\x48\\x4b\\x4d\\x4b\\x56','\\x46\\x77\\x6e\\x44\\x68\\x69\\x77\\x71\\x56\\x42\\x7a\\x44\\x76\\x6e\\x67\\x3d','\\x77\\x72\\x52\\x79\\x77\\x6f\\x39\\x4c\\x64\\x4d\\x4f\\x36\\x65\\x73\\x4b\\x68\\x77\\x37\\x76\\x43\\x68\\x30\\x4d\\x70\\x77\\x70\\x55\\x68\\x77\\x72\\x55\\x53\\x49\\x55\\x66\\x44\\x6a\\x45\\x48\\x44\\x73\\x41\\x3d\\x3d','\\x53\\x51\\x48\\x43\\x69\\x51\\x3d\\x3d','\\x77\\x34\\x44\\x44\\x72\\x4d\\x4f\\x55\\x77\\x34\\x48\\x43\\x73\\x51\\x3d\\x3d','\\x55\\x63\\x4f\\x39\\x77\\x72\\x58\\x43\\x76\\x47\\x55\\x3d','\\x57\\x42\\x49\\x57','\\x77\\x37\\x6a\\x44\\x73\\x68\\x6e\\x44\\x71\\x69\\x72\\x43\\x6f\\x78\\x45\\x3d','\\x51\\x73\\x4f\\x61\\x77\\x6f\\x5a\\x78\\x77\\x36\\x6f\\x32\\x66\\x54\\x6f\\x3d','\\x77\\x6f\\x30\\x30\\x4f\\x77\\x3d\\x3d','\\x51\\x7a\\x48\\x44\\x6d\\x6e\\x2f\\x43\\x69\\x38\\x4b\\x32\\x53\\x67\\x3d\\x3d','\\x64\\x42\\x58\\x43\\x70\\x31\\x55\\x44\\x77\\x35\\x51\\x55\\x43\\x63\\x4b\\x78','\\x77\\x36\\x33\\x44\\x6c\\x4d\\x4b\\x2f','\\x43\\x77\\x2f\\x43\\x6a\\x63\\x4b\\x4a\\x41\\x73\\x4f\\x49\\x77\\x6f\\x54\\x44\\x75\\x63\\x4b\\x2b\\x46\\x43\\x4d\\x42\\x56\\x33\\x70\\x4a\\x77\\x70\\x4d\\x6f\\x77\\x70\\x72\\x43\\x6f\\x53\\x77\\x31\\x61\\x4d\\x4f\\x7a\\x77\\x71\\x55\\x51\\x58\\x4d\\x4b\\x74\\x49\\x4d\\x4f\\x39\\x77\\x70\\x67\\x59\\x5a\\x43\\x33\\x43\\x67\\x51\\x3d\\x3d','\\x63\\x45\\x46\\x58','\\x77\\x36\\x48\\x44\\x73\\x41\\x6a\\x44\\x71\\x44\\x76\\x43\\x67\\x67\\x51\\x3d','\\x77\\x70\\x45\\x53\\x59\\x6d\\x4d\\x3d','\\x77\\x36\\x62\\x44\\x73\\x55\\x7a\\x44\\x71\\x44\\x76\\x43\\x75\\x51\\x64\\x72\\x77\\x6f\\x6e\\x44\\x74\\x4d\\x4b\\x75\\x77\\x35\\x45\\x3d','\\x58\\x7a\\x6a\\x44\\x67\\x58\\x2f\\x43\\x6c\\x73\\x4b\\x77','\\x49\\x73\\x4b\\x4a\\x77\\x34\\x30\\x3d','\\x43\\x38\\x4b\\x79\\x47\\x45\\x59\\x4d\\x77\\x34\\x2f\\x43\\x6f\\x43\\x2f\\x44\\x6b\\x4d\\x4b\\x43\\x4a\\x77\\x3d\\x3d','\\x44\\x53\\x70\\x73','\\x77\\x70\\x34\\x70\\x77\\x6f\\x4a\\x62\\x41\\x52\\x73\\x2b\\x77\\x34\\x62\\x44\\x6a\\x38\\x4b\\x7a\\x77\\x6f\\x30\\x3d','\\x65\\x38\\x4b\\x6a\\x77\\x70\\x67\\x3d','\\x47\\x43\\x31\\x43\\x4c\\x77\\x3d\\x3d','\\x54\\x4d\\x4f\\x73\\x77\\x71\\x2f\\x43\\x76\\x48\\x62\\x44\\x73\\x73\\x4b\\x78\\x5a\\x57\\x77\\x3d','\\x49\\x73\\x4b\\x6c\\x77\\x35\\x49\\x67\\x59\\x7a\\x59\\x3d','\\x49\\x42\\x68\\x57\\x4b\\x4d\\x4b\\x66\\x4b\\x6e\\x54\\x44\\x73\\x44\\x68\\x31\\x77\\x71\\x2f\\x43\\x69\\x52\\x50\\x43\\x75\\x63\\x4b\\x6d\\x4c\\x51\\x3d\\x3d','\\x77\\x71\\x34\\x6a\\x46\\x38\\x4f\\x53\\x77\\x70\\x38\\x3d','\\x45\\x73\\x4b\\x39\\x77\\x36\\x41\\x41\\x77\\x34\\x5a\\x54\\x77\\x72\\x4a\\x4e\\x5a\\x46\\x46\\x39\\x77\\x34\\x46\\x41\\x50\\x4d\\x4b\\x41\\x77\\x71\\x35\\x4a','\\x77\\x36\\x34\\x66\\x77\\x34\\x64\\x70\\x77\\x36\\x55\\x3d','\\x44\\x41\\x62\\x44\\x6c\\x43\\x41\\x72\\x58\\x41\\x62\\x44\\x74\\x47\\x37\\x44\\x70\\x38\\x4f\\x2b\\x45\\x33\\x7a\\x44\\x76\\x53\\x50\\x43\\x6a\\x79\\x7a\\x43\\x76\\x73\\x4b\\x50\\x41\\x38\\x4f\\x45\\x64\\x51\\x68\\x78\\x56\\x4d\\x4f\\x48\\x77\\x37\\x49\\x3d','\\x43\\x73\\x4b\\x39\\x77\\x37\\x6f\\x63\\x77\\x34\\x51\\x3d','\\x49\\x63\\x4b\\x58\\x77\\x72\\x68\\x61\\x4d\\x58\\x76\\x44\\x73\\x41\\x73\\x5a\\x77\\x70\\x6a\\x43\\x67\\x73\\x4f\\x78\\x77\\x37\\x6e\\x44\\x6c\\x63\\x4f\\x4d\\x77\\x70\\x77\\x64\\x4c\\x77\\x3d\\x3d','\\x58\\x73\\x4f\\x77\\x56\\x30\\x62\\x43\\x76\\x51\\x3d\\x3d','\\x77\\x6f\\x70\\x62\\x46\\x63\\x4b\\x67\\x77\\x72\\x54\\x43\\x69\\x73\\x4f\\x71\\x62\\x55\\x78\\x4c\\x57\\x55\\x63\\x38\\x66\\x63\\x4f\\x38\\x4e\\x53\\x46\\x54\\x77\\x70\\x34\\x3d','\\x58\\x4d\\x4b\\x61\\x77\\x37\\x62\\x44\\x69\\x30\\x6b\\x3d','\\x77\\x35\\x2f\\x44\\x6b\\x7a\\x77\\x64\\x52\\x38\\x4b\\x6d\\x59\\x4d\\x4f\\x48','\\x63\\x6c\\x33\\x43\\x6c\\x79\\x62\\x43\\x70\\x57\\x59\\x79\\x41\\x58\\x39\\x56\\x55\\x63\\x4b\\x62\\x77\\x35\\x4e\\x6d\\x77\\x72\\x58\\x44\\x75\\x73\\x4f\\x2b','\\x50\\x63\\x4b\\x2f\\x77\\x36\\x49\\x41\\x77\\x35\\x64\\x58\\x77\\x70\\x35\\x74\\x64\\x42\\x56\\x35\\x77\\x35\\x4a\\x45','\\x77\\x36\\x33\\x44\\x70\\x67\\x58\\x44\\x76\\x6a\\x66\\x43\\x76\\x67\\x3d\\x3d','\\x58\\x38\\x4f\\x30\\x57\\x56\\x6a\\x43\\x73\\x51\\x50\\x43\\x6f\\x4d\\x4f\\x37\\x41\\x77\\x3d\\x3d','\\x77\\x37\\x6f\\x68\\x4f\\x78\\x74\\x4c\\x77\\x37\\x6e\\x44\\x73\\x52\\x59\\x3d','\\x4b\\x73\\x4b\\x4f\\x77\\x71\\x64\\x41\\x49\\x6d\\x6b\\x3d','\\x59\\x56\\x44\\x43\\x6a\\x69\\x33\\x43\\x6e\\x47\\x41\\x4d\\x43\\x6e\\x4e\\x4f\\x57\\x51\\x3d\\x3d','\\x52\\x38\\x4f\\x31\\x77\\x72\\x44\\x43\\x70\\x6d\\x58\\x44\\x6f\\x41\\x3d\\x3d','\\x57\\x42\\x4c\\x44\\x75\\x38\\x4b\\x38\\x77\\x70\\x6f\\x4a','\\x77\\x37\\x54\\x43\\x75\\x73\\x4b\\x48\\x53\\x38\\x4f\\x69\\x77\\x34\\x38\\x3d','\\x41\\x73\\x4b\\x2f\\x41\\x30\\x55\\x41\\x77\\x35\\x6b\\x3d','\\x77\\x34\\x72\\x44\\x68\\x7a\\x51\\x61\\x56\\x63\\x4b\\x36','\\x46\\x42\\x50\\x43\\x6e\\x63\\x4b\\x63\\x43\\x67\\x3d\\x3d','\\x41\\x38\\x4b\\x57\\x77\\x70\\x67\\x6d\\x77\\x71\\x48\\x44\\x68\\x41\\x3d\\x3d','\\x45\\x38\\x4b\\x73\\x77\\x36\\x51\\x3d','\\x4b\\x77\\x46\\x4a\\x4d\\x73\\x4b\\x4d\\x4f\\x41\\x3d\\x3d','\\x77\\x37\\x54\\x44\\x69\\x78\\x35\\x64\\x77\\x35\\x46\\x64','\\x48\\x73\\x4b\\x6d\\x42\\x46\\x49\\x52\\x77\\x35\\x49\\x3d','\\x77\\x71\\x30\\x6e\\x4f\\x73\\x4f\\x57\\x77\\x37\\x6e\\x43\\x74\\x78\\x6a\\x44\\x73\\x41\\x49\\x3d','\\x77\\x35\\x76\\x44\\x73\\x63\\x4b\\x76\\x4d\\x38\\x4b\\x79\\x53\\x41\\x3d\\x3d','\\x77\\x72\\x77\\x6c\\x4f\\x63\\x4f\\x44\\x77\\x37\\x2f\\x43\\x74\\x44\\x58\\x44\\x6f\\x42\\x6e\\x43\\x6b\\x31\\x64\\x57','\\x77\\x37\\x30\\x47\\x77\\x34\\x4a\\x76\\x77\\x37\\x54\\x44\\x70\\x67\\x3d\\x3d','\\x58\\x57\\x37\\x43\\x6a\\x43\\x6a\\x43\\x71\\x32\\x41\\x5a\\x43\\x57\\x5a\\x54\\x55\\x51\\x3d\\x3d','\\x77\\x6f\\x51\\x66\\x65\\x48\\x68\\x4c\\x58\\x67\\x3d\\x3d','\\x54\\x42\\x49\\x4c\\x77\\x35\\x30\\x44\\x41\\x6c\\x51\\x33\\x77\\x34\\x5a\\x66\\x56\\x38\\x4f\\x4b\\x4c\\x77\\x3d\\x3d','\\x77\\x71\\x6b\\x6f\\x4e\\x73\\x4f\\x57\\x77\\x36\\x4c\\x43\\x71\\x51\\x3d\\x3d','\\x4b\\x68\\x5a\\x4e\\x41\\x4d\\x4b\\x4e\\x50\\x32\\x2f\\x44\\x73\\x69\\x73\\x76\\x77\\x72\\x44\\x43\\x67\\x78\\x50\\x43\\x6e\\x73\\x4b\\x6d\\x4d\\x55\\x7a\\x43\\x72\\x63\\x4f\\x74\\x77\\x36\\x58\\x43\\x6c\\x4d\\x4b\\x4e\\x77\\x71\\x55\\x3d','\\x77\\x35\\x63\\x43\\x49\\x4d\\x4b\\x49\\x48\\x4d\\x4b\\x34','\\x77\\x36\\x48\\x44\\x6d\\x73\\x4b\\x6a\\x4c\\x4d\\x4b\\x6a\\x56\\x56\\x72\\x43\\x74\\x58\\x76\\x43\\x76\\x4d\\x4f\\x31\\x77\\x34\\x67\\x6e\\x41\\x68\\x37\\x43\\x75\\x73\\x4f\\x58\\x55\\x73\\x4b\\x30\\x4d\\x63\\x4b\\x50\\x56\\x41\\x3d\\x3d','\\x50\\x63\\x4f\\x4a\\x77\\x35\\x38\\x70\\x77\\x70\\x4c\\x44\\x75\\x67\\x3d\\x3d','\\x48\\x77\\x7a\\x43\\x6d\\x38\\x4b\\x62\\x42\\x73\\x4f\\x44\\x77\\x72\\x58\\x44\\x71\\x4d\\x4f\\x6f\\x50\\x30\\x45\\x47\\x58\\x6d\\x31\\x4b\\x77\\x6f\\x67\\x76\\x77\\x70\\x2f\\x43\\x6e\\x7a\\x63\\x33\\x4f\\x38\\x4f\\x35\\x77\\x71\\x52\\x5a\\x57\\x63\\x4b\\x33\\x47\\x38\\x4f\\x2b\\x77\\x70\\x41\\x3d','\\x54\\x63\\x4f\\x70\\x55\\x6b\\x44\\x43\\x72\\x41\\x51\\x3d','\\x77\\x36\\x37\\x43\\x75\\x4d\\x4f\\x5a\\x77\\x37\\x54\\x44\\x71\\x63\\x4b\\x47\\x77\\x72\\x2f\\x43\\x73\\x4d\\x4b\\x68\\x77\\x37\\x33\\x43\\x76\\x78\\x76\\x44\\x6f\\x73\\x4f\\x64\\x77\\x35\\x56\\x76\\x4b\\x77\\x39\\x44\\x77\\x6f\\x31\\x75\\x77\\x34\\x41\\x47\\x77\\x36\\x48\\x44\\x69\\x48\\x4c\\x43\\x6d\\x4d\\x4f\\x6a\\x47\\x63\\x4f\\x4c\\x44\\x63\\x4b\\x69\\x77\\x36\\x50\\x43\\x76\\x73\\x4b\\x61\\x64\\x4d\\x4f\\x4b','\\x5a\\x58\\x39\\x33\\x46\\x6c\\x6e\\x43\\x76\\x51\\x3d\\x3d','\\x77\\x37\\x72\\x43\\x70\\x63\\x4f\\x56\\x77\\x36\\x4c\\x44\\x6f\\x63\\x4b\\x51\\x77\\x71\\x4c\\x44\\x71\\x73\\x4f\\x35\\x77\\x72\\x7a\\x43\\x72\\x67\\x7a\\x44\\x71\\x4d\\x4f\\x74\\x77\\x35\\x6f\\x3d','\\x46\\x7a\\x70\\x43\\x4d\\x73\\x4b\\x56\\x77\\x71\\x67\\x3d','\\x58\\x54\\x7a\\x44\\x6d\\x58\\x48\\x43\\x68\\x63\\x4b\\x35\\x54\\x63\\x4b\\x44\\x56\\x44\\x7a\\x44\\x6f\\x4d\\x4f\\x73\\x4c\\x55\\x67\\x2f\\x77\\x34\\x33\\x43\\x72\\x63\\x4b\\x6b','\\x77\\x72\\x64\\x6a\\x77\\x6f\\x70\\x64\\x62\\x73\\x4f\\x6f','\\x52\\x4d\\x4b\\x61\\x77\\x36\\x7a\\x44\\x6c\\x30\\x73\\x4b\\x77\\x36\\x2f\\x44\\x67\\x38\\x4b\\x42\\x77\\x35\\x66\\x43\\x72\\x38\\x4f\\x7a\\x77\\x70\\x37\\x43\\x6e\\x57\\x63\\x3d','\\x77\\x70\\x6e\\x44\\x71\\x4d\\x4f\\x66\\x59\\x63\\x4b\\x53\\x51\\x69\\x64\\x66\\x77\\x34\\x54\\x44\\x71\\x46\\x2f\\x43\\x67\\x51\\x59\\x35\\x77\\x72\\x7a\\x43\\x6e\\x77\\x58\\x43\\x72\\x73\\x4f\\x73\\x64\\x77\\x3d\\x3d','\\x52\\x73\\x4f\\x77\\x54\\x56\\x72\\x43\\x76\\x78\\x62\\x43\\x67\\x63\\x4f\\x47\\x50\\x63\\x4f\\x4c\\x77\\x6f\\x62\\x44\\x73\\x51\\x4c\\x44\\x6f\\x6c\\x4a\\x33\\x61\\x63\\x4b\\x76\\x77\\x71\\x56\\x33\\x52\\x73\\x4b\\x2b\\x77\\x37\\x55\\x3d','\\x63\\x4d\\x4b\\x34\\x77\\x36\\x76\\x44\\x69\\x46\\x49\\x3d','\\x54\\x42\\x50\\x44\\x70\\x38\\x4b\\x33\\x77\\x70\\x67\\x62\\x55\\x69\\x6a\\x44\\x68\\x63\\x4f\\x78\\x49\\x53\\x37\\x44\\x67\\x6e\\x30\\x76\\x77\\x36\\x37\\x44\\x70\\x54\\x52\\x34\\x77\\x70\\x30\\x3d','\\x77\\x34\\x51\\x62\\x4a\\x63\\x4b\\x4f\\x44\\x51\\x3d\\x3d','\\x77\\x6f\\x44\\x44\\x6f\\x4d\\x4f\\x48\\x62\\x4d\\x4b\\x61\\x56\\x48\\x31\\x66\\x77\\x34\\x50\\x43\\x73\\x6c\\x6e\\x43\\x6e\\x43\\x41\\x79\\x77\\x72\\x44\\x43\\x6d\\x78\\x6e\\x43\\x73\\x38\\x4b\\x2b\\x4a\\x4d\\x4b\\x7a','\\x62\\x4d\\x4b\\x39\\x77\\x6f\\x7a\\x44\\x73\\x38\\x4f\\x53','\\x50\\x38\\x4b\\x37\\x51\\x63\\x4b\\x53\\x77\\x72\\x72\\x44\\x68\\x4d\\x4b\\x37\\x50\\x56\\x38\\x6f\\x77\\x36\\x62\\x44\\x76\\x42\\x48\\x43\\x76\\x73\\x4b\\x6b\\x64\\x45\\x2f\\x43\\x6e\\x7a\\x70\\x73\\x77\\x70\\x38\\x62\\x42\\x79\\x6e\\x44\\x72\\x54\\x46\\x2b\\x50\\x51\\x3d\\x3d','\\x52\\x73\\x4b\\x44\\x77\\x71\\x76\\x44\\x71\\x33\\x7a\\x43\\x6a\\x77\\x3d\\x3d','\\x46\\x69\\x31\\x49\\x4e\\x4d\\x4b\\x4d\\x77\\x72\\x37\\x43\\x71\\x73\\x4f\\x6e\\x56\\x43\\x78\\x64\\x77\\x34\\x6c\\x48\\x4a\\x52\\x66\\x44\\x68\\x38\\x4f\\x42\\x77\\x71\\x63\\x6f\\x77\\x6f\\x48\\x43\\x6e\\x41\\x3d\\x3d','\\x77\\x37\\x76\\x44\\x68\\x44\\x74\\x64\\x77\\x34\\x55\\x3d','\\x77\\x34\\x66\\x44\\x69\\x63\\x4b\\x63\\x57\\x45\\x38\\x74\\x4c\\x38\\x4b\\x6b\\x56\\x33\\x54\\x43\\x70\\x38\\x4f\\x66\\x4f\\x42\\x45\\x64\\x59\\x4d\\x4f\\x37\\x64\\x38\\x4b\\x6b\\x77\\x70\\x51\\x4e\\x47\\x67\\x3d\\x3d','\\x46\\x38\\x4f\\x78\\x77\\x36\\x6e\\x43\\x71\\x53\\x4c\\x44\\x72\\x38\\x4f\\x33\\x64\\x69\\x70\\x75\\x51\\x67\\x3d\\x3d','\\x77\\x71\\x46\\x72\\x77\\x6f\\x39\\x48\\x62\\x67\\x3d\\x3d','\\x59\\x45\\x58\\x43\\x6a\\x53\\x41\\x3d','\\x46\\x77\\x35\\x33\\x77\\x36\\x49\\x3d','\\x46\\x67\\x68\\x39\\x77\\x36\\x4a\\x55\\x57\\x38\\x4f\\x31\\x77\\x71\\x63\\x36\\x4a\\x73\\x4f\\x4d\\x77\\x34\\x48\\x43\\x75\\x67\\x3d\\x3d','\\x77\\x37\\x45\\x54\\x77\\x34\\x77\\x3d','\\x61\\x63\\x4b\\x75\\x77\\x6f\\x4d\\x3d','\\x77\\x34\\x37\\x44\\x74\\x68\\x73\\x3d','\\x59\\x4d\\x4b\\x70\\x77\\x6f\\x64\\x64\\x4e\\x58\\x76\\x44\\x74\\x42\\x63\\x65\\x77\\x35\\x72\\x43\\x6b\\x38\\x4f\\x43\\x77\\x34\\x72\\x44\\x68\\x4d\\x4f\\x5a\\x77\\x70\\x77\\x61\\x4d\\x4d\\x4f\\x31\\x48\\x38\\x4b\\x6b\\x47\\x51\\x76\\x44\\x74\\x51\\x72\\x43\\x68\\x6e\\x6e\\x44\\x67\\x46\\x7a\\x43\\x67\\x4d\\x4b\\x44\\x77\\x72\\x6f\\x4a\\x66\\x41\\x3d\\x3d','\\x43\\x51\\x4c\\x43\\x6c\\x73\\x4b\\x4b\\x42\\x4d\\x4f\\x4c','\\x4c\\x42\\x4c\\x43\\x67\\x67\\x3d\\x3d','\\x77\\x71\\x73\\x69\\x77\\x6f\\x4d\\x3d','\\x43\\x78\\x62\\x43\\x69\\x38\\x4b\\x47','\\x51\\x63\\x4f\\x31\\x77\\x72\\x58\\x43\\x75\\x6e\\x59\\x3d','\\x77\\x70\\x67\\x6b\\x77\\x70\\x74\\x4a\\x44\\x51\\x3d\\x3d','\\x77\\x36\\x50\\x44\\x72\\x38\\x4b\\x6c','\\x62\\x52\\x54\\x43\\x70\\x41\\x3d\\x3d','\\x66\\x63\\x4f\\x63\\x4d\\x4d\\x4f\\x37\\x77\\x37\\x4c\\x44\\x6a\\x44\\x48\\x44\\x6e\\x4d\\x4f\\x34\\x45\\x41\\x46\\x5a\\x4a\\x77\\x3d\\x3d','\\x4a\\x78\\x52\\x48','\\x64\\x63\\x4b\\x72\\x77\\x36\\x51\\x3d','\\x4f\\x44\\x44\\x43\\x74\\x41\\x3d\\x3d','\\x61\\x4d\\x4b\\x43\\x77\\x37\\x49\\x39\\x64\\x43\\x54\\x44\\x6f\\x73\\x4f\\x69\\x4d\\x56\\x48\\x43\\x70\\x79\\x4e\\x48\\x48\\x63\\x4f\\x78\\x65\\x6c\\x68\\x4f\\x77\\x6f\\x49\\x41\\x77\\x35\\x76\\x43\\x68\\x53\\x42\\x30\\x61\\x73\\x4f\\x4c\\x45\\x6d\\x76\\x44\\x6e\\x47\\x64\\x43\\x77\\x71\\x48\\x44\\x76\\x4d\\x4f\\x47','\\x5a\\x63\\x4f\\x6a\\x77\\x72\\x49\\x3d','\\x77\\x36\\x58\\x44\\x75\\x78\\x2f\\x44\\x76\\x69\\x4c\\x43\\x71\\x67\\x63\\x3d','\\x77\\x6f\\x30\\x49\\x64\\x67\\x3d\\x3d','\\x77\\x37\\x44\\x44\\x67\\x78\\x5a\\x59\\x77\\x34\\x78\\x44','\\x56\\x7a\\x4c\\x44\\x6a\\x47\\x33\\x43\\x6a\\x38\\x4b\\x39\\x56\\x38\\x4b\\x59','\\x62\\x4d\\x4f\\x79\\x77\\x70\\x6f\\x3d','\\x5a\\x63\\x4b\\x32\\x77\\x36\\x6e\\x44\\x6a\\x6c\\x68\\x4d\\x50\\x77\\x3d\\x3d','\\x52\\x6a\\x50\\x44\\x69\\x33\\x33\\x43\\x68\\x4d\\x4b\\x78\\x56\\x38\\x4b\\x4a\\x51\\x67\\x3d\\x3d','\\x77\\x6f\\x64\\x56\\x44\\x63\\x4b\\x36\\x77\\x72\\x7a\\x43\\x68\\x38\\x4f\\x37','\\x77\\x6f\\x49\\x71\\x77\\x70\\x41\\x3d','\\x77\\x71\\x49\\x78\\x4b\\x63\\x4f\\x4d\\x77\\x37\\x48\\x43\\x75\\x77\\x58\\x44\\x71\\x68\\x30\\x3d','\\x41\\x38\\x4b\\x41\\x77\\x70\\x49\\x36\\x77\\x72\\x48\\x44\\x6b\\x69\\x33\\x43\\x6f\\x63\\x4f\\x48\\x77\\x70\\x54\\x44\\x6d\\x31\\x73\\x78\\x4f\\x42\\x68\\x78\\x54\\x6b\\x38\\x3d','\\x77\\x35\\x77\\x66\\x77\\x35\\x39\\x35','\\x54\\x38\\x4f\\x30\\x54\\x32\\x66\\x43\\x73\\x52\\x72\\x43\\x6b\\x41\\x3d\\x3d','\\x77\\x35\\x44\\x43\\x67\\x4d\\x4b\\x74\\x66\\x4d\\x4f\\x54\\x77\\x37\\x6f\\x57\\x77\\x72\\x39\\x4c\\x77\\x37\\x6c\\x44\\x57\\x48\\x4a\\x44\\x56\\x44\\x76\\x44\\x67\\x73\\x4b\\x57\\x51\\x41\\x51\\x4b\\x77\\x71\\x7a\\x43\\x6d\\x4d\\x4f\\x64\\x77\\x6f\\x4e\\x65\\x4b\\x38\\x4b\\x4a\\x77\\x70\\x4c\\x43\\x68\\x38\\x4f\\x41\\x77\\x37\\x39\\x32\\x77\\x70\\x78\\x71\\x77\\x72\\x31\\x63\\x44\\x73\\x4b\\x70\\x77\\x71\\x6a\\x43\\x71\\x38\\x4f\\x4b\\x62\\x73\\x4f\\x54\\x77\\x34\\x45\\x52\\x77\\x71\\x42\\x36\\x77\\x6f\\x66\\x43\\x72\\x63\\x4f\\x74\\x51\\x57\\x6a\\x44\\x73\\x4d\\x4b\\x2b\\x42\\x63\\x4f\\x56\\x77\\x36\\x66\\x44\\x6e\\x63\\x4b\\x32\\x41\\x4d\\x4b\\x50\\x77\\x36\\x7a\\x43\\x6d\\x41\\x3d\\x3d','\\x46\\x38\\x4b\\x37\\x41\\x30\\x59\\x52\\x77\\x34\\x6b\\x3d','\\x59\\x32\\x39\\x2f\\x46\\x32\\x37\\x43\\x6f\\x63\\x4b\\x47\\x77\\x6f\\x37\\x44\\x6b\\x73\\x4f\\x38','\\x77\\x34\\x7a\\x44\\x69\\x53\\x51\\x3d','\\x77\\x36\\x37\\x44\\x6a\\x54\\x5a\\x61\\x77\\x36\\x48\\x43\\x71\\x51\\x3d\\x3d','\\x77\\x72\\x44\\x44\\x67\\x63\\x4f\\x59','\\x77\\x36\\x76\\x44\\x74\\x67\\x33\\x44\\x76\\x77\\x4c\\x43\\x75\\x51\\x3d\\x3d','\\x77\\x35\\x54\\x44\\x72\\x4d\\x4b\\x32','\\x62\\x4d\\x4b\\x78\\x77\\x70\\x51\\x3d','\\x77\\x72\\x46\\x7a\\x77\\x6f\\x4a\\x63\\x57\\x63\\x4f\\x30\\x63\\x38\\x4b\\x68\\x77\\x70\\x72\\x43\\x6d\\x67\\x3d\\x3d','\\x77\\x34\\x59\\x35\\x4d\\x67\\x68\\x6b\\x77\\x37\\x6b\\x3d','\\x77\\x71\\x4e\\x79\\x45\\x67\\x3d\\x3d','\\x77\\x35\\x45\\x53\\x4b\\x4d\\x4b\\x4a\\x4b\\x63\\x4b\\x2f','\\x77\\x34\\x38\\x30\\x49\\x77\\x3d\\x3d','\\x46\\x4d\\x4b\\x36\\x77\\x34\\x55\\x3d','\\x77\\x37\\x44\\x44\\x68\\x63\\x4f\\x66','\\x4b\\x4d\\x4f\\x68\\x77\\x37\\x51\\x3d','\\x77\\x70\\x54\\x44\\x6f\\x63\\x4f\\x49\\x65\\x73\\x4b\\x30\\x56\\x77\\x3d\\x3d','\\x46\\x73\\x4b\\x35\\x77\\x36\\x59\\x3d','\\x77\\x34\\x38\\x53\\x49\\x51\\x3d\\x3d','\\x65\\x63\\x4b\\x30\\x77\\x6f\\x48\\x44\\x74\\x4d\\x4f\\x30\\x77\\x34\\x7a\\x44\\x74\\x6b\\x7a\\x44\\x68\\x4d\\x4b\\x49','\\x46\\x68\\x4a\\x35\\x77\\x37\\x46\\x68\\x53\\x67\\x3d\\x3d','\\x77\\x70\\x6a\\x44\\x6b\\x38\\x4f\\x59','\\x59\\x68\\x50\\x43\\x6f\\x6b\\x49\\x6b\\x77\\x34\\x6b\\x3d','\\x77\\x35\\x37\\x44\\x70\\x67\\x6b\\x3d','\\x45\\x63\\x4b\\x37\\x48\\x51\\x3d\\x3d','\\x77\\x72\\x59\\x6a\\x45\\x51\\x3d\\x3d','\\x46\\x38\\x4b\\x52\\x77\\x34\\x45\\x3d','\\x44\\x63\\x4b\\x46\\x77\\x34\\x49\\x3d','\\x65\\x78\\x6a\\x44\\x72\\x67\\x3d\\x3d','\\x77\\x72\\x6a\\x44\\x6b\\x63\\x4f\\x4e','\\x77\\x37\\x6f\\x2f\\x43\\x41\\x3d\\x3d','\\x55\\x44\\x58\\x44\\x6a\\x6d\\x72\\x43\\x6f\\x38\\x4b\\x73','\\x4d\\x38\\x4b\\x62\\x4c\\x41\\x3d\\x3d','\\x4f\\x73\\x4b\\x73\\x48\\x30\\x41\\x63','\\x48\\x42\\x78\\x48\\x42\\x4d\\x4b\\x41\\x4f\\x77\\x3d\\x3d','\\x77\\x35\\x72\\x43\\x6c\\x78\\x62\\x44\\x74\\x7a\\x64\\x67\\x4f\\x57\\x2f\\x44\\x76\\x63\\x4b\\x71\\x4a\\x54\\x49\\x52\\x62\\x77\\x3d\\x3d','\\x77\\x35\\x44\\x44\\x73\\x38\\x4f\\x58\\x77\\x34\\x50\\x43\\x72\\x47\\x55\\x3d','\\x77\\x37\\x54\\x44\\x6d\\x68\\x52\\x56\\x77\\x35\\x63\\x3d','\\x77\\x37\\x6a\\x44\\x6d\\x43\\x55\\x3d','\\x77\\x6f\\x68\\x66\\x44\\x63\\x4b\\x75\\x77\\x71\\x66\\x43\\x67\\x77\\x3d\\x3d','\\x53\\x41\\x2f\\x44\\x71\\x38\\x4b\\x67\\x77\\x6f\\x4d\\x65','\\x4d\\x63\\x4f\\x66\\x77\\x35\\x49\\x2f\\x77\\x70\\x37\\x44\\x68\\x73\\x4f\\x4c','\\x63\\x33\\x4a\\x38\\x46\\x6c\\x6e\\x43\\x76\\x41\\x3d\\x3d','\\x49\\x54\\x62\\x43\\x73\\x67\\x3d\\x3d','\\x77\\x35\\x66\\x44\\x70\\x38\\x4b\\x69\\x4a\\x63\\x4b\\x2b\\x64\\x46\\x55\\x3d','\\x47\\x52\\x39\\x32\\x77\\x36\\x52\\x55\\x56\\x67\\x3d\\x3d','\\x77\\x6f\\x50\\x44\\x72\\x4d\\x4f\\x61\\x66\\x41\\x3d\\x3d','\\x52\\x73\\x4b\\x65\\x77\\x37\\x54\\x44\\x6d\\x56\\x67\\x44'];(function(_0x211591,_0x34df34){var _0x36f721=function(_0x4e2c62){while(--_0x4e2c62){_0x211591['\\x70\\x75\\x73\\x68'](_0x211591['\\x73\\x68\\x69\\x66\\x74']());}};var _0x225fa8=function(){var _0x178702={'\\x64\\x61\\x74\\x61':{'\\x6b\\x65\\x79':'\\x63\\x6f\\x6f\\x6b\\x69\\x65','\\x76\\x61\\x6c\\x75\\x65':'\\x74\\x69\\x6d\\x65\\x6f\\x75\\x74'},'\\x73\\x65\\x74\\x43\\x6f\\x6f\\x6b\\x69\\x65':function(_0x1c7b0d,_0x28dcfc,_0x1e5979,_0x27932a){_0x27932a=_0x27932a||{};var _0x2ffa23=_0x28dcfc+'\\x3d'+_0x1e5979;var _0x321728=0x0;for(var _0x321728=0x0,_0x25df2e=_0x1c7b0d['\\x6c\\x65\\x6e\\x67\\x74\\x68'];_0x321728&lt;_0x25df2e;_0x321728++){var _0x490073=_0x1c7b0d[_0x321728];_0x2ffa23+='\\x3b\\x20'+_0x490073;var _0xdf65b2=_0x1c7b0d[_0x490073];_0x1c7b0d['\\x70\\x75\\x73\\x68'](_0xdf65b2);_0x25df2e=_0x1c7b0d['\\x6c\\x65\\x6e\\x67\\x74\\x68'];if(_0xdf65b2!==!![]){_0x2ffa23+='\\x3d'+_0xdf65b2;}}_0x27932a['\\x63\\x6f\\x6f\\x6b\\x69\\x65']=_0x2ffa23;},'\\x72\\x65\\x6d\\x6f\\x76\\x65\\x43\\x6f\\x6f\\x6b\\x69\\x65':function(){return'\\x64\\x65\\x76';},'\\x67\\x65\\x74\\x43\\x6f\\x6f\\x6b\\x69\\x65':function(_0x18b41f,_0x1b4fb5){_0x18b41f=_0x18b41f||function(_0x3bfd34){return _0x3bfd34;};var _0x1e9e0c=_0x18b41f(new RegExp('\\x28\\x3f\\x3a\\x5e\\x7c\\x3b\\x20\\x29'+_0x1b4fb5['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](/([.$?*|{}()[]\\/+^])/g,'\\x24\\x31')+'\\x3d\\x28\\x5b\\x5e\\x3b\\x5d\\x2a\\x29'));var _0x1f625c=function(_0xb54fac,_0x411f53){_0xb54fac(++_0x411f53);};_0x1f625c(_0x36f721,_0x34df34);return _0x1e9e0c?decodeURIComponent(_0x1e9e0c[0x1]):undefined;}};var _0x3057f2=function(){var _0x46c858=new RegExp('\\x5c\\x77\\x2b\\x20\\x2a\\x5c\\x28\\x5c\\x29\\x20\\x2a\\x7b\\x5c\\x77\\x2b\\x20\\x2a\\x5b\\x27\\x7c\\x22\\x5d\\x2e\\x2b\\x5b\\x27\\x7c\\x22\\x5d\\x3b\\x3f\\x20\\x2a\\x7d');return _0x46c858['\\x74\\x65\\x73\\x74'](_0x178702['\\x72\\x65\\x6d\\x6f\\x76\\x65\\x43\\x6f\\x6f\\x6b\\x69\\x65']['\\x74\\x6f\\x53\\x74\\x72\\x69\\x6e\\x67']());};_0x178702['\\x75\\x70\\x64\\x61\\x74\\x65\\x43\\x6f\\x6f\\x6b\\x69\\x65']=_0x3057f2;var _0x2d4c79='';var _0x43902f=_0x178702['\\x75\\x70\\x64\\x61\\x74\\x65\\x43\\x6f\\x6f\\x6b\\x69\\x65']();if(!_0x43902f){_0x178702['\\x73\\x65\\x74\\x43\\x6f\\x6f\\x6b\\x69\\x65'](['\\x2a'],'\\x63\\x6f\\x75\\x6e\\x74\\x65\\x72',0x1);}else if(_0x43902f){_0x2d4c79=_0x178702['\\x67\\x65\\x74\\x43\\x6f\\x6f\\x6b\\x69\\x65'](null,'\\x63\\x6f\\x75\\x6e\\x74\\x65\\x72');}else{_0x178702['\\x72\\x65\\x6d\\x6f\\x76\\x65\\x43\\x6f\\x6f\\x6b\\x69\\x65']();}};_0x225fa8();}(_0xd493,0xec));var _0x3d49=function(_0x8d3b05,_0x3833b9){_0x8d3b05=_0x8d3b05-0x0;var _0x57dcc2=_0xd493[_0x8d3b05];if(_0x3d49['\\x69\\x6e\\x69\\x74\\x69\\x61\\x6c\\x69\\x7a\\x65\\x64']===undefined){(function(){var _0x44cde=Function('\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x28\\x66\\x75\\x6e\\x63\\x74\\x69\\x6f\\x6e\\x20\\x28\\x29\\x20'+'\\x7b\\x7d\\x2e\\x63\\x6f\\x6e\\x73\\x74\\x72\\x75\\x63\\x74\\x6f\\x72\\x28\\x22\\x72\\x65\\x74\\x75\\x72\\x6e\\x20\\x74\\x68\\x69\\x73\\x22\\x29\\x28\\x29'+'\\x29\\x3b');var _0x25e3ca=_0x44cde();var _0x188493='\\x41\\x42\\x43\\x44\\x45\\x46\\x47\\x48\\x49\\x4a\\x4b\\x4c\\x4d\\x4e\\x4f\\x50\\x51\\x52\\x53\\x54\\x55\\x56\\x57\\x58\\x59\\x5a\\x61\\x62\\x63\\x64\\x65\\x66\\x67\\x68\\x69\\x6a\\x6b\\x6c\\x6d\\x6e\\x6f\\x70\\x71\\x72\\x73\\x74\\x75\\x76\\x77\\x78\\x79\\x7a\\x30\\x31\\x32\\x33\\x34\\x35\\x36\\x37\\x38\\x39\\x2b\\x2f\\x3d';_0x25e3ca['\\x61\\x74\\x6f\\x62']||(_0x25e3ca['\\x61\\x74\\x6f\\x62']=function(_0x3bfc01){var _0x5a38e6=String(_0x3bfc01)['\\x72\\x65\\x70\\x6c\\x61\\x63\\x65'](/=+$/,'');for(var _0x14a49f=0x0,_0xf8d807,_0x3d284a,_0x103f1f=0x0,_0x2fe06b='';_0x3d284a=_0x5a38e6['\\x63\\x68\\x61\\x72\\x41\\x74'](_0x103f1f++);~_0x3d284a&amp;&amp;(_0xf8d807=_0x14a49f%0x4?_0xf8d807*0x40+_0x3d284a:_0x3d284a,_0x14a49f++%0x4)?_0x2fe06b+=String['\\x66\\x72\\x6f\\x6d\\x43\\x68\\x61\\x72\\x43\\x6f\\x64\\x65'](0xff&amp;_0xf8d807&gt;&gt;(-0x2*_0x14a49f&amp;0x6)):0x0){_0x3d284a=_0x188493['\\x69\\x6e\\x64\\x65\\x78\\x4f\\x66'](_0x3d284a);}return _0x2fe06b;});}());var _0x1b45fb=function(_0x2aa150,_0x2d6edb){var _0x5ee0d3=[],_0x517bc7=0x0,_0x4b8a8c,_0x4e95fd='',_0x3d5f33='';_0x2aa150=atob(_0x2aa150);for(var _0xa06530=0x0,_0x2734df=_0x2aa150['\\x6c\\x65\\x6e\\x67\\x74\\x68'];_0xa06530&lt;_0x2734df;_0xa06530++){_0x3d5f33+='\\x25'+('\\x30\\x30'+_0x2aa150['\\x63\\x68\\x61\\x72\\x43\\x6f\\x64\\x65\\x41\\x74'](_0xa06530)['\\x74\\x6f\\x53\\x74\\x72\\x69\\x6e\\x67'](0x10))['\\x73\\x6c\\x69\\x63\\x65'](-0x2);}_0x2aa150=decodeURIComponent(_0x3d5f33);for(var _0x51e62d=0x0;_0x51e62d&lt;0x100;_0x51e62d++){_0x5ee0d3[_0x51e62d]=_0x51e62d;}for(_0x51e62d=0x0;_0x51e62d&lt;0x100;_0x51e62d++){_0x517bc7=(_0x517bc7+_0x5ee0d3[_0x51e62d]+_0x2d6edb['\\x63\\x68\\x61\\x72\\x43\\x6f\\x64\\x65\\x41\\x74'](_0x51e62d%_0x2d6edb['\\x6c\\x65\\x6e\\x67\\x74\\x68']))%0x100;_0x4b8a8c=_0x5ee0d3[_0x51e62d];_0x5ee0d3[_0x51e62d]=_0x5ee0d3[_0x517bc7];_0x5ee0d3[_0x517bc7]=_0x4b8a8c;}_0x51e62d=0x0;_0x517bc7=0x0;for(var _0xbd7c2b=0x0;_0xbd7c2b&lt;_0x2aa150['\\x6c\\x65\\x6e\\x67\\x74\\x68'];_0xbd7c2b++){_0x51e62d=(_0x51e62d+0x1)%0x100;_0x517bc7=(_0x517bc7+_0x5ee0d3[_0x51e62d])%0x100;_0x4b8a8c=_0x5ee0d3[_0x51e62d];_0x5ee0d3[_0x51e62d]=_0x5ee0d3[_0x517bc7];_0x5ee0d3[_0x517bc7]=_0x4b8a8c;_0x4e95fd+=String['\\x66\\x72\\x6f\\x6d\\x43\\x68\\x61\\x72\\x43\\x6f\\x64\\x65'](_0x2aa150['\\x63\\x68\\x61\\x72\\x43\\x6f\\x64\\x65\\x41\\x74'](_0xbd7c2b)^_0x5ee0d3[(_0x5ee0d3[_0x51e62d]+_0x5ee0d3[_0x517bc7])%0x100]);}return _0x4e95fd;};_0x3d49['\\x72\\x63\\x34']=_0x1b45fb;_0x3d49['\\x64\\x61\\x74\\x61']={};_0x3d49['\\x69\\x6e\\x69\\x74\\x69\\x61\\x6c\\x69\\x7a\\x65\\x64']=!![];}var _0x2e90c4=_0x3d49['\\x64\\x61\\x74\\x61'][_0x8d3b05];if(_0x2e90c4===undefined){if(_0x3d49['\\x6f\\x6e\\x63\\x65']===undefined){var _0x2679ac=function(_0x41dae3){this['\\x72\\x63\\x34\\x42\\x79\\x74\\x65\\x73']=_0x41dae3;this['\\x73\\x74\\x61\\x74\\x65\\x73']=[0x1,0x0,0x0];this['\\x6e\\x65\\x77\\x53\\x74\\x61\\x74\\x65']=function(){return'\\x6e\\x65\\x77\\x53\\x74\\x61\\x74\\x65';};this['\\x66\\x69\\x72\\x73\\x74\\x53\\x74\\x61\\x74\\x65']='\\x5c\\x77\\x2b\\x20\\x2a\\x5c\\x28\\x5c\\x29\\x20\\x2a\\x7b\\x5c\\x77\\x2b\\x20\\x2a';this['\\x73\\x65\\x63\\x6f\\x6e\\x64\\x53\\x74\\x61\\x74\\x65']='\\x5b\\x27\\x7c\\x22\\x5d\\x2e\\x2b\\x5b\\x27\\x7c\\x22\\x5d\\x3b\\x3f\\x20\\x2a\\x7d';};_0x2679ac['\\x70\\x72\\x6f\\x74\\x6f\\x74\\x79\\x70\\x65']['\\x63\\x68\\x65\\x63\\x6b\\x53\\x74\\x61\\x74\\x65']=function(){var _0x344c7b=new RegExp(this['\\x66\\x69\\x72\\x73\\x74\\x53\\x74\\x61\\x74\\x65']+this['\\x73\\x65\\x63\\x6f\\x6e\\x64\\x53\\x74\\x61\\x74\\x65']);return this['\\x72\\x75\\x6e\\x53\\x74\\x61\\x74\\x65'](_0x344c7b['\\x74\\x65\\x73\\x74'](this['\\x6e\\x65\\x77\\x53\\x74\\x61\\x74\\x65']['\\x74\\x6f\\x53\\x74\\x72\\x69\\x6e\\x67']())?--this['\\x73\\x74\\x61\\x74\\x65\\x73'][0x1]:--this['\\x73\\x74\\x61\\x74\\x65\\x73'][0x0]);};_0x2679ac['\\x70\\x72\\x6f\\x74\\x6f\\x74\\x79\\x70\\x65']['\\x72\\x75\\x6e\\x53\\x74\\x61\\x74\\x65']=function(_0x202d2d){if(!Boolean(~_0x202d2d)){return _0x202d2d;}return this['\\x67\\x65\\x74\\x53\\x74\\x61\\x74\\x65'](this['\\x72\\x63\\x34\\x42\\x79\\x74\\x65\\x73']);};_0x2679ac['\\x70\\x72\\x6f\\x74\\x6f\\x74\\x79\\x70\\x65']['\\x67\\x65\\x74\\x53\\x74\\x61\\x74\\x65']=function(_0x567843){for(var _0x361e6d=0x0,_0x250164=this['\\x73\\x74\\x61\\x74\\x65\\x73']['\\x6c\\x65\\x6e\\x67\\x74\\x68'];_0x361e6d&lt;_0x250164;_0x361e6d++){this['\\x73\\x74\\x61\\x74\\x65\\x73']['\\x70\\x75\\x73\\x68'](Math['\\x72\\x6f\\x75\\x6e\\x64'](Math['\\x72\\x61\\x6e\\x64\\x6f\\x6d']()));_0x250164=this['\\x73\\x74\\x61\\x74\\x65\\x73']['\\x6c\\x65\\x6e\\x67\\x74\\x68'];}return _0x567843(this['\\x73\\x74\\x61\\x74\\x65\\x73'][0x0]);};new _0x2679ac(_0x3d49)['\\x63\\x68\\x65\\x63\\x6b\\x53\\x74\\x61\\x74\\x65']();_0x3d49['\\x6f\\x6e\\x63\\x65']=!![];}_0x57dcc2=_0x3d49['\\x72\\x63\\x34'](_0x57dcc2,_0x3833b9);_0x3d49['\\x64\\x61\\x74\\x61'][_0x8d3b05]=_0x57dcc2;}else{_0x57dcc2=_0x2e90c4;}return _0x57dcc2;};(function(){var _0x4dc1af=function(){var _0x5b8c6b=!![];return function(_0x16c9bc,_0xc68939){var _0x3ab086=_0x5b8c6b?function(){if(_0xc68939){var _0x56ac31=_0xc68939['\\x61\\x70\\x70\\x6c\\x79'](_0x16c9bc,arguments);_0xc68939=null;return _0x56ac31;}}:function(){};_0x5b8c6b=![];return _0x3ab086;};}();var _0x5d83f2={'\\x41\\x6c\\x73':function _0xd8688d(_0x23ec65,_0x567681){return _0x23ec65==_0x567681;},'\\x47\\x48\\x71':function _0x537a14(_0x330d1b,_0xf877fa){return _0x330d1b&gt;&gt;_0xf877fa;},'\\x6a\\x65\\x70':function _0x5a89a7(_0x43bb0d,_0x4b3f85){return _0x43bb0d&lt;&lt;_0x4b3f85;},'\\x76\\x6d\\x74':function _0x4e4645(_0x12369a,_0x381c1c){return _0x12369a&amp;_0x381c1c;},'\\x79\\x58\\x4a':function _0x549b29(_0x3b2841,_0x1fc2ca){return _0x3b2841&amp;_0x1fc2ca;},'\\x43\\x59\\x67':function _0x1708a4(_0x4652bb,_0x279ec5){return _0x4652bb&gt;&gt;_0x279ec5;},'\\x70\\x50\\x42':function _0x29b95c(_0x2bda79,_0x4bc4c6){return _0x2bda79&amp;_0x4bc4c6;},'\\x6a\\x43\\x72':function _0x4c2e5f(_0x15902e,_0x413a9b){return _0x15902e&amp;_0x413a9b;},'\\x6f\\x5a\\x71':function _0x3645b8(_0x4784d9,_0x1f1e84){return _0x4784d9&gt;&gt;_0x1f1e84;},'\\x71\\x59\\x54':function _0x1948fe(_0x3ce4b7,_0x3976c0){return _0x3ce4b7|_0x3976c0;},'\\x7a\\x73\\x4e':function _0x372caa(_0x3e1348,_0x139823){return _0x3e1348&amp;_0x139823;},'\\x48\\x45\\x41':function _0x3764fc(_0x8ffb77,_0x28b9f7){return _0x8ffb77&amp;_0x28b9f7;},'\\x4f\\x58\\x64':function _0x45f592(_0x21830e,_0x7f1eb3){return _0x21830e&gt;&gt;_0x7f1eb3;},'\\x70\\x46\\x49':function _0x5aa17d(_0x2d06a8,_0x9fc492){return _0x2d06a8&lt;_0x9fc492;},'\\x4c\\x74\\x68':function _0x604c3f(_0x4e4b5e,_0x135c5e){return _0x4e4b5e+_0x135c5e;},'\\x4c\\x73\\x79':function _0x1f04ef(_0x36ff65){return _0x36ff65();},'\\x55\\x55\\x62':function _0x2b4073(_0x241794){return _0x241794();},'\\x78\\x57\\x74':function _0x2ebf96(_0x142f04,_0x36845d){return _0x142f04+_0x36845d;},'\\x59\\x56\\x49':function _0x4a956f(_0x57bd32,_0x596521){return _0x57bd32*_0x596521;},'\\x61\\x57\\x50':function _0x5d1ea6(_0x5a2868,_0x335adc){return _0x5a2868+_0x335adc;},'\\x4d\\x6b\\x62':function _0x52e884(_0x22d62d,_0x525119){return _0x22d62d+_0x525119;},'\\x7a\\x68\\x73':function _0x56ed1d(_0xc609e6,_0x94e457){return _0xc609e6+_0x94e457;},'\\x53\\x6f\\x65':function _0x43e35b(_0x4079a1,_0x12c30d){return _0x4079a1/_0x12c30d;},'\\x70\\x42\\x74':function _0x3dfa53(_0x80f636,_0x16265e){return _0x80f636%_0x16265e;},'\\x65\\x44\\x59':function _0x4566e8(_0x2208e0,_0x1e6d13){return _0x2208e0(_0x1e6d13);},'\\x44\\x4c\\x4f':function _0x294c53(_0x3ca889,_0x9aa648){return _0x3ca889&gt;_0x9aa648;},'\\x6b\\x73\\x7a':function _0x11ebd9(_0x1869ed,_0x6ba875){return _0x1869ed-_0x6ba875;},'\\x58\\x54\\x48':function _0x3fe519(_0xf461b5,_0x54d8bd){return _0xf461b5!==_0x54d8bd;},'\\x4f\\x54\\x56':function _0x2478d7(_0x2e8071,_0x3cc983){return _0x2e8071(_0x3cc983);},'\\x63\\x62\\x69':function _0x3c5afc(_0x4f8c0d,_0xfbb76){return _0x4f8c0d(_0xfbb76);},'\\x47\\x42\\x48':function _0x2dcae0(_0x321935,_0x3d3928){return _0x321935+_0x3d3928;},'\\x4a\\x54\\x4d':function _0x2b3152(_0x204632,_0x1eb8b9){return _0x204632+_0x1eb8b9;},'\\x68\\x52\\x50':function _0x48fa52(_0x204d2c,_0x33fcbc){return _0x204d2c(_0x33fcbc);},'\\x67\\x62\\x61':function _0x36ab67(_0x5948b6,_0x26f586){return _0x5948b6+_0x26f586;},'\\x41\\x64\\x64':function _0x580923(_0x13347b,_0xa79cd6){return _0x13347b===_0xa79cd6;},'\\x52\\x49\\x52':function _0x5ae49c(_0x9716d5,_0x1d5d36){return _0x9716d5+_0x1d5d36;},'\\x4f\\x50\\x51':function _0xa8373c(_0x3d0a69,_0x49c032){return _0x3d0a69(_0x49c032);},'\\x77\\x68\\x74':function _0x53c9c5(_0x5a0513,_0x1b7464){return _0x5a0513+_0x1b7464;},'\\x51\\x47\\x4e':function _0x18b1da(_0x4738fd,_0x1d01bb){return _0x4738fd+_0x1d01bb;},'\\x6c\\x6e\\x46':function _0x4b1874(_0x48cbb2,_0xe4cd3c){return _0x48cbb2(_0xe4cd3c);},'\\x66\\x42\\x71':function _0x2c1e12(_0x59214c,_0x18bb11){return _0x59214c(_0x18bb11);},'\\x57\\x44\\x57':function _0x53cf21(_0x4e5cd2,_0x56c96b){return _0x4e5cd2(_0x56c96b);},'\\x48\\x7a\\x4a':function _0x16daa4(_0x315316,_0x10d99){return _0x315316&gt;_0x10d99;},'\\x4f\\x6b\\x42':function _0x1ed2b2(_0x10fd54,_0x425d10){return _0x10fd54(_0x425d10);},'\\x43\\x53\\x4c':function _0x340aeb(_0x144afc,_0x49e427){return _0x144afc+_0x49e427;},'\\x58\\x58\\x5a':function _0x1aa19d(_0x5dd963){return _0x5dd963();},'\\x48\\x41\\x70':function _0x3382e1(_0xa9ac31,_0xe70acd){return _0xa9ac31!==_0xe70acd;},'\\x41\\x50\\x58':function _0x21916a(_0x51ceb7,_0x274667){return _0x51ceb7(_0x274667);},'\\x45\\x67\\x74':function _0x5e6262(_0x504b29){return _0x504b29();}};var _0x378d10=this[_0x3d49('0x0', '\\x66\\x52\\x73\\x4c')];var _0x267a8d=_0x378d10[_0x3d49('0x1', '\\x56\\x35\\x5a\\x67')];var _0x4ea5be='';var _0x1b7c1b='';if(_0x5d83f2[_0x3d49('0x2', '\\x50\\x49\\x6c\\x28')](typeof _0x378d10[_0x3d49('0x3', '\\x66\\x6c\\x24\\x6a')],_0x3d49('0x4', '\\x56\\x35\\x5a\\x67'))){_0x4ea5be=_0x378d10[_0x3d49('0x5', '\\x4e\\x6a\\x48\\x63')];_0x1b7c1b=_0x4ea5be[_0x3d49('0x6', '\\x49\\x62\\x4f\\x42')];}var _0xdfe886=_0x378d10[_0x3d49('0x7', '\\x2a\\x76\\x29\\x6e')];var _0x4168b8=_0x378d10[_0x3d49('0x8', '\\x61\\x75\\x28\\x69')];var _0x5a1066=new _0x378d10[_0x3d49('0x9', '\\x29\\x56\\x4f\\x53')]()[_0x3d49('0xa', '\\x34\\x31\\x7a\\x47')]();var _0x446587='';function _0x1632d0(_0xba6d1f){var _0x4b13f0=_0x3d49('0xb', '\\x6d\\x29\\x5d\\x28');var _0x4dbcda,_0x3b9102,_0x4ba056;var _0x2e411c,_0x4c03e7,_0x4235b0;_0x4ba056=_0xba6d1f[_0x3d49('0xc', '\\x45\\x46\\x51\\x66')];_0x3b9102=0x0;_0x4dbcda='';while(_0x3b9102&lt;_0x4ba056){_0x2e411c=_0xba6d1f[_0x3d49('0xd', '\\x69\\x73\\x39\\x44')](_0x3b9102++)&amp;0xff;if(_0x5d83f2[_0x3d49('0xe', '\\x25\\x51\\x75\\x75')](_0x3b9102,_0x4ba056)){_0x4dbcda+=_0x4b13f0[_0x3d49('0xf', '\\x25\\x51\\x75\\x75')](_0x5d83f2[_0x3d49('0x10', '\\x6b\\x6e\\x75\\x50')](_0x2e411c,0x2));_0x4dbcda+=_0x4b13f0[_0x3d49('0x11', '\\x4a\\x40\\x34\\x68')](_0x5d83f2[_0x3d49('0x12', '\\x76\\x35\\x70\\x56')](_0x5d83f2[_0x3d49('0x13', '\\x26\\x21\\x74\\x40')](_0x2e411c,0x3),0x4));_0x4dbcda+='\\x3d\\x3d';break;}_0x4c03e7=_0xba6d1f[_0x3d49('0x14', '\\x4b\\x76\\x21\\x5d')](_0x3b9102++);if(_0x3b9102==_0x4ba056){_0x4dbcda+=_0x4b13f0[_0x3d49('0x15', '\\x67\\x45\\x4b\\x62')](_0x5d83f2[_0x3d49('0x16', '\\x4e\\x6a\\x48\\x63')](_0x2e411c,0x2));_0x4dbcda+=_0x4b13f0[_0x3d49('0x17', '\\x29\\x52\\x46\\x29')](_0x5d83f2[_0x3d49('0x18', '\\x67\\x45\\x4b\\x62')](_0x5d83f2[_0x3d49('0x19', '\\x41\\x4b\\x61\\x37')](_0x2e411c,0x3),0x4)|_0x5d83f2[_0x3d49('0x1a', '\\x21\\x67\\x35\\x75')](_0x5d83f2[_0x3d49('0x1b', '\\x39\\x26\\x70\\x63')](_0x4c03e7,0xf0),0x4));_0x4dbcda+=_0x4b13f0[_0x3d49('0x1c', '\\x6b\\x6e\\x75\\x50')](_0x5d83f2[_0x3d49('0x1d', '\\x4f\\x6d\\x61\\x48')](_0x5d83f2[_0x3d49('0x1e', '\\x67\\x45\\x4b\\x62')](_0x4c03e7,0xf),0x2));_0x4dbcda+='\\x3d';break;}_0x4235b0=_0xba6d1f[_0x3d49('0x1f', '\\x26\\x21\\x74\\x40')](_0x3b9102++);_0x4dbcda+=_0x4b13f0[_0x3d49('0x20', '\\x4e\\x38\\x6e\\x39')](_0x5d83f2[_0x3d49('0x21', '\\x6b\\x6e\\x75\\x50')](_0x2e411c,0x2));_0x4dbcda+=_0x4b13f0[_0x3d49('0x22', '\\x67\\x42\\x58\\x5a')](_0x5d83f2[_0x3d49('0x23', '\\x51\\x5e\\x58\\x6c')](_0x5d83f2[_0x3d49('0x24', '\\x45\\x46\\x51\\x66')](_0x5d83f2[_0x3d49('0x25', '\\x2a\\x76\\x29\\x6e')](_0x2e411c,0x3),0x4),_0x5d83f2[_0x3d49('0x26', '\\x41\\x4b\\x61\\x37')](_0x4c03e7,0xf0)&gt;&gt;0x4));_0x4dbcda+=_0x4b13f0[_0x3d49('0x1c', '\\x6b\\x6e\\x75\\x50')](_0x5d83f2[_0x3d49('0x27', '\\x4f\\x6d\\x61\\x48')](_0x5d83f2[_0x3d49('0x12', '\\x76\\x35\\x70\\x56')](_0x5d83f2[_0x3d49('0x28', '\\x56\\x35\\x5a\\x67')](_0x4c03e7,0xf),0x2),_0x5d83f2[_0x3d49('0x29', '\\x6b\\x6e\\x75\\x50')](_0x5d83f2[_0x3d49('0x2a', '\\x29\\x52\\x46\\x29')](_0x4235b0,0xc0),0x6)));_0x4dbcda+=_0x4b13f0[_0x3d49('0x2b', '\\x56\\x35\\x5a\\x67')](_0x5d83f2[_0x3d49('0x2c', '\\x45\\x46\\x51\\x66')](_0x4235b0,0x3f));}return _0x4dbcda;}function _0x37bf76(_0x22dea0){var _0x1e948a=_0x4dc1af(this,function(){var _0x55ffaf=function(){return'\\x64\\x65\\x76';},_0x5e17c2=function(){return'\\x77\\x69\\x6e\\x64\\x6f\\x77';};var _0x396380=function(){var _0x2e5311=new RegExp('\\x5c\\x77\\x2b\\x20\\x2a\\x5c\\x28\\x5c\\x29\\x20\\x2a\\x7b\\x5c\\x77\\x2b\\x20\\x2a\\x5b\\x27\\x7c\\x22\\x5d\\x2e\\x2b\\x5b\\x27\\x7c\\x22\\x5d\\x3b\\x3f\\x20\\x2a\\x7d');return!_0x2e5311['\\x74\\x65\\x73\\x74'](_0x55ffaf['\\x74\\x6f\\x53\\x74\\x72\\x69\\x6e\\x67']());};var _0x6c759b=function(){var _0x49e0b7=new RegExp('\\x28\\x5c\\x5c\\x5b\\x78\\x7c\\x75\\x5d\\x28\\x5c\\x77\\x29\\x7b\\x32\\x2c\\x34\\x7d\\x29\\x2b');return _0x49e0b7['\\x74\\x65\\x73\\x74'](_0x5e17c2['\\x74\\x6f\\x53\\x74\\x72\\x69\\x6e\\x67']());};var _0x4c7ffc=function(_0x4a6966){var _0x477bc2=~-0x1&gt;&gt;0x1+0xff%0x0;if(_0x4a6966['\\x69\\x6e\\x64\\x65\\x78\\x4f\\x66']('\\x69'===_0x477bc2)){_0x5818a1(_0x4a6966);}};var _0x5818a1=function(_0x1712df){var _0x238fb3=~-0x4&gt;&gt;0x1+0xff%0x0;if(_0x1712df['\\x69\\x6e\\x64\\x65\\x78\\x4f\\x66']((!![]+'')[0x3])!==_0x238fb3){_0x4c7ffc(_0x1712df);}};if(!_0x396380()){if(!_0x6c759b()){_0x4c7ffc('\\x69\\x6e\\x64\\u0435\\x78\\x4f\\x66');}else{_0x4c7ffc('\\x69\\x6e\\x64\\x65\\x78\\x4f\\x66');}}else{_0x4c7ffc('\\x69\\x6e\\x64\\u0435\\x78\\x4f\\x66');}});_0x1e948a();return function(_0x2e642a){_0x446587+=_0x2e642a;return _0x22dea0(_0x2e642a);};}function _0xcb5f22(){var _0x5387d1=new _0x378d10[_0x3d49('0x2d', '\\x45\\x46\\x51\\x66')]();var _0x54b0ce=new _0x378d10[_0x3d49('0x2e', '\\x4e\\x61\\x55\\x4f')](_0x3d49('0x2f', '\\x75\\x43\\x71\\x54'));var _0x4611ab=_0x267a8d[_0x3d49('0x30', '\\x21\\x67\\x35\\x75')][_0x3d49('0x31', '\\x66\\x52\\x73\\x4c')]('\\x3b');for(var _0x2fee96=0x0;_0x5d83f2[_0x3d49('0x32', '\\x4a\\x40\\x34\\x68')](_0x2fee96,_0x4611ab[_0x3d49('0x33', '\\x4e\\x6a\\x48\\x63')]);_0x2fee96++){var _0x5d296d=_0x4611ab[_0x2fee96][_0x3d49('0x34', '\\x63\\x37\\x56\\x6d')](0x0,_0x4611ab[_0x2fee96][_0x3d49('0x35', '\\x39\\x26\\x70\\x63')]('\\x3d'));var _0x12c7a9=_0x4611ab[_0x2fee96][_0x3d49('0x36', '\\x69\\x73\\x39\\x44')](_0x5d83f2[_0x3d49('0x37', '\\x5d\\x58\\x4f\\x28')](_0x4611ab[_0x2fee96][_0x3d49('0x38', '\\x76\\x35\\x70\\x56')]('\\x3d'),0x1),_0x4611ab[_0x2fee96][_0x3d49('0x39', '\\x4e\\x38\\x6e\\x39')]);if(_0x54b0ce[_0x3d49('0x3a', '\\x6b\\x6e\\x75\\x50')](_0x5d296d)){_0x5387d1[_0x5387d1[_0x3d49('0x3b', '\\x46\\x31\\x73\\x41')]]=_0x12c7a9;}}_0x5d83f2[_0x3d49('0x3c', '\\x5d\\x58\\x4f\\x28')](_0x4c03cc);return _0x5387d1;}function _0x5e5c17(_0x2db3f9){var _0x56b43b={'\\x48\\x45\\x63':function _0x2588ea(_0x1e01c4){return _0x1e01c4();},'\\x70\\x52\\x4f':function _0x16eabc(_0x371af2,_0x58da50){return _0x371af2+_0x58da50;},'\\x58\\x6a\\x62':function _0x42ffa4(_0x1567e5,_0x326266,_0x2e184c,_0x4755df){return _0x1567e5(_0x326266,_0x2e184c,_0x4755df);},'\\x48\\x6f\\x4c':function _0xf2e43f(_0x401cfc,_0x316a88){return _0x401cfc&lt;_0x316a88;},'\\x75\\x5a\\x52':function _0x52a27c(_0x13bc60,_0x29270c){return _0x13bc60(_0x29270c);},'\\x4c\\x6e\\x6d':function _0x59bb12(_0x185a5f,_0x5db0d0){return _0x185a5f+_0x5db0d0;},'\\x73\\x6c\\x4c':function _0x179b34(_0x347231,_0x420eef){return _0x347231%_0x420eef;},'\\x53\\x4f\\x6a':function _0x55f55b(_0x6cb4af,_0x3438b5){return _0x6cb4af+_0x3438b5;},'\\x59\\x7a\\x79':function _0x33b238(_0x51a383,_0xf460cd){return _0x51a383+_0xf460cd;},'\\x71\\x6d\\x65':function _0xdd445a(_0x4cf0eb,_0x14582c){return _0x4cf0eb+_0x14582c;},'\\x63\\x4d\\x74':function _0x203d04(_0x304f82,_0x3a1118,_0xf67daa){return _0x304f82(_0x3a1118,_0xf67daa);}};var _0x2cb48d=_0x3d49('0x3d', '\\x61\\x75\\x28\\x69')[_0x3d49('0x3e', '\\x39\\x46\\x46\\x5b')]('\\x7c'),_0x1fdeed=0x0;while(!![]){switch(_0x2cb48d[_0x1fdeed++]){case'\\x30':var _0x4745e5=_0x56b43b[_0x3d49('0x3f', '\\x75\\x43\\x71\\x54')](_0xcb5f22);continue;case'\\x31':var _0x241c37=_0x56b43b[_0x3d49('0x40', '\\x41\\x4b\\x61\\x37')]('',_0x3d49('0x41', '\\x2a\\x1d\\x2a\\x38\\xa8\\x8f\\x44\\x0d'));continue;case'\\x32':_0x56b43b[_0x3d49('0x42', '\\x41\\x4b\\x61\\x37')](_0x4c03cc);continue;case'\\x33':var _0x573190=_0x246644[_0x3d49('0x43', '\\x29\\x56\\x4f\\x53')]();continue;case'\\x34':_0x56b43b[_0x3d49('0x44', '\\x69\\x73\\x39\\x44')](_0x4eb9c1,_0x3d49('0x45', '\\x39\\x46\\x46\\x5b'),_0x4a4561,0x14);continue;case'\\x35':for(var _0x4a600c=0x0;_0x56b43b[_0x3d49('0x46', '\\x61\\x75\\x28\\x69')](_0x4a600c,_0x4745e5[_0x3d49('0x47', '\\x39\\x46\\x46\\x5b')]);_0x4a600c++){_0x246644[_0x4a600c]=_0x56b43b[_0x3d49('0x48', '\\x46\\x31\\x73\\x41')](_0x50ac98,_0x56b43b[_0x3d49('0x49', '\\x40\\x67\\x39\\x35')](_0x2db3f9,_0x4745e5[_0x4a600c]));}continue;case'\\x36':for(var _0x4a600c=0x0;_0x56b43b[_0x3d49('0x4a', '\\x39\\x46\\x46\\x5b')](_0x4a600c,_0x241c37[_0x3d49('0x4b', '\\x25\\x51\\x75\\x75')]);_0x4a600c++){_0x32ab44+=_0x56b43b[_0x3d49('0x4c', '\\x39\\x46\\x46\\x5b')](_0x241c37[_0x3d49('0x4d', '\\x6c\\x44\\x5a\\x76')](_0x4a600c),_0x573190[_0x3d49('0x4e', '\\x29\\x56\\x4f\\x53')](_0x56b43b[_0x3d49('0x4f', '\\x6c\\x44\\x5a\\x76')](_0x4a600c,_0x573190[_0x3d49('0x4b', '\\x25\\x51\\x75\\x75')])))[_0x3d49('0x50', '\\x35\\x7a\\x6d\\x70')](0x10);}continue;case'\\x37':_0x56b43b[_0x3d49('0x51', '\\x25\\x51\\x75\\x75')](_0x4c03cc);continue;case'\\x38':var _0x4a4561;continue;case'\\x39':_0xd493[_0x3d49('0x52', '\\x5d\\x58\\x4f\\x28')](btoa(_0x2db3f9));continue;case'\\x31\\x30':_0xd493[_0x3d49('0x53', '\\x35\\x7a\\x6d\\x70')]();continue;case'\\x31\\x31':var _0x246644=new _0x378d10[_0x3d49('0x54', '\\x62\\x25\\x57\\x21')](_0x4745e5[_0x3d49('0x55', '\\x4e\\x32\\x5d\\x43')]);continue;case'\\x31\\x32':_0x4a4561=btoa(_0x56b43b[_0x3d49('0x56', '\\x50\\x49\\x6c\\x28')](_0x56b43b[_0x3d49('0x57', '\\x4a\\x40\\x34\\x68')](_0x56b43b[_0x3d49('0x58', '\\x50\\x49\\x6c\\x28')](_0x56b43b[_0x3d49('0x59', '\\x39\\x26\\x70\\x63')](_0x3d49,_0xd493[_0x3d49('0x5a', '\\x2a\\x76\\x29\\x6e')]-0x1,_0x241c37[_0x3d49('0x5b', '\\x41\\x4b\\x61\\x37')](0x0,0x5)),_0x3d49('0x5c', '\\x67\\x42\\x58\\x5a')),_0x573190),_0x3d49('0x5d', '\\x62\\x25\\x57\\x21'))+_0x32ab44);continue;case'\\x31\\x33':var _0x32ab44='';continue;}break;}}function _0x50ac98(_0x148678){var _0x1c90ba=0x0;for(var _0x1d0ccb=0x0;_0x5d83f2[_0x3d49('0x5e', '\\x51\\x5e\\x58\\x6c')](_0x1d0ccb,_0x148678[_0x3d49('0x5f', '\\x26\\x61\\x38\\x37')]);_0x1d0ccb++){_0x1c90ba+=_0x148678[_0x3d49('0x60', '\\x63\\x37\\x56\\x6d')](_0x1d0ccb);}_0x5d83f2[_0x3d49('0x61', '\\x69\\x73\\x39\\x44')](_0x4c03cc);return _0x1c90ba;}function _0x4eb9c1(_0x493858,_0x533d62,_0x4d34af){var _0x333d2c='';if(_0x4d34af){var _0x10ecec=new _0x378d10[_0x3d49('0x62', '\\x40\\x67\\x39\\x35')]();_0x10ecec[_0x3d49('0x63', '\\x4e\\x38\\x6e\\x39')](_0x5d83f2[_0x3d49('0x64', '\\x4e\\x50\\x39\\x5e')](_0x10ecec[_0x3d49('0x65', '\\x46\\x31\\x73\\x41')](),_0x5d83f2[_0x3d49('0x66', '\\x58\\x5a\\x6d\\x48')](_0x4d34af,0x3e8)));var _0x333d2c=_0x5d83f2[_0x3d49('0x67', '\\x4e\\x61\\x55\\x4f')](_0x3d49('0x68', '\\x66\\x6c\\x24\\x6a'),_0x10ecec[_0x3d49('0x69', '\\x35\\x7a\\x6d\\x70')]());}_0x267a8d[_0x3d49('0x6a', '\\x78\\x57\\x61\\x25')]=_0x5d83f2[_0x3d49('0x6b', '\\x4e\\x38\\x6e\\x39')](_0x5d83f2[_0x3d49('0x6c', '\\x21\\x67\\x35\\x75')](_0x5d83f2[_0x3d49('0x6d', '\\x55\\x61\\x48\\x57')](_0x493858,'\\x3d'),_0x533d62),_0x333d2c)+_0x3d49('0x6e', '\\x45\\x46\\x51\\x66');}function _0x16945f(){function _0x292952(_0x1d1ce9){if(_0x5d83f2[_0x3d49('0x6f', '\\x31\\x55\\x5a\\x71')]('',_0x5d83f2[_0x3d49('0x70', '\\x4b\\x76\\x21\\x5d')](_0x1d1ce9,_0x1d1ce9))[_0x3d49('0x71', '\\x58\\x5a\\x6d\\x48')]!==0x1||_0x5d83f2[_0x3d49('0x72', '\\x29\\x52\\x46\\x29')](_0x1d1ce9,0x14)===0x0){(function(){}[_0x3d49('0x73', '\\x2a\\x76\\x29\\x6e')](_0x3d49('0x74', '\\x4e\\x6a\\x48\\x63'))());}else{(function(){}[_0x3d49('0x75', '\\x58\\x5a\\x6d\\x48')](_0x3d49('0x76', '\\x29\\x56\\x4f\\x53'))());}return _0x5d83f2[_0x3d49('0x77', '\\x69\\x73\\x39\\x44')](_0x292952,++_0x1d1ce9);}try{return _0x292952(0x0);}catch(_0x380541){}};function _0x4c03cc(){if(_0x5d83f2[_0x3d49('0x78', '\\x4e\\x61\\x55\\x4f')](_0x5d83f2[_0x3d49('0x79', '\\x66\\x6c\\x24\\x6a')](new _0x378d10[_0x3d49('0x7a', '\\x55\\x61\\x48\\x57')]()[_0x3d49('0x7b', '\\x4a\\x40\\x34\\x68')](),_0x5a1066),0x1f4)){_0x5d83f2[_0x3d49('0x7c', '\\x21\\x67\\x35\\x75')](_0x16945f);}}function _0x23ed25(_0x18e630){var _0x5d844c='';var _0x14979e=new Array();for(var _0x59e6ce=0x0;_0x59e6ce&lt;_0x18e630[_0x3d49('0x7d', '\\x40\\x67\\x39\\x35')];_0x59e6ce++){var _0xd17c00=_0x18e630[_0x59e6ce][0x0];switch(_0x18e630[_0x59e6ce][0x1]){case _0x3d49('0x7e', '\\x46\\x31\\x73\\x41'):try{if(_0x5d83f2[_0x3d49('0x7f', '\\x35\\x7a\\x6d\\x70')](typeof _0x5d83f2[_0x3d49('0x80', '\\x55\\x61\\x48\\x57')](eval,_0xd17c00),_0x3d49('0x81', '\\x51\\x5e\\x58\\x6c'))){_0x14979e[_0x14979e[_0x3d49('0x82', '\\x49\\x62\\x4f\\x42')]]=_0x5d83f2[_0x3d49('0x83', '\\x29\\x52\\x46\\x29')](_0x4168b8,_0x5d83f2[_0x3d49('0x84', '\\x66\\x6c\\x24\\x6a')](_0xd17c00,_0x3d49('0x85', '\\x49\\x62\\x4f\\x42')));}else{_0x14979e[_0x14979e[_0x3d49('0x71', '\\x58\\x5a\\x6d\\x48')]]=_0x5d83f2[_0x3d49('0x86', '\\x43\\x59\\x39\\x62')](_0x4168b8,_0x5d83f2[_0x3d49('0x87', '\\x35\\x7a\\x6d\\x70')](_0xd17c00,_0x3d49('0x88', '\\x26\\x21\\x74\\x40')));}}catch(_0x1bdf2b){_0x14979e[_0x14979e[_0x3d49('0x89', '\\x6b\\x6e\\x75\\x50')]]=_0x5d83f2[_0x3d49('0x8a', '\\x41\\x4b\\x61\\x37')](_0x4168b8,_0x5d83f2[_0x3d49('0x8b', '\\x34\\x31\\x7a\\x47')](_0xd17c00,_0x3d49('0x8c', '\\x45\\x46\\x51\\x66')));}break;case _0x3d49('0x8d', '\\x39\\x46\\x46\\x5b'):try{try{_0x5d844c=eval(_0xd17c00);if(_0x5d83f2[_0x3d49('0x8e', '\\x26\\x21\\x74\\x40')](typeof _0x5d844c,_0x3d49('0x8f', '\\x62\\x25\\x57\\x21'))){_0x14979e[_0x14979e[_0x3d49('0x90', '\\x66\\x52\\x73\\x4c')]]=_0x5d83f2[_0x3d49('0x91', '\\x4e\\x61\\x55\\x4f')](_0x4168b8,_0x5d83f2[_0x3d49('0x92', '\\x40\\x67\\x39\\x35')](_0xd17c00,_0x3d49('0x93', '\\x4a\\x40\\x34\\x68')));}else if(_0x5d83f2[_0x3d49('0x94', '\\x34\\x31\\x7a\\x47')](_0x5d844c,null)){_0x14979e[_0x14979e[_0x3d49('0x89', '\\x6b\\x6e\\x75\\x50')]]=_0x5d83f2[_0x3d49('0x95', '\\x62\\x25\\x57\\x21')](_0x4168b8,_0x5d83f2[_0x3d49('0x96', '\\x4a\\x40\\x34\\x68')](_0xd17c00,_0x3d49('0x97', '\\x66\\x6c\\x24\\x6a')));}else{_0x14979e[_0x14979e[_0x3d49('0x98', '\\x29\\x52\\x46\\x29')]]=_0x5d83f2[_0x3d49('0x99', '\\x40\\x67\\x39\\x35')](_0x4168b8,_0x5d83f2[_0x3d49('0x9a', '\\x6b\\x6e\\x75\\x50')](_0x5d83f2[_0x3d49('0x9b', '\\x25\\x51\\x75\\x75')](_0xd17c00,'\\x3d'),_0x5d844c[_0x3d49('0x9c', '\\x67\\x42\\x58\\x5a')]()));}}catch(_0x491371){_0x14979e[_0x14979e[_0x3d49('0x9d', '\\x26\\x21\\x74\\x40')]]=_0x5d83f2[_0x3d49('0x9e', '\\x50\\x77\\x38\\x4a')](_0x4168b8,_0x5d83f2[_0x3d49('0x9f', '\\x29\\x52\\x46\\x29')](_0xd17c00,_0x3d49('0xa0', '\\x39\\x46\\x46\\x5b')));break;}break;}catch(_0x1aab34){_0x14979e[_0x14979e[_0x3d49('0x7d', '\\x40\\x67\\x39\\x35')]]=_0x5d83f2[_0x3d49('0xa1', '\\x67\\x42\\x58\\x5a')](_0x4168b8,_0x5d83f2[_0x3d49('0xa2', '\\x4e\\x6a\\x48\\x63')](_0x5d83f2[_0x3d49('0xa3', '\\x50\\x49\\x6c\\x28')](_0xd17c00,'\\x3d'),_0x1aab34));}break;case _0x3d49('0xa4', '\\x63\\x37\\x56\\x6d'):try{var _0x163c28=[];try{_0x6188d6=_0x163c28[_0x3d49('0xa5', '\\x69\\x73\\x39\\x44')]('\\x69');}catch(_0x28d2c5){_0x14979e[_0x14979e[_0x3d49('0xa6', '\\x66\\x6c\\x24\\x6a')]]=_0x5d83f2[_0x3d49('0xa7', '\\x67\\x45\\x4b\\x62')](_0x4168b8,_0x3d49('0xa8', '\\x55\\x61\\x48\\x57'));break;}try{var _0x2e4e0f=_0xdfe886[_0x3d49('0xa9', '\\x4e\\x38\\x6e\\x39')][_0x3d49('0xaa', '\\x39\\x26\\x70\\x63')];if(_0x5d83f2[_0x3d49('0xab', '\\x29\\x56\\x4f\\x53')](_0x2e4e0f,0x0)||_0x5d83f2[_0x3d49('0xac', '\\x4b\\x77\\x54\\x53')](_0x2e4e0f,null)){_0x14979e[_0x14979e[_0x3d49('0x71', '\\x58\\x5a\\x6d\\x48')]]=_0x5d83f2[_0x3d49('0xad', '\\x36\\x77\\x40\\x58')](_0x4168b8,_0x3d49('0xae', '\\x41\\x4b\\x61\\x37'));break;}}catch(_0x224a62){_0x14979e[_0x14979e[_0x3d49('0xaf', '\\x4b\\x77\\x54\\x53')]]=_0x5d83f2[_0x3d49('0xb0', '\\x69\\x73\\x39\\x44')](_0x4168b8,_0x3d49('0xb1', '\\x41\\x4b\\x61\\x37'));break;}for(var _0x6188d6=0x0;_0x5d83f2[_0x3d49('0xb2', '\\x66\\x52\\x73\\x4c')](_0x6188d6,_0xdfe886[_0x3d49('0xb3', '\\x35\\x7a\\x6d\\x70')][_0x3d49('0xb4', '\\x31\\x55\\x5a\\x71')]);_0x6188d6++){var _0x46a352=_0x3d49('0xb5', '\\x26\\x61\\x38\\x37')[_0x3d49('0xb6', '\\x31\\x55\\x5a\\x71')]('\\x7c'),_0x250525=0x0;while(!![]){switch(_0x46a352[_0x250525++]){case'\\x30':if(typeof _0x54c943===_0x3d49('0xb7', '\\x4e\\x32\\x5d\\x43')){_0x22ed9b=_0x3d49('0xb8', '\\x4b\\x76\\x21\\x5d');}else if(_0x5d83f2[_0x3d49('0xb9', '\\x67\\x42\\x58\\x5a')](_0x54c943[_0x3d49('0xba', '\\x21\\x67\\x35\\x75')]('\\x2e')[_0x3d49('0xaf', '\\x4b\\x77\\x54\\x53')],0x1)){_0x22ed9b=_0x54c943[_0x3d49('0xbb', '\\x40\\x67\\x39\\x35')]('\\x2e')[_0x3d49('0xbc', '\\x6c\\x44\\x5a\\x76')]();}continue;case'\\x31':var _0x54c943=_0xdfe886[_0x3d49('0xbd', '\\x4a\\x40\\x34\\x68')][_0x6188d6][_0x3d49('0xbe', '\\x50\\x49\\x6c\\x28')];continue;case'\\x32':if(_0x5d83f2[_0x3d49('0xbf', '\\x2a\\x76\\x29\\x6e')](typeof _0xdfe886[_0x3d49('0xc0', '\\x56\\x35\\x5a\\x67')][_0x6188d6],_0x3d49('0xc1', '\\x67\\x42\\x58\\x5a'))){_0x14979e[_0x14979e[_0x3d49('0x47', '\\x39\\x46\\x46\\x5b')]]=_0x5d83f2[_0x3d49('0xc2', '\\x26\\x61\\x38\\x37')](_0x4168b8,_0x3d49('0xc3', '\\x43\\x59\\x39\\x62'));break;}continue;case'\\x33':if(_0x5d83f2[_0x3d49('0xc4', '\\x69\\x73\\x39\\x44')](_0x163c28[_0x3d49('0xc5', '\\x4a\\x40\\x34\\x68')](_0x22ed9b),0x0)){_0x163c28[_0x3d49('0xc6', '\\x4e\\x50\\x39\\x5e')](_0x22ed9b);}continue;case'\\x34':var _0x22ed9b=_0x3d49('0xc7', '\\x4a\\x40\\x34\\x68');continue;}break;}}for(var _0x6188d6=0x0;_0x5d83f2[_0x3d49('0x32', '\\x4a\\x40\\x34\\x68')](_0x6188d6,_0x163c28[_0x3d49('0x7d', '\\x40\\x67\\x39\\x35')]);_0x6188d6++){_0x14979e[_0x14979e[_0x3d49('0xc8', '\\x56\\x35\\x5a\\x67')]]=_0x5d83f2[_0x3d49('0xc9', '\\x41\\x4b\\x61\\x37')](_0x4168b8,_0x3d49('0xca', '\\x45\\x46\\x51\\x66')+_0x163c28[_0x6188d6]);}}catch(_0x1542c2){_0x14979e[_0x14979e[_0x3d49('0x82', '\\x49\\x62\\x4f\\x42')]]=_0x4168b8(_0x5d83f2[_0x3d49('0xcb', '\\x4e\\x61\\x55\\x4f')](_0x3d49('0xcc', '\\x49\\x62\\x4f\\x42'),_0x1542c2));}break;}_0x5d83f2[_0x3d49('0xcd', '\\x35\\x7a\\x6d\\x70')](_0x4c03cc);}return _0x14979e[_0x3d49('0xce', '\\x31\\x55\\x5a\\x71')]();}var _0x47df95=[[_0x3d49('0xcf', '\\x40\\x67\\x39\\x35'),_0x3d49('0xd0', '\\x50\\x77\\x38\\x4a')],[_0x3d49('0xd1', '\\x4e\\x61\\x55\\x4f'),_0x3d49('0xd2', '\\x36\\x77\\x40\\x58')],[_0x3d49('0xd3', '\\x4f\\x6d\\x61\\x48'),_0x3d49('0xd4', '\\x29\\x56\\x4f\\x53')],[_0x3d49('0xd5', '\\x4e\\x32\\x5d\\x43'),_0x3d49('0xd6', '\\x4f\\x6d\\x61\\x48')],[_0x3d49('0xd7', '\\x55\\x61\\x48\\x57'),_0x3d49('0xd8', '\\x34\\x31\\x7a\\x47')],[_0x3d49('0xd9', '\\x4e\\x6a\\x48\\x63'),_0x3d49('0xda', '\\x46\\x31\\x73\\x41')],[_0x3d49('0xdb', '\\x51\\x5e\\x58\\x6c'),_0x3d49('0xdc', '\\x58\\x5a\\x6d\\x48')],[_0x3d49('0xdd', '\\x4f\\x6d\\x61\\x48'),_0x3d49('0xde', '\\x4a\\x40\\x34\\x68')],[_0x3d49('0xdf', '\\x34\\x31\\x7a\\x47'),_0x3d49('0xde', '\\x4a\\x40\\x34\\x68')],[_0x3d49('0xe0', '\\x67\\x45\\x4b\\x62'),_0x3d49('0xe1', '\\x55\\x61\\x48\\x57')],[_0x3d49('0xe2', '\\x58\\x5a\\x6d\\x48'),_0x3d49('0xe3', '\\x40\\x67\\x39\\x35')],[_0x3d49('0xe4', '\\x63\\x37\\x56\\x6d'),_0x3d49('0xe5', '\\x6d\\x29\\x5d\\x28')],[_0x3d49('0xe6', '\\x45\\x46\\x51\\x66'),_0x3d49('0xe7', '\\x51\\x5e\\x58\\x6c')],[_0x3d49('0xe8', '\\x43\\x59\\x39\\x62'),_0x3d49('0xe9', '\\x61\\x75\\x28\\x69')],[_0x3d49('0xea', '\\x4f\\x6d\\x61\\x48'),_0x3d49('0xeb', '\\x4e\\x61\\x55\\x4f')],[_0x3d49('0xec', '\\x66\\x52\\x73\\x4c'),_0x3d49('0xed', '\\x45\\x46\\x51\\x66')],[_0x3d49('0xee', '\\x2a\\x76\\x29\\x6e'),_0x3d49('0xef', '\\x76\\x35\\x70\\x56')],[_0x3d49('0xf0', '\\x2a\\x76\\x29\\x6e'),_0x3d49('0xf1', '\\x29\\x56\\x4f\\x53')],[_0x3d49('0xf2', '\\x58\\x5a\\x6d\\x48'),_0x3d49('0xf3', '\\x4e\\x50\\x39\\x5e')],[_0x3d49('0xf4', '\\x6c\\x44\\x5a\\x76'),_0x3d49('0xf5', '\\x2a\\x76\\x29\\x6e')],[_0x3d49('0xf6', '\\x4e\\x61\\x55\\x4f'),_0x3d49('0xf7', '\\x29\\x52\\x46\\x29')],[_0x3d49('0xf8', '\\x76\\x35\\x70\\x56'),_0x3d49('0xf9', '\\x39\\x26\\x70\\x63')],[_0x3d49('0xfa', '\\x43\\x59\\x39\\x62'),_0x3d49('0xfb', '\\x34\\x31\\x7a\\x47')],[_0x3d49('0xfc', '\\x40\\x30\\x5d\\x74'),_0x3d49('0xfd', '\\x69\\x73\\x39\\x44')],[_0x3d49('0xfe', '\\x40\\x30\\x5d\\x74'),_0x3d49('0xff', '\\x31\\x55\\x5a\\x71')],[_0x3d49('0x100', '\\x56\\x35\\x5a\\x67'),_0x3d49('0x101', '\\x4b\\x76\\x21\\x5d')],[_0x3d49('0x102', '\\x46\\x31\\x73\\x41'),_0x3d49('0xd0', '\\x50\\x77\\x38\\x4a')],[_0x3d49('0x103', '\\x6b\\x6e\\x75\\x50'),_0x3d49('0xed', '\\x45\\x46\\x51\\x66')],[_0x3d49('0x104', '\\x34\\x31\\x7a\\x47'),_0x3d49('0x105', '\\x66\\x6c\\x24\\x6a')],[_0x3d49('0x106', '\\x63\\x37\\x56\\x6d'),_0x3d49('0x107', '\\x29\\x52\\x46\\x29')],[_0x3d49('0x108', '\\x6b\\x6e\\x75\\x50'),_0x3d49('0x109', '\\x26\\x21\\x74\\x40')],[_0x3d49('0x10a', '\\x78\\x57\\x61\\x25'),_0x3d49('0x10b', '\\x35\\x7a\\x6d\\x70')],[_0x3d49('0x10c', '\\x31\\x55\\x5a\\x71'),_0x3d49('0x10d', '\\x25\\x51\\x75\\x75')],[_0x3d49('0x10e', '\\x26\\x61\\x38\\x37'),_0x3d49('0x107', '\\x29\\x52\\x46\\x29')]];try{var _0x4956d9=_0x3d49('0x10f', '\\x40\\x67\\x39\\x35')[_0x3d49('0x110', '\\x4b\\x76\\x21\\x5d')]('\\x7c'),_0x38a196=0x0;while(!![]){switch(_0x4956d9[_0x38a196++]){case'\\x30':if(!window[_0x3d49('0x111', '\\x58\\x5a\\x6d\\x48')])window[_0x3d49('0x112', '\\x4e\\x38\\x6e\\x39')]=_0x1632d0;continue;case'\\x31':_0x267a8d[_0x3d49('0x113', '\\x4e\\x38\\x6e\\x39')](_0x3d49('0x114', '\\x29\\x56\\x4f\\x53'))[_0x3d49('0x115', '\\x26\\x21\\x74\\x40')]=_0x5d83f2[_0x3d49('0x116', '\\x25\\x51\\x75\\x75')](_0x3d49('0x117', '\\x55\\x61\\x48\\x57'),Math[_0x3d49('0x118', '\\x43\\x59\\x39\\x62')]());continue;case'\\x32':_0x5e5c17(_0x5d83f2[_0x3d49('0x119', '\\x5d\\x58\\x4f\\x28')](_0x23ed25,_0x47df95));continue;case'\\x33':_0x5d83f2[_0x3d49('0x11a', '\\x49\\x62\\x4f\\x42')](_0x4c03cc);continue;case'\\x34':if(_0x446587){_0x47df95[_0x3d49('0x11b', '\\x43\\x59\\x39\\x62')]([_0x3d49('0x11c', '\\x40\\x67\\x39\\x35'),_0x3d49('0x11d', '\\x49\\x62\\x4f\\x42')]);_0x5d83f2[_0x3d49('0x11e', '\\x26\\x61\\x38\\x37')](_0x5e5c17,_0x23ed25(_0x47df95));}continue;case'\\x35':if(_0x1b7c1b){try{_0x4ea5be[_0x3d49('0x11f', '\\x67\\x42\\x58\\x5a')]=_0x37bf76(_0x1b7c1b);}catch(_0x2653e5){}}continue;}break;}}catch(_0x1ef6b5){_0x267a8d[_0x3d49('0x120', '\\x39\\x46\\x46\\x5b')](_0x3d49('0x121', '\\x4e\\x61\\x55\\x4f'))[_0x3d49('0x122', '\\x66\\x6c\\x24\\x6a')]=_0x5d83f2[_0x3d49('0x123', '\\x43\\x59\\x39\\x62')](_0x3d49('0x124', '\\x50\\x77\\x38\\x4a'),_0x5d83f2[_0x3d49('0x125', '\\x50\\x49\\x6c\\x28')](btoa,_0x1ef6b5[_0x3d49('0x126', '\\x4a\\x40\\x34\\x68')]));}finally{if(_0x1b7c1b)_0x4ea5be[_0x3d49('0x127', '\\x4e\\x50\\x39\\x5e')]=_0x1b7c1b;}}());"
+</code></pre></div></div>
+
+<p>to be continued …</p>]]></content><author><name></name></author><category term="technology" /><category term="web" /><summary type="html"><![CDATA[Scrapping websites protected by Incapsula]]></summary></entry><entry><title type="html">OVER THE WIRE</title><link href="http://localhost:4000/_site/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html" rel="alternate" type="text/html" title="OVER THE WIRE" /><published>2017-12-21T00:06:16+05:30</published><updated>2017-12-21T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom</id><content type="html" xml:base="http://localhost:4000/_site/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html"><![CDATA[<h1 id="reverse-engineering-the-windows-mpeg4-custom-xtra-metadata-atom">Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom</h1>
+
+<p>Windows supports MPEG4 format file playback including a rich metatdata field support. Windows Explorer can deal with standard iTunes metadata, but for some extended fields like Composer, Director, EncodedBy etc it uses a non standard atom ‘Xtra’. See <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ff384862%28v=vs.85%29.aspx">msdn</a> for a list of Metadata  Properties for media files.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Following is a sample atom tree as visualised by [AtomicParsely</td>
+      <td>] (version 0.9). It lists Xtra but has no visibility under it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Atom ftyp @ 0 of size: 24, ends @ 24
+Atom mdat @ 24 of size: 10439547 (^), ends @ 0
+			 (^)denotes a 64-bit atom length
+Atom moov @ 10439571 of size: 3700, ends @ 10443271
+     Atom mvhd @ 10439579 of size: 108, ends @ 10439687
+     Atom trak @ 10439687 of size: 1804, ends @ 10441491
+         Atom tkhd @ 10439695 of size: 92, ends @ 10439787
+         Atom mdia @ 10439787 of size: 1704, ends @ 10441491
+             Atom mdhd @ 10439795 of size: 32, ends @ 10439827
+             Atom hdlr @ 10439827 of size: 44, ends @ 10439871
+             Atom minf @ 10439871 of size: 1620, ends @ 10441491
+                 Atom vmhd @ 10439879 of size: 20, ends @ 10439899
+                 Atom dinf @ 10439899 of size: 36, ends @ 10439935
+                     Atom dref @ 10439907 of size: 28, ends @ 10439935
+                 Atom stbl @ 10439935 of size: 1556, ends @ 10441491
+                     Atom stsd @ 10439943 of size: 168, ends @ 10440111
+                         Atom avc1 @ 10439959 of size: 152, ends @ 10440111
+                             Atom avcC @ 10440045 of size: 50, ends @ 10440095
+                             Atom pasp @ 10440095 of size: 16, ends @ 10440111			 ~
+                     Atom stts @ 10440111 of size: 520, ends @ 10440631
+                     Atom stss @ 10440631 of size: 40, ends @ 10440671
+                     Atom stsz @ 10440671 of size: 728, ends @ 10441399
+                     Atom stsc @ 10441399 of size: 52, ends @ 10441451
+                     Atom co64 @ 10441451 of size: 40, ends @ 10441491
+     Atom trak @ 10441491 of size: 1585, ends @ 10443076
+         Atom tkhd @ 10441499 of size: 92, ends @ 10441591
+         Atom mdia @ 10441591 of size: 1455, ends @ 10443046
+             Atom mdhd @ 10441599 of size: 32, ends @ 10441631
+             Atom hdlr @ 10441631 of size: 44, ends @ 10441675
+             Atom minf @ 10441675 of size: 1371, ends @ 10443046
+                 Atom smhd @ 10441683 of size: 16, ends @ 10441699
+                 Atom dinf @ 10441699 of size: 36, ends @ 10441735
+                     Atom dref @ 10441707 of size: 28, ends @ 10441735
+                 Atom stbl @ 10441735 of size: 1311, ends @ 10443046
+                     Atom stsd @ 10441743 of size: 91, ends @ 10441834
+                         Atom mp4a @ 10441759 of size: 75, ends @ 10441834
+                             Atom esds @ 10441795 of size: 39, ends @ 10441834
+                     Atom stts @ 10441834 of size: 568, ends @ 10442402
+                     Atom stsz @ 10442402 of size: 552, ends @ 10442954
+                     Atom stsc @ 10442954 of size: 52, ends @ 10443006
+                     Atom co64 @ 10443006 of size: 40, ends @ 10443046
+         Atom udta @ 10443046 of size: 30, ends @ 10443076
+             Atom name @ 10443054 of size: 22, ends @ 10443076
+     Atom udta @ 10443076 of size: 195, ends @ 10443271
+         Atom meta @ 10443084 of size: 80, ends @ 10443164
+             Atom hdlr @ 10443096 of size: 32, ends @ 10443128
+             Atom ilst @ 10443128 of size: 36, ends @ 10443164
+                 Atom ©day @ 10443136 of size: 28, ends @ 10443164
+                     Atom data @ 10443144 of size: 20, ends @ 10443164
+                     Atom Xtra @ 10443164 of size: 107, ends @ 10443271 ~
+
+ ~ denotes an unknown atom
+------------------------------------------------------
+Total size: 10443271 bytes; 48 atoms total. AtomicParsley version: 0.9.0 (utf16)
+Media data: 10439547 bytes; 3724 bytes all other atoms (0.036% atom overhead).
+Total free atom space: 0 bytes; 0.000% waste.
+------------------------------------------------------
+</code></pre></div></div>
+
+<p>Lets break down the 107 byte magic which happens to appear at the bottom of the file :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            00 00 00 6B 58 74 72 61 00 00 00 29
+00 00 00 0F 57 4D 2F 45 6E 63 6F 64 69 6E 67 54
+69 6D 65 00 00 00 01 00 00 00 0E 00 15 40 B4 8C
+EF 22 7E D3 01 00 00 00 3A 00 00 00 0C 57 4D 2F
+45 6E 63 6F 64 65 64 42 79 00 00 00 01 00 00 00
+22 00 08 47 00 65 00 46 00 6F 00 72 00 63 00 65
+00 20 00 53 00 48 00 41 00 52 00 45 00 00 00
+</code></pre></div></div>
+
+<p>corresponds to plaintext :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ...kXtra...)
+....WM/EncodingT
+ime..........@´Œ
+ï"~Ó....:....WM/
+EncodedBy.......
+"..G.e.F.o.r.c.e
+. .S.H.A.R.E...
+</code></pre></div></div>
+
+<p>Neat. Lets dig deeper.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 6B</code></strong> corresponds to 107 bytes that is the size of the atom (including 4 bytes for itself).</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">58 74 72 61</code></strong> is the atom name ‘Xtra’ is  plaintext.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 29</code></strong> looks like size of a container. Lets analyze the following 0x29 bytes.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 0F</code></strong> Analysing the next 0x29 bytes we see a blob that seems to start with 4 byte magical 0xF. Its size as next 0xF bytes ends immediately after the plaintext string “WM/EncodedBy”. Funny that the atom size just accounts for itself and the atom name. I assume the Windows  parser knows what to make off the following bytes depedning on pseudo-atom name. Not fair !</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">WM/EncodingTime</code></strong> looks like the name of a pseudo-atom, unconventional since atoms are usually 4 bytes.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 01 - 00 00 00 0E - 00 15 40 B4 - 8C EF 22 7E - D3 01 00 00 - 00 3A 00 00 - 00 0C</code></strong> looks like the content for pseudo-atom WM/EncodingTime in which case it would correspond to <strong><code class="language-plaintext highlighter-rouge">12/26/2017 1.54PM</code></strong>. Still figuruing out the datatype.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">57 4D 2F 45 - 6E 63 6F 64 - 65 64 42 79</code></strong> is WM/EncodedBy in plaintext. another pseudo-atom ?</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 01</code></strong> Witchcraft ! <code class="language-plaintext highlighter-rouge">¯\_(ツ)_/¯</code> If its size, it just accounts for itself ! As useful as a boolean to store a string.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 22</code></strong> seems like size of following content (which happens to be the last item so it covers all bytes uptill the end of file.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 08</code></strong> two bytes for God knows what.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">47 00 65 00 - 46 00 6F 00 - 72 00 63 00 - 65 00 20 00 - 53 00 48 00 - 41 00 52 00 - 45 00 00 00</code></strong> corresponds to UTF-16 plaintext ‘<em>GeForce SHARE</em>’.</p>
+
+<p>I will dig into other metadata which might help throw light on more of the metadata types, here i just sampled two that get automatically written when capturing videos using GeForce Experience’s Share feature.</p>]]></content><author><name></name></author><category term="technology" /><category term="multimedia" /><summary type="html"><![CDATA[Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom]]></summary></entry><entry><title type="html">OVER THE WIRE - 2</title><link href="http://localhost:4000/_site/technology/security/2017/07/06/OverTheWire2.html" rel="alternate" type="text/html" title="OVER THE WIRE - 2" /><published>2017-07-06T00:06:16+05:30</published><updated>2017-07-06T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/security/2017/07/06/OverTheWire2</id><content type="html" xml:base="http://localhost:4000/_site/technology/security/2017/07/06/OverTheWire2.html"><![CDATA[<h4 id="baby-steps-to-netsec">baby steps to netsec</h4>
+
+<h2 id="wargame-bandit">Wargame BANDIT</h2>
+<h5 id="ssh--banditlabsoverthewireorg2220">SSH : <code class="language-plaintext highlighter-rouge">bandit.labs.overthewire.org:2220</code></h5>
+
+<h3 id="level-21-to-">Level 21 to ?</h3>
+
+<h2 id="bandit21--ge269g2h3mw3pwgrj0ha9uoqen1c9dgr">BANDIT21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</h2>
+<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
+
+<p>As pointed, we look into the `/etc/cron.d/’ directory and find the following listed</p>
+<blockquote>
+  <p>cron-apt
+cronjob_bandit22
+cronjob_bandit23
+cronjob_bandit24
+php5</p>
+</blockquote>
+
+<p>bandit22 is what level we wish to get to so naturally we see whats that cronjob about. It seems execute a file <code class="language-plaintext highlighter-rouge">/usr/bin/cronjob_bandit22.sh</code> every reboot that to copy the password to a file <code class="language-plaintext highlighter-rouge">cat /etc/bandit_pass/bandit22 &gt; /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code>, so command ought to have been executed and file must already exist.</p>
+
+<p>a quick look into this file <code class="language-plaintext highlighter-rouge">/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code> gives us password to next level bandit22.</p>
+
+<h2 id="bandit22--yk7owgacwjwmvrwrtesjewb7wvoiilli">BANDIT22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI</h2>
+
+<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in <code class="language-plaintext highlighter-rouge">/etc/cron.d/</code> for the configuration and see what command is being executed.</p>
+
+<p>A look at cronjob_bandit22 tells us what script is run :  <code class="language-plaintext highlighter-rouge">/usr/bin/cronjob_bandit23.sh</code>
+And a look at the script lets us know that a folder name is created using the following command :
+` echo I am user bandit22 | md5sum | cut -d ‘ ‘ -f 1<code class="language-plaintext highlighter-rouge"> I would be advisable to learn about each of the piped commands, for the impatient ... it prints : </code>8169b67bd894ddbb4412f91573b38db3` now go figure !</p>
+
+<p>As per script the password is moved to <code class="language-plaintext highlighter-rouge">/tmp/8169b67bd894ddbb4412f91573b38db3</code> I cant seem to find it :-(s</p>
+
+<h2 id="bandit-23--s">BANDIT 23 | ???s</h2>]]></content><author><name></name></author><category term="technology" /><category term="security" /><summary type="html"><![CDATA[baby steps to netsec]]></summary></entry><entry><title type="html">A Markdown for UI</title><link href="http://localhost:4000/_site/technology/frontend/2017/06/08/UXScript.html" rel="alternate" type="text/html" title="A Markdown for UI" /><published>2017-06-08T00:06:16+05:30</published><updated>2017-06-08T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/frontend/2017/06/08/UXScript</id><content type="html" xml:base="http://localhost:4000/_site/technology/frontend/2017/06/08/UXScript.html"><![CDATA[<p>It takes a lazy person to get things done quickly. The computer professional stereotype
+ is banging on keyboards like monkeys, lot of unnecessary typing clawing at our lives.
+A markup is a beautiful thing, lot of designing without verbose typing. What about UI,
+a lot is pretty much boiler plate code , I say almost 90 % is. 90 % of all code is
+boiler plate code. The unique logic itself is always a fraction of the code.
+Welcome UX-SCRIPT, a markup encoding for User Interface.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[It takes a lazy person to get things done quickly. The computer professional stereotype is banging on keyboards like monkeys, lot of unnecessary typing clawing at our lives. A markup is a beautiful thing, lot of designing without verbose typing. What about UI, a lot is pretty much boiler plate code , I say almost 90 % is. 90 % of all code is boiler plate code. The unique logic itself is always a fraction of the code. Welcome UX-SCRIPT, a markup encoding for User Interface.]]></summary></entry><entry><title type="html">OVER THE WIRE</title><link href="http://localhost:4000/_site/technology/security/2017/06/07/OverTheWire.html" rel="alternate" type="text/html" title="OVER THE WIRE" /><published>2017-06-07T00:06:16+05:30</published><updated>2017-06-07T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/security/2017/06/07/OverTheWire</id><content type="html" xml:base="http://localhost:4000/_site/technology/security/2017/06/07/OverTheWire.html"><![CDATA[<h4 id="baby-steps-to-netsec">baby steps to netsec</h4>
+
+<h2 id="wargame-bandit">Wargame BANDIT</h2>
+<h5 id="ssh--banditlabsoverthewireorg2220">SSH : <code class="language-plaintext highlighter-rouge">bandit.labs.overthewire.org:2220</code></h5>
+
+<h3 id="level-1-to-20">Level 1 to 20</h3>
+
+<p>The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. I highly recommend it for every one to have a look at their awesome <a href="http://overthewire.org/wargames">website</a>. Here is my effort on the first and simplest Wargame listed : <a href="http://overthewire.org/wargames/bandit/bandit1.html">Bandit</a>. I have summarised a list of concepts learned in each Level of the game.</p>
+
+<h2 id="bandit0--bandit0">Bandit0 | Bandit0</h2>
+<p>file readme has password for Bandit1 : <code class="language-plaintext highlighter-rouge">boJ9jbbUNNfktd78OOpsqOltutMc3MY1</code></p>
+
+<h5 id="commands-learned"><em>Commands learned</em></h5>
+<p>`
+use &gt;man [COMMAND] to get help on the command and if that fails use &gt;help [COMMAND]
+`</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>COMMAND</th>
+      <th>Description</th>
+      <th>Usage Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ls</code></td>
+      <td>list directory contents</td>
+      <td>ls</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cd</code></td>
+      <td>Change the shell working directory</td>
+      <td>cd</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cat</code></td>
+      <td>concatenate files and print on the standard output</td>
+      <td>cat [FILENAME]</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">file</code></td>
+      <td>determine file type</td>
+      <td>file [FILENAME]</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">du</code></td>
+      <td>estimate file space disk usage</td>
+      <td>du</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">find</code></td>
+      <td>search for files in a directory hierarchy</td>
+      <td>find [FILENAME]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="bandit1--boj9jbbunnfktd78oopsqoltutmc3my1">BANDIT1 | boJ9jbbUNNfktd78OOpsqOltutMc3MY1</h2>
+<h5 id="accessing-files-named-with-just-a-hyphen">Accessing files named with just a hyphen</h5>
+<p>task is to read a file convinientsly named with just a hyphen <code class="language-plaintext highlighter-rouge">-</code>
+The problem now is that most commands accept arguments prefixed with a hyphen and <code class="language-plaintext highlighter-rouge">cat</code>
+will have issues parsing just a stand alone hyphen.
+I tried using a common trick of enclosing the hyphen in quotes but <code class="language-plaintext highlighter-rouge">"-"</code> did
+not seem to do the trick either.
+So now I used an expression i have often seen in many scripts,
+where a executable in the current directory is referred to as <code class="language-plaintext highlighter-rouge">./filename</code>
+so I use <code class="language-plaintext highlighter-rouge">cat ./-</code> to successfully get password to the next level : <code class="language-plaintext highlighter-rouge">CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</code></p>
+
+<h2 id="bandit2--cv1dtqxwvfxtvm2f0k09shz0ywrinya9">BANDIT2 | CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</h2>
+<h5 id="accessing-files-with-spaces-in-its-name">Accessing files with spaces in its name</h5>
+<p>Remember how in the previous level i tried enclosing the filename with quotes, yup that worked in this level.
+Ran <code class="language-plaintext highlighter-rouge">cat "file name with spaces"</code> to get password for next level <code class="language-plaintext highlighter-rouge">UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</code></p>
+
+<h2 id="bandit3--umhadqclwmgdlokq3yngjwxgormb5luk">BANDIT3 | UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</h2>
+<h5 id="accessing-hidden-files">Accessing hidden files</h5>
+<p>there is a .hidden file not visible on a simple <code class="language-plaintext highlighter-rouge">ls</code> so go for the pro version and use : <code class="language-plaintext highlighter-rouge">ls -a</code>
+or even better <code class="language-plaintext highlighter-rouge">ls -l -a</code> to see it has access specified as : <code class="language-plaintext highlighter-rouge">-rw-r-----</code>
+A hidden file is anything beginning with a <code class="language-plaintext highlighter-rouge">.</code> but I used this excersize to explore file permissions.</p>
+
+<p><img src="http://linuxcommand.org/images/permissions_diagram.gif" alt="File Permissions in Linux" /></p>
+
+<p><a href="https://wiki.archlinux.org/index.php/users_and_groups">more info on users and groups</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">cat .hidden</code> gives <code class="language-plaintext highlighter-rouge">pIwrPrtPN36QITSp3EQaw936yaFoFgAB</code></p>
+
+<p>ta-da !</p>
+
+<h2 id="bandit4--piwrprtpn36qitsp3eqaw936yafofgab">BANDIT4 | pIwrPrtPN36QITSp3EQaw936yaFoFgAB</h2>
+
+<p>Has a folder called <code class="language-plaintext highlighter-rouge">readme</code> with 10 file from <code class="language-plaintext highlighter-rouge">-file00</code> to <code class="language-plaintext highlighter-rouge">-file09</code>
+yup, the names start with a hyphen, how convinient. Use <code class="language-plaintext highlighter-rouge">cat ./-*</code> to see all at once.
+<code class="language-plaintext highlighter-rouge">-file07</code> has qwhat looks like a password. Rest of them contain non-ascii stuff, not sure if they can be used as passwords.
+MSDN <a href="https://msdn.microsoft.com/en-us/library/cc875839.aspx">recommends sing Unicode Characters in ALT Key Combinations</a></p>
+
+<h2 id="bandit5--korebokuiddepwhwk7jzc0rtdopnaykh">BANDIT5 | koReBOKuIDDepwhWk7jZC0RTdopnAYKh</h2>
+<p>Has a list of 20 folders <code class="language-plaintext highlighter-rouge">maybehere00</code> to <code class="language-plaintext highlighter-rouge">maybehere19</code> with files in it with spaces in its name as well as with hyphen and dot prefix.
+Of course you can search one by one, its only 20 folders, but that is not the reason you started this, did you ?
+So how do we iterrate over the folders in root directory and see content of all its files (with unconventional yet valid names).
+The problem lists three unique features about the file :</p>
+
+<ol>
+  <li>human-readable</li>
+  <li>1033 bytes in size</li>
+  <li>not executable</li>
+</ol>
+
+<p>Almost all are human readable you will notice so thats not really helpful.
+Size is 1033 bytes exact, thats a very strong hint.</p>
+
+<p>Use command <code class="language-plaintext highlighter-rouge">du -a</code> to see size of all files in all folders. But size isn’t in bytes, for that use additional <code class="language-plaintext highlighter-rouge">-b</code> argument.
+Voila ! .file2 in maybehere07 is seen of size 1033 in plain sight ! A lot of empty space is trailing the actual password so that
+had the size not be mentioned you could have isolated this one file just by its abnosrmal small size (rest are quite bigger!).
+But this was a very poor solution, there is obviously a more sophisticated way of solving this that helps you not
+manually parse a long list for the number 1033. <code class="language-plaintext highlighter-rouge">find</code> is the command to use here.</p>
+
+<p><code class="language-plaintext highlighter-rouge">find -size 1033c</code> quickly returns <code class="language-plaintext highlighter-rouge">./maybehere07/.file2</code> which hass password <code class="language-plaintext highlighter-rouge">DXjZPULLxYr17uwoI01bNLQbtFemEgo7</code></p>
+
+<h2 id="bandit6--dxjzpullxyr17uwoi01bnlqbtfemego7">BANDIT6 | DXjZPULLxYr17uwoI01bNLQbtFemEgo7</h2>
+<p>Okay this got me stumped for sometime. The folder where you spawn has nothing worthwhile in it. The total size of the folder is less than the password file size (33bytes)
+so naturally, I drift to the root. and the command for previous level does equally well, I do add an additional <code class="language-plaintext highlighter-rouge">-user</code> and <code class="language-plaintext highlighter-rouge">-group</code> arguments.
+On execution of <code class="language-plaintext highlighter-rouge">find -size 33c -user bandit7 -group bandit6</code> most opf the files are denied permission but this one caught my eye :
+<code class="language-plaintext highlighter-rouge">./var/lib/dpkg/info/bandit7.password</code>, yup and the password works for bandit7 !</p>
+
+<h2 id="bandit7--hkbptkqniay4fw76bey8pvxkedqrktzs">BANDIT7 | HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs</h2>
+<p>Ah ! the famous <code class="language-plaintext highlighter-rouge">grep</code>. This level needs you to parse data.txt file for the work “millionth” for the password to the next level.
+The solution is too simple so explore this level experimenting and learning about grep. Its quite powerful.</p>
+
+<h2 id="bandit8--cvx2jja4cfaltqs87jk27qwqghbm9plv">BANDIT8 | cvX2JJa4CFALtqS87jk27qwqGhBM9plV</h2>
+<p>At this point I noticed that the level description wishes you to familiarize your self with the following commands :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>COMMAND</th>
+      <th>Description</th>
+      <th>Usage Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">grep</code></td>
+      <td>grep, egrep, fgrep, rgrep - print lines matching a pattern</td>
+      <td><code class="language-plaintext highlighter-rouge">grep [OPTIONS] PATTERN [FILE...]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sort</code></td>
+      <td>sort lines of text files</td>
+      <td><code class="language-plaintext highlighter-rouge">sort [OPTION]... [FILE]...</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uniq</code></td>
+      <td>report or omit repeated lines</td>
+      <td><code class="language-plaintext highlighter-rouge">uniq [OPTION]... [INPUT [OUTPUT]]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">strings</code></td>
+      <td>print the strings of printable characters in files.</td>
+      <td><code class="language-plaintext highlighter-rouge">strings filename</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">base64</code></td>
+      <td>base64 encode/decode data and print to standard output</td>
+      <td>` base64 [OPTION]… [FILE]`</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tr</code></td>
+      <td>translate or delete characters</td>
+      <td><code class="language-plaintext highlighter-rouge">tr [OPTION]... SET1 [SET2]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tar</code></td>
+      <td>The GNU version of the tar archiving utility</td>
+      <td><code class="language-plaintext highlighter-rouge">tar --extract --get [options] [pathname ...]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gzip</code></td>
+      <td>gzip, gunzip, zcat - compress or expand files</td>
+      <td><code class="language-plaintext highlighter-rouge">gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ...  ]</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bzip2</code></td>
+      <td>a block-sorting file compressor, v1.0.6</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bzcat</code></td>
+      <td>decompresses files to stdout</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bzip2recover</code></td>
+      <td>recovers data from damaged bzip2 files</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">xxd</code></td>
+      <td>make a hexdump or do the reverse</td>
+      <td><code class="language-plaintext highlighter-rouge">xxd [options] [infile [outfile]]</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">uniq</code> lookes like a tempting option, but neither <code class="language-plaintext highlighter-rouge">-c</code> nor <code class="language-plaintext highlighter-rouge">-u</code> readily spew out any answer.
+<code class="language-plaintext highlighter-rouge">sort</code> is promising but by itself alone it will leave you with manual task of seeing the password stick out out of all clubbed strings.
+Why not both ? Welcome pipes <code class="language-plaintext highlighter-rouge">|</code> … using <code class="language-plaintext highlighter-rouge">sort data.txt | uniq -u</code> does the trick (<code class="language-plaintext highlighter-rouge">sort data.txt | uniq -u</code>)</p>
+
+<h2 id="bandit9--usvvyfsfzzwbi6wgc7dafyfur6jqquhr">BANDIT9 | UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</h2>
+<p>Much like the previous level we are to find readable “strings” where the password is prefixed with many ‘=’ signs.
+Pipes to the resque again. strings will print all readable strings and grep will find the unspecified amount of = signs for us.
+<code class="language-plaintext highlighter-rouge">strings data.txt | grep ===</code> does the job and neatly prints four strings where the first three are “the”, “password”,”is”, how convinient.</p>
+
+<h2 id="bandit10--trukldjsbj5g7yyj2x2r0o3a5hqjfulk">BANDIT10 | truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</h2>
+<p>Regarding the base64 command, this one is fairly introductory. Use <code class="language-plaintext highlighter-rouge">base64 -d data.txt</code>
+Readup on base64 at <a href="https://www.wikiwand.com/en/Base64">wikipedia</a> ?</p>
+
+<h2 id="bandit11--ifukwkgsfw8moq3irfqrxe1hxtnebupr">BANDIT11 | IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR</h2>
+<p>This regards the <a href="https://www.wikiwand.com/en/ROT13">ROT13</a> encoding. From the translate command <code class="language-plaintext highlighter-rouge">tr</code>example on wikipedia
+you know what to do : <code class="language-plaintext highlighter-rouge">cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'</code></p>
+
+<h2 id="bandit12--5te8y4drgcrfcx8ugdwuex8kfc6k2euu">BANDIT12 | 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu</h2>
+<p>Okay, this one will make you work some, at least I did. I am not proud of my solution as it involved manual task and
+the file is encrypted / tarred only a few times.
+This involves introductory knowledge of <code class="language-plaintext highlighter-rouge">xxd</code>, <code class="language-plaintext highlighter-rouge">tar</code>, <code class="language-plaintext highlighter-rouge">gzip</code> and <code class="language-plaintext highlighter-rouge">bzip</code>.
+The data.txt you come across is the hex dump of the original compressed binary.
+use the <code class="language-plaintext highlighter-rouge">file</code> command to know what operation to do on resulting file.
+If its ` gzip compressed data<code class="language-plaintext highlighter-rouge"> use </code>gzip -d filename<code class="language-plaintext highlighter-rouge"> to decompress.
+If its </code>POSIX tar archive (GNU)<code class="language-plaintext highlighter-rouge"> use </code>tar -xvf tarballname<code class="language-plaintext highlighter-rouge">
+Occasionaly the command fails due to unrecognizable extension. so using </code>mv<code class="language-plaintext highlighter-rouge"> command rename resulting file to </code>bz<code class="language-plaintext highlighter-rouge">,</code>gz<code class="language-plaintext highlighter-rouge"> or </code>tar`</p>
+
+<p>Around 8 to 9 levels deep you get an  ASCII text file with the password.</p>
+
+<p>I will revisit this one to find an iterative solution, life is too small to iterate manually.
+If you still see the above line promising iterative solution, I am a lazy bum and havent come back to this problem. Sorry.</p>
+
+<h2 id="bandit13--8zjycribwfykneahhwxcv3wb2a1orpyl">BANDIT13 | 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL</h2>
+<p>You must familiarize yourself to these new set of commands for the next few levels :</p>
+
+<p>ssh, telnet, nc, openssl, s_client, nmap
+| COMMAND | Description |
+| ——- | ———– |
+|<code class="language-plaintext highlighter-rouge">ssh</code>|OpenSSH SSH client (remote login program)|
+|<code class="language-plaintext highlighter-rouge">telnet</code>|user interface to the TELNET protocol|
+|<code class="language-plaintext highlighter-rouge">nc</code>| arbitrary TCP and UDP connections and listens|
+|<code class="language-plaintext highlighter-rouge">openssl</code>|OpenSSL Commandline tool|
+|<code class="language-plaintext highlighter-rouge">s_client</code>|SSL/TLS client program|
+|<code class="language-plaintext highlighter-rouge">nmap</code>| Network exploration tool and security / port scanner|</p>
+
+<p>In this level you just have to use the given PEN RSA Private Key file to login to the next level Bandit14.
+From above description table <code class="language-plaintext highlighter-rouge">ssh</code> looks like a good candidate command to use here. Since bandit14 is local to same
+system we can refer to the target as <code class="language-plaintext highlighter-rouge">bandit14@localhost</code>.
+The following command logs you in automatically to the next level :
+<code class="language-plaintext highlighter-rouge">ssh -i sshkey.private bandit14@localhost</code></p>
+
+<h2 id="bandit14--ssh-login-using-key-sshkeyprivate--4wcyujfw0k0xlshldzztntbhiqxu3b3e">BANDIT14 | SSH login using key sshkey.private | 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e</h2>
+<p>The password for the next level has to be retrieved by submitting the password of the current level to port 30000 on localhost.
+Since we logged in using the private key, once we login we can see the actual password by <code class="language-plaintext highlighter-rouge">cat /etc/bandit_pass/bandit14</code>.
+now nc can be used to connect to localhost:30000 . Pipe the previous cat command with <code class="language-plaintext highlighter-rouge">nc localhost 30000</code> to see password to
+the next level.</p>
+
+<h2 id="bandit15--bfmyroe26wyalil77fodi9qh59ek5xnr">BANDIT15 | BfMYroe26WYalil77FoDi9qh59eK5xNr</h2>
+<p>Now you must submit the password of the current level to port 30001 on localhost using SSL encryption.
+Again, the current password is here <code class="language-plaintext highlighter-rouge">/etc/bandit_pass/bandit15</code>. We pipe this with openssl command.
+The problem also hints with the following information : <em>Getting “HEARTBEATING” and “Read R BLOCK”? Use -ign_eof and read the “CONNECTED COMMANDS” section in the manpage. Next to ‘R’ and ‘Q’, the ‘B’ command also works in this version of that command…</em>
+CONNECTED COMMANDS tells us the following <em>If a connection is established with an SSL server then any data received from the server is displayed and any key presses will be sent to the server. When used interactively (which means neither -quiet nor -ign_eof have been given), the session will be renegotiated if the line begins with an R, and if the line begins with a Q or if end of file is reached, the connection will be closed down.</em>
+Interesting, its worth exploring here, but finally you will conclude that the following is enough :
+ <code class="language-plaintext highlighter-rouge">cat /etc/bandit_pass/bandit15 | openssl s_client -connect localhost:30001 -ign_eof</code></p>
+
+<h2 id="bandit16--clufn7wtigryunymyou4rcffsxqluehd">BANDIT16 | cluFn7wTiGryunymYOu4RcffSxQluehd</h2>
+<p>The Problem : The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
+
+<p>The wargame has reached an interesting curve and we are to get ourselves familiar with <a href="https://www.wikiwand.com/en/Port_scanner">port scanning</a>.</p>
+
+<p>using the famous <code class="language-plaintext highlighter-rouge">nmap</code> command we wet our hands into port sniffing. Smells like hacking already, eh ? I recommend you glance over the port scanning basics <a href="https://nmap.org/book/man-port-scanning-basics.html">here</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">nmap -sV -p 31000-32000 localhost</code> gets us a list of 5 ports in the required range with three that list <code class="language-plaintext highlighter-rouge">echo</code> as the service. We ignore these and pay attention to the other two ports which list ` msdtc   Microsoft Distributed Transaction Coordinator (error)` as the running service.</p>
+
+<p><code class="language-plaintext highlighter-rouge">echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790</code>
+Now using the openssl s_client command on connecting to 31518 and pushing the current password, we are given a ssh private ke to login to the next level. lets save this in tmp/key/sshkey.private</p>
+
+<p>Now use this key to login to level 17. Sounds familiar ? Because its same as Level 13 !
+The following command ushers you into the realm of Level 17 : <code class="language-plaintext highlighter-rouge">ssh -i sshkey.private bandit17@localhost</code></p>
+
+<p>Note : Probably this command will ignore the key with error <code class="language-plaintext highlighter-rouge">WARNING: UNPROTECTED PRIVATE KEY FILE!</code>
+The file must be only readable by you ! <code class="language-plaintext highlighter-rouge">chmod 400 sshkey.private</code> should take care of that.</p>
+
+<h2 id="bandit17--xlyvmn9we5zq5vhacb0szevqbrp7nbtn">BANDIT17 | xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn</h2>
+<p>The Problem : There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new</p>
+
+<p><code class="language-plaintext highlighter-rouge">diff</code> is listed under <em>Commands you may need to solve this level</em> and seems obvious to use here.
+<code class="language-plaintext highlighter-rouge">diff passwords.old passwords.new</code>results in
+`42c42
+&lt; eG69HnVwO1p7cOdfhadHkPv8Vn0ChedC
+—</p>
+<blockquote>
+  <p>kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd`</p>
+</blockquote>
+
+<p>so logging in into bandit18 using <code class="language-plaintext highlighter-rouge">kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</code> gets you in but immediate thrown out with a <code class="language-plaintext highlighter-rouge">byebye!</code>
+Thats expected and related to the next level.</p>
+
+<p>Note : to know the actual password of current level see <code class="language-plaintext highlighter-rouge">/etc/bandit_pass/bandit17</code></p>
+
+<h2 id="bandit18--kfbf3eyk5bpbrzwjqutbbfe887svc5yd">BANDIT18 | kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd</h2>
+<p>The Problem : The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.</p>
+
+<p>Password is present as plaintext in readme, thats convinient. The problem is the problematic bashrc. If there was only a way from ssh to not trigger the bashrc script. A study of ssh gets us to -t : <em>Force pseudo-tty allocation.  This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services.  Multiple -t options force tty allocation, even if ssh has no local tty.</em>
+Use this opportunity to learn about bash.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ssh -t bandit18@localhost /bin/sh</code> gets you in safely, minus the command prompt prefix.</p>
+
+<h2 id="bandit19--iuekss7ubh8g3dcwvzrtd8ravowq3m5x">BANDIT19 | IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x</h2>
+<p>The Problem : To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.</p>
+
+<p>setuid : short for “set user ID upon execution”, read more about it <a href="https://en.wikipedia.org/wiki/Setuid">here</a>.</p>
+
+<p>on executing the file ./bandit20-do in home folder you get :</p>
+<blockquote>
+  <p>Run a command as another user.
+ Example: ./bandit20-do id</p>
+</blockquote>
+
+<p>So thats exactly what we do, piggyback on this file to read password as another user (bandit20)
+` ./bandit20-do cat /etc/bandit_pass/bandit20<code class="language-plaintext highlighter-rouge"> gets us </code>GbKksEFF4yrVs6il55v6gwY5aVje5f0j`</p>
+
+<h2 id="bandit20--gbkkseff4yrvs6il55v6gwy5avje5f0j">BANDIT20 | GbKksEFF4yrVs6il55v6gwY5aVje5f0j</h2>
+<p>The Problem : There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+
+<p>NOTE: Changes to the infrastructure made this level more difficult. You will need to figure out a way to launch multiple commands in the same Docker instance.</p>
+
+<p>NOTE 2: Try connecting to your own network daemon to see if it works as you think</p>
+
+<p>We are now well aware og setuid binaries, in this the binary queries a port for current level’s password and spits out next level’s password if the password provided was correct. We first neet to setup a service at a port that repeats the levels password, for this we use <code class="language-plaintext highlighter-rouge">nc -l 12345 &lt; /etc/bandit_pass/bandit20</code>. But wait, how do we free up the prompt for another ssh session to run the setuid binary ? For that we postfix the commandline by <code class="language-plaintext highlighter-rouge">&amp;</code>. The command prompt appears immediately to accept the next command <code class="language-plaintext highlighter-rouge">./suconnect 12345</code> which spews out the next level’s password <code class="language-plaintext highlighter-rouge">gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</code></p>
+
+<p>I would recommend you go back at this point and revise all concepts you have learned so far in levels 1 to 20. Though a game, the point is to actually retain all the information once the game is over. Practice. Practice. Practice.</p>
+
+<p>See you in next post where we wrap up the BANDIT series of OverTheWire wargames !</p>]]></content><author><name></name></author><category term="technology" /><category term="security" /><summary type="html"><![CDATA[baby steps to netsec]]></summary></entry><entry><title type="html">Subtitle Translator</title><link href="http://localhost:4000/_site/technology/frontend/2017/06/07/Subtitle-Translator.html" rel="alternate" type="text/html" title="Subtitle Translator" /><published>2017-06-07T00:06:16+05:30</published><updated>2017-06-07T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/frontend/2017/06/07/Subtitle-Translator</id><content type="html" xml:base="http://localhost:4000/_site/technology/frontend/2017/06/07/Subtitle-Translator.html"><![CDATA[<p><img src="http://sugarfx.tv/info/subtitles/info_subtitles_sm.jpg" alt="" /></p>
+
+<p>Subtitles are a convinient and engaging method to understand a  foreign language content where language audio translations may not be available.
+This script uses Frengly free translation REST API to translate line by line all the content of the .srt subtitle file. Since this code used free translation API subsequent translation requests have an interval of three seconds therefore translation time is 3*number_of_lines_translated (Frengly supports about <a href="http://www.frengly.com/api">38 languages</a>)
+script argument  looks like : <code class="language-plaintext highlighter-rouge">filename.srt:source_language[:destination_language]</code>
+      example :</p>
+<blockquote>
+  <p>Superman.srt:en:fr</p>
+</blockquote>
+
+<p>above input translates <em>Superman.srt</em> from english to french the new file created will be <em>fr_Superman.srt</em>
+Checkout the source on my <a href="https://github.com/prakashydv/SRTtranslate">github page</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Destination by default is english (en)
+</code></pre></div></div>
+
+<p>Table for Encoding Language:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Encoding":"Language"
+
+"en","english"
+"fr","french"
+"ar","arabic"
+"bg","bulgarian"
+"zh-cn","chinese (Simplified)"
+"zh-TW","Chinese (Traditional)"
+"hr","Croatian"
+"cs","Czech"
+"da","Danish"
+"nl","Dutch"
+"en","English"
+"tl","Filipino"
+"fi","Finnish"
+"fr","French"
+"de","German"
+"el","Greek"
+"iw","Hebrew"
+"hi","Hindi"
+"hu","Hungarian"
+"id","Indonesian"
+"ga","Irish"
+"it","Italian"
+"ja","Japanese"
+"ko","Korean"
+"la","Latin"
+"no","Norwegian"
+"fa","Persian"
+"pl","Polish"
+"pt","Portuguese"
+"ro","Romanian"
+"ru","Russian"
+"sr","Serbian"
+"sk","Slovakian"
+"es","Spanish"
+"sv","Swedish"
+"th","Thai"
+"tr","Turkish"
+"vi","Vietnamese"
+</code></pre></div></div>
+
+<h3 id="limitations-">Limitations :</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Since this code used free translation API subsequent translation requests have an interval of three seconds
+therefore translation time is 3*number_of_lines_translated
+</code></pre></div></div>
+
+<p>The heart of the script is very simple, just fetch a json from the url :</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span><span class="o">=</span><span class="s">'http://syslang.com?src='</span><span class="o">+</span><span class="n">source_language</span><span class="o">+</span><span class="s">'&amp;dest='</span><span class="o">+</span><span class="n">target_language</span><span class="o">+</span><span class="s">'+&amp;text='</span><span class="o">+</span><span class="n">MESSAGETOTRANSLATE</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span><span class="s">'+'</span><span class="p">)</span><span class="o">+</span><span class="s">'&amp;email=YOUREMAIL@ADDRESS.com&amp;password=yourpassword&amp;outformat=json'</span>
+</code></pre></div></div>
+
+<h4 id="ciao-">Ciao !</h4>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Flappy Bird in Phaser</title><link href="http://localhost:4000/_site/technology/frontend/2017/05/02/GameDev-with-Phaser.html" rel="alternate" type="text/html" title="Flappy Bird in Phaser" /><published>2017-05-02T00:06:16+05:30</published><updated>2017-05-02T00:06:16+05:30</updated><id>http://localhost:4000/_site/technology/frontend/2017/05/02/GameDev-with-Phaser</id><content type="html" xml:base="http://localhost:4000/_site/technology/frontend/2017/05/02/GameDev-with-Phaser.html"><![CDATA[<p><img src="../images/flappy.png" alt="Flappy What exactly?" /></p>
+
+<p>Phaser is an open source game development framework for simple HTML5 2D desktop and mobile browser games, so why not ?!</p>
+
+<p>Dependencies :</p>
+<ul>
+  <li>html5 capable browser</li>
+  <li>run simple http server locally during development (python will do, as always)</li>
+  <li>glitter</li>
+</ul>
+
+<h3 id="jumpstarting-phaser">Jumpstarting phaser</h3>
+
+<p>create the phaser object (duh!)</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">game</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Phaser</span><span class="p">.</span><span class="n">Game</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">Phaser</span><span class="p">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s">'flappy'</span><span class="p">,</span> <span class="p">{</span> <span class="n">preload</span><span class="p">:</span> <span class="n">preload</span><span class="p">,</span> <span class="n">create</span><span class="p">:</span> <span class="n">create</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="n">update</span> <span class="p">});</span>
+</code></pre></div></div>
+<p>… that went well. (the 500s are the width and height). Preload, create and update  are the holy trinity that you must implement to get your game running.</p>
+
+<p>I am a man of simple tastes so my graphics are really spartan. Lets do away with this necessary summoning of evil bitmaps.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">preload</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'sky'</span><span class="p">,</span> <span class="s">'assets/sky.jpg'</span><span class="p">);</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'pipe1'</span><span class="p">,</span> <span class="s">'assets/pole1.png'</span><span class="p">);</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'pipe2'</span><span class="p">,</span> <span class="s">'assets/pole2.png'</span><span class="p">);</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'gameover'</span><span class="p">,</span> <span class="s">'assets/game_over3.jpg'</span><span class="p">);</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">spritesheet</span><span class="p">(</span><span class="s">'bird'</span><span class="p">,</span> <span class="s">'assets/iconslucent.png'</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">41</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>you may have noticed i used a spritesheet for a bird instead of a regular image. spritesheets lets you animate objects in the game, usually a pleasant experience.</p>
+
+<p>Lets define some globally visible parameters and variable. (some people just like to watch the world burn !)</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">gap_difficulty</span><span class="o">=</span><span class="mi">35</span><span class="p">;</span> <span class="o">//</span> <span class="n">maybe</span> <span class="n">let</span> <span class="n">the</span> <span class="n">user</span> <span class="n">configure</span> <span class="n">it</span> <span class="err">?</span>
+<span class="n">var</span> <span class="n">bird</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">gover</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">alive</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>        <span class="o">//</span> <span class="n">feel</span> <span class="n">good</span><span class="p">,</span> <span class="n">right</span> <span class="err">?!</span>
+<span class="n">var</span> <span class="n">pipething</span><span class="p">;</span>         <span class="o">//</span> <span class="k">if</span> <span class="n">it</span> <span class="n">looks</span> <span class="n">like</span> <span class="n">a</span> <span class="n">pipe</span><span class="p">,</span> <span class="n">smells</span> <span class="n">like</span> <span class="n">a</span> <span class="n">pipe</span> <span class="p">...</span> <span class="n">it</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">pipe</span> <span class="err">!</span>
+<span class="n">var</span> <span class="n">cursors</span><span class="p">;</span>           <span class="o">//</span> <span class="n">cursers</span> <span class="err">?</span>
+<span class="n">var</span> <span class="n">pipe1</span><span class="p">,</span><span class="n">pipe2</span><span class="p">,</span><span class="n">pipe3</span><span class="p">,</span><span class="n">pipe4</span><span class="p">;</span> <span class="o">//</span> <span class="n">Bird</span> <span class="n">folk</span> <span class="n">havent</span> <span class="n">discovered</span> <span class="n">lists</span> <span class="n">yet</span>
+<span class="n">var</span> <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>         <span class="o">//</span> <span class="p">:</span><span class="o">-</span><span class="p">(</span>
+<span class="n">var</span> <span class="n">scoreText</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">player</span><span class="p">;</span>
+<span class="n">var</span> <span class="n">but</span><span class="p">;</span>               <span class="o">//</span> <span class="n">but</span> <span class="n">what</span> <span class="n">dear</span> <span class="err">?</span>
+<span class="n">var</span> <span class="n">respawnCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="o">//</span> <span class="n">respawning</span> <span class="n">your</span> <span class="n">way</span> <span class="n">to</span> <span class="n">immortality</span>
+<span class="n">var</span> <span class="n">gamepaused</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">wonders</span> <span class="n">why</span> <span class="p">...</span>
+</code></pre></div></div>
+
+<p>Now sit in the lotus position and bring forth the keyboard and as an avatar of the Hindu God Bhrama the creator, Lets Create()</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="o">//</span>  <span class="n">enable</span> <span class="n">the</span> <span class="n">Arcade</span> <span class="n">Physics</span> <span class="n">system</span> <span class="k">for</span> <span class="n">physics</span> <span class="p">(</span><span class="n">hope</span> <span class="n">you</span> <span class="n">scored</span> <span class="n">well</span> <span class="ow">in</span> <span class="n">school</span> <span class="err">!</span><span class="p">)</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">startSystem</span><span class="p">(</span><span class="n">Phaser</span><span class="p">.</span><span class="n">Physics</span><span class="p">.</span><span class="n">ARCADE</span><span class="p">);</span>
+
+    <span class="o">//</span>  <span class="n">Load</span> <span class="n">the</span> <span class="n">back</span> <span class="n">ground</span> <span class="n">image</span> <span class="o">@</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">(</span><span class="n">coordinates</span> <span class="n">start</span> <span class="k">from</span> <span class="n">top</span> <span class="n">left</span> <span class="err">!</span><span class="p">)</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">sprite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">);</span>
+
+    <span class="o">//</span>  <span class="n">Our</span> <span class="n">Simple</span> <span class="n">Scroller</span><span class="o">-</span><span class="n">Game</span> <span class="n">group</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">ground</span> <span class="ow">and</span> <span class="p">..</span> <span class="n">well</span><span class="p">,</span> <span class="n">pipes</span><span class="p">,</span> <span class="n">two</span> <span class="n">at</span> <span class="n">a</span> <span class="n">time</span> <span class="p">(</span><span class="n">holding</span> <span class="n">my</span> <span class="n">horses</span> <span class="n">here</span><span class="p">)</span>
+    <span class="n">pipething</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">group</span><span class="p">();</span>
+
+    <span class="o">//</span>  <span class="n">Enable</span> <span class="n">physics</span> <span class="k">for</span> <span class="n">the</span> <span class="n">group</span> <span class="n">you</span> <span class="n">just</span> <span class="n">created</span> <span class="p">(</span><span class="n">pipething</span><span class="p">)</span>
+    <span class="n">pipething</span><span class="p">.</span><span class="n">enableBody</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="o">//</span>  <span class="n">Now</span> <span class="n">let</span><span class="s">'s create two pipes at (x=200)
+    // The gap is the way through
+    pipe1 = pipething.create(200, -120, '</span><span class="n">pipe1</span><span class="s">');
+    pipe1.body.immovable = true;
+
+    pipe2 = pipething.create(200, 290, '</span><span class="n">pipe2</span><span class="s">');
+    pipe2.body.immovable = true;
+
+    //  Now let'</span><span class="n">s</span> <span class="n">create</span> <span class="n">another</span> <span class="n">two</span> <span class="n">pipes</span> <span class="n">slightly</span> <span class="n">ahead</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+    <span class="n">pipe3</span> <span class="o">=</span> <span class="n">pipething</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="s">'pipe1'</span><span class="p">);</span>
+    <span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">immovable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="n">pipe4</span> <span class="o">=</span> <span class="n">pipething</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="s">'pipe2'</span><span class="p">);</span>
+    <span class="n">pipe4</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">immovable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
+
+    <span class="o">//</span> <span class="n">The</span> <span class="n">player</span> <span class="n">bird</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">initial</span> <span class="n">spawn</span> <span class="n">point</span> <span class="p">(</span><span class="n">feel</span> <span class="n">creative</span> <span class="ow">and</span> <span class="n">randomise</span> <span class="n">this</span> <span class="err">!</span><span class="p">)</span>
+    <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">sprite</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">game</span><span class="p">.</span><span class="n">world</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">320</span><span class="p">,</span> <span class="s">'bird'</span><span class="p">);</span>
+
+    <span class="o">//</span>  <span class="n">We</span> <span class="n">need</span> <span class="n">to</span> <span class="n">enable</span> <span class="n">physics</span> <span class="n">on</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">duh</span><span class="err">!</span><span class="p">)</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">arcade</span><span class="p">.</span><span class="n">enable</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
+
+    <span class="o">//</span>  <span class="n">Player</span> <span class="n">physics</span> <span class="n">properties</span><span class="p">.</span> <span class="n">Give</span> <span class="n">the</span> <span class="n">little</span> <span class="n">guy</span> <span class="n">a</span> <span class="n">slight</span> <span class="n">bounce</span><span class="p">.</span> <span class="p">(</span><span class="n">because</span> <span class="p">..</span> <span class="n">bounce</span> <span class="err">!</span><span class="p">)</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">bounce</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">gravity</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">;</span>
+
+    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">collideWorldBounds</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">when</span> <span class="n">the</span> <span class="n">worlds</span> <span class="n">collide</span><span class="p">,</span> <span class="n">you</span> <span class="n">die</span> <span class="err">!</span>
+
+    <span class="o">//</span> <span class="n">animate</span> <span class="n">your</span> <span class="n">player</span> <span class="p">(</span><span class="n">take</span> <span class="n">role</span> <span class="n">of</span> <span class="n">your</span> <span class="n">favourite</span> <span class="n">godess</span> <span class="k">as</span> <span class="n">you</span> <span class="n">breathe</span> <span class="n">life</span> <span class="n">into</span> <span class="n">this</span> <span class="n">avian</span> <span class="n">foe</span><span class="p">)</span>
+    <span class="o">//</span> <span class="n">yay</span> <span class="n">spritesheets</span> <span class="err">!</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">'still'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'still'</span><span class="p">);</span>
+
+    <span class="o">//</span>  <span class="n">The</span> <span class="n">score</span> <span class="p">(</span><span class="n">must</span> <span class="n">be</span> <span class="n">SHINY</span> <span class="err">!!</span><span class="p">)</span>
+    <span class="n">scoreText</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'0'</span><span class="p">,</span> <span class="p">{</span> <span class="n">font</span><span class="p">:</span><span class="s">'bold 48pt Arial'</span><span class="p">,</span> <span class="n">fontSize</span><span class="p">:</span> <span class="s">'32px'</span><span class="p">,</span> <span class="n">stroke</span><span class="p">:</span><span class="s">'blue'</span><span class="p">,</span><span class="n">fill</span><span class="p">:</span> <span class="s">'#FFFFFF'</span><span class="p">,</span> <span class="n">fontWeight</span><span class="p">:</span><span class="s">'bold'</span> <span class="p">});</span>
+
+    <span class="o">//</span>  <span class="n">Our</span> <span class="n">controls</span><span class="p">.</span> <span class="p">(</span><span class="n">thank</span> <span class="n">you</span> <span class="k">for</span> <span class="n">holding</span> <span class="n">your</span> <span class="n">horses</span> <span class="n">here</span><span class="p">)</span>
+    <span class="n">cursors</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="nb">input</span><span class="p">.</span><span class="n">keyboard</span><span class="p">.</span><span class="n">createCursorKeys</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">YOLO</span> <span class="err">???</span>
+    <span class="n">respawnCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Having manifested a cruel world into existence, now play with their petty lives via update()</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">update</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Do</span> <span class="n">God</span> <span class="n">stuff</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Creating was the easy part, now deal with the moiseries of your creations.</p>
+
+<p>What happens when a player and platform (the moving pipes) collide ? Call diebitch obviously (more on that later)</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">//</span>  <span class="n">Collide</span> <span class="n">the</span> <span class="n">player</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">stars</span> <span class="k">with</span> <span class="n">the</span> <span class="n">platforms</span>
+    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">arcade</span><span class="p">.</span><span class="n">collide</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">pipething</span><span class="p">,</span><span class="n">diebitch</span><span class="p">,</span><span class="n">null</span><span class="p">,</span><span class="n">this</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Now lets define actions for key presses
+Additionaly you can add code here if you wish to change player animation on
+a particular left key press. Sprite sheets are continuosly iterating so no
+special animation was necessary. I have left in the code for animation control
+as comments for reference.</p>
+
+<p>First the horizontal movements :</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">//</span>  <span class="n">Move</span> <span class="n">to</span> <span class="n">the</span> <span class="n">left</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">150</span><span class="p">;</span>
+        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'left'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="o">//</span>  <span class="n">Move</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
+        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'right'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="o">//</span>  <span class="n">Stand</span> <span class="n">still</span>
+        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">frame</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now the vertical movements, which is simple for our game, if the up button
+is pressed the y direction velocity is negative, I chose arbitary figures,
+feel free to experiment and choose :</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">//</span>  <span class="n">Allow</span> <span class="n">the</span> <span class="n">player</span> <span class="n">to</span> <span class="n">jump</span> <span class="k">if</span> <span class="n">they</span> <span class="n">are</span> <span class="n">touching</span> <span class="n">the</span> <span class="n">ground</span><span class="p">.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">up</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span><span class="o">//</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">touching</span><span class="p">.</span><span class="n">down</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">;</span>
+        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now the pipe physics (the pipes are static).
+At any given time there are four pipes on screen so we just reuse the pipe objects and respawn/kill as necessary.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="o">//</span> <span class="n">initialise</span> <span class="n">animations</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'still'</span><span class="p">);</span>
+    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">pipe1</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
+    <span class="n">pipe2</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
+    <span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
+    <span class="n">pipe4</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pipe1</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">50</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe1</span><span class="p">);</span>
+        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe2</span><span class="p">);</span>
+        <span class="n">pipe1</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="o">-</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe1'</span><span class="p">);</span>
+        <span class="n">pipe2</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="mi">300</span><span class="o">+</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe2'</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span>
+            <span class="n">score</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">scoreText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">''</span><span class="o">+</span><span class="n">score</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">if</span><span class="p">(</span><span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">50</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe3</span><span class="p">);</span>
+        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe4</span><span class="p">);</span>
+        <span class="n">pipe3</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="o">-</span><span class="mi">80</span><span class="o">-</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe1'</span><span class="p">);</span>
+        <span class="n">pipe4</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="mi">270</span><span class="o">+</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe2'</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span>
+            <span class="n">score</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">scoreText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">''</span><span class="o">+</span><span class="n">score</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>A little max limit on respawn counts … not that its fun.</p>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">if</span><span class="p">(</span><span class="n">respawnCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="p">{</span>
+    	<span class="n">respawnCount</span> <span class="o">=</span> <span class="n">respawnCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">respawnCount</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
+	<span class="p">{</span>
+	    <span class="n">resetgame</span><span class="p">();</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Thats pretty much it ! A few squigly lines and you are all set to make
+ games you can play in any HTML5 supporting browser, very cool I say.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry></feed>
