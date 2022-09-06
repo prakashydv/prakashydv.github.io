@@ -5,7 +5,7 @@ date:   2017-07-06 00:06:16 +0530
 categories: technology security
 ---
 
-#### baby steps to netsec
+#### baby steps to netsec - part II
 
 ## Wargame BANDIT
 ##### SSH : `bandit.labs.overthewire.org:2220`

@@ -11,4 +11,4 @@ Its a mark of certain laziness to use a content manager for your static website.
 I am documenting my experience as I get my hands wet.
 To begin with info on customizing the layout and theme, I found it convinient to reference the a youtube channel [playlist](https://www.youtube.com/watch?v=T1itpPvFWHI&list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB) by Mike Dane. It was short and gave all the fundamentals i needed. Post watching the 19 short videos, I copied over the default `minima` theme over to the main repository so as to override all default schematics.
 
-This infact is a refactor. First attempt was in hakyll ! But i had bitten more than i could chew and this blog was in a limbo for a very long time.
+This infact is a refactor. First attempt was in hakyll (inspired by [gwern.net](http://www.gwern.net)) But i had bitten more than i could chew and this blog was in a limbo for a very long time.

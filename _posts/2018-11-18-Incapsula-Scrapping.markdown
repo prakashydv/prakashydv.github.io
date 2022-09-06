@@ -5,8 +5,6 @@ date:   2018-11-18 00:06:16 +0530
 categories: technology web
 ---
 
-# Scrapping websites protected by Incapsula
-
 The robots.txt of the website gives a green light
 
 ```
