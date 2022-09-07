@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Scrapping websites protected by Incapsula"
+title:  "Reverse engineering Incapsula security"
 date:   2018-11-18 00:06:16 +0530
 categories: technology web
+summary: "An exersize in reverse Engineering Incapsula security"
 ---
 
 The robots.txt of the website gives a green light

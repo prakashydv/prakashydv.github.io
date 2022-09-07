@@ -3,6 +3,7 @@ layout: post
 title:  "Experience with Jekyll"
 date:   2022-09-05 00:06:16 +0530
 categories: technology frontend jekyll
+summary: "My experiuence in refactoring this blog to use Hakyll framework"
 ---
 
 Its a mark of certain laziness to use a content manager for your static website. So I've done exactly that and used

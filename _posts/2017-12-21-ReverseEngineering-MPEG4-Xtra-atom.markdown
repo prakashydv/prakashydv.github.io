@@ -3,6 +3,7 @@ layout: post
 title:  "'Xtra' metadata MPEG4 atom"
 date:   2017-12-21 00:06:16 +0530
 categories: technology multimedia
+summary: "Reverse Engineering the Windows MPEG4 custom 'Xtra' metadata atom"
 ---
 
 # Reverse Engineering the Windows MPEG4 custom 'Xtra' metadata atom

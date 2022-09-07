@@ -3,6 +3,7 @@ layout: post
 title:  "OVER THE WIRE"
 date:   2017-06-07 00:06:16 +0530
 categories: technology security
+summary: "Solutions to 'Over The Wire' exersizes on Network Security (Levels 1-20)"
 ---
 
 #### baby steps to netsec

@@ -16,24 +16,28 @@ layout: default
     {%- endfor -%}
   </div> -->
 
+<div class="post-tile">
+  <h2 class="post-list-heading">Chronological</h2>
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+      <li style="margin-bottom: 0;">
+        {%- assign date_format = "%Y-%m-%d" -%}
+        {{ post.date | date: date_format }}
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          &nbsp; | &nbsp;{{ post.title | escape }}
+        </a>
       </li>
       {%- endfor -%}
+      <li>
+        <a href={{ "allposts.html" | relative_url }}>See All ...</a>
+      </li>
     </ul>
   {%- endif -%}
+</div>
+
+<div class="post-tile">
+  <h2 class="post-list-heading">Technology</h2>
+</div>
 
 </div>

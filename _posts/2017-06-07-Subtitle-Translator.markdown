@@ -3,6 +3,7 @@ layout: post
 title:  "Subtitle Translator"
 date:   2017-06-07 00:06:16 +0530
 categories: technology frontend
+summary: "Translating subtitles using Frengly free translation REST API"
 ---
 
 ![](http://sugarfx.tv/info/subtitles/info_subtitles_sm.jpg)

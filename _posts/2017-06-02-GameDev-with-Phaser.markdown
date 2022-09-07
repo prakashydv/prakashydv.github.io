@@ -3,6 +3,7 @@ layout: post
 title:  "Flappy Bird in  Phaser"
 date:   2017-05-02 00:06:16 +0530
 categories: technology frontend
+summary: "Game development in HTML5 using Phaser framework"
 ---
 
 ![Flappy What exactly?](../images/flappy.png)
