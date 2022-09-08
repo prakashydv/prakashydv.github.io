@@ -1,10 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-07T18:48:26+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Experience with Jekyll</title><link href="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html" rel="alternate" type="text/html" title="Experience with Jekyll" /><published>2022-09-05T00:06:16+05:30</published><updated>2022-09-05T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup</id><content type="html" xml:base="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html"><![CDATA[<p>Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-08T16:12:46+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Experience with Jekyll</title><link href="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html" rel="alternate" type="text/html" title="Experience with Jekyll" /><published>2022-09-05T00:06:16+05:30</published><updated>2022-09-05T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup</id><content type="html" xml:base="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html"><![CDATA[<p>Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used
 <code class="language-plaintext highlighter-rouge">Jekyll</code>. It’s perhaps the most popular static site generator with easy integration with <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">GitHub pages</a>.</p>
 
 <p>I am documenting my experience as I get my hands wet.
 To begin with info on customizing the layout and theme, I found it convinient to reference the a youtube channel <a href="https://www.youtube.com/watch?v=T1itpPvFWHI&amp;list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB">playlist</a> by Mike Dane. It was short and gave all the fundamentals i needed. Post watching the 19 short videos, I copied over the default <code class="language-plaintext highlighter-rouge">minima</code> theme over to the main repository so as to override all default schematics.</p>
 
-<p>This infact is a refactor. First attempt was in hakyll (inspired by <a href="http://www.gwern.net">gwern.net</a>) But i had bitten more than i could chew and this blog was in a limbo for a very long time.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><category term="jekyll" /><summary type="html"><![CDATA[Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used Jekyll. It’s perhaps the most popular static site generator with easy integration with GitHub pages.]]></summary></entry><entry><title type="html">Reverse engineering Incapsula security</title><link href="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html" rel="alternate" type="text/html" title="Reverse engineering Incapsula security" /><published>2018-11-18T00:06:16+05:30</published><updated>2018-11-18T00:06:16+05:30</updated><id>http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping</id><content type="html" xml:base="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html"><![CDATA[<p>The robots.txt of the website gives a green light</p>
+<p>This infact is a refactor. First attempt was in hakyll (inspired by <a href="http://www.gwern.net">gwern.net</a>) But i had bitten more than i could chew and this blog was in a limbo for a very long time. Since Jekyll works so well with GitHub pages, I settled for focussing more on the content than the delivery logistics of the blog.</p>
+
+<p>Once I had my boilerplate code up with remains of my earlier blog, I soon came face to fece with the fact that to get anything serious design customisation done I would have to master Liquid templating that Jekyll uses. Fair enough, thats what I did. Refering to the <a href="https://shopify.github.io/liquid/">official Liquid documentation</a> as well as <a href="https://jekyllrb.com/docs/liquid/filters/">Jekyll’s own documentation</a>.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><category term="jekyll" /><summary type="html"><![CDATA[Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used Jekyll. It’s perhaps the most popular static site generator with easy integration with GitHub pages.]]></summary></entry><entry><title type="html">Morbid Fascination</title><link href="http://localhost:4000/philosophy/2020/02/11/Phil-morbid-fascination.html" rel="alternate" type="text/html" title="Morbid Fascination" /><published>2020-02-11T00:06:16+05:30</published><updated>2020-02-11T00:06:16+05:30</updated><id>http://localhost:4000/philosophy/2020/02/11/Phil-morbid-fascination</id><content type="html" xml:base="http://localhost:4000/philosophy/2020/02/11/Phil-morbid-fascination.html"><![CDATA[<p>Counter-intuitive as it may sound, one (among the many) key to happiness is morbid fascination with second-hand misery.
+I have stumbled upon this conclusion by experience. I could rattle off countless quotes like ‘It takes sadness to know happiness’, or ‘hunger is the best condiment’, etc…</p>]]></content><author><name></name></author><category term="philosophy" /><summary type="html"><![CDATA[Counter-intuitive as it may sound, one (among the many) key to happiness is morbid fascination with second-hand misery. I have stumbled upon this conclusion by experience. I could rattle off countless quotes like ‘It takes sadness to know happiness’, or ‘hunger is the best condiment’, etc…]]></summary></entry><entry><title type="html">Time</title><link href="http://localhost:4000/philosophy/2020/01/28/Phil-Time.html" rel="alternate" type="text/html" title="Time" /><published>2020-01-28T00:06:16+05:30</published><updated>2020-01-28T00:06:16+05:30</updated><id>http://localhost:4000/philosophy/2020/01/28/Phil-Time</id><content type="html" xml:base="http://localhost:4000/philosophy/2020/01/28/Phil-Time.html"><![CDATA[<h2 id="all-the-time">All the time</h2>
+
+<p>Time and distance are two of the most intuitive measures that comes naturally to us.
+So we don’t think twice before interpreting something being in the past or future, or some object
+at 5 miles being closer than the next city at a 100 miles. They are the very axioms to reality, self-evident
+interpretations of a complicated universe.</p>
+
+<p>I have this embarrassing habit of post fixing “, yet.” and “, or is it?” to all my statements acknowledging facts. This probably stems from my disbelieve in absolutes, I think life is a brilliant smear of grey. One ordinary day I happened to add “or is it?” to my friend’s sentence that a particular party we were to attend was happening the next day. Of course this absurd remark was dismissed as one of my improperly timed idiosyncrasies. Later that night I couldn’t help but think that why was something ‘tomorrow’ and not ‘today’. I fell into the rabbit hole of questioning the very fabric of axioms we take for granted; time is linear. That there is a before and an after, but i failed to define a ‘present’. Are we in motion through another dimension called time. What set us in motion ? What’s our speed ? Are we accelerating ? What happens if we stop ? I hope you understand my helplessness at such questions.
+Let me introduce you to yet another wierdity. I often indulge in thought experiments where i contradict a fundamental axiom or fact and then try to reason in support of the contradiction.
+If you have never had this pleasure of playing both sides of the battle simultaneously, you have missed out on some pure thrill. I put forward my contradiction to the axiom of basics of time with the fact that time is static, nothing is moving. We are not flowing through a dimension of time forging a future while leaving a past, and neither is it flowing past the present into the past.
+My questions are the two faces of the same coin of time. One regards the perception of time by us living organisms.The other pertains to physical nature of this intangible dimension of time.
+So I came across Dark series on Netflix last month. It’s fascinating how it too supports the same very thing I proposed, all time is happening simultaneously. Forever is now.
+This is a continuous article, I will keep updating as and when i have more arguments in support of my contradiction.</p>]]></content><author><name></name></author><category term="philosophy" /><summary type="html"><![CDATA[All the time]]></summary></entry><entry><title type="html">Book Reviews</title><link href="http://localhost:4000/books/2020/01/08/book-reviews.html" rel="alternate" type="text/html" title="Book Reviews" /><published>2020-01-08T00:06:16+05:30</published><updated>2020-01-08T00:06:16+05:30</updated><id>http://localhost:4000/books/2020/01/08/book-reviews</id><content type="html" xml:base="http://localhost:4000/books/2020/01/08/book-reviews.html"><![CDATA[<h2 id="kingdoms-end-selected-stories">Kingdom’s End: Selected Stories</h2>
+
+<h3 id="manto-saadat-hasan">Manto, Saadat Hasan</h3>
+
+<p>A gem! I have used and abused the word before but never meant it until today. Manto is a classic and its infuriating that he is not recognized like Gogol or Oscar Wilde, not the kind of classic that one pretends to read but the classic that will live for ever by its own accord. I wish I could ride a review for each of the twenty eight pearls therein, but I fear I will run out of adjectives even before i begin.
+He is an amalgamation of Gogol, Camus, Nabokov and Wilde, only better than each, perhaps because as an Indian reader I can relate more to the underlying concepts and the backdrop of the partition, undeniable richer experience than to an alien.
+I firmly believe Hindustani is a superior language of expression in literature, and reading Manto in English is a crime I will have to live with. Khalid Hasan has done a good job, but one will only be satisfied to read Manto in the original. So that is on my queue by default.
+Stories like ‘Odour’ and ‘On the balcony’ are among the best descriptive short stories I have read. ‘The Return’ (originally “Khol Do”) is another tragedy that is so heartbreaking, it was quite embarrassing that such a short piece of literature can impact so deeply. What Khaled Hosseini managed in a full novel, Manto did in a three pages.
+Its been recommended that I carry on to Ismat Chugtai, and I will be a fool not to take this advice.
+Needless to say, 5 stars.</p>
+
+<h2 id="harry-potter-and-the-cursed-child-parts-one-and-two">Harry Potter and the Cursed Child: Parts One and Two</h2>
+
+<h3 id="tiffany-john">Tiffany, John</h3>
+
+<p>A poor effort at milking the Harry Potter fandom, this adaptation was worse than the most depraved fan fic this universe could have inspired. It entirely relies on the reader’s depth of knowledge of the characters from the actual series, dont add much color and rather dramatically changes the personalities of the characters themselves; more casual and contemporary than a reader might have expected.
+Stop milking a dead goat … Harry Potter is done and dusted, have some respect !</p>
+
+<h2 id="typhoon">Typhoon</h2>
+
+<h3 id="conrad-joseph">Conrad, Joseph</h3>
+
+<p>Joseph Conrad rules the sea as far as english literature is concerned. Typhoon is a story of a unremarkable captain of a ship that gets caught in a typhoon. A story on how ordinary men behave in the face of adversity. More importantly, how much havoc incapable men can cause in a position of power. The captain’s ineptitude during the catastrophy is appalling and down right scary. Conrad describes the sea like no other, now imagine a typhoon.&lt;/p&gt;</p>
+
+<h2 id="we-should-all-be-feminists">We Should All Be Feminists</h2>
+
+<h3 id="adichie-chimamanda-ngozi">Adichie, Chimamanda Ngozi</h3>
+
+<p>Looks beyond the stereotypical view of Feminism with personal examples. Feminism isn’t about giving more power to Amazonian women, but sharing the ones the male take as their prerogative.
+With years on social conditioning we have come to terms with what we now consider “normal”. We desperately need a reset if we are going to get anywhere near a social utopia.
+We should all be Feminists indeed !</p>]]></content><author><name></name></author><category term="books" /><summary type="html"><![CDATA[Kingdom’s End: Selected Stories]]></summary></entry><entry><title type="html">Reverse engineering Incapsula security</title><link href="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html" rel="alternate" type="text/html" title="Reverse engineering Incapsula security" /><published>2018-11-18T00:06:16+05:30</published><updated>2018-11-18T00:06:16+05:30</updated><id>http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping</id><content type="html" xml:base="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html"><![CDATA[<p>The robots.txt of the website gives a green light</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
 Crawl-delay: 10
@@ -605,211 +650,4 @@ therefore translation time is 3*number_of_lines_translated
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span><span class="o">=</span><span class="s">'http://syslang.com?src='</span><span class="o">+</span><span class="n">source_language</span><span class="o">+</span><span class="s">'&amp;dest='</span><span class="o">+</span><span class="n">target_language</span><span class="o">+</span><span class="s">'+&amp;text='</span><span class="o">+</span><span class="n">MESSAGETOTRANSLATE</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span><span class="s">'+'</span><span class="p">)</span><span class="o">+</span><span class="s">'&amp;email=YOUREMAIL@ADDRESS.com&amp;password=yourpassword&amp;outformat=json'</span>
 </code></pre></div></div>
 
-<h4 id="ciao-">Ciao !</h4>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Flappy Bird in Phaser</title><link href="http://localhost:4000/technology/frontend/2017/05/02/GameDev-with-Phaser.html" rel="alternate" type="text/html" title="Flappy Bird in Phaser" /><published>2017-05-02T00:06:16+05:30</published><updated>2017-05-02T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/2017/05/02/GameDev-with-Phaser</id><content type="html" xml:base="http://localhost:4000/technology/frontend/2017/05/02/GameDev-with-Phaser.html"><![CDATA[<p><img src="../images/flappy.png" alt="Flappy What exactly?" /></p>
-
-<p>Phaser is an open source game development framework for simple HTML5 2D desktop and mobile browser games, so why not ?!</p>
-
-<p>Dependencies :</p>
-<ul>
-  <li>html5 capable browser</li>
-  <li>run simple http server locally during development (python will do, as always)</li>
-  <li>glitter</li>
-</ul>
-
-<h3 id="jumpstarting-phaser">Jumpstarting phaser</h3>
-
-<p>create the phaser object (duh!)</p>
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">game</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Phaser</span><span class="p">.</span><span class="n">Game</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">Phaser</span><span class="p">.</span><span class="n">AUTO</span><span class="p">,</span> <span class="s">'flappy'</span><span class="p">,</span> <span class="p">{</span> <span class="n">preload</span><span class="p">:</span> <span class="n">preload</span><span class="p">,</span> <span class="n">create</span><span class="p">:</span> <span class="n">create</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="n">update</span> <span class="p">});</span>
-</code></pre></div></div>
-<p>… that went well. (the 500s are the width and height). Preload, create and update  are the holy trinity that you must implement to get your game running.</p>
-
-<p>I am a man of simple tastes so my graphics are really spartan. Lets do away with this necessary summoning of evil bitmaps.</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">preload</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'sky'</span><span class="p">,</span> <span class="s">'assets/sky.jpg'</span><span class="p">);</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'pipe1'</span><span class="p">,</span> <span class="s">'assets/pole1.png'</span><span class="p">);</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'pipe2'</span><span class="p">,</span> <span class="s">'assets/pole2.png'</span><span class="p">);</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">image</span><span class="p">(</span><span class="s">'gameover'</span><span class="p">,</span> <span class="s">'assets/game_over3.jpg'</span><span class="p">);</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">load</span><span class="p">.</span><span class="n">spritesheet</span><span class="p">(</span><span class="s">'bird'</span><span class="p">,</span> <span class="s">'assets/iconslucent.png'</span><span class="p">,</span><span class="mi">47</span><span class="p">,</span><span class="mi">41</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>you may have noticed i used a spritesheet for a bird instead of a regular image. spritesheets lets you animate objects in the game, usually a pleasant experience.</p>
-
-<p>Lets define some globally visible parameters and variable. (some people just like to watch the world burn !)</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">var</span> <span class="n">gap_difficulty</span><span class="o">=</span><span class="mi">35</span><span class="p">;</span> <span class="o">//</span> <span class="n">maybe</span> <span class="n">let</span> <span class="n">the</span> <span class="n">user</span> <span class="n">configure</span> <span class="n">it</span> <span class="err">?</span>
-<span class="n">var</span> <span class="n">bird</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">gover</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">alive</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>        <span class="o">//</span> <span class="n">feel</span> <span class="n">good</span><span class="p">,</span> <span class="n">right</span> <span class="err">?!</span>
-<span class="n">var</span> <span class="n">pipething</span><span class="p">;</span>         <span class="o">//</span> <span class="k">if</span> <span class="n">it</span> <span class="n">looks</span> <span class="n">like</span> <span class="n">a</span> <span class="n">pipe</span><span class="p">,</span> <span class="n">smells</span> <span class="n">like</span> <span class="n">a</span> <span class="n">pipe</span> <span class="p">...</span> <span class="n">it</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">pipe</span> <span class="err">!</span>
-<span class="n">var</span> <span class="n">cursors</span><span class="p">;</span>           <span class="o">//</span> <span class="n">cursers</span> <span class="err">?</span>
-<span class="n">var</span> <span class="n">pipe1</span><span class="p">,</span><span class="n">pipe2</span><span class="p">,</span><span class="n">pipe3</span><span class="p">,</span><span class="n">pipe4</span><span class="p">;</span> <span class="o">//</span> <span class="n">Bird</span> <span class="n">folk</span> <span class="n">havent</span> <span class="n">discovered</span> <span class="n">lists</span> <span class="n">yet</span>
-<span class="n">var</span> <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>         <span class="o">//</span> <span class="p">:</span><span class="o">-</span><span class="p">(</span>
-<span class="n">var</span> <span class="n">scoreText</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">player</span><span class="p">;</span>
-<span class="n">var</span> <span class="n">but</span><span class="p">;</span>               <span class="o">//</span> <span class="n">but</span> <span class="n">what</span> <span class="n">dear</span> <span class="err">?</span>
-<span class="n">var</span> <span class="n">respawnCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="o">//</span> <span class="n">respawning</span> <span class="n">your</span> <span class="n">way</span> <span class="n">to</span> <span class="n">immortality</span>
-<span class="n">var</span> <span class="n">gamepaused</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">wonders</span> <span class="n">why</span> <span class="p">...</span>
-</code></pre></div></div>
-
-<p>Now sit in the lotus position and bring forth the keyboard and as an avatar of the Hindu God Bhrama the creator, Lets Create()</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">create</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="o">//</span>  <span class="n">enable</span> <span class="n">the</span> <span class="n">Arcade</span> <span class="n">Physics</span> <span class="n">system</span> <span class="k">for</span> <span class="n">physics</span> <span class="p">(</span><span class="n">hope</span> <span class="n">you</span> <span class="n">scored</span> <span class="n">well</span> <span class="ow">in</span> <span class="n">school</span> <span class="err">!</span><span class="p">)</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">startSystem</span><span class="p">(</span><span class="n">Phaser</span><span class="p">.</span><span class="n">Physics</span><span class="p">.</span><span class="n">ARCADE</span><span class="p">);</span>
-
-    <span class="o">//</span>  <span class="n">Load</span> <span class="n">the</span> <span class="n">back</span> <span class="n">ground</span> <span class="n">image</span> <span class="o">@</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="p">(</span><span class="n">coordinates</span> <span class="n">start</span> <span class="k">from</span> <span class="n">top</span> <span class="n">left</span> <span class="err">!</span><span class="p">)</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">sprite</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'sky'</span><span class="p">);</span>
-
-    <span class="o">//</span>  <span class="n">Our</span> <span class="n">Simple</span> <span class="n">Scroller</span><span class="o">-</span><span class="n">Game</span> <span class="n">group</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">ground</span> <span class="ow">and</span> <span class="p">..</span> <span class="n">well</span><span class="p">,</span> <span class="n">pipes</span><span class="p">,</span> <span class="n">two</span> <span class="n">at</span> <span class="n">a</span> <span class="n">time</span> <span class="p">(</span><span class="n">holding</span> <span class="n">my</span> <span class="n">horses</span> <span class="n">here</span><span class="p">)</span>
-    <span class="n">pipething</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">group</span><span class="p">();</span>
-
-    <span class="o">//</span>  <span class="n">Enable</span> <span class="n">physics</span> <span class="k">for</span> <span class="n">the</span> <span class="n">group</span> <span class="n">you</span> <span class="n">just</span> <span class="n">created</span> <span class="p">(</span><span class="n">pipething</span><span class="p">)</span>
-    <span class="n">pipething</span><span class="p">.</span><span class="n">enableBody</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-
-    <span class="o">//</span>  <span class="n">Now</span> <span class="n">let</span><span class="s">'s create two pipes at (x=200)
-    // The gap is the way through
-    pipe1 = pipething.create(200, -120, '</span><span class="n">pipe1</span><span class="s">');
-    pipe1.body.immovable = true;
-
-    pipe2 = pipething.create(200, 290, '</span><span class="n">pipe2</span><span class="s">');
-    pipe2.body.immovable = true;
-
-    //  Now let'</span><span class="n">s</span> <span class="n">create</span> <span class="n">another</span> <span class="n">two</span> <span class="n">pipes</span> <span class="n">slightly</span> <span class="n">ahead</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
-    <span class="n">pipe3</span> <span class="o">=</span> <span class="n">pipething</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="s">'pipe1'</span><span class="p">);</span>
-    <span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">immovable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-
-    <span class="n">pipe4</span> <span class="o">=</span> <span class="n">pipething</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="mi">450</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="s">'pipe2'</span><span class="p">);</span>
-    <span class="n">pipe4</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">immovable</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>
-
-    <span class="o">//</span> <span class="n">The</span> <span class="n">player</span> <span class="n">bird</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">initial</span> <span class="n">spawn</span> <span class="n">point</span> <span class="p">(</span><span class="n">feel</span> <span class="n">creative</span> <span class="ow">and</span> <span class="n">randomise</span> <span class="n">this</span> <span class="err">!</span><span class="p">)</span>
-    <span class="n">player</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">sprite</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="n">game</span><span class="p">.</span><span class="n">world</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">320</span><span class="p">,</span> <span class="s">'bird'</span><span class="p">);</span>
-
-    <span class="o">//</span>  <span class="n">We</span> <span class="n">need</span> <span class="n">to</span> <span class="n">enable</span> <span class="n">physics</span> <span class="n">on</span> <span class="n">the</span> <span class="n">player</span> <span class="p">(</span><span class="n">duh</span><span class="err">!</span><span class="p">)</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">arcade</span><span class="p">.</span><span class="n">enable</span><span class="p">(</span><span class="n">player</span><span class="p">);</span>
-
-    <span class="o">//</span>  <span class="n">Player</span> <span class="n">physics</span> <span class="n">properties</span><span class="p">.</span> <span class="n">Give</span> <span class="n">the</span> <span class="n">little</span> <span class="n">guy</span> <span class="n">a</span> <span class="n">slight</span> <span class="n">bounce</span><span class="p">.</span> <span class="p">(</span><span class="n">because</span> <span class="p">..</span> <span class="n">bounce</span> <span class="err">!</span><span class="p">)</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">bounce</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">gravity</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">;</span>
-
-    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">collideWorldBounds</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span> <span class="o">//</span> <span class="n">when</span> <span class="n">the</span> <span class="n">worlds</span> <span class="n">collide</span><span class="p">,</span> <span class="n">you</span> <span class="n">die</span> <span class="err">!</span>
-
-    <span class="o">//</span> <span class="n">animate</span> <span class="n">your</span> <span class="n">player</span> <span class="p">(</span><span class="n">take</span> <span class="n">role</span> <span class="n">of</span> <span class="n">your</span> <span class="n">favourite</span> <span class="n">godess</span> <span class="k">as</span> <span class="n">you</span> <span class="n">breathe</span> <span class="n">life</span> <span class="n">into</span> <span class="n">this</span> <span class="n">avian</span> <span class="n">foe</span><span class="p">)</span>
-    <span class="o">//</span> <span class="n">yay</span> <span class="n">spritesheets</span> <span class="err">!</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">'still'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'still'</span><span class="p">);</span>
-
-    <span class="o">//</span>  <span class="n">The</span> <span class="n">score</span> <span class="p">(</span><span class="n">must</span> <span class="n">be</span> <span class="n">SHINY</span> <span class="err">!!</span><span class="p">)</span>
-    <span class="n">scoreText</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">text</span><span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s">'0'</span><span class="p">,</span> <span class="p">{</span> <span class="n">font</span><span class="p">:</span><span class="s">'bold 48pt Arial'</span><span class="p">,</span> <span class="n">fontSize</span><span class="p">:</span> <span class="s">'32px'</span><span class="p">,</span> <span class="n">stroke</span><span class="p">:</span><span class="s">'blue'</span><span class="p">,</span><span class="n">fill</span><span class="p">:</span> <span class="s">'#FFFFFF'</span><span class="p">,</span> <span class="n">fontWeight</span><span class="p">:</span><span class="s">'bold'</span> <span class="p">});</span>
-
-    <span class="o">//</span>  <span class="n">Our</span> <span class="n">controls</span><span class="p">.</span> <span class="p">(</span><span class="n">thank</span> <span class="n">you</span> <span class="k">for</span> <span class="n">holding</span> <span class="n">your</span> <span class="n">horses</span> <span class="n">here</span><span class="p">)</span>
-    <span class="n">cursors</span> <span class="o">=</span> <span class="n">game</span><span class="p">.</span><span class="nb">input</span><span class="p">.</span><span class="n">keyboard</span><span class="p">.</span><span class="n">createCursorKeys</span><span class="p">();</span>
-
-    <span class="o">//</span> <span class="n">YOLO</span> <span class="err">???</span>
-    <span class="n">respawnCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Having manifested a cruel world into existence, now play with their petty lives via update()</p>
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">function</span> <span class="n">update</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">//</span> <span class="n">Do</span> <span class="n">God</span> <span class="n">stuff</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Creating was the easy part, now deal with the moiseries of your creations.</p>
-
-<p>What happens when a player and platform (the moving pipes) collide ? Call diebitch obviously (more on that later)</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">//</span>  <span class="n">Collide</span> <span class="n">the</span> <span class="n">player</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">stars</span> <span class="k">with</span> <span class="n">the</span> <span class="n">platforms</span>
-    <span class="n">game</span><span class="p">.</span><span class="n">physics</span><span class="p">.</span><span class="n">arcade</span><span class="p">.</span><span class="n">collide</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="n">pipething</span><span class="p">,</span><span class="n">diebitch</span><span class="p">,</span><span class="n">null</span><span class="p">,</span><span class="n">this</span><span class="p">);</span>
-</code></pre></div></div>
-
-<p>Now lets define actions for key presses
-Additionaly you can add code here if you wish to change player animation on
-a particular left key press. Sprite sheets are continuosly iterating so no
-special animation was necessary. I have left in the code for animation control
-as comments for reference.</p>
-
-<p>First the horizontal movements :</p>
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">left</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="o">//</span>  <span class="n">Move</span> <span class="n">to</span> <span class="n">the</span> <span class="n">left</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">150</span><span class="p">;</span>
-        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'left'</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">right</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="o">//</span>  <span class="n">Move</span> <span class="n">to</span> <span class="n">the</span> <span class="n">right</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">150</span><span class="p">;</span>
-        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'right'</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="o">//</span>  <span class="n">Stand</span> <span class="n">still</span>
-        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
-        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">frame</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<p>Now the vertical movements, which is simple for our game, if the up button
-is pressed the y direction velocity is negative, I chose arbitary figures,
-feel free to experiment and choose :</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">//</span>  <span class="n">Allow</span> <span class="n">the</span> <span class="n">player</span> <span class="n">to</span> <span class="n">jump</span> <span class="k">if</span> <span class="n">they</span> <span class="n">are</span> <span class="n">touching</span> <span class="n">the</span> <span class="n">ground</span><span class="p">.</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">cursors</span><span class="p">.</span><span class="n">up</span><span class="p">.</span><span class="n">isDown</span><span class="p">)</span><span class="o">//</span> <span class="o">&amp;&amp;</span> <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">touching</span><span class="p">.</span><span class="n">down</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">;</span>
-        <span class="o">//</span><span class="n">player</span><span class="p">.</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<p>Now the pipe physics (the pipes are static).
-At any given time there are four pipes on screen so we just reuse the pipe objects and respawn/kill as necessary.</p>
-
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="o">//</span> <span class="n">initialise</span> <span class="n">animations</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">animations</span><span class="p">.</span><span class="n">play</span><span class="p">(</span><span class="s">'still'</span><span class="p">);</span>
-    <span class="n">player</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-    <span class="n">pipe1</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
-    <span class="n">pipe2</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
-    <span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
-    <span class="n">pipe4</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">velocity</span><span class="p">.</span><span class="n">x</span><span class="o">=-</span><span class="mi">100</span><span class="p">;</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">pipe1</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">50</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe1</span><span class="p">);</span>
-        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe2</span><span class="p">);</span>
-        <span class="n">pipe1</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="o">-</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe1'</span><span class="p">);</span>
-        <span class="n">pipe2</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="mi">300</span><span class="o">+</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe2'</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span>
-            <span class="n">score</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
-        <span class="n">scoreText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">''</span><span class="o">+</span><span class="n">score</span><span class="p">;</span>
-    <span class="p">}</span>
-
-
-    <span class="k">if</span><span class="p">(</span><span class="n">pipe3</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;-</span><span class="mi">50</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe3</span><span class="p">);</span>
-        <span class="n">killpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="n">pipe4</span><span class="p">);</span>
-        <span class="n">pipe3</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="o">-</span><span class="mi">80</span><span class="o">-</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe1'</span><span class="p">);</span>
-        <span class="n">pipe4</span><span class="o">=</span><span class="n">createpipe</span><span class="p">(</span><span class="n">player</span><span class="p">,</span><span class="mi">475</span><span class="p">,</span><span class="mi">270</span><span class="o">+</span><span class="n">gap_difficulty</span><span class="p">,</span><span class="s">'pipe2'</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">alive</span><span class="p">)</span>
-            <span class="n">score</span><span class="o">+=</span><span class="mi">1</span><span class="p">;</span>
-        <span class="n">scoreText</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">''</span><span class="o">+</span><span class="n">score</span><span class="p">;</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-
-<p>A little max limit on respawn counts … not that its fun.</p>
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">if</span><span class="p">(</span><span class="n">respawnCount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-	<span class="p">{</span>
-    	<span class="n">respawnCount</span> <span class="o">=</span> <span class="n">respawnCount</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-	<span class="p">}</span>
-	<span class="k">if</span><span class="p">(</span><span class="n">respawnCount</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span>
-	<span class="p">{</span>
-	    <span class="n">resetgame</span><span class="p">();</span>
-	<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Thats pretty much it ! A few squigly lines and you are all set to make
- games you can play in any HTML5 supporting browser, very cool I say.</p>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<h4 id="ciao-">Ciao !</h4>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry></feed>
