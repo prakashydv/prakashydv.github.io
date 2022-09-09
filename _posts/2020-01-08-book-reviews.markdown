@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Book Reviews"
+title:  "Book Reviews (old)"
 date:   2020-01-08 00:06:16 +0530
-categories: books
-summary: "Book Review by me"
+categories: bookreview
+summary: "Book Reviews by me"
 ---
 
 ## Kingdom's End: Selected Stories

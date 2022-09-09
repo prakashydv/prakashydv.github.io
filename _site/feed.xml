@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-08T16:12:46+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Experience with Jekyll</title><link href="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html" rel="alternate" type="text/html" title="Experience with Jekyll" /><published>2022-09-05T00:06:16+05:30</published><updated>2022-09-05T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup</id><content type="html" xml:base="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html"><![CDATA[<p>Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-09T20:18:38+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Book Review : The Psychology Of Money - Morgan Housel</title><link href="http://localhost:4000/bookreview/2022/09/09/Psychology-Of-Money.html" rel="alternate" type="text/html" title="Book Review : The Psychology Of Money - Morgan Housel" /><published>2022-09-09T19:33:00+05:30</published><updated>2022-09-09T19:33:00+05:30</updated><id>http://localhost:4000/bookreview/2022/09/09/Psychology-Of-Money</id><content type="html" xml:base="http://localhost:4000/bookreview/2022/09/09/Psychology-Of-Money.html"><![CDATA[<p><a href="https://www.goodreads.com/review/show/4926077595">GOODREADS LINK</a></p>
+
+<p>This book deserves its popularity, it is among the most compelling non-fiction I’ve read so far. “The Psychology of Money” lays bare the truth behind intuition regarding money, how personal it is and how unpredictable. The language is the book’s single most appealing point. Simple and captivating, Morgan has mixed plenty on anecdotes to make the statistics digestible, something Kahneman didn’t do as well in “Thinking Fast and Slow”.
+This is one book I would highly recommend to everyone. The ideal time would’ve been when you are early in your career and fortunate enough to invest some of your income. I wish I had read it earlier, I would’ve invested in Index funds a lot sooner for sure ! It’s interesting to find out how I have let my meagre experience with money define the entire narrative I tell myself on how money works, and believe me, you’ve done this too.</p>]]></content><author><name></name></author><category term="bookreview" /><summary type="html"><![CDATA[GOODREADS LINK]]></summary></entry><entry><title type="html">Experience with Jekyll</title><link href="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html" rel="alternate" type="text/html" title="Experience with Jekyll" /><published>2022-09-05T00:06:16+05:30</published><updated>2022-09-05T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup</id><content type="html" xml:base="http://localhost:4000/technology/frontend/jekyll/2022/09/05/jekyll-setup.html"><![CDATA[<p>Its a mark of certain laziness to use a content manager for your static website. So I’ve done exactly that and used
 <code class="language-plaintext highlighter-rouge">Jekyll</code>. It’s perhaps the most popular static site generator with easy integration with <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">GitHub pages</a>.</p>
 
 <p>I am documenting my experience as I get my hands wet.
@@ -19,7 +22,7 @@ Let me introduce you to yet another wierdity. I often indulge in thought experim
 If you have never had this pleasure of playing both sides of the battle simultaneously, you have missed out on some pure thrill. I put forward my contradiction to the axiom of basics of time with the fact that time is static, nothing is moving. We are not flowing through a dimension of time forging a future while leaving a past, and neither is it flowing past the present into the past.
 My questions are the two faces of the same coin of time. One regards the perception of time by us living organisms.The other pertains to physical nature of this intangible dimension of time.
 So I came across Dark series on Netflix last month. It’s fascinating how it too supports the same very thing I proposed, all time is happening simultaneously. Forever is now.
-This is a continuous article, I will keep updating as and when i have more arguments in support of my contradiction.</p>]]></content><author><name></name></author><category term="philosophy" /><summary type="html"><![CDATA[All the time]]></summary></entry><entry><title type="html">Book Reviews</title><link href="http://localhost:4000/books/2020/01/08/book-reviews.html" rel="alternate" type="text/html" title="Book Reviews" /><published>2020-01-08T00:06:16+05:30</published><updated>2020-01-08T00:06:16+05:30</updated><id>http://localhost:4000/books/2020/01/08/book-reviews</id><content type="html" xml:base="http://localhost:4000/books/2020/01/08/book-reviews.html"><![CDATA[<h2 id="kingdoms-end-selected-stories">Kingdom’s End: Selected Stories</h2>
+This is a continuous article, I will keep updating as and when i have more arguments in support of my contradiction.</p>]]></content><author><name></name></author><category term="philosophy" /><summary type="html"><![CDATA[All the time]]></summary></entry><entry><title type="html">Book Reviews (old)</title><link href="http://localhost:4000/bookreview/2020/01/08/book-reviews.html" rel="alternate" type="text/html" title="Book Reviews (old)" /><published>2020-01-08T00:06:16+05:30</published><updated>2020-01-08T00:06:16+05:30</updated><id>http://localhost:4000/bookreview/2020/01/08/book-reviews</id><content type="html" xml:base="http://localhost:4000/bookreview/2020/01/08/book-reviews.html"><![CDATA[<h2 id="kingdoms-end-selected-stories">Kingdom’s End: Selected Stories</h2>
 
 <h3 id="manto-saadat-hasan">Manto, Saadat Hasan</h3>
 
@@ -49,7 +52,7 @@ Stop milking a dead goat … Harry Potter is done and dusted, have some respect 
 
 <p>Looks beyond the stereotypical view of Feminism with personal examples. Feminism isn’t about giving more power to Amazonian women, but sharing the ones the male take as their prerogative.
 With years on social conditioning we have come to terms with what we now consider “normal”. We desperately need a reset if we are going to get anywhere near a social utopia.
-We should all be Feminists indeed !</p>]]></content><author><name></name></author><category term="books" /><summary type="html"><![CDATA[Kingdom’s End: Selected Stories]]></summary></entry><entry><title type="html">Reverse engineering Incapsula security</title><link href="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html" rel="alternate" type="text/html" title="Reverse engineering Incapsula security" /><published>2018-11-18T00:06:16+05:30</published><updated>2018-11-18T00:06:16+05:30</updated><id>http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping</id><content type="html" xml:base="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html"><![CDATA[<p>The robots.txt of the website gives a green light</p>
+We should all be Feminists indeed !</p>]]></content><author><name></name></author><category term="bookreview" /><summary type="html"><![CDATA[Kingdom’s End: Selected Stories]]></summary></entry><entry><title type="html">Reverse engineering Incapsula security</title><link href="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html" rel="alternate" type="text/html" title="Reverse engineering Incapsula security" /><published>2018-11-18T00:06:16+05:30</published><updated>2018-11-18T00:06:16+05:30</updated><id>http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping</id><content type="html" xml:base="http://localhost:4000/technology/web/2018/11/18/Incapsula-Scrapping.html"><![CDATA[<p>The robots.txt of the website gives a green light</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
 Crawl-delay: 10
@@ -581,73 +584,4 @@ Use this opportunity to learn about bash.</p>
 
 <p>I would recommend you go back at this point and revise all concepts you have learned so far in levels 1 to 20. Though a game, the point is to actually retain all the information once the game is over. Practice. Practice. Practice.</p>
 
-<p>See you in next post where we wrap up the BANDIT series of OverTheWire wargames !</p>]]></content><author><name></name></author><category term="technology" /><category term="security" /><summary type="html"><![CDATA[baby steps to netsec]]></summary></entry><entry><title type="html">Subtitle Translator</title><link href="http://localhost:4000/technology/frontend/2017/06/07/Subtitle-Translator.html" rel="alternate" type="text/html" title="Subtitle Translator" /><published>2017-06-07T00:06:16+05:30</published><updated>2017-06-07T00:06:16+05:30</updated><id>http://localhost:4000/technology/frontend/2017/06/07/Subtitle-Translator</id><content type="html" xml:base="http://localhost:4000/technology/frontend/2017/06/07/Subtitle-Translator.html"><![CDATA[<p><img src="http://sugarfx.tv/info/subtitles/info_subtitles_sm.jpg" alt="" /></p>
-
-<p>Subtitles are a convinient and engaging method to understand a  foreign language content where language audio translations may not be available.
-This script uses Frengly free translation REST API to translate line by line all the content of the .srt subtitle file. Since this code used free translation API subsequent translation requests have an interval of three seconds therefore translation time is 3*number_of_lines_translated (Frengly supports about <a href="http://www.frengly.com/api">38 languages</a>)
-script argument  looks like : <code class="language-plaintext highlighter-rouge">filename.srt:source_language[:destination_language]</code>
-      example :</p>
-<blockquote>
-  <p>Superman.srt:en:fr</p>
-</blockquote>
-
-<p>above input translates <em>Superman.srt</em> from english to french the new file created will be <em>fr_Superman.srt</em>
-Checkout the source on my <a href="https://github.com/prakashydv/SRTtranslate">github page</a></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Destination by default is english (en)
-</code></pre></div></div>
-
-<p>Table for Encoding Language:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Encoding":"Language"
-
-"en","english"
-"fr","french"
-"ar","arabic"
-"bg","bulgarian"
-"zh-cn","chinese (Simplified)"
-"zh-TW","Chinese (Traditional)"
-"hr","Croatian"
-"cs","Czech"
-"da","Danish"
-"nl","Dutch"
-"en","English"
-"tl","Filipino"
-"fi","Finnish"
-"fr","French"
-"de","German"
-"el","Greek"
-"iw","Hebrew"
-"hi","Hindi"
-"hu","Hungarian"
-"id","Indonesian"
-"ga","Irish"
-"it","Italian"
-"ja","Japanese"
-"ko","Korean"
-"la","Latin"
-"no","Norwegian"
-"fa","Persian"
-"pl","Polish"
-"pt","Portuguese"
-"ro","Romanian"
-"ru","Russian"
-"sr","Serbian"
-"sk","Slovakian"
-"es","Spanish"
-"sv","Swedish"
-"th","Thai"
-"tr","Turkish"
-"vi","Vietnamese"
-</code></pre></div></div>
-
-<h3 id="limitations-">Limitations :</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Since this code used free translation API subsequent translation requests have an interval of three seconds
-therefore translation time is 3*number_of_lines_translated
-</code></pre></div></div>
-
-<p>The heart of the script is very simple, just fetch a json from the url :</p>
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">url</span><span class="o">=</span><span class="s">'http://syslang.com?src='</span><span class="o">+</span><span class="n">source_language</span><span class="o">+</span><span class="s">'&amp;dest='</span><span class="o">+</span><span class="n">target_language</span><span class="o">+</span><span class="s">'+&amp;text='</span><span class="o">+</span><span class="n">MESSAGETOTRANSLATE</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span><span class="s">'+'</span><span class="p">)</span><span class="o">+</span><span class="s">'&amp;email=YOUREMAIL@ADDRESS.com&amp;password=yourpassword&amp;outformat=json'</span>
-</code></pre></div></div>
-
-<h4 id="ciao-">Ciao !</h4>]]></content><author><name></name></author><category term="technology" /><category term="frontend" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+<p>See you in next post where we wrap up the BANDIT series of OverTheWire wargames !</p>]]></content><author><name></name></author><category term="technology" /><category term="security" /><summary type="html"><![CDATA[baby steps to netsec]]></summary></entry></feed>

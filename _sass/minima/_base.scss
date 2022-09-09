@@ -178,7 +178,6 @@ pre {
 .wrapper {
   max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
   max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-  // max-width: 80vw;
   margin-right: auto;
   margin-left: auto;
   padding-right: $spacing-unit;
@@ -191,6 +190,14 @@ pre {
     padding-right: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
   }
+
+  @include media-query($on-palm) {
+    max-width: 100vw;
+    max-width: 100vh;
+    padding-right: 2px ;
+    padding-left: 2px ;
+  }
+
 }
 
 /**

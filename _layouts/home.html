@@ -22,11 +22,16 @@ layout: default
     <ul class="post-list">
       {%- for post in site.posts limit:5 -%}
       <li style="margin-bottom: 0;">
+        <span class="post-time">
         {%- assign date_format = "%Y-%m-%d" -%}
         {{ post.date | date: date_format }}
+        &nbsp; | &nbsp;
+
+        </span>
         <a class="post-link" href="{{ post.url | relative_url }}">
-          &nbsp; | &nbsp;{{ post.title | escape }}
+          {{ post.title | escape }}
         </a>
+        <hr/>
 
       </li>
       {%- endfor -%}
@@ -38,15 +43,44 @@ layout: default
 </div>
 
 <div class="post-tile">
+  <h2 class="post-list-heading">Book Reviews</h2>
+  <ul class="post-list">
+    {%- for post in site.categories["bookreview"] limit:5 -%}
+        <li style="margin-bottom: 0;">
+
+          <span class="post-time">
+          {%- assign date_format = "%Y-%m-%d" -%}
+          {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
+
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <hr/>
+        </li>
+    {%- endfor -%}
+    <li>
+      <a href={{ "allposts.html" | relative_url }}>See All ...</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="post-tile">
   <h2 class="post-list-heading">Technology</h2>
   <ul class="post-list">
     {%- for post in site.categories["technology"] limit:5 -%}
         <li style="margin-bottom: 0;">
+          <span class="post-time">
           {%- assign date_format = "%Y-%m-%d" -%}
           {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
           <a class="post-link" href="{{ post.url | relative_url }}">
-            &nbsp; | &nbsp;{{ post.title | escape }}
+            {{ post.title | escape }}
           </a>
+          <hr/>
         </li>
     {%- endfor -%}
     <li>
@@ -60,11 +94,15 @@ layout: default
   <ul class="post-list">
     {%- for post in site.categories["philosophy"] limit:5 -%}
         <li style="margin-bottom: 0;">
+          <span class="post-time">
           {%- assign date_format = "%Y-%m-%d" -%}
           {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
           <a class="post-link" href="{{ post.url | relative_url }}">
-            &nbsp; | &nbsp;{{ post.title | escape }}
+            {{ post.title | escape }}
           </a>
+          <hr/>
         </li>
     {%- endfor -%}
     <li>
