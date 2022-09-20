@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-11T10:32:08+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Threads</title><link href="http://localhost:4000/philosophy/2022/09/11/Threads.html" rel="alternate" type="text/html" title="Threads" /><published>2022-09-11T10:25:00+05:30</published><updated>2022-09-11T10:25:00+05:30</updated><id>http://localhost:4000/philosophy/2022/09/11/Threads</id><content type="html" xml:base="http://localhost:4000/philosophy/2022/09/11/Threads.html"><![CDATA[<p>I have an anology I wish to use to explain experiences regarding the peace of mind.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-09-20T15:53:44+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">PKSYDV</title><subtitle>Thought repository</subtitle><entry><title type="html">Shillong Trip</title><link href="http://localhost:4000/travel/2022/09/20/shillong-trip.html" rel="alternate" type="text/html" title="Shillong Trip" /><published>2022-09-20T10:25:00+05:30</published><updated>2022-09-20T10:25:00+05:30</updated><id>http://localhost:4000/travel/2022/09/20/shillong-trip</id><content type="html" xml:base="http://localhost:4000/travel/2022/09/20/shillong-trip.html"><![CDATA[<p>Following are factual details of the trip for my personal reference, so pardon the dryness. No spellcheck in my text editor !</p>
+
+<p>My employer has a concept of ‘Free Days’, essentially two consecutive day holiday around a weekend every quarter, where the entire company is shut down, no work in any location. This started in December 2020 in the pandemic WFH circumstances. The recent 4 day holiday was 15-18 September this quarter.</p>
+
+<p>I decided to go to Shillong being just a 100km from my home in Guwahati. I took the ASTC bus from Khanapara (booked via RedBus), booked 1 day earlier for 180 (with taxes). I caught the 2x2 AC bug from the flyover at Khanapara, the easter end of the town. The bus had originally left from Paltan Bazar at 08:00 and arrived at Khanapara at 08:25. The bus conductor called me before leaving Khanapara to confirm my pick up at Khanapara. The bus was somewhat crowded with many people standing. I however was able to get my reserved window seat.</p>
+
+<p>The scenic trip of approx 2h30m left me at ISBT at Mawiong, some 8km before Shillong (just after Umiam lake). There is a shuttle traveller van that took all of us passenders from there till Police Bazar in another 30mins. The shuttle cost Rs.40. From there I took the alto taxi to my place near Bishnupur Taxi stand in soutcher/upper part of the city. I had to reserve the entire cab for the trip so I had to pay Rs.150 (after he took another passenger in the front seat).</p>
+
+<p>Temperature at a steady 18-21 degree celcius, with moderate rains in the afternoon. The weather was perfect. Next morning, Day 2, I went for a morning walk around the area, circling the cantonment area and around the silkworm farm, lush green and quiet area. The 5km circuit was beautiful, and I went every morning for next two days as well.</p>
+
+<p>For breakfast I discovered this awesome eatery in fromt of a secondary high school in Lebang. Many schools are there is Lebang, you can always find students on the roads coming from or going to school. The eatery had awesome menu of sweets, chole bhature, puri bhaji, pav bhaji etc. I ate choley bhature (Rs.60) the first morning and Puri Bhaji (Rs.35) the next morning.</p>
+
+<p>My Day 2 was just loitering around, visiting Ward’s lake, the state museum, a closed entomology meuseum, police bazar. I ate a thali at jiva veg in police bazar which was just delicious. Next day i ate mushroom noodles for lunch in the nearby shop.</p>
+
+<p>Day 3, Saturday, my parents arrived at Shillong and I went to Police Bazar with mummy for shopping. Papa stayed put at the room since he was tired from travelling from calcutta the just the day before.</p>
+
+<p>Day 4 was some trevelling by car, we visited the Laitlum canyon (parking Rs.50), and the microwave tower nearby. Beautiful rolling hill landscape. Good weather too. mostly sunny and cloudy. We ried to go to shillong view point via eastern road which is incorrect for it is via the airforce base. So we went back to town and via west approach. There we had to take a local taxi (compulsory) to go inside the aur base campus. Rs.50 per head ticket + Rs.200 for taxi.
+We bought 7kg nice small potatoes from roadside. Also cabbage. Lot of cabbage farms in Myriem (South of Shillong). We went to Elephant Falls next (Rs.100 ticket per head).</p>
+
+<p>Then we returned to Guwahati having a late Lunch (15:30) at Jiva Veg in Nongstoin.</p>]]></content><author><name></name></author><category term="travel" /><summary type="html"><![CDATA[Following are factual details of the trip for my personal reference, so pardon the dryness. No spellcheck in my text editor !]]></summary></entry><entry><title type="html">Threads</title><link href="http://localhost:4000/philosophy/2022/09/11/Threads.html" rel="alternate" type="text/html" title="Threads" /><published>2022-09-11T10:25:00+05:30</published><updated>2022-09-11T10:25:00+05:30</updated><id>http://localhost:4000/philosophy/2022/09/11/Threads</id><content type="html" xml:base="http://localhost:4000/philosophy/2022/09/11/Threads.html"><![CDATA[<p>I have an anology I wish to use to explain experiences regarding the peace of mind.
 Computers have finite processing units to cater to various applications running on a system, seemingly in parallel. Depending on the count of such processing units, the application share them among themselves, interleaving and time sharing depending on their criticality. In fact each application might seem to be doing things in parallel, like the display, main and background computation etc. These are known as threads, and let us call each application a process.</p>
 
 <p>Now here is the analogy. Our mind is like an application with multiple involuntary threads running, again, seemingly in parallel. We might be thinking about breakfast one moment and fluidly slip into thinking about work. Such switches in computer terminology is called context switches. Our emotion and body language change to reflect whats in our mind, i.e. whats the current tthread all about.</p>
@@ -222,37 +241,4 @@ EncodedBy.......
 
 <p><strong><code class="language-plaintext highlighter-rouge">47 00 65 00 - 46 00 6F 00 - 72 00 63 00 - 65 00 20 00 - 53 00 48 00 - 41 00 52 00 - 45 00 00 00</code></strong> corresponds to UTF-16 plaintext ‘<em>GeForce SHARE</em>’.</p>
 
-<p>I will dig into other metadata which might help throw light on more of the metadata types, here i just sampled two that get automatically written when capturing videos using GeForce Experience’s Share feature.</p>]]></content><author><name></name></author><category term="technology" /><category term="multimedia" /><summary type="html"><![CDATA[Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom]]></summary></entry><entry><title type="html">OVER THE WIRE - 2</title><link href="http://localhost:4000/technology/security/2017/07/06/OverTheWire2.html" rel="alternate" type="text/html" title="OVER THE WIRE - 2" /><published>2017-07-06T00:06:16+05:30</published><updated>2017-07-06T00:06:16+05:30</updated><id>http://localhost:4000/technology/security/2017/07/06/OverTheWire2</id><content type="html" xml:base="http://localhost:4000/technology/security/2017/07/06/OverTheWire2.html"><![CDATA[<h4 id="baby-steps-to-netsec---part-ii">baby steps to netsec - part II</h4>
-
-<h2 id="wargame-bandit">Wargame BANDIT</h2>
-<h5 id="ssh--banditlabsoverthewireorg2220">SSH : <code class="language-plaintext highlighter-rouge">bandit.labs.overthewire.org:2220</code></h5>
-
-<h3 id="level-21-to-">Level 21 to ?</h3>
-
-<h2 id="bandit21--ge269g2h3mw3pwgrj0ha9uoqen1c9dgr">BANDIT21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</h2>
-<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
-
-<p>As pointed, we look into the `/etc/cron.d/’ directory and find the following listed</p>
-<blockquote>
-  <p>cron-apt
-cronjob_bandit22
-cronjob_bandit23
-cronjob_bandit24
-php5</p>
-</blockquote>
-
-<p>bandit22 is what level we wish to get to so naturally we see whats that cronjob about. It seems execute a file <code class="language-plaintext highlighter-rouge">/usr/bin/cronjob_bandit22.sh</code> every reboot that to copy the password to a file <code class="language-plaintext highlighter-rouge">cat /etc/bandit_pass/bandit22 &gt; /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code>, so command ought to have been executed and file must already exist.</p>
-
-<p>a quick look into this file <code class="language-plaintext highlighter-rouge">/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code> gives us password to next level bandit22.</p>
-
-<h2 id="bandit22--yk7owgacwjwmvrwrtesjewb7wvoiilli">BANDIT22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI</h2>
-
-<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in <code class="language-plaintext highlighter-rouge">/etc/cron.d/</code> for the configuration and see what command is being executed.</p>
-
-<p>A look at cronjob_bandit22 tells us what script is run :  <code class="language-plaintext highlighter-rouge">/usr/bin/cronjob_bandit23.sh</code>
-And a look at the script lets us know that a folder name is created using the following command :
-` echo I am user bandit22 | md5sum | cut -d ‘ ‘ -f 1<code class="language-plaintext highlighter-rouge"> I would be advisable to learn about each of the piped commands, for the impatient ... it prints : </code>8169b67bd894ddbb4412f91573b38db3` now go figure !</p>
-
-<p>As per script the password is moved to <code class="language-plaintext highlighter-rouge">/tmp/8169b67bd894ddbb4412f91573b38db3</code> I cant seem to find it :-(s</p>
-
-<h2 id="bandit-23--s">BANDIT 23 | ???s</h2>]]></content><author><name></name></author><category term="technology" /><category term="security" /><summary type="html"><![CDATA[baby steps to netsec - part II]]></summary></entry></feed>
+<p>I will dig into other metadata which might help throw light on more of the metadata types, here i just sampled two that get automatically written when capturing videos using GeForce Experience’s Share feature.</p>]]></content><author><name></name></author><category term="technology" /><category term="multimedia" /><summary type="html"><![CDATA[Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom]]></summary></entry></feed>
