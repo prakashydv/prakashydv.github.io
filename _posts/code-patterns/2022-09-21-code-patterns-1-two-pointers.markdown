@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Code Patterns"
+title: "Code Patterns I - Two Pointers"
 date: 2022-09-21 00:06:16 +0530
 categories: technology
 summary: "Collection of coding patterns for reference"
