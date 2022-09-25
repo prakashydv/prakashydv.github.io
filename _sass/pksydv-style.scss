@@ -24,6 +24,10 @@
     }
 }
 
+.post-time {
+    font-family: monospace;
+    white-space: pre;
+}
 
 @include media-query($on-palm) {
     .post-time {
