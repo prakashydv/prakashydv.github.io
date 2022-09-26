@@ -284,6 +284,8 @@ table td { border: 1px solid #e8e8e8; }
 
 .post-tile:hover { border-color: #000; }
 
+.post-time { font: consolas; }
+
 @media screen and (max-width: 800px) { .post-time { display: none; } }
 
 div.gallery { margin: 5px; border: 1px solid #ccc; float: left; width: 180px; }
