@@ -60,3 +60,21 @@ div.gallery {
     position: relative;
     left: 12%;
   }
+
+  .public {
+    margin: 2rem 0 0 2rem;
+    padding: 0 0 0 1rem;
+    background-color: black;
+    color: white;
+    font-family: monospace;
+    font-size:larger;
+  }
+
+  .show-on-focus {
+    background-color: transparent;
+    color: transparent;
+    border: 0;
+    &:hover,:focus {
+      color: grey;
+    }  
+  }
