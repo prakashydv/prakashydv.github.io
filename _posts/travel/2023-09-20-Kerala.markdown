@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Vacation in Kerala (Kochi, Alleppey and Munnar)"
-date:   2024-09-20 00:06:16 +0530
+title:  "Vacation in Kerala"
+date:   2023-09-20 00:06:16 +0530
 categories: travel india
 summary: "Vacation in Kerala (Kochi, Alleppey and Munnar)"
 ---
