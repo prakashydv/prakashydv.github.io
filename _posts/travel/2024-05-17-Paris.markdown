@@ -2,8 +2,8 @@
 layout: post
 title:  "EuroTrip 2024 - Paris"
 date:   2024-05-17 00:06:16 +0530
-categories: travel india
-summary: "Summer Vacation in Europe - Paris"
+categories: travel europe
+summary: "Summer 2024 Vacation in Europe - Paris"
 ---
 
 For our first wedding anniversary we were determined to visit Paris, among other destinations in me and my wife's first visit to Europe.
