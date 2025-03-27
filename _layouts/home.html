@@ -1,0 +1,115 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+  <!-- <div class="home-collection">
+    {%- for post in site.posts -%}
+    <div class="home-topic">
+      <p>{{post.title}}</p>
+    </div>
+    {%- endfor -%}
+  </div> -->
+
+<div class="post-tile">
+  <h2 class="post-list-heading">LATEST</h2>
+  {%- if site.posts.size > 0 -%}
+    <ul class="post-list">
+      {%- for post in site.posts limit:5 -%}
+      <li style="margin-bottom: 0;">
+        <span class="post-time">
+        {%- assign date_format = "%Y-%m-%d" -%}
+        {{ post.date | date: date_format }}
+        &nbsp; | &nbsp;
+
+        </span>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+        <hr/>
+
+      </li>
+      <!-- {{ post.summary }} -->
+      {%- endfor -%}
+      <li>
+        <a class="seeall" href={{ "allposts.html" | relative_url }}>See all posts ordered chronologically...</a>
+      </li>
+    </ul>
+  {%- endif -%}
+</div>
+
+<div class="post-tile">
+  <h2 class="post-list-heading">Book Reviews</h2>
+  <ul class="post-list">
+    {%- for post in site.categories["bookreview"] limit:5 -%}
+        <li style="margin-bottom: 0;">
+
+          <span class="post-time">
+          {%- assign date_format = "%Y-%m-%d" -%}
+          {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
+
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <hr/>
+        </li>
+    {%- endfor -%}
+    <li>
+      <a class="seeall" href={{ "bookreviews" | relative_url }}>See all book reviews...</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="post-tile">
+  <h2 class="post-list-heading">Technology</h2>
+  <ul class="post-list">
+    {%- for post in site.categories["technology"] limit:5 -%}
+        <li style="margin-bottom: 0;">
+          <span class="post-time">
+          {%- assign date_format = "%Y-%m-%d" -%}
+          {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <hr/>
+        </li>
+    {%- endfor -%}
+    <li>
+      <a class="seeall" href={{ "technology" | relative_url }}>See all technology posts...</a>
+    </li>
+  </ul>
+</div>
+
+<div class="post-tile">
+  <h2 class="post-list-heading">Philosophy</h2>
+  <ul class="post-list">
+    {%- for post in site.categories["philosophy"] limit:5 -%}
+        <li style="margin-bottom: 0;">
+          <span class="post-time">
+          {%- assign date_format = "%Y-%m-%d" -%}
+          {{ post.date | date: date_format }}
+          &nbsp; | &nbsp;
+          </span>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+          <hr/>
+        </li>
+    {%- endfor -%}
+    <li>
+      <a class="seeall" href={{ "philosophy" | relative_url }}>See all philosophy posts...</a>
+    </li>
+  </ul>
+</div>
+
+</div>

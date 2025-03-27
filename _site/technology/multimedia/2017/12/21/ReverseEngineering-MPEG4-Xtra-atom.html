@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>‘Xtra’ metadata MPEG4 atom | PYDV</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="‘Xtra’ metadata MPEG4 atom" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom" />
+<meta property="og:description" content="Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom" />
+<link rel="canonical" href="http://localhost:4000/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html" />
+<meta property="og:url" content="http://localhost:4000/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html" />
+<meta property="og:site_name" content="PYDV" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-21T00:06:16+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="‘Xtra’ metadata MPEG4 atom" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2017-12-21T00:06:16+05:30","datePublished":"2017-12-21T00:06:16+05:30","description":"Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom","headline":"‘Xtra’ metadata MPEG4 atom","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html"},"url":"http://localhost:4000/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href=/assets/main.css>
+  <link rel="shortcut icon" type="image/ico" href= /assets/favicon.ico><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="PYDV" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">PYDV</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/art/">Art</a><a class="page-link" href="/bookreviews/">Book Reviews</a><a class="page-link" href="/philosophy/">Philosophy</a><a class="page-link" href="/technology/">Technology</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">&#39;Xtra&#39; metadata MPEG4 atom</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-12-21T00:06:16+05:30" itemprop="datePublished">Dec 21, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="reverse-engineering-the-windows-mpeg4-custom-xtra-metadata-atom">Reverse Engineering the Windows MPEG4 custom ‘Xtra’ metadata atom</h1>
+
+<p>Windows supports MPEG4 format file playback including a rich metatdata field support. Windows Explorer can deal with standard iTunes metadata, but for some extended fields like Composer, Director, EncodedBy etc it uses a non standard atom ‘Xtra’. See <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ff384862%28v=vs.85%29.aspx">msdn</a> for a list of Metadata  Properties for media files.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Following is a sample atom tree as visualised by [AtomicParsely</td>
+      <td>] (version 0.9). It lists Xtra but has no visibility under it.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Atom ftyp @ 0 of size: 24, ends @ 24
+Atom mdat @ 24 of size: 10439547 (^), ends @ 0
+			 (^)denotes a 64-bit atom length
+Atom moov @ 10439571 of size: 3700, ends @ 10443271
+     Atom mvhd @ 10439579 of size: 108, ends @ 10439687
+     Atom trak @ 10439687 of size: 1804, ends @ 10441491
+         Atom tkhd @ 10439695 of size: 92, ends @ 10439787
+         Atom mdia @ 10439787 of size: 1704, ends @ 10441491
+             Atom mdhd @ 10439795 of size: 32, ends @ 10439827
+             Atom hdlr @ 10439827 of size: 44, ends @ 10439871
+             Atom minf @ 10439871 of size: 1620, ends @ 10441491
+                 Atom vmhd @ 10439879 of size: 20, ends @ 10439899
+                 Atom dinf @ 10439899 of size: 36, ends @ 10439935
+                     Atom dref @ 10439907 of size: 28, ends @ 10439935
+                 Atom stbl @ 10439935 of size: 1556, ends @ 10441491
+                     Atom stsd @ 10439943 of size: 168, ends @ 10440111
+                         Atom avc1 @ 10439959 of size: 152, ends @ 10440111
+                             Atom avcC @ 10440045 of size: 50, ends @ 10440095
+                             Atom pasp @ 10440095 of size: 16, ends @ 10440111			 ~
+                     Atom stts @ 10440111 of size: 520, ends @ 10440631
+                     Atom stss @ 10440631 of size: 40, ends @ 10440671
+                     Atom stsz @ 10440671 of size: 728, ends @ 10441399
+                     Atom stsc @ 10441399 of size: 52, ends @ 10441451
+                     Atom co64 @ 10441451 of size: 40, ends @ 10441491
+     Atom trak @ 10441491 of size: 1585, ends @ 10443076
+         Atom tkhd @ 10441499 of size: 92, ends @ 10441591
+         Atom mdia @ 10441591 of size: 1455, ends @ 10443046
+             Atom mdhd @ 10441599 of size: 32, ends @ 10441631
+             Atom hdlr @ 10441631 of size: 44, ends @ 10441675
+             Atom minf @ 10441675 of size: 1371, ends @ 10443046
+                 Atom smhd @ 10441683 of size: 16, ends @ 10441699
+                 Atom dinf @ 10441699 of size: 36, ends @ 10441735
+                     Atom dref @ 10441707 of size: 28, ends @ 10441735
+                 Atom stbl @ 10441735 of size: 1311, ends @ 10443046
+                     Atom stsd @ 10441743 of size: 91, ends @ 10441834
+                         Atom mp4a @ 10441759 of size: 75, ends @ 10441834
+                             Atom esds @ 10441795 of size: 39, ends @ 10441834
+                     Atom stts @ 10441834 of size: 568, ends @ 10442402
+                     Atom stsz @ 10442402 of size: 552, ends @ 10442954
+                     Atom stsc @ 10442954 of size: 52, ends @ 10443006
+                     Atom co64 @ 10443006 of size: 40, ends @ 10443046
+         Atom udta @ 10443046 of size: 30, ends @ 10443076
+             Atom name @ 10443054 of size: 22, ends @ 10443076
+     Atom udta @ 10443076 of size: 195, ends @ 10443271
+         Atom meta @ 10443084 of size: 80, ends @ 10443164
+             Atom hdlr @ 10443096 of size: 32, ends @ 10443128
+             Atom ilst @ 10443128 of size: 36, ends @ 10443164
+                 Atom ©day @ 10443136 of size: 28, ends @ 10443164
+                     Atom data @ 10443144 of size: 20, ends @ 10443164
+                     Atom Xtra @ 10443164 of size: 107, ends @ 10443271 ~
+
+ ~ denotes an unknown atom
+------------------------------------------------------
+Total size: 10443271 bytes; 48 atoms total. AtomicParsley version: 0.9.0 (utf16)
+Media data: 10439547 bytes; 3724 bytes all other atoms (0.036% atom overhead).
+Total free atom space: 0 bytes; 0.000% waste.
+------------------------------------------------------
+</code></pre></div></div>
+
+<p>Lets break down the 107 byte magic which happens to appear at the bottom of the file :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>            00 00 00 6B 58 74 72 61 00 00 00 29
+00 00 00 0F 57 4D 2F 45 6E 63 6F 64 69 6E 67 54
+69 6D 65 00 00 00 01 00 00 00 0E 00 15 40 B4 8C
+EF 22 7E D3 01 00 00 00 3A 00 00 00 0C 57 4D 2F
+45 6E 63 6F 64 65 64 42 79 00 00 00 01 00 00 00
+22 00 08 47 00 65 00 46 00 6F 00 72 00 63 00 65
+00 20 00 53 00 48 00 41 00 52 00 45 00 00 00
+</code></pre></div></div>
+
+<p>corresponds to plaintext :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ...kXtra...)
+....WM/EncodingT
+ime..........@´Œ
+ï"~Ó....:....WM/
+EncodedBy.......
+"..G.e.F.o.r.c.e
+. .S.H.A.R.E...
+</code></pre></div></div>
+
+<p>Neat. Lets dig deeper.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 6B</code></strong> corresponds to 107 bytes that is the size of the atom (including 4 bytes for itself).</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">58 74 72 61</code></strong> is the atom name ‘Xtra’ is  plaintext.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 29</code></strong> looks like size of a container. Lets analyze the following 0x29 bytes.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 0F</code></strong> Analysing the next 0x29 bytes we see a blob that seems to start with 4 byte magical 0xF. Its size as next 0xF bytes ends immediately after the plaintext string “WM/EncodedBy”. Funny that the atom size just accounts for itself and the atom name. I assume the Windows  parser knows what to make off the following bytes depedning on pseudo-atom name. Not fair !</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">WM/EncodingTime</code></strong> looks like the name of a pseudo-atom, unconventional since atoms are usually 4 bytes.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 01 - 00 00 00 0E - 00 15 40 B4 - 8C EF 22 7E - D3 01 00 00 - 00 3A 00 00 - 00 0C</code></strong> looks like the content for pseudo-atom WM/EncodingTime in which case it would correspond to <strong><code class="language-plaintext highlighter-rouge">12/26/2017 1.54PM</code></strong>. Still figuruing out the datatype.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">57 4D 2F 45 - 6E 63 6F 64 - 65 64 42 79</code></strong> is WM/EncodedBy in plaintext. another pseudo-atom ?</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 01</code></strong> Witchcraft ! <code class="language-plaintext highlighter-rouge">¯\_(ツ)_/¯</code> If its size, it just accounts for itself ! As useful as a boolean to store a string.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 00 00 22</code></strong> seems like size of following content (which happens to be the last item so it covers all bytes uptill the end of file.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">00 08</code></strong> two bytes for God knows what.</p>
+
+<p><strong><code class="language-plaintext highlighter-rouge">47 00 65 00 - 46 00 6F 00 - 72 00 63 00 - 65 00 20 00 - 53 00 48 00 - 41 00 52 00 - 45 00 00 00</code></strong> corresponds to UTF-16 plaintext ‘<em>GeForce SHARE</em>’.</p>
+
+<p>I will dig into other metadata which might help throw light on more of the metadata types, here i just sampled two that get automatically written when capturing videos using GeForce Experience’s Share feature.</p>
+
+  </div><a class="u-url" href="/technology/multimedia/2017/12/21/ReverseEngineering-MPEG4-Xtra-atom.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <!-- <h2 class="footer-heading">PYDV</h2> -->
+
+
+    <!-- <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">PYDV</li></ul>
+      </div> -->
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/prakashydv"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">prakashydv</span></a></li><li><a href="https://www.twitter.com/prakashyadav"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">prakashyadav</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Thought repository<br/>
+          <a href=/allposts.html>SEE ALL POSTS</a>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
