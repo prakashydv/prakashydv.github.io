@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Threads"
+date:   2022-09-11 10:25:00 +0530
+categories: philosophy
+summary: "My concept of threads regarding peace of mind"
+---
+
+I have an anology I wish to use to explain experiences regarding the peace of mind.
+Computers have finite processing units to cater to various applications running on a system, seemingly in parallel. Depending on the count of such processing units, the application share them among themselves, interleaving and time sharing depending on their criticality. In fact each application might seem to be doing things in parallel, like the display, main and background computation etc. These are known as threads, and let us call each application a process.
+
+Now here is the analogy. Our mind is like an application with multiple involuntary threads running, again, seemingly in parallel. We might be thinking about breakfast one moment and fluidly slip into thinking about work. Such switches in computer terminology is called context switches. Our emotion and body language change to reflect whats in our mind, i.e. whats the current tthread all about.
+
+After a good night's sleep the threads are all reset to nil. No thought. That would make dreams some kind of a screensaver I suppose. Anyway, our minds our empty provided your mind and body are well rested. This is why many find mornings to use their brains effectively. There are not many threads open competing for the limited resource that is your brain. Slowly, as the day progresses, thoughts come and go through your mind spawning indefinite number of threads most of which fail to conclude. Some important threads get preempted by more important threads and you forget your keys. Some thread takes too long to execute starving a critical thread and you have a car accident. It's a problem in concurrent computer programming and its a problem in life. Our softwares have evolved too paridly and our hardware (wetware?) hasnt even had a chance at an upgrade.
+
+Its time we introduce some concurrent programing into our lives : prioritize our threads and always be in control how many threads your mind will service in parallel. It takes effort and practice to regularly reset your threads when you feel overwhelmed.
+
+And now for some fun, beware of the thought which is never about anything, it occupies the mind, running your brain on idle, no thinking, you stare into the distance. You hear sounds but it doesnt reach your mind. You see without ever looking. This, is the Phantom Thread.

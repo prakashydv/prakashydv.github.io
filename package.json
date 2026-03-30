@@ -1,7 +1,8 @@
 {
-    "name": "my blog",
+    "name": "pydv.blog",
     "version": "3.0.0",
     "scripts": {
+        "run": "npx @11ty/eleventy --serve",
         "build-ghpages": "npx @11ty/eleventy --pathprefix=/prakashydv.github.io/"
     }
 }

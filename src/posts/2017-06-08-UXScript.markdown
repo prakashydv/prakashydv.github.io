@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "A Markdown for UI"
+date:   2017-06-08 00:06:16 +0530
+categories: technology frontend
+summary: "Concept MarkUp language for User Interface"
+---
+
+It takes a lazy person to get things done quickly. The computer professional stereotype
+ is banging on keyboards like monkeys, lot of unnecessary typing clawing at our lives.
+A markup is a beautiful thing, lot of designing without verbose typing. What about UI,
+a lot is pretty much boiler plate code , I say almost 90 % is. 90 % of all code is
+boiler plate code. The unique logic itself is always a fraction of the code.
+Welcome UX-SCRIPT, a markup encoding for User Interface.
+
