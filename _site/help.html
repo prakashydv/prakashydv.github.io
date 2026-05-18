@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PIN-based JSON encryptor</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .controls { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+  label { display: inline-flex; align-items: center; gap: 0.4rem; }
+  input, button { padding: 0.5rem 0.75rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc; }
+  input[type="password"] { width: 9rem; letter-spacing: 0.25em; }
+  button { background: #f6f6f6; cursor: pointer; }
+  button:hover { background: #ececec; }
+  button:active { background: #ddd; }
+  .status { margin-top: 0.75rem; min-height: 1.3em; color: #555; }
+  .status.error { color: #b00020; }
+  .status.ok { color: #1b6e1b; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; }
+  th, td { border: 1px solid #ddd; padding: 0.5rem 0.75rem; text-align: left; vertical-align: top; }
+  th { background: #f4f4f4; }
+  td.cell { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; font-size: 0.9rem; }
+  .badge { display: inline-block; font-size: 0.7rem; padding: 2px 6px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .badge.plain { background: #e3f2e3; color: #1b6e1b; }
+  .badge.enc { background: #fde7e7; color: #b00020; }
+</style>
+</head>
+<body>
+
+<!--
+<h1>PIN-based key/value encryptor</h1>
+<p>Enter a numeric PIN, then click <b>Encrypt</b> or <b>Decrypt</b>. The same PIN is required to decrypt anything you've encrypted. Uses AES-256-GCM with PBKDF2-SHA256 (200,000 iterations) for key derivation; all crypto runs in the browser, nothing leaves the page.</p>
+!-->
+
+<div class="controls">
+  <label>password: <input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" autocomplete="off"></label>
+  <button id="encryptBtn">e</button>
+  <button id="decryptBtn">d</button>
+  <button id="resetBtn">Reset</button>
+</div>
+<div id="status" class="status"></div>
+
+<table>
+  <thead><tr><th>Key</th><th>Value</th></tr></thead>
+  <tbody id="rows"></tbody>
+</table>
+
+<script>
+  // ----- static JSON content (edit this list to change the demo data) -----
+  const ORIGINAL = [
+    {
+      key: "enc:naQxnLdGVM7E2VjA:FHvcFuEUpf7ic7i1zu5BDhGlOu7T", value: "enc:kD50WEoENHgXfREL:1Qw8TPfsf05A/umJzEkhey1myarIVXLJaUQgKNApuGXkglRBw7gjJyRxAejndHh/dSLj3MvHqZBQmK4P6ZuuG533A9L6CUkbQhljFY7Jc+0AWQSRNXSUwPII6xIwgFtwZV9dUsO4tK3FgpSQhVe/ZUwnrZG6Qv/HJhghOjmBrxqCVMgbLU/smJAAa6SEXaxueF3KeHWqyoXlM1Ki79oLiJ7WzFW0Cq451soR497wy536PxGoUaBopvuEhOYRP/mDB5eO2/gkS11HMXRGS5jMXryp9P3gcN/7Bzr3YQ=="
+    },
+    {
+      key: "enc:Ss0GKk8a5ku3r82D:YZ1a57V+Um25bu1W52r5InHbra5gTQ==", value: "enc:d13lWORsA6KJEFY8:z3xraXvveEdwb6KEKfUEiSBSl2mIp86VtuwJTkUyFf9DqbLG98xCeeinanELMYSa+M10ULV0bVblB4sxJkKwBVtLkS/01DtpWMrnzGPXoMnrHrc6dxv1rt5OsciMqA09oT1aDc3of5kx2lSDJZmpEAeq4Za0EAISA0CCcsLlZQTLJXBsoKoqeTgugJwhozNEn2cdK3EXzTvb05Z+ZGx8+MViZ6B7TCJUi4aadVXSIBkOs6GxVU7NFIJ56Al8N76WsmOy00xElzJUp6/rhtdcFeS8ypxY"
+    },
+    {
+      key: "enc:2Ho7PUjqKnGbT26+:ZrN6vVX900AE2OMNmqGFUurIaec8unemQjtjq/MK2UW7BD/ZGuAU", value: "enc:3wehDa5WQ+eRu7yb:yOvZCY9qnHNZOM/oysbfjbFaR62YZQVITLd49jfUtqb3en4YVGGNoA2UElqabMqKbM7SqdmDUN96vA7JZhjM9ucdcPxxJagsCm9AKe0Wy3+IKDjeuLeaKKHrnou44NUKsKxqzsdj4aP94KYoCFODpway55FRNYpGokOGV0pNMk/UbxxOurbpE4DQ0jE1yhnGYfo0ATLN9mLn7w72Z/FAo1miiXIhsvZVoA=="
+    },
+    {
+      key: "enc:Kps+dm89AX2d2GP4:qaLJ6k9VMaWAClEZ1BPINQyCUbnIR0xf", value: "enc:UNP6tfn/phFwFgr1:TxmNs3LCr9zjWgGLCO0dENptvNUEDC/t4zhZEDD5znL2Y6+SPDW7M2vBbWYojunFmC+XsYvRkEzpZw/KZWozMX8NSoPPAB0xQn55j+8/H0ItcDqFXv4Z7+x6dvsnyPuU6TNdPZYDQg=="
+    },
+    {
+      key: "enc:AYS5A61lr3aPKF9e:Bj4yHOEMWmSHguhefIalaFnZ9Z9fMcqqTZDw", value: "enc:mSw4W5c+kGngFIrM:gJxK3/mR7QMMf0p5nkUIr3ruh2A9bnkwEDaNKAny5qC8Bk9M92TLpxUHx5FRvSUqO8HKxkM/3e0Hyhsk/mxsMV4dKrj9xxoyP6Mg3IEo"
+    }
+  ];
+
+  // PBKDF2 salt. Fixed for this demo so the same PIN reproduces the same key
+  // across reloads. In a real tool, persist a random salt per dataset.
+  const SALT = new TextEncoder().encode("pin-crypto-demo-salt-v1");
+  const CIPHER_PREFIX = "enc:";
+
+  let current = ORIGINAL.map(r => ({ ...r }));
+
+  const rowsEl   = document.getElementById("rows");
+  const statusEl = document.getElementById("status");
+  const pinEl    = document.getElementById("pin");
+
+  function isEncrypted(value) {
+    return typeof value === "string" && value.startsWith(CIPHER_PREFIX);
+  }
+
+  function makeCell(text) {
+    const td = document.createElement("td");
+    td.className = "cell";
+    td.textContent = text;
+    const badge = document.createElement("span");
+    badge.className = "badge " + (isEncrypted(text) ? "enc" : "plain");
+    badge.textContent = isEncrypted(text) ? "encrypted" : "plaintext";
+    td.appendChild(document.createTextNode(" "));
+    td.appendChild(badge);
+    return td;
+  }
+
+  function render() {
+    rowsEl.innerHTML = "";
+    for (const { key, value } of current) {
+      const tr = document.createElement("tr");
+      tr.append(makeCell(key), makeCell(value));
+      rowsEl.append(tr);
+    }
+  }
+
+  function setStatus(msg, kind = "") {
+    statusEl.textContent = msg;
+    statusEl.classList.remove("error", "ok");
+    if (kind) statusEl.classList.add(kind);
+  }
+
+  async function deriveKey(pin) {
+    if (!pin || !/^\d+$/.test(pin)) {
+      throw new Error("password must be a non-empty");
+    }
+    const baseKey = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(pin),
+      "PBKDF2",
+      false,
+      ["deriveKey"]
+    );
+    return crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: SALT, iterations: 200_000, hash: "SHA-256" },
+      baseKey,
+      { name: "AES-GCM", length: 256 },
+      false,
+      ["encrypt", "decrypt"]
+    );
+  }
+
+  function b64encode(bytes) {
+    let s = "";
+    for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+    return btoa(s);
+  }
+  function b64decode(str) {
+    const bin = atob(str);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  async function encryptValue(key, plaintext) {
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ctBuf = await crypto.subtle.encrypt(
+      { name: "AES-GCM", iv },
+      key,
+      new TextEncoder().encode(plaintext)
+    );
+    return CIPHER_PREFIX + b64encode(iv) + ":" + b64encode(new Uint8Array(ctBuf));
+  }
+
+  async function decryptValue(key, stored) {
+    const parts = stored.split(":");
+    if (parts.length !== 3 || parts[0] + ":" !== CIPHER_PREFIX) {
+      throw new Error("Value is not in the expected enc:<iv>:<ct> format");
+    }
+    const iv = b64decode(parts[1]);
+    const ct = b64decode(parts[2]);
+    const ptBuf = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ct);
+    return new TextDecoder().decode(ptBuf);
+  }
+
+  document.getElementById("encryptBtn").addEventListener("click", async () => {
+    try {
+      const aesKey = await deriveKey(pinEl.value);
+      let changed = 0;
+      const encryptIfPlain = async (s) => {
+        if (isEncrypted(s)) return s;
+        changed++;
+        return await encryptValue(aesKey, s);
+      };
+      const next = [];
+      for (const row of current) {
+        next.push({
+          key:   await encryptIfPlain(row.key),
+          value: await encryptIfPlain(row.value),
+        });
+      }
+      current = next;
+      render();
+      setStatus(`Encrypted ${changed} field(s) with the provided password.`, "ok");
+    } catch (e) {
+      setStatus("Encrypt failed: " + e.message, "error");
+    }
+  });
+
+  document.getElementById("decryptBtn").addEventListener("click", async () => {
+    try {
+      const aesKey = await deriveKey(pinEl.value);
+      let changed = 0;
+      const decryptIfEncrypted = async (s, label) => {
+        if (!isEncrypted(s)) return s;
+        try {
+          const pt = await decryptValue(aesKey, s);
+          changed++;
+          return pt;
+        } catch (inner) {
+          // Likely wrong password — surface the error.
+          throw new Error("wrong password?");
+        }
+      };
+      const next = [];
+      for (const row of current) {
+        const newKey   = await decryptIfEncrypted(row.key,   "key '"   + row.key   + "'");
+        const newValue = await decryptIfEncrypted(row.value, "value of '" + row.key + "'");
+        next.push({ key: newKey, value: newValue });
+      }
+      current = next;
+      render();
+      setStatus(`Decrypted ${changed} field(s) with the provided password.`, "ok");
+    } catch (e) {
+      setStatus("Decrypt failed: " + e.message, "error");
+    }
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    current = ORIGINAL.map(r => ({ ...r }));
+    render();
+    setStatus("Reset to the original static data.", "ok");
+  });
+
+  render();
+</script>
+</body>
+</html>
