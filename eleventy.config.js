@@ -1,10 +1,7 @@
 module.exports = function(eleventyConfig) {
-  
-  // 1. Pass-through File Copy
-  // This copies your CSS and Images directly to the output folder
+
   eleventyConfig.addPassthroughCopy("./src/assets");
 
-  // 2. Add a Filter (Example: Simple Date Formatter)
   eleventyConfig.addFilter("postDate", (dateObj) => {
     return new Date(dateObj).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -13,7 +10,12 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // 3. Configuration Options
+  eleventyConfig.addFilter("dateToISO", (dateObj) => {
+    return new Date(dateObj).toISOString();
+  });
+
+  eleventyConfig.addFilter("limit", (arr, n) => arr.slice(0, n));
+
   return {
     dir: {
       input: "src",

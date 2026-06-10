@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Patterns II - Greedy</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Code Patterns II - Greedy</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-21T18:46:16.000Z" itemprop="datePublished">
+        September 22, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Greedy problems <em>usually</em> manifest themselves as problems with a deterministic solution regardless of circumstances (inputs).
+For example the fastest way to cover more distance in a fixed time, is to have the highest speed possible. There is no other way around such a problem, where the statistic to optimize is obvious. Greedy problems are fortunately somewhat intuitive.</p>
+<p>In greedy problems the local best solution does indeed gurantee the globally optimal solution. Some problems might look like DP problems, relying on a past decision, but are actually greedy. Consider the 'fractional' knapsack problem. At each step the optimal solution can be determined by the best immidiate solutions. The item which is worth maximum per unit weight, is picked at each step till the knapsack is full.</p>
+<p>Usually the easy-medium questions in competitive coding are greedy, with a mix of sorting and searching. Complexity is almost always O(n) outside of the sorting or other processing done. Another popular greedy solutions involve scheduling by choosing task with earliest finishing time. This ensures most time is available to accomodate further tasks.</p>
+<p><a href="https://usaco.guide/bronze/intro-greedy?lang=cpp">Here</a> is a USACO post on greedy problems that will help you introduce to the greedy pattern of thought.</p>
+
+  </div>
+
+  <a class="u-url" href="/posts/code-patterns/2022-09-22-code-pattern-2-greedy/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>

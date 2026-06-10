@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subtitle Translator</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Subtitle Translator</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-06-06T18:36:16.000Z" itemprop="datePublished">
+        June 7, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="http://sugarfx.tv/info/subtitles/info_subtitles_sm.jpg" alt=""></p>
+<p>Subtitles are a convinient and engaging method to understand a  foreign language content where language audio translations may not be available.
+This script uses Frengly free translation REST API to translate line by line all the content of the .srt subtitle file. Since this code used free translation API subsequent translation requests have an interval of three seconds therefore translation time is 3*number_of_lines_translated (Frengly supports about <a href="http://www.frengly.com/api">38 languages</a>)
+script argument  looks like : <code>filename.srt:source_language[:destination_language]</code>
+example :</p>
+<blockquote>
+<p>Superman.srt:en:fr</p>
+</blockquote>
+<p>above input translates <em>Superman.srt</em> from english to french the new file created will be <em>fr_Superman.srt</em>
+Checkout the source on my <a href="https://github.com/prakashydv/SRTtranslate">github page</a></p>
+<p>Destination by default is english (en)</p>
+<p>Table for Encoding Language:</p>
+<p>&quot;Encoding&quot;:&quot;Language&quot;</p>
+<p>&quot;en&quot;,&quot;english&quot;
+&quot;fr&quot;,&quot;french&quot;
+&quot;ar&quot;,&quot;arabic&quot;
+&quot;bg&quot;,&quot;bulgarian&quot;
+&quot;zh-cn&quot;,&quot;chinese (Simplified)&quot;
+&quot;zh-TW&quot;,&quot;Chinese (Traditional)&quot;
+&quot;hr&quot;,&quot;Croatian&quot;
+&quot;cs&quot;,&quot;Czech&quot;
+&quot;da&quot;,&quot;Danish&quot;
+&quot;nl&quot;,&quot;Dutch&quot;
+&quot;en&quot;,&quot;English&quot;
+&quot;tl&quot;,&quot;Filipino&quot;
+&quot;fi&quot;,&quot;Finnish&quot;
+&quot;fr&quot;,&quot;French&quot;
+&quot;de&quot;,&quot;German&quot;
+&quot;el&quot;,&quot;Greek&quot;
+&quot;iw&quot;,&quot;Hebrew&quot;
+&quot;hi&quot;,&quot;Hindi&quot;
+&quot;hu&quot;,&quot;Hungarian&quot;
+&quot;id&quot;,&quot;Indonesian&quot;
+&quot;ga&quot;,&quot;Irish&quot;
+&quot;it&quot;,&quot;Italian&quot;
+&quot;ja&quot;,&quot;Japanese&quot;
+&quot;ko&quot;,&quot;Korean&quot;
+&quot;la&quot;,&quot;Latin&quot;
+&quot;no&quot;,&quot;Norwegian&quot;
+&quot;fa&quot;,&quot;Persian&quot;
+&quot;pl&quot;,&quot;Polish&quot;
+&quot;pt&quot;,&quot;Portuguese&quot;
+&quot;ro&quot;,&quot;Romanian&quot;
+&quot;ru&quot;,&quot;Russian&quot;
+&quot;sr&quot;,&quot;Serbian&quot;
+&quot;sk&quot;,&quot;Slovakian&quot;
+&quot;es&quot;,&quot;Spanish&quot;
+&quot;sv&quot;,&quot;Swedish&quot;
+&quot;th&quot;,&quot;Thai&quot;
+&quot;tr&quot;,&quot;Turkish&quot;
+&quot;vi&quot;,&quot;Vietnamese&quot;</p>
+<h3>Limitations :</h3>
+<p>Since this code used free translation API subsequent translation requests have an interval of three seconds
+therefore translation time is 3*number_of_lines_translated</p>
+<p>The heart of the script is very simple, just fetch a json from the url :</p>
+<pre><code class="language-py">url='http://syslang.com?src='+source_language+'&amp;dest='+target_language+'+&amp;text='+MESSAGETOTRANSLATE.replace(' ','+')+'&amp;email=YOUREMAIL@ADDRESS.com&amp;password=yourpassword&amp;outformat=json'
+</code></pre>
+<h4>Ciao !</h4>
+
+  </div>
+
+  <a class="u-url" href="/posts/2017-06-07-Subtitle-Translator/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>

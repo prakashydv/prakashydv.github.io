@@ -1,26 +1,20 @@
 ---
-layout: default
+layout: layouts/base.njk
 ---
-
 <div class="home">
-   {{ content }}
+  {{ content | safe }}
 
-  {%- if site.posts.size > 0 -%}
-    <!-- <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2> -->
+  {%- set techPosts = collections.technology | reverse -%}
+  {%- if techPosts.length > 0 -%}
     <ul class="post-list">
-      {%- for post in site.categories["technology"] -%}
+      {%- for post in techPosts -%}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-
+        <span class="post-meta">{{ post.date | postDate }}</span>
         <p>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-          <br/>
-          <!-- {{page.categories | capitalize | join: ', '}} -->
-          {{ post.summary | escape }}
-
+          <a class="post-link" href="{{ post.url }}">{{ post.data.title | escape }}</a>
+          {%- if post.data.summary -%}
+          <br/>{{ post.data.summary | escape }}
+          {%- endif -%}
         </p>
       </li>
       {%- endfor -%}

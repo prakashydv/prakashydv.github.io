@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experience with Jekyll</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Experience with Jekyll</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-04T18:36:16.000Z" itemprop="datePublished">
+        September 5, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Its a mark of certain laziness to use a content manager for your static website. So I've done exactly that and used
+<code>Jekyll</code>. It's perhaps the most popular static site generator with easy integration with <a href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll">GitHub pages</a>.</p>
+<p>I am documenting my experience as I get my hands wet.
+To begin with info on customizing the layout and theme, I found it convinient to reference the a youtube channel <a href="https://www.youtube.com/watch?v=T1itpPvFWHI&amp;list=PLLAZ4kZ9dFpOPV5C5Ay0pHaa0RJFhcmcB">playlist</a> by Mike Dane. It was short and gave all the fundamentals i needed. Post watching the 19 short videos, I copied over the default <code>minima</code> theme over to the main repository so as to override all default schematics.</p>
+<p>This infact is a refactor. First attempt was in hakyll (inspired by <a href="http://www.gwern.net">gwern.net</a>) But i had bitten more than i could chew and this blog was in a limbo for a very long time. Since Jekyll works so well with GitHub pages, I settled for focussing more on the content than the delivery logistics of the blog.</p>
+<p>Once I had my boilerplate code up with remains of my earlier blog, I soon came face to fece with the fact that to get anything serious design customisation done I would have to master Liquid templating that Jekyll uses. Fair enough, thats what I did. Refering to the <a href="https://shopify.github.io/liquid/">official Liquid documentation</a> as well as <a href="https://jekyllrb.com/docs/liquid/filters/">Jekyll's own documentation</a>.</p>
+<p>The default minima theme is good, but it can be made better with minimal effort. For example I found it natural to categorize my posts into 3-4 main categories; Tech, Books etc. I simply tag each post with fixed tags for each topic and on the main page i display 5 latest posts from each category. Further I made a page with all posts of each category. Now I could have made the code uniform by iterating through all categories, but I chose to manually specify the category in each page template. Its a peaceful design allowing me to conain the clutter more easily. Art category only has a separate page, as linked in the header tabs, because it contains a gallery that is not summarized in the homepage. Further the dedicated pages of the category also display the summary of the article as specified in the post markdown.</p>
+<p>One responsive UI element is that for narrow displays date is not displayed beside the article title on the homepage. Neat IMO.</p>
+<p>So with minimal page I got a functional site up and running, rest will be added on whenever I get time for such adventures. Please ignore typos, I havent yet found a way to integrate a spellcheck plugin into my code text editor.</p>
+
+  </div>
+
+  <a class="u-url" href="/posts/2022-09-05-jekyll-setup/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>

@@ -1,8 +1,7 @@
 ---
-layout: post
 title: "Book Reviews"
-date: 2025-05-11 15:02:00 +0530
-categories: books
+date: 2025-05-11T15:02:00+05:30
+tags: ["books"]
 summary: "Consolidated list of my book reviews on Goodreads"
 ---
 

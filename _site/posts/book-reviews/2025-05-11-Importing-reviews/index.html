@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Importing reviews from goodreads</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Importing reviews from goodreads</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-05-11T07:54:00.000Z" itemprop="datePublished">
+        May 11, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I regularly backup <a href="https://www.goodreads.com/review/list/24198246">my book reviews</a> from Goodreads to my local storage (and this blog). The import/export functionality can be accessed at <a href="https://www.goodreads.com/review/import/"><code>https://www.goodreads.com/review/import/</code></a>.</p>
+<p>The exported format is typically <code>csv</code> which is convinient for most automations to process. I would've preferred json but it makes sense for Goodreads to provide limited support for exporting in favour of encouraging imports and resulting engagement with their product i.e. Goodreads.</p>
+<p>I authored a simple python script to format the <code>csv</code> to the <code>md</code> markdown layout that can be directly used in this jekyll based blog.</p>
+<ol>
+<li>First a small utility to read a csv and return a json with headers as keys:</li>
+</ol>
+<pre><code class="language-py">import csv
+def csvToJson(file_path):
+    data = []
+    with open(file_path, mode='r') as file:
+        csv_reader = csv.reader(file)
+        header = next(csv_reader)
+        for review in csv_reader:
+            review_data = {}
+            for i, column in enumerate(header):
+                review_data[column] = review[i]
+            data.append(review_data)
+    return data
+</code></pre>
+<ol start="2">
+<li>A utility to iterate over all of your reviews</li>
+</ol>
+<pre><code class="language-py">def formatReview(csv_filepath):
+    out_str = &quot;&quot;
+    jsonReviews = csvToJson(csv_filepath)
+    for jsonReview in jsonReviews:
+        if jsonReview[&quot;Date Read&quot;] != &quot;&quot;:
+            out_str += getMarkdownReview(jsonReview)
+    return out_str
+</code></pre>
+<ol start="3">
+<li>Compose a markdown format to write the json values int:</li>
+</ol>
+<pre><code class="language-py">def getMarkdownReview(jsonReview):
+    # print(jsonReview)
+    return f&quot;&quot;&quot;
+## {jsonReview[&quot;Title&quot;]} - {jsonReview[&quot;Author&quot;]}
+#### read on {jsonReview[&quot;Date Read&quot;]} | rating {jsonReview[&quot;My Rating&quot;]} (avg. {jsonReview[&quot;Average Rating&quot;]})
+&quot;&quot;&quot; + (&quot;\n&quot; + jsonReview[&quot;My Review&quot;] + &quot;\n&quot;) if jsonReview[&quot;My Review&quot;] != &quot;&quot; else &quot;&quot;
+</code></pre>
+<ol start="4">
+<li>Finally just execute it on the exported csv file:</li>
+</ol>
+<pre><code class="language-py">import sys
+str = format_review(&quot;/path/to/exported_reviews.csv&quot;)
+f = open(f&quot;/path/to/reviews.md&quot;, &quot;w&quot;)
+f.write(str)
+f.close()
+
+</code></pre>
+<p>Of course I had copilot orchestrate the above for me using a few prompts. Anyway, the book reviews page is the end result of the above execution.</p>
+
+  </div>
+
+  <a class="u-url" href="/posts/book-reviews/2025-05-11-Importing-reviews/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>

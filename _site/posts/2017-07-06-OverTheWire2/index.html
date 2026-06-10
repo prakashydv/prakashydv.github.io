@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OVER THE WIRE - 2</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">OVER THE WIRE - 2</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-07-05T18:36:16.000Z" itemprop="datePublished">
+        July 6, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h4>baby steps to netsec - part II</h4>
+<h2>Wargame BANDIT</h2>
+<h5>SSH : <code>bandit.labs.overthewire.org:2220</code></h5>
+<h3>Level 21 to ?</h3>
+<h2>BANDIT21 | gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr</h2>
+<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.</p>
+<p>As pointed, we look into the `/etc/cron.d/' directory and find the following listed</p>
+<blockquote>
+<p>cron-apt
+cronjob_bandit22
+cronjob_bandit23
+cronjob_bandit24
+php5</p>
+</blockquote>
+<p>bandit22 is what level we wish to get to so naturally we see whats that cronjob about. It seems execute a file <code>/usr/bin/cronjob_bandit22.sh</code> every reboot that to copy the password to a file <code>cat /etc/bandit_pass/bandit22 &gt; /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code>, so command ought to have been executed and file must already exist.</p>
+<p>a quick look into this file <code>/tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv</code> gives us password to next level bandit22.</p>
+<h2>BANDIT22 | Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI</h2>
+<p>The Problem : A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in <code>/etc/cron.d/</code> for the configuration and see what command is being executed.</p>
+<p>A look at cronjob_bandit22 tells us what script is run :  <code>/usr/bin/cronjob_bandit23.sh</code>
+And a look at the script lets us know that a folder name is created using the following command :
+<code> echo I am user bandit22 | md5sum | cut -d ' ' -f 1</code> I would be advisable to learn about each of the piped commands, for the impatient ... it prints : <code>8169b67bd894ddbb4412f91573b38db3</code> now go figure !</p>
+<p>As per script the password is moved to <code>/tmp/8169b67bd894ddbb4412f91573b38db3</code> I cant seem to find it :-(s</p>
+<h2>BANDIT 23 | ???s</h2>
+
+  </div>
+
+  <a class="u-url" href="/posts/2017-07-06-OverTheWire2/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>

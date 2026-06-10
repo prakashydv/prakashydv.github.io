@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Patterns I - Two Pointers</title>
+</head>
+<body>
+    <header>My Awesome Blog</header>
+    
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Code Patterns I - Two Pointers</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-20T18:36:16.000Z" itemprop="datePublished">
+        September 21, 2022
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Following is a list of coding patterns I have encountered so far. This post is to serve as a repository for reference.</p>
+<p>Organising coding problems has been challenging, the most common paradigm being categorization by data structure or algorithm used.
+While that does serve as a practical division of exploring coding problems and their solutions, it cannot account for similarity between problems
+that are otherwise categorized separately. This leads to duplication of effort when solving problems. The pattern of tackling questions can often be
+categorized into paradigm groups, for which there is no official nomenclature, but commonly used nemonics like 'two pointer', or 'slow and fast pointer' etc. 'DP' or &quot;Dynamic Programming' is a wide class, which needs a bit of experience but the strategy seldom changes. Its something like Neural networks or even linear programming, a generic tool to solve diverse yet similar type of problems.
+Let's begin !</p>
+<h2>Two Pointer method</h2>
+<p>Such problems <em>usually</em> manifest themselves as an array or list of quantizations (numbers), which needs to be solved for a beginning and end candidates for the required solution. Note that a order must exist in the series for the two pointer paradigm to work. For a series on N numbers, set index <code>i=0</code> as the first pointer and <code>j=N-1</code> as second. The pointers move towards each other where the decision to move left or right is determined by comaing the values at i &amp; j.</p>
+<p>For example, lets take a <a href="https://www.geeksforgeeks.org/two-pointers-technique/">problem</a> : <em>Given a sorted list A[] of N numbers, find the pairs which sum up to X</em>.</p>
+<p>To begin, see that the list is sorted. So if you select any random pair, moving any candidate pointer to left decreases the sum of the pair, and moving it right increases the sum. So lets initialize <code>i=0</code> and <code>j=N-1</code>. Depending on <code>A[i]+A[j]</code> being less than or greater than required sum <code>X</code>, the pointers <code>i</code> and <code>j</code> can be adjusted. moving <code>i</code> right can only increase the sum, whereas moving <code>j</code> left can only decrease the sum. So depending on which side of X the current sum is, move <code>i</code> or <code>j</code>.</p>
+<p>Let us consider another <a href="https://www.geeksforgeeks.org/maximum-water-that-can-be-stored-between-two-buildings/">problem</a> : <em>Given an array of heights (not in sorted order), find the two heights which can hold maximum water (i.e. distance betwenn H1 and H2 x minimum of (H1, H2)).</em></p>
+<p>Here the decision to move either of the pointers is based on the premise that moving the pointer with lower hight value will not decrease the volume of water, because though the distance decreases by 1 in every step, its the lower height pointer which determines height of the max area till now, so moving that pointer will ensure the resulting area will ensure the max area is not decreased. The code to the link problem looks like :</p>
+<pre><code class="language-C++">int maxCandy(int height[], int n)
+{
+    int i = 0;
+    int j = n-1;
+    int area = 0;
+    while(i&lt;j) {
+        int a = min(height[i],height[j]) * (j-i-1);
+        area = max(a, area);
+        if(height[i] &lt; height[j])
+            i++;
+        else
+            j--;
+    }
+    return area;
+}
+</code></pre>
+<p>An unorthodox usecase of two pointers is in finding the <a href="https://www.nayuki.io/page/next-lexicographical-permutation-algorithm">next permutation</a></p>
+<p>For example see this simple implementation i found for <a href="https://leetcode.com/problems/next-permutation/discuss/14054/Python-solution-with-comments">leetcode problem #31</a> :</p>
+<pre><code class="language-python">def nextPermutation(self, nums):
+    i = j = len(nums)-1
+    while i &gt; 0 and nums[i-1] &gt;= nums[i]:
+        i -= 1
+    if i == 0:   # nums are in descending order
+        nums.reverse()
+        return
+    k = i - 1    # find the last &quot;ascending&quot; position
+    while nums[j] &lt;= nums[k]:
+        j -= 1
+    nums[k], nums[j] = nums[j], nums[k]
+    l, r = k+1, len(nums)-1  # reverse the second part
+    while l &lt; r:
+        nums[l], nums[r] = nums[r], nums[l]
+        l +=1 ; r -= 1
+</code></pre>
+
+  </div>
+
+  <a class="u-url" href="/posts/code-patterns/2022-09-21-code-patterns-1-two-pointers/" hidden></a>
+</article>
+
+    
+    <footer>© 2026</footer>
+</body>
+</html>
